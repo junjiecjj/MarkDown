@@ -312,9 +312,78 @@ size为10：<font size="10">size为10</font>
 
 
 
+表格：
+
+Markdown 制作表格使用 **|** 来分隔不同的单元格，使用 **-** 来分隔表头和其他行。
+
+| 表头   | 表头   |
+| ------ | ------ |
+| 单元格 | 单元格 |
+| 单元格 | 单元格 |
 
 
 
+表格背景色：
+
+<table><tbody>
+    <tr>
+        <th>方法说明</th><th>颜色名称</th><th>颜色</th>
+    </tr>
+    <tr>
+        <td><font color="Hotpink">此处实现方法利用 CSDN-markdown 内嵌 html 语言的优势</font></td><td><font color="Hotpink">Hotpink</font></td><td bgcolor="Hotpink">rgb(240, 248, 255)</td>
+    </tr>
+    <tr>
+        <td><font color="Pink">借助 table, tr, td 等表格标签的 bgcolor 属性实现背景色设置</font></td><td><font color="pink">AntiqueWhite</font></td><td bgcolor="Pink">rgb(255, 192, 203)</td>
+    </tr>
+</table>
+
+
+
+跨行表格：
+
+<table><tbody>
+    <tr>
+        <th rowspan="3">我占了三行</th>
+        <th>第一列</th>
+        <th>第二列</th>
+        <th>第三列</th>
+    </tr>
+    <tr>
+        <td>第一列</td>
+        <td>第二列</td>
+        <td>第三列</td>
+    </tr>
+    <tr>
+        <td>第一列</td>
+        <td>第二列</td>
+        <td>第三列</td>
+    </tr>
+</table>  
+
+
+
+
+
+
+
+
+
+
+
+对齐方式
+
+**我们可以设置表格的对齐方式：**
+
+- **-:** 设置内容和标题栏居右对齐。
+- **:-** 设置内容和标题栏居左对齐。
+- **:-:** 设置内容和标题栏居中对齐。
+
+实例如下：
+
+| 左对齐 | 右对齐 | 居中对齐 |
+| :----- | -----: | :------: |
+| 单元格 | 单元格 |  单元格  |
+| 单元格 | 单元格 |  单元格  |
 
 
 
