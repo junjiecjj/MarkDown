@@ -16,7 +16,7 @@
 
 删除线：~~微信公众号不能使用Markdown~~
 
-字体颜色：<font color=#FF0000> 设置字体颜色为红色 </font>  
+字体颜色：<font color=#FF0000> 设置字体颜色为红色 </font>
 
 字体颜色：夏天是$\color{red}{红色}$的，秋天是$\color{yellow}{黄色}$的.
 
@@ -78,26 +78,26 @@
 
 3. 颜色：
 
-浅红色文字：<font color="#dd0000">浅红色文字：</font> 
-深红色文字：<font color="#660000">深红色文字</font> 
-浅绿色文字：<font color="#00dd00">浅绿色文字</font> 
-深绿色文字：<font color="#006600">深绿色文字</font> 
-浅蓝色文字：<font color="#0000dd">浅蓝色文字</font> 
+浅红色文字：<font color="#dd0000">浅红色文字：</font>
+深红色文字：<font color="#660000">深红色文字</font>
+浅绿色文字：<font color="#00dd00">浅绿色文字</font>
+深绿色文字：<font color="#006600">深绿色文字</font>
+浅蓝色文字：<font color="#0000dd">浅蓝色文字</font>
 深蓝色文字：<font color="#000066">深蓝色文字</font>
-浅黄色文字：<font color="#dddd00">浅黄色文字</font> 
-深黄色文字：<font color="#666600">深黄色文字</font> 
-浅青色文字：<font color="#00dddd">浅青色文字</font> 
-深青色文字：<font color="#006666">深青色文字</font> 
-浅紫色文字：<font color="#dd00dd">浅紫色文字</font> 
-深紫色文字：<font color="#660066">深紫色文字</font> 
+浅黄色文字：<font color="#dddd00">浅黄色文字</font>
+深黄色文字：<font color="#666600">深黄色文字</font>
+浅青色文字：<font color="#00dddd">浅青色文字</font>
+深青色文字：<font color="#006666">深青色文字</font>
+浅紫色文字：<font color="#dd00dd">浅紫色文字</font>
+深紫色文字：<font color="#660066">深紫色文字</font>
 
 4. 大小：
 
-size为1：<font size="1">size为1</font> 
-size为2：<font size="2">size为2</font> 
-size为3：<font size="3">size为3</font> 
-size为4：<font size="4">size为4</font> 
-size为10：<font size="10">size为10</font> 
+size为1：<font size="1">size为1</font>
+size为2：<font size="2">size为2</font>
+size为3：<font size="3">size为3</font>
+size为4：<font size="4">size为4</font>
+size为10：<font size="10">size为10</font>
 
 5. 字体：
 
@@ -138,7 +138,7 @@ size为10：<font size="10">size为10</font>
 
 
 
-+++++++
+++++++
 
 *****************************
 
@@ -178,16 +178,16 @@ size为10：<font size="10">size为10</font>
 
 
 
-1. 一级有序列表  
+1. 一级有序列表
 
-   i. 二级有序列表  
+   i. 二级有序列表
 
    ii. 二级有序列表
 
 2. 一级有序列表
 
-   - 一级无序列表  
-     - 二级无序列表  
+   - 一级无序列表
+     - 二级无序列表
      - 二级无序列表
 
    - 一级有序列表
@@ -230,7 +230,7 @@ size为10：<font size="10">size为10</font>
 - 主题：alt+T
 - 帮助：alt+H
 
- ###二、文件操作
+ ### 二、文件操作
 
 - 新建：Ctrl+N
 - 新建窗口：Ctrl+Shift+N
@@ -295,7 +295,7 @@ size为10：<font size="10">size为10</font>
 
 - 清除样式：Ctrl+
 
-  
+
 
 ### 六、视图
 
@@ -394,7 +394,7 @@ graph LR
      end
    ```
 
-   
+
 
 
 
@@ -547,9 +547,9 @@ $$
 1. 超链接 Markdown 语法代码,内联方式：\[超链接显示名\]\(超链接地址 "超链接title"\)，渲染如下：
    + 这是一个链接 [Markdown语法](https://markdown.com.cn).
 + [百度网址](www.baidu.com)
-  
+
 2. 引用方式：
-   + I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3]. 
+   + I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].<br>
 
 [1] http://google.com/
 
@@ -586,7 +586,7 @@ $$
     - [hobbit-hole][1]
     - [hobbit-hole] [1]
 
-    **==链接的第二部分格式==** 
+    **==链接的第二部分格式==**
 
     引用类型链接的第二部分使用以下属性设置格式：
 
@@ -613,12 +613,6 @@ $$
   - [1]: <https://en.wikipedia.org/wiki/Hobbit#Lifestyle> "Hobbit lifestyles"
 
 可以将链接的第二部分放在 Markdown 文档中的任何位置。有些人将它们放在出现的段落之后，有些人则将它们放在文档的末尾（例如尾注或脚注）。
-
-
-
-
-
-
 
 
 
@@ -673,7 +667,7 @@ Markdown 制作表格使用 **|** 来分隔不同的单元格，使用 **-** 来
         <td>第二列</td>
         <td>第三列</td>
     </tr>
-</table>  
+</table>
 
 
 在 Markdown 中也会经常使用表格，比如一个简单的学生成绩表：
@@ -789,7 +783,7 @@ int main(int argc, char *argv[])
 
 
 $$
-\sum_{i=0}^{N} = e^3*x^2 
+\sum_{i=0}^{N} = e^3*x^2
 $$
 
 
