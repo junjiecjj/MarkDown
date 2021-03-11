@@ -18,7 +18,7 @@
 
 字体颜色：<font color=#FF0000> 设置字体颜色为红色 </font>  
 
-字体颜色：夏天是$\color{red}{红色}$的，秋天是$\color{red}{黄色}$的.
+字体颜色：夏天是$\color{red}{红色}$的，秋天是$\color{yellow}{黄色}$的.
 
 
 
