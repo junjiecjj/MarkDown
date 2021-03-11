@@ -543,7 +543,7 @@ Socket 是应用层与协议族通信的中间软件抽象层，它是一组接�
 
 先附图一张，虽然是讲解 TCP 的 socket，但是道理相通。
 
-<img src="C:\文档\Markdown\socket.png" alt="socket"  />
+<img src="socket.png" alt="socket">
 
 #### 基本 socket 函数
 
@@ -556,11 +556,11 @@ Linux 系统是通过提供套接字 (socket) 来进行网络编程的。网络�
 int socket(int af, int type, int protocol)；
 ```
 
-<font color=yellow> 功能说明：</font>
+<font color=blue> 功能说明：</font>
 
 + 调用成功，返回 socket 文件描述符；失败，返回－ 1，并设置errno;两个网络程序之间的一个网络连接包括五种信息：通信协议、本地协议地址、本地主机端口、远端主机地址和远端协议端口。 socket 数据结构中包含这五种信息。
 
-<font color=yellow> 参数说明：</font>
+<font color=blue> 参数说明：</font>
 
 + af 指明所使用的协议族，通常为 PF_INET，表示 TCP/IP协议。AF 是“Address Family”的简写。AF_INET 表示 IPv4 地址，例如 127.0.0.1；AF_INET6 表示IPv6 地址，例如 1030::C9B4:FF12:48AA:1A2B。大家需要记住 127.0.0.1，它是一个特殊 IP 地址，表示本机地址，后面的教程会经常用到;
 
@@ -621,11 +621,11 @@ int bind(int server_sockfd, struct sockaddr *server_addr, int addrlen);
 // addrlen 第二个结构体变量的长度
 ```
 
-<font color=yellow>功能说明：</font>
+<font color=blue>功能说明：</font>
 
 + 调将套接字和指定的端口相连，对于服务器和客户端都是这样。成功返回 0，否则，返回-1，并置 errno;
 
-<font color=yellow>参数说明：</font>
+<font color=blue>参数说明：</font>
 
 + server_sockfd 是调用 socket 函数返回值;
 
@@ -659,9 +659,9 @@ int bind(int server_sockfd, struct sockaddr *server_addr, int addrlen);
   };
   ```
 
-  <font color=yellow>结构体 sockaddr_in 的成员分析:</font>
+  <font color=blue>结构体 sockaddr_in 的成员分析:</font>
 
-  + ##### **成员 sin_family**:
+  +  **成员 sin_family**:
 
     | 地址族   | 含义                       |
     | :------- | :------------------------- |
@@ -733,9 +733,9 @@ if (bind(serv_sock, (struct sockaddr*) &serv_addr,sizeof(serv_addr) )==-1){
 
 图例:
 
-<img src="C:\文档\Markdown\2.webp" alt="2" style="zoom: 50%;" />
+<img src="2.webp" alt="2" style="zoom: 50%;" />
 
-<img src="C:\文档\Markdown\3.webp" alt="3" style="zoom:50%;" />
+<img src="3.webp" alt="3" style="zoom: 50%;" />
 
 大字节序更符合我们的阅读习惯。但是我们的主机使用的是哪种字节序取决于 CPU，不同的 CPU 型号有不同的选择。
 
@@ -745,20 +745,20 @@ if (bind(serv_sock, (struct sockaddr*) &serv_addr,sizeof(serv_addr) )==-1){
 
 ##### 3. connect 函数
 
-```
+```c
 #include <sys/types.h>
 int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
 ```
 
-<font color=yellow>功能说明：</font>
+<font color=blue>功能说明：</font>
 
 + 客户端发送服务请求，只有客户端才用，对于客户端，client_sockfd是客户端 socket() 返回的套接字描述符，serv_addr 是服务端的sockadd_in 结构体。成功返回 0，否则返回-1，并置 errno。
 
-<font color=yellow>参数说明：</font>
+<font color=blue>参数说明：</font>
 
 + client_sockfd 是客户端 socket 函数返回的 socket 描述符；serv_addr是包含远端主机 IP 地址和端口号的指针；addrlen 是结构 sockaddr_in 的长度。
 
-4.  listen 函数
+4. ##### listen 函数
 
    ```c
    #include <sys/socket.h>
@@ -789,14 +789,14 @@ int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
    
    <font color=red>注意：listen () 只是让套接字处于监听状态，并没有接收请求。接收请求需要使用 accept () 函数。</font>
 
-5. accept函数
+5. ##### accept函数
 
    ```c
    #include <sys/types.h>
    int accept(int server_sockfd, struct sockadd * client_addr, int addrlen);
 ```
 
-   <font color=yellow>功能说明：</font>
+   <font color=blue>功能说明：</font>
 
    + 只在服务端使用，用于接受客户端的服务请求，成功返回新的套接字描述符 clent_sockfd，这个新的描述符是服务端的 send/recv/read/write 函数的第一个参数，失败返回－1，并置 errno。
 
@@ -810,7 +810,7 @@ int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
      + ENOBUFS 系统的缓冲内存不足.
      + ENOMEM 核心内存不足.
 
-   <font color=yellow>参数说明：</font>
+   <font color=blue>参数说明：</font>
 
    + server_sockfd 是被监听的 socket 描述符，也就是服务端的 socket 返回的 socket 描述符，是服务器端套接字, addr 通常是一个指向客户端 sockaddr 变量的指针，这个指针的内容是不需要指定的，只需要定义、分配好内存空间；addrlen 是结构 sockaddr 的长度。
 
@@ -820,23 +820,23 @@ int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
 
    
 
-##### 4. write函数
+##### 6. write函数
 
 ```c
 #include <unistd.h>
 ssize_t write(int fd, const void *buf, size_t nbytes);
 ```
 
-<font color=yellow>功能说明：</font>
+<font color=blue>功能说明：</font>
 
 + write 函数将 buf 中的 nbytes 字节内容写入文件描述符 fd，write () 会把参数 buf 所指的内存写入 count 个字节到参数 fd 所指的文件内。当然，文件读写位置也会随之移动. 对于客户端，fd 为客户端 socket 返回的套接字描述符 client_sockfd，对于服务端，fd 为 accept 返回的新的套接字描述符。成功时返回写的字节数. 失败时返回-1. 并设置 errno 变量,错误代码：
   + EINTR 此调用被信号所中断.
   + EAGAIN 当使用不可阻断 I/O 时 (O_NONBLOCK), 若无数据可读取则返回此值.
   + EADF 参数 fd 非有效的文件描述词，或该文件已关闭.
 
-<font color=yellow>参数说明：</font>
+<font color=blue>参数说明：</font>
 
-##### 5. read函数
+##### 7. read函数
 
 ```c
 #include <unistd.h>
@@ -845,7 +845,7 @@ ssize_t read(int fd,void *buf,size_t nbyte);
 
 
 
-<font color=yellow>功能说明：</font>
+<font color=blue>功能说明：</font>
 
 + read 函数是负责从 fd 中读取内容，对于客户端，fd 为客户端socket 返回的套接字描述符 client_sockfd，对于服务端，fd 为accept 返回的新的套接字描述符。当读成功时，read 返回实际
   所读的字节数，如果返回的值是 0 表示已经读到文件的结束了,当有错误发生时则返回-1, 错误代码存入 errno 中，而文件读写位置则无法预期. 小于 0 表示出现了错误. 如果错误为 EINTR 说明读是由中断引起的, 如果错误是 ECONNREST 表示网络连接出了问题.
@@ -856,7 +856,7 @@ ssize_t read(int fd,void *buf,size_t nbyte);
 
 write 和 read 可以用send/recv替代。
 
-##### 6. send/recv函数
+##### 8. send/recv函数
 
 ```c
 #include <sys/socket.h>
@@ -905,14 +905,14 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 + 如果 recv 在 copy 时出错，那么它返回 SOCKET_ERROR；如果 recv 函数在等待协议接收数据时网络中断了，那么它返回0。
   
 
-9. close函数
+##### 9. close函数
 
    ```
    #include <unistd.h>
    int close(sock_fd);
    ```
 
-   <font color=yellow>功能说明：</font>
+   <font color=blue>功能说明：</font>
 
    + 当所有的数据操作结束以后，你可以调用 close() 函数来释放该socket，从而停止在该 socket 上的任何数据操作，函数运行成功返回 0，否则返回-1;
 
