@@ -18,7 +18,7 @@
 
 字体颜色：<font color=#FF0000> 设置字体颜色为红色 </font>  
 
-
+字体颜色：夏天是$\color{red}{红色}$的，秋天是$\color{red}{黄色}$的.
 
 
 
@@ -61,6 +61,8 @@
 <font face="STCAIYUN">我是华文彩云</font>
 <font color=red>我是红色</font>
 <font color=#008000>我是绿色</font>
+
+
 
 ==字体标记==
 
