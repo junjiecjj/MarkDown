@@ -27,7 +27,7 @@
    sudo apt-get install fonts-wqy-zenhei
    ```
 
-   
+
 
 2. 安装微软字体、宋体等
 
@@ -74,7 +74,7 @@
 
      ```bash
      #!/usr/bin/env bash
-     
+
      fonts_dir="${HOME}/.local/share/fonts"
      if [ ! -d "${fonts_dir}" ]; then
          echo "mkdir -p $fonts_dir"
@@ -82,7 +82,7 @@
      else
          echo "Found fonts dir $fonts_dir"
      fi
-     
+
      for type in Bold Light Medium Regular Retina; do
          file_path="${HOME}/.local/share/fonts/FiraCode-${type}.ttf"
          file_url="https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true"
@@ -93,10 +93,10 @@
      	echo "Found existing file $file_path"
          fi;
      done
-     
+
      echo "fc-cache -f"
      fc-cache -f
-     
+
      ```
 
    + 运行脚本进行安装
@@ -165,13 +165,13 @@ PluginInstall 就是 vundle 的包管理器 Plugin 常用命令：
 接下来进入目录：
 
 ```bash
-cd .vim/bundle 
+cd .vim/bundle
 git clone –recursive git://github.com/Valloric/YouCompleteMe
 cd /.vim/bundle/YouCompleteMe/
 git submodule update –init –recursive # 获取 YCM 的依赖包
 ```
 
-此时如果检测完整性, 即输入: 
+此时如果检测完整性, 即输入:
 
 ```bash
 git submodule update - -init –recursive
@@ -180,10 +180,10 @@ git submodule update - -init –recursive
 不会出现任何返回, 因为一开始的 git 加了 recursive 参数。接下来:
 
 ```bash
-sudo ./install.py –clang-completer –system-libclang 
+sudo ./install.py –clang-completer –system-libclang
 ```
 
-或者: 
+或者:
 
 ```bash
 sudo ./install.py
@@ -191,18 +191,15 @@ sudo ./install.py
 
 + +GO 支持：安装 Go 并在调用./install.py 时添加–go-completer
 
-+ +TypeScript 支持：安装 Node.js 和 npm，然后使用 npm install
-  -g typescript 安装 TypeScript SDK
++ +TypeScript 支持：安装 Node.js 和 npm，然后使用 npm install -g typescript 安装 TypeScript SDK
 
-+ +JavaScript 支持：安装 Node.js 和 npm，并在调用./install.py
-  时添加–js-completer
++ +JavaScript 支持：安装 Node.js 和 npm，并在调用./install.py时添加–js-completer
 
 + +Rust 支持：安装 Rust 并在调用./install.py 时添加–rust-completer
 
-+ +Java 支持：安装 JDK8（需要版本 8），并在调用./install.py
-  时添加–java-completer
++ +Java 支持：安装 JDK8（需要版本 8），并在调用./install.py 时添加–java-completer
 
-  
+
 
 ### 1.1.6 WPS
 
@@ -233,27 +230,27 @@ sudo ./install.py
 2. 火焰截图
 
 + 第一种方法：
-  
+
 + sudo apt-get install flameshot
-  
+
 + 第二种：
 
   ```bash
   # 如果您以前安装过，需要先进行卸载
   sudo apt remove flameshot
-  
+
   # 卸载完成之后需要先克隆项目到本地(本人安装在  /opt  这个目录)
   sudo git clone https://github.com/lupoDharkael/flameshot.git
-  
+
   # 如果您没有安装 git 需要先安装 git
   sudo apt install git
-  
+
   #我把项目克隆在 /opt 目录，所以接下来切换到目录 /opt/flameshot/, 在这个目录下作以下操作：
   sudo mkdir build
   cd build
   sudo qmake ../
   sudo make   # 这个步骤是编译，根据每个人的电脑配置不同，需要的时间也不同
-  #编译完成之后执行命令 
+  #编译完成之后执行命令
   sudo make install
   #安装完成！
   ```
@@ -272,20 +269,20 @@ sudo ./install.py
   + sudo dpkg -i qq-xxx.deb
 
 2. 安装微信
-   
+
 + 去软件中心下载
-  
+
 3. 安装百度网盘、迅雷
 
    ```bash
    $: git clone https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git
    $: cd ./deepin-wine-for-ubuntu
-   $: ./install.sh 
+   $: ./install.sh
    #去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包
    $:  dpkg -i 命令安装
    ```
 
-   
+
 
 ### 1.1.11 Latex
 
@@ -298,7 +295,7 @@ sudo ./install.py
 
 ### 1.1.12 Lyx
 
-1. Lyx 在 ubuntu 软件中心就有, 直接点击下载. 关键是接下来配置 Lyx 显示、导出中文 PDF，以及安装 Imagemagick 图片转换工具‘
+1. Lyx 在 ubuntu 软件中心就有, 直接点击下载. 关键是接下来配置 Lyx 显示、导出中文 PDF，以及安装 Imagemagick 图片转换工具‘;
 
 2. 中文界面：Tools−→ Perfrences−→ 用户界面语言 −→ 简体中文；
 
@@ -306,7 +303,7 @@ sudo ./install.py
 
 4. 显示中文 PDF: 文档 −→ 首选项 −→ 文档类 −→Document calss−→chinese Article(CTeX); 页边距 −→ 上下内外边距设置 为 2cm; 语言 −→ 简体中文;fromats−→ 输出格式 −→PDF(XeTeX)；
 
-5. 重配置，重启
+5. 重配置，重启;
 
 6. 现在导出中文 PDF 没问题，但是 Lyx 里面的 eps 图形没法显示，导出 PDF 可以显示. 安装 ImageMagick, 但是安装 Imagemagick之前需要先先安装 Ghostscript 和 freetype；
 
@@ -416,7 +413,7 @@ sudo ./install.py
    sudo apt-get install typora
    ```
 
-   
+
 
 ### 1.1.20 VS Code
 
@@ -477,7 +474,7 @@ sudo ./install.py
 
 
 
-### 1.2.7 
+### 1.2.7
 
 
 
@@ -499,11 +496,11 @@ sudo ./install.py
 
 
 
-### 1.4.1 
+### 1.4.1
 
 
 
-### 1.4.2 
+### 1.4.2
 
 
 
@@ -583,7 +580,7 @@ int socket(int af, int type, int protocol)；
 
      <font color=red>注意：SOCK_DGRAM 没有想象中的糟糕，不会频繁的丢失数据，数据错误只是小概率事件。</font>
 
-     
+
 
    + protocol : 计算机通信中实用的协议信息， protocol 参数协议最终选择,常用的有 IPPROTO_TCP 和 IPPTOTO_UDP，分别表示 TCP传输协议和 UDP 传输协议。
      有了地址类型和数据传输方式，还不足以决定采用哪种协议吗？为什么还需要第三个参数呢？正如大家所想，一般情况下有了 af 和 type 两个参数就可以创建套接字了，操作系统会自动推演出协议类型，除非遇到这样的情况：有两种不同的协议支持同一种地址类型和数据传输类型。如果我们不指明使用哪种协议，操作系统是没办法自动推演的。该教程使用 IPv4 地址，参数 af 的值为 PF_INET。如果使用
@@ -609,7 +606,7 @@ int socket(int af, int type, int protocol)；
      int udp_socket = socket(AF_INET, SOCK_DGRAM, 0); //创建UDP套接字
      ```
 
-     
+
 
 ##### 2. bind 函数
 
@@ -688,12 +685,12 @@ serv_addr.sin_family = AF_INET;
 //32位的IPv4地址， INADDR_ANY表示当前ip
 serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 //16位tcp/udp端口号
-serv_addr.sin_port = htons(atoi(argv[1]));  
+serv_addr.sin_port = htons(atoi(argv[1]));
 
 //分配地址
 if (bind(serv_sock, (struct sockaddr*) &serv_addr,sizeof(serv_addr) )==-1){
     printf("bind() error");
-    exit(0); 
+    exit(0);
 }
 ```
 
@@ -765,36 +762,35 @@ int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
    int listen(int sock_fd, int backlog);  //Linux
    int listen(SOCKET sock, int backlog);  //Windows
    ```
-```
-   
-<font color=yellow>功能说明：</font>
-   
+
+
+<font color=blue>功能说明：</font>
+
    + 等待指定的端口的出现客户端连接，只有服务器端才用。调用
   成功返回 0，否则，返回－ 1，并置 errno.
-   
-<font color=yellow>参数说明：</font>
-   
+
+<font color=blue>参数说明：</font>
+
    + sock_fd 是服务器端 socket() 函数返回值；
-+ backlog 指定在请求队列中允许的最大请求数
-   
+   + backlog 指定在请求队列中允许的最大请求数
+
    **请求队列**
 
    当套接字正在处理客户端请求时，如果有新的请求进来，套接字是没法处理的，只能把它放进缓冲区，待当前请求处理完毕后，再从缓冲区中读取出来处理。如果不断有新的请求进来，它们就按照先后顺序在缓冲区中排队，直到缓冲区满。这个缓冲区，就称为请求队列（Request Queue）。
-   
+
    缓冲区的长度（能存放多少个客户端请求）可以通过 listen () 函数的 backlog 参数指定，但究竟为多少并没有什么标准，可以根据你的需求来定，并发量小的话可以是 10 或者 20。
-   
+
    如果将 backlog 的值设置为 SOMAXCONN，就由系统来决定请求队列长度，这个值一般比较大，可能是几百，或者更多。
-   
+
    当请求队列满时，就不再接收新的请求，对于 Linux，客户端会收到 ECONNREFUSED 错误，对于 Windows，客户端会收到 WSAECONNREFUSED 错误。
-   
+
    <font color=red>注意：listen () 只是让套接字处于监听状态，并没有接收请求。接收请求需要使用 accept () 函数。</font>
 
 5. ##### accept函数
-
    ```c
    #include <sys/types.h>
    int accept(int server_sockfd, struct sockadd * client_addr, int addrlen);
-```
+    ```
 
    <font color=blue>功能说明：</font>
 
@@ -818,7 +814,7 @@ int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
 
    最后需要说明的是：listen () 只是让套接字进入监听状态，并没有真正接收客户端请求，listen () 后面的代码会继续执行，直到遇到 accept ()。accept () 会阻塞程序执行（后面代码不能被执行），直到有新的请求到来。</font>
 
-   
+
 
 ##### 6. write函数
 
@@ -903,7 +899,7 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 + 如果 sockfd 接收缓冲区中没有数据或者协议正在接收数据，那么 recv 就一直等待，直到协议把数据接收完毕;
 + 当协议把数据接收完毕，recv 函数就把 sockfd 的接收缓冲中的数据 copy 到 buf 中（注意协议接收到的数据可能大于 buf 的长度，所以在这种情况下要调用几次 recv 函数才能把 sockfd 的接收缓冲中的数据 copy 完。recv 函数仅仅是 copy 数据，真正的接收数据是协议来完成的），recv 函数返回其实际 copy 的字节数;
 + 如果 recv 在 copy 时出错，那么它返回 SOCKET_ERROR；如果 recv 函数在等待协议接收数据时网络中断了，那么它返回0。
-  
+
 
 ##### 9. close函数
 
