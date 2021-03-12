@@ -767,6 +767,7 @@ int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
 <font color=blue>功能说明：</font>
 
    + 等待指定的端口的出现客户端连接，只有服务器端才用。调用
+
     成功返回 0，否则，返回－ 1，并置 errno.
 
 <font color=blue>参数说明：</font>
@@ -852,7 +853,7 @@ ssize_t read(int fd,void *buf,size_t nbyte);
 
 write 和 read 可以用send/recv替代。
 
-##### 8. send/recv函数
+> ##### 8. send/recv函数
 
 ```c
 #include <sys/socket.h>
@@ -914,7 +915,7 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 
 
 
-##### 7. <font face="黑体" color=green size=5>示例</font>
+##### 10. <font face="黑体" color=green >示例</font>
 
 示例1：
 
