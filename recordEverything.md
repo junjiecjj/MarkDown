@@ -10,7 +10,7 @@
 
 ### 1.1.1 搜狗输入法安装
 
-1. 去[搜狗输入法官网](https://pinyin.sogou.com/linux/)下载.deb安装包；
+> 1. 去[搜狗输入法官网](https://pinyin.sogou.com/linux/)下载.deb安装包；
 
 2. 去Ubuntu软件商店搜索fcitx，并安装所有搜索结果；
 3. sudo dpkg -i sougou-xxx.deb
@@ -20,7 +20,7 @@
 
 ### 1.1.2 安装字体
 
-1. 安装文泉驿微米黑字体
+> 1. 安装文泉驿微米黑字体
 
    ```bash
    sudo apt-get install fonts-wqy-microhei
@@ -29,7 +29,7 @@
 
 
 
-2. 安装微软字体、宋体等
+> 2. 安装微软字体、宋体等
 
    第一种方法：
 
@@ -50,7 +50,7 @@
    +  sudo fc-cache -fv
    +  重启
 
-3. [安装 Nerd Fonts 字体](https://shuhm-gh.github.io/2017/03/23/linux-admin-%E5%AE%89%E8%A3%85nerd-fonts%E5%AD%97%E4%BD%93/)
+> 3. [安装 Nerd Fonts 字体](https://shuhm-gh.github.io/2017/03/23/linux-admin-%E5%AE%89%E8%A3%85nerd-fonts%E5%AD%97%E4%BD%93/)
 
    ```bash
    #下载字体，存放在字体目录
@@ -62,7 +62,7 @@
    fc-list | grep -i droid
    ```
 
-4. 安装Fira Code 字体
+> 4. 安装Fira Code 字体
 
    + 创建 sh 脚本文件
 
@@ -127,7 +127,7 @@
 + sudo dpkg -i google-chrome-xxx.deb
 + 打开谷歌浏览器，安装谷歌上网助手；
 + 登陆谷歌账号，自动同步；
-+ 完成
++ 完成;
 
 
 
@@ -223,16 +223,16 @@ sudo ./install.py
 
 ### 1.1.9 截图
 
-1.深度截图
+> 1.深度截图
 
 + sudo apt install  deepin-screenshot
 
-2. 火焰截图
+> 2. 火焰截图
 
 + 第一种方法：
-
+  
 + sudo apt-get install flameshot
-
+  
 + 第二种：
 
   ```bash
@@ -255,7 +255,7 @@ sudo ./install.py
   #安装完成！
   ```
 
-3. 第三种：
++ 第三种：
    + 下载[.deb包](https://www.linuxmi.com/flameshot-0.9.html);
    + sudo dpkg -i xxx.deb
 
@@ -263,16 +263,16 @@ sudo ./install.py
 
 ### 1.1.10 qq、微信、百度网盘、迅雷
 
-1.安装qq
+> 1.安装qq
 
-+ 去[腾讯官网](https://im.qq.com/linuxqq/index.html)下载.deb安装包
+  + 去[腾讯官网](https://im.qq.com/linuxqq/index.html)下载.deb安装包
   + sudo dpkg -i qq-xxx.deb
 
-2. 安装微信
+> 2. 安装微信
 
-+ 去软件中心下载
+   + 去软件中心下载
 
-3. 安装百度网盘、迅雷
+> 3. 安装百度网盘、迅雷
 
    ```bash
    $: git clone https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git
@@ -386,21 +386,19 @@ sudo ./install.py
 ### 1.1.19 Markdown编辑器Typora
 
 1.方法一：
+  + [**官网下载**]()
 
-+ [**官网下载**]()
+  + 解压:tar -zxvf Typora-linux-x64.tar.gz
 
-+ 解压:tar -zxvf Typora-linux-x64.tar.gz
+  + 拷贝到常用的软件安装目录下:sudo cp -ar Typora-linux-x64 /opt
 
-+ 拷贝到常用的软件安装目录下:sudo cp -ar Typora-linux-x64 /opt
-
-+ 拷贝桌面快捷方式到桌面:
+  + 拷贝桌面快捷方式到桌面:
 
   ```bash
   cd /opt/Typora-linux-x64
   cp Typora.desktoop ~/Desktop/
   ```
-
-2. 方法二：
+2.方法二：
 
    ```bash
    # or run:
@@ -546,7 +544,7 @@ Socket 是应用层与协议族通信的中间软件抽象层，它是一组接�
 
 Linux 系统是通过提供套接字 (socket) 来进行网络编程的。网络的 socket 数据传输是一种特殊的I/O,socket 也是一种文件描述符。socket 也有一个类似于打开文件的函数：socket (), 调用 socket (), 该函数返回一个整型的 socket 的描述符，随后的连接建立、数据传输等操作也都是通过该 socket 实现。
 
-#####  1. socket 函数
+> #####  1. socket 函数
 
 ```c
 #include <sys/scoket.h>
@@ -608,7 +606,7 @@ int socket(int af, int type, int protocol)；
 
 
 
-##### 2. bind 函数
+> ##### 2. bind 函数
 
 ```c
 #include <sys/socket.h>
@@ -740,7 +738,7 @@ if (bind(serv_sock, (struct sockaddr*) &serv_addr,sizeof(serv_addr) )==-1){
 
 当我们两台计算机是需要网络通信时，规范统一约定为大端序进行通讯处理.
 
-##### 3. connect 函数
+> ##### 3. connect 函数
 
 ```c
 #include <sys/types.h>
@@ -755,7 +753,7 @@ int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
 
 + client_sockfd 是客户端 socket 函数返回的 socket 描述符；serv_addr是包含远端主机 IP 地址和端口号的指针；addrlen 是结构 sockaddr_in 的长度。
 
-4. ##### listen 函数
+> 4. ##### listen 函数
 
    ```c
    #include <sys/socket.h>
@@ -787,7 +785,8 @@ int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
 
    <font color=red>注意：listen () 只是让套接字处于监听状态，并没有接收请求。接收请求需要使用 accept () 函数。</font>
 
-5. ##### accept函数
+> 5. ##### accept函数
+
    ```c
    #include <sys/types.h>
    int accept(int server_sockfd, struct sockadd * client_addr, int addrlen);
@@ -817,7 +816,7 @@ int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
 
 
 
-##### 6. write函数
+> ##### 6. write函数
 
 ```c
 #include <unistd.h>
@@ -833,7 +832,7 @@ ssize_t write(int fd, const void *buf, size_t nbytes);
 
 <font color=blue>参数说明：</font>
 
-##### 7. read函数
+> ##### 7. read函数
 
 ```c
 #include <unistd.h>
@@ -902,7 +901,7 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 + 如果 recv 在 copy 时出错，那么它返回 SOCKET_ERROR；如果 recv 函数在等待协议接收数据时网络中断了，那么它返回0。
 
 
-##### 9. close函数
+> ##### 9. close函数
 
    ```
    #include <unistd.h>
@@ -915,7 +914,7 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 
 
 
-##### 10. <font face="黑体" color=green >示例</font>
+> ##### 10. <font face="黑体" color=green >示例</font>
 
 示例1：
 
