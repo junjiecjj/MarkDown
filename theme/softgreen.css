@@ -23,7 +23,7 @@
     /*change background of sidebar*/
     --side-bar-bg-color: #eee8d5;
     /*background of control items when hover, like menu in sidebar*/
-    --item-hover-bg-color: #dfca8844;
+    --item-hover-bg-color: #fca8844d;
     --item-hover-text-color: inherit;
     /*monospace font for codes, fences*/
     --monospace: "Monaco", "Consolas", monospace;
@@ -276,9 +276,9 @@ mark {
     background: #e8dfc4ff;
 }
 
-/* for ``` code block */
+/* for ``光标所在行的背景色` code block */
 .md-fences.md-focus .cm-s-inner .CodeMirror-activeline-background {
-    background: #e8dfc470;
+    background: #424141e8;
 }
 
 .cm-s-inner .cm-number {
@@ -317,7 +317,7 @@ mark {
 
 .cm-s-inner .cm-comment,
 .cm-s-inner.cm-comment {
-    color: #95a3abff;
+    color: rgb(203, 209, 212);
 }
 
 .cm-s-inner .cm-string {
@@ -528,11 +528,10 @@ h6.md-focus:before {
 
 
 /*深色背景*/
-
 #write .md-fences:not([mermaid-type])  {
     padding-top: 7px;
     border-radius: 10px;
-    background-color: #282c34;
+    background-color: #000000;
     color: #eeeeee;
 }
 
@@ -573,10 +572,10 @@ pre[lang="java"] .cm-variable{
 }
 .CodeMirror-selected,/*选中的背景*/
 .CodeMirror-selectedtext {
-    background: #666 !important;
+    background: #383737 !important;
 }
 
-.cm-s-inner .cm-comment {color: #747577; /*comment color*/ }
+.cm-s-inner .cm-comment {color: #909297; /*comment color*/ }
 .cm-s-inner .cm-keyword {color: #c678dd;   }/*关键字*/
 .cm-s-inner .cm-def {color: #f8b600; }  /*c语言的main函数, 变量名*/
 .cm-s-inner .cm-operator {color: #b75bd0; } /*运算符*/
