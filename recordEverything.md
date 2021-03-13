@@ -673,9 +673,9 @@ int bind(int server_sockfd, struct sockaddr *server_addr, int addrlen);
     | AF_LOCAL | 本地通信 unix 使用的地址族 |
     | …        | …                          |
 
-  + ##### **成员 sin_port**:16 位端口号;
+  + **成员 sin_port**:16 位端口号;
 
-  + ##### **成员 sin_addr**:32 位 ip 地址信息，以网络字节序保存;
+  + **成员 sin_addr**:32 位 ip 地址信息，以网络字节序保存;
 
   + **成员 sin_zero**:无特殊含义，为与 sockaddr 大小保持一致，写入 0 即可。
 
@@ -1753,7 +1753,7 @@ int timer_create(clockid_t clock_id, struct sigevent *evp, timer_t *timerid);
 
 ####   timer_settime函数
 
-经过上述函数创建了一个定时器之后，还需要设置定时器的定时周期以及启动时钟周期（即过了多久开始启动时钟）。这项工作交由 timer_settime 接口来完成。
+​		经过上述函数创建了一个定时器之后，还需要设置定时器的定时周期以及启动时钟周期（即过了多久开始启动时钟）。这项工作交由 timer_settime 接口来完成。
 
 函数返回值：返回 0 表示成功，返回 - 1 表示失败。
 
@@ -1992,4 +1992,10 @@ struct sigaction {
 
 
 #  附录
+
+
+
+## 附录1
+
+
 
