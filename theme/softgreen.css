@@ -1,0 +1,613 @@
+:root {
+    --bg-color: #fffbe8;
+    --text-color: #499504ff;
+    /*change color of meta characetrs like `*` in markdown */
+    --md-char-color: #577909;
+    /*change color of meta contents like image text or link address in markdown */
+    --meta-content-color: #0d1171ff;
+    --table-border-color: #ddd6c1;
+
+    /* color of primary buttons */
+    --primary-color: #b58900;
+    --primary-btn-border-color: #cc9a00;
+    --primary-btn-text-color: #fff;
+
+    /*border for sidebar, etc*/
+    --window-border: 1px solid #eee8d5;
+
+    /*background color if list item in file tree or file list*/
+    --active-file-bg-color: #dfca8844;
+    --active-file-text-color: inherit;
+    --active-file-border-color: #cc9a00;
+
+    /*change background of sidebar*/
+    --side-bar-bg-color: #eee8d5;
+    /*background of control items when hover, like menu in sidebar*/
+    --item-hover-bg-color: #dfca8844;
+    --item-hover-text-color: inherit;
+    /*monospace font for codes, fences*/
+    --monospace: "Monaco", "Consolas", monospace;
+
+    --rawblock-edit-panel-bd: #eee8d5;
+
+    --search-select-bg-color: #b58900;
+    --active-search-item-bg-color: #dfca88;
+}
+
+p {
+    margin: 0.5rem 0;
+}
+
+code,
+.md-fences,
+tt {
+    font-size: 1rem;
+    border: 1px solid #ddd6c1;
+    border-radius: 0.25rem;
+    padding: 0 0.125rem;
+    background: transparent;
+    /* font-family: var(--monospace); */
+}
+
+blockquote {
+    background-color: var(--side-bar-bg-color);
+    position: relative;
+    margin: 1rem 0rem 1.25rem 0rem;
+    padding-left: 0.75rem;
+    font-family: var(--monospace);
+}
+
+blockquote::before {
+    content: "";
+    position: absolute;
+    left: 0rem;
+    height: 100%;
+    width: .25rem;
+    background: var(--primary-color);
+}
+
+table {
+    border: 1px solid #ddd6c1;
+    margin: 1rem 0;
+}
+
+thead {
+    background: #e8dfc4;
+}
+
+table tr:nth-child(2n) {
+    background: #eee8d5;
+}
+
+td,
+th {
+    padding: 0.35rem 0.7rem;
+    border: 1px solid #ddd6c1;
+}
+
+hr {
+    border-color: var(--table-border-color);
+}
+
+mark {
+    padding: 2px 1px;
+    color: darkred;
+}
+
+#write {
+    position: static;
+    padding-left: 10ch;
+    padding-right: 10ch;
+    line-height: 1.6;
+    transform: none;
+}
+
+/* YAML block on the top */
+#write .md-meta-block {
+    background-color: #eee8d5b0;
+    border-bottom: 2px solid #ddd6c1;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+}
+
+#write .md-task-list-item>input {
+    -webkit-appearance: initial;
+    display: block;
+    position: absolute;
+    border: 1px solid #ddd6c1;
+    border-radius: 0.25rem;
+    margin-top: 0.1rem;
+    margin-left: -1.8rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    transition: background 0.3s;
+}
+
+#write .md-task-list-item>input:hover {
+    background: #d47405;
+}
+
+#write .md-task-list-item>input[checked]::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    height: 60%;
+    width: 2px;
+    transform: rotate(40deg);
+    background: var(--primary-color);
+}
+
+#write .md-task-list-item>input[checked]::after {
+    content: "";
+    position: absolute;
+    top: 46%;
+    left: 25%;
+    height: 30%;
+    width: 2px;
+    transform: rotate(-40deg);
+    background: var(--primary-color);
+}
+
+#write .md-task-list-item>p {
+    transition: color 0.3s;
+}
+
+#write .md-task-list-item.task-list-done>p {
+    color: var(--primary-color);
+    text-decoration: line-through;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container),
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) *,
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) ol,
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) ul {
+    color: #499504ff !important;
+}
+
+#write .md-toc-item {
+    color: var(--primary-btn-border-color);
+}
+
+#write .md-toc-h1 {
+    font-size: 1.3rem;
+}
+
+#write .md-toc-h2 {
+    font-size: 1.2rem;
+}
+
+#write h1::before,
+#write h2::before,
+#write h3::before,
+#write h4::before,
+#write h5::before,
+#write h6::before {
+    position: absolute;
+    right: calc(100% + 10px);
+    bottom: 0;
+    color: #ddd6c1;
+    font-size: 1rem;
+    font-weight: bold;
+    font-variant: "small-caps";
+    border: 0;
+    border-radius: 0;
+    left: auto;
+    float: none;
+    padding: 0;
+    vertical-align: baseline;
+    line-height: 20px;
+}
+
+#write h1 {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+}
+
+#write h1::before {
+    content: "H1";
+    bottom: 0.45rem;
+}
+
+#write h2 {
+    font-size: 1.4rem;
+    margin: 0.7rem 0;
+}
+
+#write h2::before {
+    content: "H2";
+    bottom: 0.2rem;
+}
+
+#write h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+#write h3::before {
+    content: "H3";
+    bottom: 0.18rem;
+}
+
+#write h4 {
+    font-size: 1.1rem;
+    margin: 0.2rem 0;
+}
+
+#write h4::before {
+    content: "H4";
+    bottom: 0.15rem;
+}
+
+#write h5,
+#write h6 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+#write h5::before,
+#write h6::before {
+    bottom: 0.1rem;
+}
+
+#write h5::before {
+    content: "H5";
+}
+
+#write h6::before {
+    content: "H6";
+}
+
+#outline-content li .outline-item-open>.outline-children {
+    border-left: var(--primary-btn-border-color) 1px dashed;
+}
+
+/* diagrams like mermaid, sequence, gantt, flow etc */
+#write .md-focus .md-diagram-panel {
+    border-color: var(--table-border-color);
+}
+
+/* hover tooltip for formula etc */
+.code-tooltip.md-hover-tip {
+    color: var(--text-color);
+    background-color: #e8dfc4ff;
+}
+
+.md-hover-tip .md-arrow:after {
+    background: #e8dfc4ff;
+}
+
+/* for ``` code block */
+.md-fences.md-focus .cm-s-inner .CodeMirror-activeline-background {
+    background: #e8dfc470;
+}
+
+.cm-s-inner .cm-number {
+    color: #9b3aff;
+}
+
+.cm-s-inner .cm-keyword {
+    color: #577909;
+    font-weight: bold;
+}
+
+.cm-s-inner .cm-def {
+    color: #499504;
+}
+
+.cm-s-inner .cm-variable {
+    color: #499504;
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: #05a;
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: #085;
+}
+
+.cm-s-inner .cm-property {
+    color: #934b3cff;
+}
+
+.cm-s-inner .cm-operator {
+    color: #577909;
+    font-weight: bold;
+}
+
+.cm-s-inner .cm-comment,
+.cm-s-inner.cm-comment {
+    color: #95a3abff;
+}
+
+.cm-s-inner .cm-string {
+    color: #2aa198;
+}
+
+.cm-s-inner .cm-string-2 {
+    color: #f50;
+}
+
+.cm-s-inner .cm-meta {
+    color: #577909;
+    font-weight: bold;
+}
+
+.cm-s-inner .cm-builtin {
+    color: #9b3affff;
+}
+
+.cm-s-inner .cm-tag {
+    color: #2369b6ff;
+}
+
+.cm-s-inner .cm-attribute {
+    color: #cb2d01ff;
+}
+
+.cm-s-inner .cm-quote,
+.cm-s-inner.cm-quote {
+    color: #0b6125ff;
+    background-color: #bbbbbb30;
+}
+
+/* for win10 unibody, which lacks the sense of beauty, but tested */
+#megamenu-menu-sidebar {
+    color: #586e75;
+    background-color: var(--side-bar-bg-color);
+}
+
+#megamenu-menu-sidebar .megamenu-menu-header {
+    background-color: var(--primary-color);
+}
+
+#megamenu-back-btn {
+    color: var(--primary-btn-text-color);
+}
+
+#megamenu-menu-header-title {
+    color: var(--primary-color);
+}
+
+#megamenu-menu-list .li :hover {
+    background-color: var(--item-hover-bg-color) !important;
+}
+
+#megamenu-menu-list .li>.active {
+    color: var(--primary-color);
+}
+
+#megamenu-content {
+    background-color: var(--bg-color);
+}
+
+/* source mode, for WIDE screen */
+#typora-source .CodeMirror-lines {
+    max-width: 128rem;
+}
+
+
+/*####################以下自定义########################################*/
+/*标题自动添加序号*/
+.sidebar-content {
+    counter-reset: h1
+}
+
+.outline-h1 {
+    counter-reset: h2
+}
+
+.outline-h2 {
+    counter-reset: h3
+}
+
+.outline-h3 {
+    counter-reset: h4
+}
+
+.outline-h4 {
+    counter-reset: h5
+}
+
+.outline-h5 {
+    counter-reset: h6
+}
+
+.outline-h1>.outline-item>.outline-label:before {
+    counter-increment: h1;
+    content: counter(h1) " "
+}
+
+.outline-h2>.outline-item>.outline-label:before {
+    counter-increment: h2;
+    content: counter(h1) "."counter(h2) " "
+}
+
+.outline-h3>.outline-item>.outline-label:before {
+    counter-increment: h3;
+    content: counter(h1) "."counter(h2) "."counter(h3) " "
+}
+
+.outline-h4>.outline-item>.outline-label:before {
+    counter-increment: h4;
+    content: counter(h1) "."counter(h2) "."counter(h3) "."counter(h4) " "
+}
+
+.outline-h5>.outline-item>.outline-label:before {
+    counter-increment: h5;
+    content: counter(h1) "."counter(h2) "."counter(h3) "."counter(h4) "."counter(h5) " "
+}
+
+.outline-h6>.outline-item>.outline-label:before {
+    counter-increment: h6;
+    content: counter(h1) "."counter(h2) "."counter(h3) "."counter(h4) "."counter(h5) "."counter(h6) " "
+}
+
+#write {
+    counter-reset: h1
+}
+
+h1 {
+    counter-reset: h2
+}
+
+h2 {
+    counter-reset: h3
+}
+
+h3 {
+    counter-reset: h4
+}
+
+h4 {
+    counter-reset: h5
+}
+
+h5 {
+    counter-reset: h6
+}
+
+#write h1:before {
+    counter-increment: h1;
+    content: counter(h1) " "
+}
+
+#write h2:before {
+    counter-increment: h2;
+    content: counter(h1) "."counter(h2) " "
+}
+
+#write h3:before,
+h3.md-focus.md-heading:before
+
+    {
+    counter-increment: h3;
+    content: counter(h1) "."counter(h2) "."counter(h3) " "
+}
+
+#write h4:before,
+h4.md-focus.md-heading:before {
+    counter-increment: h4;
+    content: counter(h1) "."counter(h2) "."counter(h3) "."counter(h4) " "
+}
+
+#write h5:before,
+h5.md-focus.md-heading:before {
+    counter-increment: h5;
+    content: counter(h1) "."counter(h2) "."counter(h3) "."counter(h4) "."counter(h5) " "
+}
+
+#write h6:before,
+h6.md-focus.md-heading:before {
+    counter-increment: h6;
+    content: counter(h1) "."counter(h2) "."counter(h3) "."counter(h4) "."counter(h5) "."counter(h6) " "
+}
+
+#write>h3.md-focus:before,
+#write>h4.md-focus:before,
+#write>h5.md-focus:before,
+#write>h6.md-focus:before,
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before,
+h6.md-focus:before {
+    color: inherit;
+    border: inherit;
+    border-radius: inherit;
+    position: inherit;
+    left: initial;
+    float: none;
+    top: initial;
+    font-size: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    vertical-align: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+
+/*深色背景*/
+
+#write .md-fences:not([mermaid-type])  {
+    padding-top: 7px;
+    border-radius: 10px;
+    background-color: #282c34;
+    color: #eeeeee;
+}
+
+.code-tooltip .ty-input,
+.code-tooltip input {
+    color: #eee;
+}
+
+/*html*/
+.cm-s-inner .cm-tag{/*标签名字*/
+    color: #F07178;
+}
+.cm-s-inner .cm-bracket{/*标签尖括号*/
+    color: #EEE;
+}
+.cm-s-inner .cm-attribute{/*属性*/
+    color: #FFCB6B;
+}
+pre[lang="java"] .cm-variable{
+    color: #EEE;
+}
+
+.md-pair-s code{
+    color: #42b983;
+    font-weight: 600;
+    background-color: transparent;
+    border: none;
+    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1em;
+}
+
+/*配色*/
+
+/*##########################################*/
+.CodeMirror div.CodeMirror-cursor {/*光标*/
+    border-left: 1px solid rgb(241, 7, 7);
+    z-index: 3;
+}
+.CodeMirror-selected,/*选中的背景*/
+.CodeMirror-selectedtext {
+    background: #666 !important;
+}
+
+.cm-s-inner .cm-comment {color: #747577; /*comment color*/ }
+.cm-s-inner .cm-keyword {color: #c678dd;   }/*关键字*/
+.cm-s-inner .cm-def {color: #f8b600; }  /*c语言的main函数, 变量名*/
+.cm-s-inner .cm-operator {color: #b75bd0; } /*运算符*/
+.cm-s-inner .cm-variable {color: #d19a66; /*window*/ }/*被使用的变量名*/
+.cm-s-inner .cm-variable-2 { color: #e2b76a; } /*被使用的形参*/
+.cm-s-inner .cm-string { color: #07d3f7; }  /*字符串*/
+.cm-s-inner .cm-attribute { color: #FFCB6B; }
+.cm-s-inner .cm-property { color: #d19a66; } /*被调用的方法*/
+.cm-s-inner .cm-variable-3 { color: #24f009; }  /*形参,类型*/
+.cm-s-inner .cm-error {color: rgba(209, 154, 102, 1.0); background-color: #448867;
+}
+.cm-s-inner .cm-type,/*类型*/
+.cm-s-inner .cm-string-2 {/*正则表达式*/
+    color: #7ec699
+}
+.cm-s-inner .cm-atom { color: #F77669; } /*  css属性值，布尔值等等*/
+.cm-s-inner .cm-number { color: #F77669; }/*数字*/
+.cm-s-inner .cm-builtin { color: #DECB6B; } /*被调用的属性,php中是被调用的函数*/
+.cm-s-inner .cm-tag { color: #80CBC4; }  /*LaTeX command*/
+.cm-s-inner .cm-meta { color: #80CBC4; } /*LaTeX command*/
+.cm-s-inner .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}
+
+#write code, tt {
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-family: 'Source Code Pro', Roboto Mono, Source Sans Pro, 'Microsoft YaHei', '微软雅黑' !important;
+    font-size: 0.95rem;
+    color: #000033;
+    background-color: #F0FFFF;
+
+}
