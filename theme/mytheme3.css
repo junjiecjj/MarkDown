@@ -69,9 +69,9 @@ content {
 }
 
 #write {
-  margin-top: 24px;
+  margin-top: 20px;
   background-color: rgba(255, 255, 255, 0.68);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   min-height: calc(100% - 48px);
 }
 
@@ -80,15 +80,15 @@ body {
 }
 
 #write{
-    max-width: 860px;
-    margin-top:    30px; /*top*/
-    margin-bottom: 30px;
-    padding: 100px 60px; /*top to title padding*/
+    max-width: 1000px;
+    margin-top:    20px; /*top*/
+    margin-bottom: 20px;
+    padding: 40px 40px; /*top to title padding*/
     border-radius: 5px;
     -o-box-shadow: 0 10px 10px #333333;
-    -webkit-box-shadow: 0 10px 10px #333333;
-    -moz-box-shadow: 0 10px 10px #333333;
-    box-shadow: 0px 50px 100px #333333;
+    -webkit-box-shadow: 0 6px 6px #333333;
+    -moz-box-shadow: 0 6px 6px #333333;
+    box-shadow: 0px 50px 80px #333333;
 }
 #write > ul:first-child,
 #write > ol:first-child{
@@ -721,9 +721,12 @@ h6.md-focus:before {
     line-height: inherit;
 }
 
+/* for ``光标所在行的背景色` code block */
+.md-fences.md-focus .cm-s-inner .CodeMirror-activeline-background {
+    background: #424141e8;
+}
 
 /*深色背景*/
-
 #write .md-fences:not([mermaid-type])  {
     padding-top: 7px;
     border-radius: 10px;
