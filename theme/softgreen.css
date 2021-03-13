@@ -1,6 +1,7 @@
 :root {
     --bg-color: #fffbe8;
     --text-color: #499504ff;
+    --text-color: #000000;
     /*change color of meta characetrs like `*` in markdown */
     --md-char-color: #577909;
     /*change color of meta contents like image text or link address in markdown */
