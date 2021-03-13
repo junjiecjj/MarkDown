@@ -2,13 +2,13 @@
 
 
 
-# 1. Linux系统
+#  Linux系统
 
 
 
-## 1.1 linux系统装机配置
+##  linux系统装机配置
 
-### 1.1.1 搜狗输入法安装
+###  搜狗输入法安装
 
 > 1. 去[搜狗输入法官网](https://pinyin.sogou.com/linux/)下载.deb安装包；
 
@@ -18,7 +18,7 @@
 
 
 
-### 1.1.2 安装字体
+###  安装字体
 
 > 1. 安装文泉驿微米黑字体
 
@@ -117,11 +117,11 @@
 
 
 
-### 1.1.3 修改终端提示符
+###  修改终端提示符
 
-+ 主要是将.bashrc中的PS1改为github中此PS1的形式；
++ 主要是将.bashrc中的PS1改为[github.bashrc](https://github.com/junjiecjj/configure_file/blob/master/bashrc)中此PS1的形式；
 
-### 1.1.4 安装谷歌浏览器
+###  安装谷歌浏览器
 
 + 去[谷歌官网](https://www.google.cn/chrome/)下载.deb安装包
 + sudo dpkg -i google-chrome-xxx.deb
@@ -131,7 +131,7 @@
 
 
 
-### 1.1.5 VIM打造IDE
+###  VIM打造IDE
 
 ```bash
 sudo apt-get update
@@ -144,7 +144,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ∼/.vim/bundle/Vundle.vim
 cd /home/jack/
 ```
 
-将[网址](https://github.com/junjiecjj/configure_file/blob/master/vimrc)中的内容加入到~/.vimrc中，打开 vim，进入命令模式，输入:PluginInstall;
+将[github.vimrc](https://github.com/junjiecjj/configure_file/blob/master/vimrc)中的内容加入到~/.vimrc中，打开 vim，进入命令模式，输入:PluginInstall;
 
 PluginInstall 就是 vundle 的包管理器 Plugin 常用命令：
 
@@ -201,27 +201,27 @@ sudo ./install.py
 
 
 
-### 1.1.6 WPS
+###  WPS
 
 + 去[wps官网](https://www.wps.cn/product/wpslinux)下载.deb安装包
 + sudo dpkg -i wps_xxx.deb
 
 
 
-### 1.1.7 PDF阅读器
+###  PDF阅读器
 
 + sudo apt install okular
 
 
 
-### 1.1.8 射手影音
+###  射手影音
 
 + sudo apt install smplayer
 + sudo apt install vlc
 
 
 
-### 1.1.9 截图
+###  截图
 
 > 1.深度截图
 
@@ -261,7 +261,7 @@ sudo ./install.py
 
 
 
-### 1.1.10 qq、微信、百度网盘、迅雷
+###  qq、微信、百度网盘、迅雷
 
 > 1.安装qq
 
@@ -284,7 +284,7 @@ sudo ./install.py
 
 
 
-### 1.1.11 Latex
+###  Latex
 
 + sudo apt-get install texlive-full
 + sudo apt-get install texlive-xetex
@@ -293,7 +293,7 @@ sudo ./install.py
 +  编译时需要设置编译器为 XeLaTeX，TeXstudio 中在 Options−→TeXstudio−→Build−→Default Compiler 中更改默认编译器为XeLaTeX 即可。在配置中可以更改软件界面语言，将 Options−→Configure
   TeXstudio−→General−→Language 更改为 zh-CN 即可将界面设置为中文。
 
-### 1.1.12 Lyx
+###  Lyx
 
 1. Lyx 在 ubuntu 软件中心就有, 直接点击下载. 关键是接下来配置 Lyx 显示、导出中文 PDF，以及安装 Imagemagick 图片转换工具‘;
 
@@ -338,11 +338,11 @@ sudo ./install.py
 
    如果没有报错，则成功，可以完美的显示 eps 图像了.
 
-### 1.1.13 dstat
+###  dstat
 
 + sudo apt install dstat
 
-### 1.1.14 bpytop
+###  bpytop
 
 + python3 -m pip install psutil
 + pip3 install bpytop --upgrade
@@ -350,14 +350,14 @@ sudo ./install.py
 
 配置文件：/home/jack/.config/bpytop/bpytop.conf
 
-### 1.1.15 duf
+###  duf
 
 + wget https://github.com/muesli/duf/releases/download/v0.5.0/checksums.txt
 + wget https://github.com/muesli/duf/releases/download/v0.5.0/duf_0.5.0_linux_amd64.deb
 + sha256sum --ignore-missing -c checksums.txt
 + sudo dpkg -i duf_0.5.0_linux_amd64.deb
 
-### 1.1.16 plots
+###  plots
 
 + `sudo add-apt-repository ppa:apandada1/plots`
 + `sudo apt update`
@@ -365,12 +365,12 @@ sudo ./install.py
 
 
 
-### 1.1.17 窗口管理器FVWM
+###  窗口管理器FVWM
 
 + sudo apt install fvwm
 + 去[网址](https://github.com/junjiecjj/configure_file)下载fvwm至~/.fvwm文件夹即可
 
-### 1.1.18 Markdown编辑器remarkable
+###  Markdown编辑器remarkable
 
 + 去[remarkable](http://remarkableapp.github.io/linux/download.html)下载.deb文件
 + sudo dpkg -i remarkable-xxx.deb
@@ -383,7 +383,7 @@ sudo ./install.py
 
 
 
-### 1.1.19 Markdown编辑器Typora
+###  Markdown编辑器Typora
 
 1.方法一：
   + [**官网下载**]()
@@ -413,18 +413,18 @@ sudo ./install.py
 
 
 
-### 1.1.20 VS Code
+###  VS Code
 
 + 下载[VSCode](https://code.visualstudio.com/Download)的.deb文件
 + sudo dpkg -i xxx.deb
 
 
 
-### 1.1.21 窗口管理器i3
+###  窗口管理器i3
 
 
 
-### 1.1.22 窗口管理器awesome
+###  窗口管理器awesome
 
 
 
@@ -440,49 +440,49 @@ sudo ./install.py
 
 
 
-## 1.2 linux系统其它软件
+##  linux系统其它软件
 
 
 
-### 1.2.1 Python IDE Anaconda
+###  Python IDE Anaconda
 
 
 
-### 1.2.2 Java IDE IntelliJ
+###  Java IDE IntelliJ
 
 
 
-### 1.2.3 Matlab
+###  Matlab
 
 
 
-### 1.2.4 QT
+###  QT
 
 
 
-### 1.2.5 Code::Block
+###  Code::Block
 
 
 
-### 1.2.6 Eclipse
+###  Eclipse
 
 
 
-### 1.2.6 Emacs
+###  Emacs
 
 
 
-### 1.2.7
-
-
-
-
+###
 
 
 
 
 
-## 1.3 linux软件自动安装脚本
+
+
+
+
+##  linux软件自动安装脚本
 
 根据以上软件的安装流程，可以写一个bash脚本实现装机软件自动化安装流程，这是比较高效的方式，大幅度释放劳动力，但是前期此脚本的撰写是费事的，但是提升了bash脚本的编写能力。
 
@@ -490,19 +490,15 @@ sudo ./install.py
 
 
 
-## 1.4 linux命令大全
+##  linux命令大全
 
 
 
-### 1.4.1
+### 
 
 
 
-### 1.4.2
-
-
-
-
+###
 
 
 
@@ -512,17 +508,29 @@ sudo ./install.py
 
 
 
-# 3 计算机基础知识
+
+
+
+
+#  计算机基础知识
 
 本节记录平时用到或者学到的计算机的基础知识。
 
-## 2.1Linux/C结构体
-
-## 2.2 Linux/C网络
+##  Linux/C结构体
 
 
 
-### 2.1.1 linux C Socket函数介绍与使用
+
+
+
+
+
+
+##   Linux/C网络
+
+
+
+###   linux C Socket函数介绍与使用
 
 [<font color=green> <工程师纯干货总结：TCP/IP 网络编程></font>](https://mp.weixin.qq.com/s/SIFdmkoZDVJGD-0Z4SIEiA)
 
@@ -544,7 +552,7 @@ Socket 是应用层与协议族通信的中间软件抽象层，它是一组接�
 
 Linux 系统是通过提供套接字 (socket) 来进行网络编程的。网络的 socket 数据传输是一种特殊的I/O,socket 也是一种文件描述符。socket 也有一个类似于打开文件的函数：socket (), 调用 socket (), 该函数返回一个整型的 socket 的描述符，随后的连接建立、数据传输等操作也都是通过该 socket 实现。
 
-> #####  1. socket 函数
+#####   socket 函数
 
 ```c
 #include <sys/scoket.h>
@@ -606,7 +614,7 @@ int socket(int af, int type, int protocol)；
 
 
 
-> ##### 2. bind 函数
+#####   bind 函数
 
 ```c
 #include <sys/socket.h>
@@ -714,12 +722,12 @@ if (bind(serv_sock, (struct sockaddr*) &serv_addr,sizeof(serv_addr) )==-1){
 
 除了 socketaddr_in 结构体变量手动填充数据转换外，其他情况不需要考虑字节序问题。
 
-**说了这么多字节序，那到底什么是网络字节序，什么是主机字节序**
+**==说了这么多字节序，那到底什么是网络字节序，什么是主机字节序==**
 
 - 主机字节序：主机内部内存中数据的处理方式。
 - 网络字节序：网络字节顺序是 TCP/IP 中规定好的一种数据表示格式，它与具体的 CPU 类型、操作系统等无关，从而可以保证数据在不同主机之间传输时能够被正确解释。网络字节顺序采用 big endian（大端）排序方式。
 
- **大端又是啥，我们从两种网络字节顺序说起**
+ **==大端又是啥，我们从两种网络字节顺序说起==**
 
 + 字节序：是指整数在内存中保存的顺序
 + cpu 向内存保存数据字节序有两种实现方式：
@@ -738,7 +746,9 @@ if (bind(serv_sock, (struct sockaddr*) &serv_addr,sizeof(serv_addr) )==-1){
 
 当我们两台计算机是需要网络通信时，规范统一约定为大端序进行通讯处理.
 
-> ##### 3. connect 函数
+
+
+#####   connect 函数
 
 ```c
 #include <sys/types.h>
@@ -753,7 +763,7 @@ int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
 
 + client_sockfd 是客户端 socket 函数返回的 socket 描述符；serv_addr是包含远端主机 IP 地址和端口号的指针；addrlen 是结构 sockaddr_in 的长度。
 
-> 4. ##### listen 函数
+#####  listen 函数
 
    ```c
    #include <sys/socket.h>
@@ -785,7 +795,7 @@ int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
 
    <font color=red>注意：listen () 只是让套接字处于监听状态，并没有接收请求。接收请求需要使用 accept () 函数。</font>
 
-> 5. ##### accept函数
+> ##### accept函数
 
    ```c
    #include <sys/types.h>
@@ -816,7 +826,7 @@ int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
 
 
 
-> ##### 6. write函数
+#####   write函数
 
 ```c
 #include <unistd.h>
@@ -832,7 +842,7 @@ ssize_t write(int fd, const void *buf, size_t nbytes);
 
 <font color=blue>参数说明：</font>
 
-> ##### 7. read函数
+#####    read函数
 
 ```c
 #include <unistd.h>
@@ -852,7 +862,7 @@ ssize_t read(int fd,void *buf,size_t nbyte);
 
 write 和 read 可以用send/recv替代。
 
-> ##### 8. send/recv函数
+> #####    send/recv函数
 
 ```c
 #include <sys/socket.h>
@@ -901,7 +911,7 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 + 如果 recv 在 copy 时出错，那么它返回 SOCKET_ERROR；如果 recv 函数在等待协议接收数据时网络中断了，那么它返回0。
 
 
-> ##### 9. close函数
+#####  close函数
 
    ```
    #include <unistd.h>
@@ -914,253 +924,256 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 
 
 
-> ##### 10. <font face="黑体" color=green >示例</font>
+#####  示例
+>
+> 实例1：
+>
+> ```c
+> //server.c
+> #include <sys/types.h>
+> #include <sys/socket.h>
+> #include <stdio.h>
+> #include <netinet/in.h>
+> #include <arpa/inet.h>
+> #include <unistd.h>
+> #include <string.h>
+> #include <stdlib.h>
+> #include <fcntl.h>
+> #include <sys/shm.h>
+> 
+> #define MYPORT 8887
+> #define QUEUE 20
+> #define BUFFER_SIZE 1024
+> 
+> int main()
+> {
+>     ///定义sockfd
+>     int server_sockfd = socket(AF_INET, SOCK_STREAM, 0);
+> 
+>     ///定义sockaddr_in
+>     struct sockaddr_in server_sockaddr;
+>     server_sockaddr.sin_family = AF_INET;
+>     server_sockaddr.sin_port = htons(MYPORT);
+>     server_sockaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+> 
+>     ///bind，成功返回0，出错返回-1
+>     if (bind(server_sockfd, (struct sockaddr *)&server_sockaddr, sizeof(server_sockaddr)) == -1)
+>     {
+>         perror("bind");
+>         exit(1);
+>     }
+> 
+>     ///listen，成功返回0，出错返回-1
+>     if (listen(server_sockfd, QUEUE) == -1)
+>     {
+>         perror("listen");
+>         exit(1);
+>     }
+> 
+>     ///客户端套接字
+>     char buffer[BUFFER_SIZE];
+>     struct sockaddr_in client_addr;
+>     socklen_t length = sizeof(client_addr);
+> 
+>     ///成功返回非负描述字，出错返回-1
+>     int conn = accept(server_sockfd, (struct sockaddr *)&client_addr, &length);
+>     if (conn < 0)
+>     {
+>         perror("connect");
+>         exit(1);
+>     }
+> 
+>     while (1)
+>     {
+>         memset(buffer, 0, sizeof(buffer));
+>         int len = recv(conn, buffer, sizeof(buffer), 0);
+>         if (strcmp(buffer, "exit\n") == 0)
+>             break;
+>         fputs(buffer, stdout);
+>         send(conn, buffer, len, 0);
+>     }
+>     close(conn);
+>     close(server_sockfd);
+>     return 0;
+> }
+> ```
+>
+> ```c
+> //client.c
+> #include <sys/types.h>
+> #include <sys/socket.h>
+> #include <stdio.h>
+> #include <netinet/in.h>
+> #include <arpa/inet.h>
+> #include <unistd.h>
+> #include <string.h>
+> #include <stdlib.h>
+> #include <fcntl.h>
+> #include <sys/shm.h>
+> 
+> #define MYPORT 8887
+> #define BUFFER_SIZE 1024
+> 
+> int main()
+> {
+>     ///定义sockfd
+>     int sock_cli = socket(AF_INET, SOCK_STREAM, 0);
+> 
+>     ///定义sockaddr_in
+>     struct sockaddr_in servaddr;
+>     memset(&servaddr, 0, sizeof(servaddr));
+>     servaddr.sin_family = AF_INET;
+>     servaddr.sin_port = htons(MYPORT);                 ///服务器端口
+>     servaddr.sin_addr.s_addr = inet_addr("127.0.0.1"); ///服务器ip
+> 
+>     ///连接服务器，成功返回0，错误返回-1
+>     if (connect(sock_cli, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0)
+>     {
+>         perror("connect");
+>         exit(1);
+>     }
+> 
+>     char sendbuf[BUFFER_SIZE];
+>     char recvbuf[BUFFER_SIZE];
+>     while (fgets(sendbuf, sizeof(sendbuf), stdin) != NULL)
+>     {
+>         send(sock_cli, sendbuf, strlen(sendbuf), 0); ///发送
+>         if (strcmp(sendbuf, "exit\n") == 0)
+>             break;
+>         recv(sock_cli, recvbuf, sizeof(recvbuf), 0); ///接收
+>         fputs(recvbuf, stdout);
+> 
+>         memset(sendbuf, 0, sizeof(sendbuf));
+>         memset(recvbuf, 0, sizeof(recvbuf));
+>     }
+> 
+>     close(sock_cli);
+>     return 0;
+> }
+> ```
+>
+> 实例2
+>
+> ```c
+> //echo_server.c
+> #include <stdio.h>
+> #include <sys/socket.h>
+> #include <arpa/inet.h>
+> 
+> #define BUF_SIZE 5
+> 
+> int main(int argc, char *argv[])
+> {
+>     char message[BUF_SIZE];
+>     int str_len, i;
+> 
+>     struct sockaddr_in serv_addr, clnt_addr;
+> 
+>     int serv_sock = socket(PF_INET, SOCK_STREAM, 0);
+>     if (serv_sock == -1)
+>     {
+>         printf("socket() error");
+>         exit(1);
+>     }
+> 
+>     memset(&serv_addr, 0, sizeof(serv_addr));
+>     serv_addr.sin_family = AF_INET;
+>     serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+>     serv_addr.sin_port = htons(9600);
+> 
+>     if (bind(serv_sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) == -1)
+>     {
+>         printf("bind() error");
+>         exit(1);
+>     }
+> 
+>     if (listen(serv_sock, 5) == 1)
+>     {
+>         printf("listen() error");
+>         exit(1);
+>     }
+> 
+>     int clnt_addr_sz = sizeof(clnt_addr);
+>     for (i = 0; i < 5; i++)
+>     {
+>         int clnt_sock = accept(serv_sock, (struct sockaddr *)&clnt_addr, &clnt_addr_sz);
+>         if (clnt_sock == -1)
+>         {
+>             printf("accept() error");
+>             exit(1);
+>         }
+> 
+>         while (str_len = read(clnt_sock, message, BUF_SIZE) > 0)
+>         {
+>             write(clnt_sock, message, str_len);
+>         }
+> 
+>         close(clnt_sock);
+>     }
+> 
+>     close(serv_sock);
+>     return 0;
+> }
+> ```
+>
+> ```c
+> //echo_client.c
+> #include <stdio.h>
+> #include <string.h>
+> #include <sys/socket.h>
+> #include <arpa/inet.h>
+> 
+> #define BUF_SIZE 5
+> 
+> int main(int argc, char *argv[])
+> {
+>     char message[BUF_SIZE];
+>     int str_len, i;
+> 
+>     struct sockaddr_in serv_addr, clnt_addr;
+> 
+>     int serv_sock = socket(PF_INET, SOCK_STREAM, 0);
+>     if (serv_sock == -1)
+>     {
+>         printf("socket() error");
+>         exit(1);
+>     }
+> 
+>     memset(&serv_addr, 0, sizeof(serv_addr));
+>     serv_addr.sin_family = AF_INET;
+>     serv_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+>     serv_addr.sin_port = htons(9600);
+> 
+>     if (connect(serv_sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) == -1)
+>     {
+>         printf("connect() error");
+>         exit(1);
+>     }
+> 
+>     while (1)
+>     {
+>         fputs("请输入您的信息,按Q键退出\n", stdout);
+>         fgets(message, 1024, stdin);
+> 
+>         //因为fgets会保留输入中换行符,故判断加\n
+>         if (!strcmp(message, "q\n") || !strcmp(message, "Q\n"))
+>         {
+>             break;
+>         }
+> 
+>         write(serv_sock, message, sizeof(message));
+>         read(serv_sock, message, BUF_SIZE - 1);
+>         printf("Message from server: %s\n", message);
+>     }
+> 
+>     close(serv_sock);
+>     return 0;
+> }
+> ```
+>
+> 
 
-示例1：
 
-```c
-//server.c
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <stdio.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <sys/shm.h>
-
-#define MYPORT 8887
-#define QUEUE 20
-#define BUFFER_SIZE 1024
-
-int main()
-{
-    ///定义sockfd
-    int server_sockfd = socket(AF_INET, SOCK_STREAM, 0);
-
-    ///定义sockaddr_in
-    struct sockaddr_in server_sockaddr;
-    server_sockaddr.sin_family = AF_INET;
-    server_sockaddr.sin_port = htons(MYPORT);
-    server_sockaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-
-    ///bind，成功返回0，出错返回-1
-    if (bind(server_sockfd, (struct sockaddr *)&server_sockaddr, sizeof(server_sockaddr)) == -1)
-    {
-        perror("bind");
-        exit(1);
-    }
-
-    ///listen，成功返回0，出错返回-1
-    if (listen(server_sockfd, QUEUE) == -1)
-    {
-        perror("listen");
-        exit(1);
-    }
-
-    ///客户端套接字
-    char buffer[BUFFER_SIZE];
-    struct sockaddr_in client_addr;
-    socklen_t length = sizeof(client_addr);
-
-    ///成功返回非负描述字，出错返回-1
-    int conn = accept(server_sockfd, (struct sockaddr *)&client_addr, &length);
-    if (conn < 0)
-    {
-        perror("connect");
-        exit(1);
-    }
-
-    while (1)
-    {
-        memset(buffer, 0, sizeof(buffer));
-        int len = recv(conn, buffer, sizeof(buffer), 0);
-        if (strcmp(buffer, "exit\n") == 0)
-            break;
-        fputs(buffer, stdout);
-        send(conn, buffer, len, 0);
-    }
-    close(conn);
-    close(server_sockfd);
-    return 0;
-}
-```
-
-
-
-```c
-//client.c
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <stdio.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <sys/shm.h>
-
-#define MYPORT 8887
-#define BUFFER_SIZE 1024
-
-int main()
-{
-    ///定义sockfd
-    int sock_cli = socket(AF_INET, SOCK_STREAM, 0);
-
-    ///定义sockaddr_in
-    struct sockaddr_in servaddr;
-    memset(&servaddr, 0, sizeof(servaddr));
-    servaddr.sin_family = AF_INET;
-    servaddr.sin_port = htons(MYPORT);                 ///服务器端口
-    servaddr.sin_addr.s_addr = inet_addr("127.0.0.1"); ///服务器ip
-
-    ///连接服务器，成功返回0，错误返回-1
-    if (connect(sock_cli, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0)
-    {
-        perror("connect");
-        exit(1);
-    }
-
-    char sendbuf[BUFFER_SIZE];
-    char recvbuf[BUFFER_SIZE];
-    while (fgets(sendbuf, sizeof(sendbuf), stdin) != NULL)
-    {
-        send(sock_cli, sendbuf, strlen(sendbuf), 0); ///发送
-        if (strcmp(sendbuf, "exit\n") == 0)
-            break;
-        recv(sock_cli, recvbuf, sizeof(recvbuf), 0); ///接收
-        fputs(recvbuf, stdout);
-
-        memset(sendbuf, 0, sizeof(sendbuf));
-        memset(recvbuf, 0, sizeof(recvbuf));
-    }
-
-    close(sock_cli);
-    return 0;
-}
-```
-
-示例2：
-
-```c
-//echo_server.c
-#include <stdio.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-
-#define BUF_SIZE 5
-
-int main(int argc, char *argv[])
-{
-    char message[BUF_SIZE];
-    int str_len, i;
-
-    struct sockaddr_in serv_addr, clnt_addr;
-
-    int serv_sock = socket(PF_INET, SOCK_STREAM, 0);
-    if (serv_sock == -1)
-    {
-        printf("socket() error");
-        exit(1);
-    }
-
-    memset(&serv_addr, 0, sizeof(serv_addr));
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-    serv_addr.sin_port = htons(9600);
-
-    if (bind(serv_sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) == -1)
-    {
-        printf("bind() error");
-        exit(1);
-    }
-
-    if (listen(serv_sock, 5) == 1)
-    {
-        printf("listen() error");
-        exit(1);
-    }
-
-    int clnt_addr_sz = sizeof(clnt_addr);
-    for (i = 0; i < 5; i++)
-    {
-        int clnt_sock = accept(serv_sock, (struct sockaddr *)&clnt_addr, &clnt_addr_sz);
-        if (clnt_sock == -1)
-        {
-            printf("accept() error");
-            exit(1);
-        }
-
-        while (str_len = read(clnt_sock, message, BUF_SIZE) > 0)
-        {
-            write(clnt_sock, message, str_len);
-        }
-
-        close(clnt_sock);
-    }
-
-    close(serv_sock);
-    return 0;
-```
-
-```c
-//echo_client.c
-#include <stdio.h>
-#include <string.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-
-#define BUF_SIZE 5
-
-int main(int argc, char *argv[])
-{
-    char message[BUF_SIZE];
-    int str_len, i;
-
-    struct sockaddr_in serv_addr, clnt_addr;
-
-    int serv_sock = socket(PF_INET, SOCK_STREAM, 0);
-    if (serv_sock == -1)
-    {
-        printf("socket() error");
-        exit(1);
-    }
-
-    memset(&serv_addr, 0, sizeof(serv_addr));
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
-    serv_addr.sin_port = htons(9600);
-
-    if (connect(serv_sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) == -1)
-    {
-        printf("connect() error");
-        exit(1);
-    }
-
-    while (1)
-    {
-        fputs("请输入您的信息,按Q键退出\n", stdout);
-        fgets(message, 1024, stdin);
-
-        //因为fgets会保留输入中换行符,故判断加\n
-        if (!strcmp(message, "q\n") || !strcmp(message, "Q\n"))
-        {
-            break;
-        }
-
-        write(serv_sock, message, sizeof(message));
-        read(serv_sock, message, BUF_SIZE - 1);
-        printf("Message from server: %s\n", message);
-    }
-
-    close(serv_sock);
-    return 0;
-}
-```
 
 
 
@@ -1170,58 +1183,813 @@ int main(int argc, char *argv[])
 
 
 
+##   Linux/C时间函数
+
+​      time () 提供了秒级的精确度，用 time () 函数结合其他函数（如：localtime、gmtime、asctime、ctime）可以获得当前系统时间或是标准时间。如果需要更高的时间精确度，就需要 `struct timespec` 和 `struct timeval `来处理。
+
+![](C:\文档\Markdown\time.png)
+
++ 通过系统调用函数 time () 可以从内核获得一个类型为 time_t 的 1 个值，该值叫 calendar 时间，即从 1970 年 1 月 1 日的 UTC 时间从 0 时 0 分 0 妙算起到现在所经过的秒数。而该时间也用于纪念 UNIX 的诞生。
++ 函数 gmtime ()、localtime () 可以将 calendar 时间转变成 struct tm 结构体类型变量中。通过该结构体成员可以很方便的得到当前的时间信息。我们也可以通过函数 mktime 将该类型结构体的变量转变成 calendar 时间。
++ asctime () 和 ctime () 函数产生形式的 26 字节字符串，这与 date 命令的系统默认输出形式类似：Tue Feb 10 18:27:38 2020/n/0.
++ strftime () 将一个 struct tm 结构格式化为一个字符串。
 
 
 
-## 2.3 Linux/C进程与线程
+###   一般时间函数
+
+####   相关结构体
+
+```c
+#include<types.h>
+#ifndef _CLOCK_T
+#define _CLOCK_T
+	typedef    long   clock_t;
+#endif 
+
+
+// time_t  类型：长整型，一般用来表示从 1970-01-01 00:00:00 时以来的秒数，精确度：秒；由函数 time () 获取；
+#define _TIME_T
+	typedef   long   time_t;        
+#endif 
+
+#include <sys/timeb.h>
+// struct timeb 结构：它有两个主要成员，一个是秒，另一个是毫秒；精确度：毫秒 (10E-3 秒)；
+struct  timeb{
+    time_t   time;                      /* 为 1970-01-01 至今的秒数 */
+    unsigned   short   millitm;        /* 千分之一秒即毫秒 */
+    short   timezonel;               /* 为目前时区和 Greenwich 相差的时间，单位为分钟 */
+    short   dstflag;                   /* 为日光节约时间的修正状态，如果为非 0 代表启用日光节约时间修正 */
+};
+
+// struct timespec 有两个成员，一个是秒，一个是纳秒，所以最高精确度是纳秒。
+struct  timespec
+{
+	time_t    tv_sec;        // 秒   
+	long       tv_nsec;       //纳秒
+};
+
+//struct  timeval 结构，它有两个成员；一个是秒，另一个表示微秒，所以最高精确度是微秒，精确度：微秒 (10E-6)；
+struct  timeval
+{
+    long  tv_sec;    //秒
+    long  tv_usec;  // 微秒
+};
+
+//timespec和timeval两者的区别是 timespec 的第二个参数是纳秒数，而 timeval 的第二个参数是毫秒数。
+
+//struct  timezone 结构的定义为：
+struct  timezone
+{
+    int  tz_minuteswest; 
+    int  tz_dsttime;        
+};
+
+// 结构 tm 的定义为
+struct tm
+{
+    int   tm_sec;    //tm_sec 代表目前秒数，正常范围为 0-59，但允许至 61 秒
+    int   tm_min;    // tm_min 代表目前分数，范围 0-59
+    int   tm_hour;    //tm_hour 从午夜算起的时数，范围为 0-23 
+    int   tm_mday;    //tm_mday 目前月份的日数，范围 01-31 
+    int   tm_mon;    // tm_mon 代表目前月份，从一月算起，范围从 0-11
+    int   tm_year;   //tm_year 从 1900 年算起至今的年数
+    int   tm_wday;   // tm_wday 一星期的日数，从星期一算起，范围为 0-6
+    int   tm_yday;   // tm_yday 从今年 1 月 1 日算起至今的天数，范围为 0-365
+    int tm_isdst;    //tm_isdst 日光节约时间的旗标
+};
+
+```
 
 
 
-### 2.2.1 什么是系统调用
+####    time函数
+
+```c
+// 头文件：time.h
+// 函数定义：
+ time_t   time (time_t*  lpt)；
+```
+
+说明： 返回从1970年1月1日的UTC时间从0时0分0妙算起到现在所经过的秒数。
+
+```c
+#include<stdio.h>
+#include<time.h>
+int main(){
+ time_t timep;
+ 
+ long seconds = time(&timep);
+ printf("%ld\n",seconds);
+ printf("%ld\n",timep);
+ return 0;
+}
+```
 
 
 
 
 
-### 2.2.2 函数运行时在内存中是什么样子？
+
+
+####   ctime函数
+
+```
+char *ctime(const time_t *timep);
+```
+
+说明：将参数所指的time_t结构中的信息转换成真实世界的时间日期表示方法，然后将结果以字符串形式返回。
+注意这个是本地时间。
+
+```c
+#include <stdio.h>
+#include<time.h>
+int main(void) {
+ time_t timep;
+ 
+ time(&timep);
+ printf("%s\n",ctime(&timep));
+ return 0;
+}
+```
 
 
 
-### 2.2.3 线程间到底共享了哪些进程资源？
+####    gmtime 函数
 
+```c
+struct tm *gmtime(const time_t *timep);
+```
 
-
-
-
-### 2.2.4 写给大忙人看的进程和线程
-
-
-
-
-
-### 2.2.5 进程通信 (IPC) 方式
-
-
-
-
-
-### 2.2.6 进程间同步方式
-
-
-
-
-
-### 2.2.7 线程同步方式
-
-
-
-
-
-### 2.2.8 线程间同步方式
+说明：将参数timep所指的time_t结构中的信息转换成真实世界所使用的时间日期表示方法，然后将结果由结构tm返回。此函数返回的时间日期未经时区转换，而是UTC时间。
 
 
 
 
 
-# 附录
+```c
+#include <stdio.h>
+#include<time.h>
+ 
+int main(void){
+    char *wday[] = {"Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
+ 
+ 	time_t timep;
+	struct tm *p;
+ 
+ 	time(&timep);
+ 	p = gmtime(&timep);
+ 	printf("%d/%d/%d ",(1900+p->tm_year),(1+p->tm_mon),p->tm_mday);
+ 	printf("%s %d:%d:%d\n",wday[p->tm_wday],p->tm_hour,p->tm_min,p->tm_sec);
+ 	return 0;
+}
+```
+
+
+
+
+
+####    strftime 函数
+
+```c
+#include <time.h> 
+size_t strftime(char *s, size_t max, const char *format,const struct tm *tm);
+```
+
+说明：
+类似于snprintf函数，我们可以根据format指向的格式字符串，将struct tm结构体中信息输出到s指针指向的字符串中，最多为max个字节。当然s指针指向的地址需提前分配空间，比如字符数组或者malloc开辟的堆空间。
+其中，格式化字符串各种日期和时间的详细的确切表示方法有如下多种，我们可以根据需要来格式化各种各样的含时间字符串。
+
++ %a 星期几的简写
+
++  %A 星期几的全称
+
++ %b 月分的简写
+
++ %B 月份的全称
+
++ %c 标准的日期的时间串
+
++ %C 年份的前两位数字
+
++ %d 十进制表示的每月的第几天
+
++ %D 月/天/年
+
++ %e 在两字符域中，十进制表示的每月的第几天
+
++ %F 年-月-日
+
++ %g 年份的后两位数字，使用基于周的年
+
++  %G 年分，使用基于周的年
+
++ %h 简写的月份名
+
++ %H 24小时制的小时
+
++ %I 12小时制的小时
+
++ %j 十进制表示的每年的第几天
+
++ %m 十进制表示的月份
+
++ %M 十时制表示的分钟数
+
++ %n 新行符
+
++ %p 本地的AM或PM的等价显示
+
++ %r 12小时的时间
+
++ %R 显示小时和分钟：hh:mm
+
++ %S 十进制的秒数
+
++  %t 水平制表符
+
++ %T 显示时分秒：hh:mm:ss
+
++ %u 每周的第几天，星期一为第一天 （值从0到6，星期一为0）
+
++ %U 第年的第几周，把星期日做为第一天（值从0到53）
+
++ %V 每年的第几周，使用基于周的年
+
++ %w 十进制表示的星期几（值从0到6，星期天为0）
+
++ %W 每年的第几周，把星期一做为第一天（值从0到53）
+
++ %x 标准的日期串
+
++ %X 标准的时间串
+
++ %y 不带世纪的十进制年份（值从0到99）
+
++ %Y 带世纪部分的十制年份
+
++ %z，%Z 时区名称，如果不能得到时区名称则返回空字符。
+
++ %% 百分号
+  返回值：
+  成功的话返回格式化之后s字符串的字节数，不包括null终止字符，但是返回的字符串包括null字节终止字符。否则返回0，s字符串的内容是未定义的。值得注意的是，这是libc4.4.4以后版本开始的。对于一些的老的libc库，比如4.4.1，如果给定的max较小的话，则返回max值。即返回字符串所能容纳的最大字节数。
+
+  ```c
+  #include <stdio.h>
+  #include <time.h>
+  #define BUFLEN 255
+  int main(int argc, char **argv)
+  {
+  	time_t t = time( 0 );   
+      char tmpBuf[BUFLEN];                                                                           
+      strftime(tmpBuf, BUFLEN, "%Y%m%d%H%M%S", localtime(&t)); //format date a
+      printf("%s\n",tmpBuf);
+      return 0;
+  }
+  ```
+
+####    asctime 函数
+
+```c
+char *asctime(const struct tm *timeptr);
+```
+
+ 将参数timeptr所指的struct tm结构中的信息转换成真实时间所使用的时间日期表示方法，结果以字符串形态返回。与ctime()函数不同之处在于传入的参数是不同的结构。
+返回值：返回的也是UTC时间。
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+int main(void) {
+    time_t timep;
+    time(&timep);
+    printf("%s\n",asctime(gmtime(&timep)));
+    return EXIT_SUCCESS;
+}
+```
+
+
+
+####    localhost 函数
+
+```c
+struct tm *localhost(const time_t *timep);
+//取得当地目前的时间和日期
+```
+
+
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+
+int main(void) {
+    char *wday[] = {"Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
+ 	time_t timep;
+ 	struct tm *p;
+
+ 	time(&timep);
+ 	p = localtime(&timep);
+ 	printf("%d/%d/%d ",(1900+p->tm_year),(1+p->tm_mon),p->tm_mday);
+ 	printf("%s %d:%d:%d\n",wday[p->tm_wday],p->tm_hour,p->tm_min,p->tm_sec);
+ 	return EXIT_SUCCESS;
+}
+```
+
+
+
+####   mktime 函数
+
+````c
+time_t mktime(struct tm *timeptr);
+````
+
+ 用来将参数timeptr所指的tm结构数据转换成从1970年1月1日的UTC时间从0时0分0妙算起到现在所经过的秒数。
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+ 
+int main(void) {
+ time_t timep;
+ struct tm *p;
+ 
+ time(&timep);
+ printf("time():%ld\n",timep);
+ p = localtime(&timep);
+ timep = mktime(p);
+ printf("time()->localtime()->mktime():%ld\n",timep);
+ return EXIT_SUCCESS;
+}
+```
+
+####   gettimeofday 函数
+
+
+
+```c
+int  gettimeofday(struct  timeval*  tv，struct  timezone*  tz);
+//该函数会提取系统当前时间，并把时间分为秒和微秒两部分填充到结构 struct  timeval 中；同时把当地的时区信息填充到结构 struct  timezone 中；
+// 返回值：成功则返回 0，失败返回－1，错误代码存于 errno。附加说明 EFAULT 指针 tv 和 tz 所指的内存空间超出存取权限。
+
+
+//struct  timeval 结构，它有两个成员；一个是秒，另一个表示微秒，精确度：微秒 (10E-6)；
+struct  timeval
+{
+    long  tv_sec;  
+    long  tv_usec;  
+}
+
+//struct  timezone 结构的定义为：
+struct  timezone
+{
+    int  tz_minuteswest; 
+    int  tz_dsttime;        
+}
+```
+
+
+
+
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+#include<sys/time.h>
+ 
+int main(void) {
+    struct timeval tv;
+	struct timezone tz;
+	gettimeofday(&tv,&tz);
+	printf("tv_sec :%d\n",tv.tv_sec);
+	printf("tv_usec: %d\n",tv.tv_usec);
+	printf("tz_minuteswest:%d\n",tz.tz_minuteswest);
+	printf("tz_dsttime:%d\n",tz.tz_dsttime);
+	return EXIT_SUCCESS;
+}
+```
+
+
+
+####    ftime函数
+
+```c
+//表头文件：
+#include <sys/timeb.h>
+//函数定义：
+int ftime (struct timeb *tp);
+//函数说明：ftime () 将目前日期由 tp 所指的结构返回,ftime () 函数取得目前的时间和日期。
+
+#include <sys/timeb.h>
+// struct timeb 结构：它有两个主要成员，一个是秒，另一个是毫秒；精确度：毫秒 (10E-3 秒)；
+struct  timeb{
+    time_t   time;                      /* 为 1970-01-01 至今的秒数 */
+    unsigned   short   millitm;        /* 千分之一秒即毫秒 */
+    short   timezonel;               /* 为目前时区和 Greenwich 相差的时间，单位为分钟 */
+    short   dstflag;                   /* 为日光节约时间的修正状态，如果为非 0 代表启用日光节约时间修正 */
+};
+
+```
+
+
+
+####    clock函数
+
+```c
+clock_t   clock(void);
+// 该函数以微秒的方式返回 CPU 的时间；
+```
+
+
+
+####   gethrestime、gethrestime_lasttick函数
+
+ 
+
+```c
+#include<time_impl.h>
+void   gethrestime(timespec_t*);
+void   gethrestime_lasttick(timespec_t*);
+
+// struct timespec 有两个成员，一个是秒，一个是纳秒，所以最高精确度是纳秒。
+struct  timespec
+{
+	time_t    tv_sec;           
+	long       tv_nsec;         
+};
+```
+
+
+
+
+
+
+
+
+
+###   定时器相关函数
+
+最强大的定时器接口来自 POSIX 时钟系列，其创建、初始化以及删除一个定时器的行动被分为三个不同的函数：timer_create()(创建定时器)、timer_settime()(初始化定时器) 以及 timer_delete (销毁它)。
+
+
+
+####   相关结构体
+
+````c
+#include <signal.h>
+
+union sigval {          /* Data passed with notification */
+    int  sival_int;         /* Integer value */
+    void   *sival_ptr;      /* Pointer value */
+};
+
+struct sigevent {
+    int sigev_notify; /* Notification method */
+    int sigev_signo;  /* Notification signal */
+    union sigval sigev_value;  /* Data passed with notification */
+    void (*sigev_notify_function) (union sigval);/* Function used for thread notification (SIGEV_THREAD) */
+    void *sigev_notify_attributes;/* Attributes for notification thread (SIGEV_THREAD) */
+    pid_t sigev_notify_thread_id; /* ID of thread to signal (SIGEV_THREAD_ID) */
+};
+
+
+struct itimerspec
+  {
+    struct timespec it_interval;  //该值表示定时器启动后定时周期是多少
+    struct timespec it_value;  //该值表示过多久开始启动定时器
+  };
+
+// struct timespec 有两个成员，一个是秒，一个是纳秒，所以最高精确度是纳秒。
+struct  timespec
+{
+	time_t    tv_sec;        // 秒   
+	long       tv_nsec;       //纳秒
+};
+````
+
+
+
+
+
+####   time_creat()函数
+
+```c
+int timer_create(clockid_t clock_id, struct sigevent *evp, timer_t *timerid);
+```
+
+函数说明：创建一个 POSIX 标准的定时器，函数返回值：返回 0 表示成功，返回 - 1 表示失败。
+参数说明：
+
++ clock_id：系统时钟的宏，该参数表明了定时器是基于哪个系统时钟来创建的。常见的宏有以下：
+
+  ```c
+  #define CLOCK_REALTIME    0    
+  //表示从1970.1.1到目前系统时间，属于相对时间
+  
+  #define CLOCK_MONOTONIC   1
+  //单调的时间，也是绝对的时间，表示系统开启到目前的时间
+  
+  #define CLOCK_PROCESS_CPUTIME_ID  2
+  // 本进程到当前代码系统CPU花费的时间
+  
+  #define CLOCK_THREAD_CPUTIME_ID  3
+  //本线程到当前代码系统CPU花费的时间
+  ```
+
+  除了以上宏，还有七种系统时钟的宏，这里就不一一介绍了，在 time.h 中可以查看。
+
++ evp: 环境值，其结构体主要成员以下有如下：
+
+  ```c
+  struct sigevent {
+      int sigev_notify; /* Notification method */
+      int sigev_signo;  /* Notification signal */
+      union sigval sigev_value;  /* Data passed with notification */
+      void (*sigev_notify_function) (union sigval);/* Function used for thread notification (SIGEV_THREAD) */
+      void *sigev_notify_attributes;/* Attributes for notification thread (SIGEV_THREAD) */
+      pid_t sigev_notify_thread_id; /* ID of thread to signal (SIGEV_THREAD_ID) */
+  };
+  
+  
+  union sigval {          /* Data passed with notification */
+   	int  sival_int;         /* Integer value */
+      void   *sival_ptr;      /* Pointer value */
+  };
+  ```
+
+  sigev_notify 表示定时器到期后需要采取的行为，它的取值有如下几种：
+
+  ```c
+  //sigev_notify 表示定时器到期后需要采取的行为，它的取值有如下几种：
+  enum
+  {
+  	SIGEV_SIGNAL = 0, // 设置该值时说明定时器到期时会产生信号，该信号由sigev_signo指定,向进程发送 sigev_signo 中指定的信号，这涉及到 sigaction 的使用;
+  	SIGEV_NONE , // 设置该值防止定时器到期时产生信号,空的提醒，事件发生时不做任何事情;
+  	SIGEV_THREAD, //通过线程创建传递信号，通知进程在一个新的线程中启动 sigev_notify_function 函数，函数的实参是 sigev_value，系统 API 自动启动一个线程，我们不用显式启动;
+  	SIGEV_THREAD_ID //表示信号会发送到指定的线程;
+  }
+  ```
+
+  sigev_signo 表示定时器到期时将会发出的信号。这些信号在 signum.h 中有定义。常用的信号由如下：
+
+  ```c
+  #define SIGALRM 		14 // 时钟信号
+  #define SIGUSR1			10 //用户自定义信号1
+  #define SIGUSR2 		12  //用户自定义信号2
+  ...
+  ```
+
+  还有最后一个成员是 sigev_value，它则是来绑定定时器的。表示这些设置的环境将会作用到哪个定时器上。
+
++ 该函数最后一个参数是 timerid，表示定时器的 id，定时器创建成功，将会产生一个 id，而该 id 就会被赋值给 timerid。
+
+
+
+
+
+####   timer_settime函数
+
+经过上述函数创建了一个定时器之后，还需要设置定时器的定时周期以及启动时钟周期（即过了多久开始启动时钟）。这项工作交由 timer_settime 接口来完成。
+
+函数返回值：返回 0 表示成功，返回 - 1 表示失败。
+
+其函数原型如下：
+
+```c
+int timer_settime (timer_t timerid, int flags, const struct itimerspec *value, struct itimerspec *old_value);
+```
+
+函数参数说明：
+
++ timer_id：定时器的 ID，指定初始化的定时器，由 timer_create 函数产生。
+
++ flags：0 表示相对时间，1 表示绝对时间。
+
++ value：保存一个结构体的地址，该结构体就包含了定时周期以及启动周期。
+  结构体如下：
+
+  ```c
+  struct itimerspec
+  {
+      struct timespec it_interval;  //该值表示定时器启动后定时周期是多少
+      struct timespec it_value;    //该值表示过多久开始启动定时器
+  };
+  // it_value 用于指定当前的定时器到期时间。当定时器到期，it_value 的值会被更新成 it_interval 的值。如果 it_interval 的值为 0，则定时器不是一个时间间隔定时器，一旦 it_value 到期就会回到未启动状态。
+  ```
+  
+  ``` c
+    // 而结构体 timespec 则有两个成员，分别是秒和纳秒，如下：
+    struct timespec
+    {
+      __time_t tv_sec;		        /* Seconds.秒  */
+      __syscall_slong_t tv_nsec;	/* Nanoseconds.纳秒  */
+    };
+  ```
+  
+  
+
+可见该定时器的精准度还是非常高的。
+
++ 参数 old_value 通常情况下都是取 0 值或者 NULL。
+
+
+
+####   timer_delete函数
+
+任务完成后，不需要定时器则可以使用下面的接口来删除定时器。
+函数原型：
+
+```c
+int timer_delete (timer_t __timerid);
+```
+
+函数只有一个参数，即定时器的 ID，表明删除指定 id 的定时器。
+
+好了，现在定时器有了，并且也可以设置定时器到期时产生的信号，现在就差信号产生时，怎么去触发执行指定的任务了。这就需要 signal 函数介入了。
+
+
+
+####   signal 函数
+
+```c
+void (*signal(int sig, void (*func)(int)))(int);
+```
+
+函数说明：该函数是用于设置捕获到某一信号时所要采用的动作。
+参数说明：
+
++ sig：指明了所要处理的信号类型，它可以取除 SIGKILL 和 SIGSTOP 之外的任意信号。
++ 第二个参数则是一个函数指针，该函数无返回值，且包含一个 int 型的参数，表明了当产生信号时，函数指针指向的函数将会被调用。
+  
+
+
+
+> 实例
+>
+> >  接下来看一个简单的小例子来了解一下定时器的使用。该程序的功能就是在 while 中隔 1s 打印一个字符串，10s 后退出 while 结束打印。
+>
+> ```c
+> #include<stdio.h>
+> #include<signal.h>
+> #include<time.h>
+> #include<string.h>
+> #include <unistd.h>
+> 
+> static bool flag = true;
+> timer_t timeid;  //定义一个全局的定时器id
+> 
+> void task(int i)
+> {
+>     printf("task start\n");
+>     flag = false;
+> }
+> 
+> void create_timer()
+> {
+> /****创建定时器***********/
+>     struct sigevent evp;  //环境结构体
+>     int ret = 0;
+> 
+>     memset(&evp, 0, sizeof(struct sigevent));
+> 
+>     evp.sigev_value.sival_ptr = &timeid;    //绑定i定时器
+>     evp.sigev_notify = SIGEV_SIGNAL;  //设置定时器到期后触发的行为是为发送信号
+>     evp.sigev_signo = SIGUSR1;  //设置信号为用户自定义信号1
+>     signal(SIGUSR1, task);  //绑定产生信号后调用的函数
+> 
+>     ret = timer_create(CLOCK_REALTIME, &evp, &timeid);  //创建定时器
+>     if( ret  == 0)
+>     {
+>         printf("timer_create ok\n");
+>     }    
+> }
+> 
+> void init_timer()
+> {
+>     int ret = 0;
+>     struct itimerspec ts;
+>     ts.it_interval.tv_sec = 1;  //设置定时器的定时周期是1s
+>     ts.it_interval.tv_nsec = 0;
+>     ts.it_value.tv_sec = 10;  //设置定时器10s后启动
+>     ts.it_value.tv_nsec = 0;
+> 
+>     ret = timer_settime(timeid, 0, &ts, NULL);  //初始化定时器
+>     if( ret ==0)
+>         printf("timer_settime ok\n");
+> }
+> 
+> int main()
+> {
+>     create_timer();
+>     init_timer();
+>     while(flag)
+>     {
+>         printf("ss\n");
+>         usleep(1000*1000);
+>     }
+> }
+> ```
+>
+> 
+
+
+
+
+
+####  sigaction函数
+
+signum 参数指出要捕获的信号类型，act 参数指定新的信号处理方式，oldact 参数输出先前信号的处理方式（如果不为 NULL 的话）。
+
+ signal 函数的使用方法简单，但并不属于 POSIX 标准，在各类 UNIX 平台上的实现不尽相同，因此其用途受到了一定的限制。而 POSIX 标准定义的信号处理接口是 sigaction 函数，其接口头文件及原型如下：
+
+```c
+// sigaction 函数的功能是检查或修改与指定信号相关联的处理动作（可同时两种操作）
+int sigaction(int signum, const struct sigaction *act, struct sigaction *oldact);
+```
+
++  signum：要操作的信号。
++  act：要设置的对信号的新处理方式。
++ oldact：原来对信号的处理方式。
++ 返回值：0 表示成功，-1 表示有错误发生。
+
+```c
+struct sigaction {
+    void (*sa_handler)(int);
+    void (*sa_sigaction)(int, siginfo_t *, void *);
+    sigset_t sa_mask;
+    int sa_flags;
+    void (*sa_restorer)(void);
+}
+```
+
++ sa_handler 此参数和 signal () 的参数 handler 相同，代表新的信号处理函数；
++ sa_mask 用来设置在处理该信号时暂时将 sa_mask 指定的信号集搁置；
++ sa_flags 用来设置信号处理的其他相关操作，下列的数值可用；
++ SA_RESETHAND：当调用信号处理函数时，将信号的处理函数重置为缺省值 SIG_DFL；
++ SA_RESTART：如果信号中断了进程的某个系统调用，则系统自动启动该系统调用；
++ SA_NODEFER ：一般情况下， 当信号处理函数运行时，内核将阻塞该给定信号。但是如果设置了 SA_NODEFER 标记， 那么在该信号处理函数运行时，内核将不会阻塞该信号；
+
+
+
+
+
+
+
+
+
+##   Linux/C进程与线程
+
+
+
+###   什么是系统调用
+
+
+
+
+
+###   函数与内存？
+
+
+
+###   线程间共享了哪些进程资源？
+
+
+
+
+
+###   进程和线程
+
+
+
+
+
+###   进程通信 (IPC) 方式
+
+
+
+
+
+###   进程间同步方式
+
+
+
+
+
+###   线程同步方式
+
+
+
+
+
+###   线程间同步方式
+
+
+
+
+
+#  附录
 
