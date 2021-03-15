@@ -3769,7 +3769,7 @@ struct sigaction {
 
 
 
-> 实例1：
+> [实例1：](https://blog.csdn.net/weibo1230123/article/details/81411827)
 
 ```c
 //实例1
@@ -3822,7 +3822,7 @@ int main()
 
 
 
-> 实例2
+> [实例2](https://blog.csdn.net/weibo1230123/article/details/81411827)
 
 ```c
 // 实例2
@@ -3859,9 +3859,7 @@ int main(void)
 
 
 
-
-
-> 实例3
+> [实例3](https://blog.csdn.net/weibo1230123/article/details/81411827)
 
 ```c
 //实例3
@@ -3942,7 +3940,7 @@ My PID is 5904
 
 
 
-> 实例4
+> [实例4](http://c.biancheng.net/cpp/html/1142.html)
 
 ```c
 // 范例4
@@ -3996,7 +3994,85 @@ sa_handler of signal 14 = Default action
 
 
 
+> [实例5](https://ixyzero.com/blog/archives/3431.html)
 
+```c
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
+#include <errno.h>
+static void sig_usr(int signum)
+{
+    if(signum == SIGUSR1)
+    {
+        printf("SIGUSR1 received\n");
+    }
+    else if(signum == SIGUSR2)
+    {
+        printf("SIGUSR2 received\n");
+    }
+    else
+    {
+        printf("signal %d received\n", signum);
+    }
+}
+int main(void)
+{
+    char buf[512];
+    int  n;
+/*
+    sigset_t mask;
+    sigfillset(&mask); //将参数 mask 信号集初始化，然后把所有的信号加入到此信号集里，在这里表示屏蔽所有信号
+    sigdelset(&mask, SIGUSR1); //删除set中的SIGUSR1信号，即——不屏蔽SIGUSR1信号
+    sigdelset(&mask, SIGUSR2); //不屏蔽SIGUSR2信号
+    sigprocmask(SIG_SETMASK, &mask, NULL); //参数SIG_SETMASK指定屏蔽mask中包含的信号集
+*/
+    struct sigaction sa_usr;
+    sa_usr.sa_flags = 0;
+    sa_usr.sa_handler = sig_usr;   //信号处理函数
+    sigaction(SIGUSR1, &sa_usr, NULL);
+    sigaction(SIGUSR2, &sa_usr, NULL);
+    printf("My PID is %d\n", getpid());
+    while(1)
+    {
+        if((n = read(STDIN_FILENO, buf, 511)) == -1)
+        {
+            if(errno == EINTR)
+            {
+                printf("read is interrupted by signal\n");
+            }
+        }
+        else
+        {
+            buf[n] = '\0';
+            printf("%d bytes read: %s\n", n, buf);
+        }
+    }
+    return 0;
+}
+```
+
+在这个例子中使用 sigaction 函数为 SIGUSR1 和 SIGUSR2 信号注册了处理函数，然后从标准输入读入字符。程序运行后首先输出自己的 PID，如：
+
+```bash
+My PID is 5904
+```
+
+这时如果从另外一个终端向进程发送 SIGUSR1 或 SIGUSR2 信号，用类似如下的命令：
+kill -USR1 5904
+
+则程序将继续输出如下内容：
+
+```bash
+SIGUSR1 received
+read is interrupted by signal
+```
+
+这说明用 sigaction 注册信号处理函数时，不会自动重新发起被信号打断的系统调用。如果需要自动重新发起，则要设置 SA_RESTART 标志，比如在上述代码中可以进行类似一下的设置：
+
+```c
+sa_usr.sa_flags = SA_RESTART;
+```
 
 
 
