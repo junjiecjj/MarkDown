@@ -10,7 +10,7 @@
 
 ###  搜狗输入法安装
 
-> 1. 去[搜狗输入法官网](https://pinyin.sogou.com/linux/)下载.deb安装包；
+1. 去[搜狗输入法官网](https://pinyin.sogou.com/linux/)下载.deb安装包；
 
 2. 去Ubuntu软件商店搜索fcitx，并安装所有搜索结果；
 3. sudo dpkg -i sougou-xxx.deb
@@ -4994,6 +4994,7 @@ sort <f | head
 
 
 ###   线程间同步方式
+
 
 
 
