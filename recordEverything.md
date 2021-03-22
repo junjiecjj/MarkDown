@@ -257,11 +257,383 @@ sudo ./install.py
 
 
 
+### [在 Ubuntu 20.04 上安装 Microsoft Edge 浏览器](https://mp.weixin.qq.com/s/E2EBTzQMy4PjVbGEJ1VM3g)
+
+```bash
+sudo apt update
+sudo apt install software-properties-common apt-transport-https wget
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main"
+sudo apt install microsoft-edge-dev
+#至此，您已经在 Ubuntu 系统上安装了 Edge。
+#发布新版本时，可以通过桌面标准软件更新工具或在终端中运行以下命令来更新 Edge 软件包：
+sudo apt update
+sudo apt upgrade
+#也可以通过输入命令行从命令行启动
+microsoft-edge
+```
+
+
+
 ###  PDF阅读器
 
 + sudo apt install okular
 
 
+
+### [ST终端](https://cloud.tencent.com/developer/article/1771532)
+
+<https://avimitin.com/system/simpleterminal.html>
+
+`linux` 下有许多优秀的 `Termainl`，我在用的有`deepin-terminal`,`alacritty`,‘simple terminal’.`alacritty` 是一款使用显卡渲染的终端模拟器，非常的快并且流畅，并且支持终端显示图片，所以比 `deepin-terminal` 更让我喜欢，然而 `simple terminal` 确实一款十分简单的终端模拟器，虽然简单但功能却一个不少，体积更小。甚至连配置文件都没有，每次更改配置都要修改源代码并且编译生成程序，实在是够简单。 但是在 `deepin` 上无法直接安装，需要安装几个依赖的软件。
+
+```javascript
+sudo apt install libx11-dev
+sudo apt install libxft-dev
+```
+
+#### install
+
+官方地址 ：https://st.suckless.org/ 。最后有一个 `Download` 但是不建议直接下载，可能版本比较老，上面有个 git 链接，可以直接克隆源仓库。
+
+```javascript
+git clone https://git.suckless.org/st
+```
+
+如果是 deepin 操作系统，还需要更改源代码中的 `config.mk` 文件，更改刚才安装的依赖软件位置
+
+```javascript
+# 更改如下
+X11INC = /usr/X11R6/X11                                               
+X11LIB = /usr/include/X11
+```
+
+编译安装：`sudo make clean install` 此时通过 st 命令即可打开。
+
+#### 更改配置
+
+前面也说了，st 没有配置文件，所以我们直接进源码目录，找到 config.h 文件，通过注释来更改自己的内容，一般更改字体跟窗口大小即可，后面可以通过打补丁的方式增加更多的功能。
+
+```javascript
+# config.h 
+static char *font = "JetBrains Mono:pixelsize=24:antialias=true:autohint=true"; # 更改字体跟大小
+sudo make clean install # 重新编译并安装，使用 st 命令即可打开。
+```
+
+#### 添加补丁
+
+在官方地址左侧存在一列 Patch, 即为补丁列表，其中有更改外观的，比如透明度，颜色。也有增加功能的。 [官方补丁地址](https://st.suckless.org/patches/)
+
+1. 下载补丁到本地，可以使用 `wget ` + 链接来直接下载到源码目录下。
+2. 安装补丁：
+
+```javascript
+patch < fillname # 补丁文件
+```
+
+1. 设置配置文件，因为 `config.xxx.h` 文件是模板文件，真正的配置文件是 `config.h` ,推荐删除那个模板文件，当补丁执行后询问配置文件时输入 `config.h` 即可。 如果报权限问题使用 `sudo patch <` 来打补丁。
+
+- 成功：如果补丁成功，输出全部是 `success`，直接编译运行即可查看补丁的实际效果。
+- 失败：如果失败，也会响应的输出，打开补丁文件可以发现，所有的补丁文件都是一个 `diff` 文件，文件描述了补丁文件与配置文件的差异，+ 符号代表是需要添加的内容，- 代表需要删除的内容，根据文件描述来手动修改 `config.h` 文件即可，出现错误的原因就是没有自动的完成替换，那就手动完成。
+
+#### 前言
+
+Sim­ple Ter­mi­nal 是一个基于 X 的终端，拥有非常棒的 Uni­code 和 Emoji 的支持，同时也支持 256 色，拥有绝大部分的终端特性，但是却极其微小，就算在我打了许多补丁之后，他仍然只占用 108K 的存储空间，快且轻量，是重度终端用户的一个很不错的选择。
+
+
+
+[![预编译的 st 仅占用 108k](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210210155347.png#vwid=910&vhei=157)](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210210155347.png#vwid=910&vhei=157)预编译的 st 仅占用 108k
+
+
+
+本篇文章目的在教你打造一个自己的 st，如果没有需求也可以前往我的[仓库](https://github.com/Avimitin/st)克隆我的源码，直接编译安装就可以了。
+
+#### 下载源码
+
+Sim­ple Ter­mi­nal 的官网：https://st.suckless.org/ ，不需要下载 Down­load 的那个 st ，直接 clone 源码仓库就好：
+
+```bash
+git clone https://git.suckless.org/st
+```
+
+#### 安装依赖
+
+Sim­ple Ter­mi­nal (以下简称 st) 需要 `libx11-dev` 和 `libxft-dev` 两个包，对于 De­bian 和 Ubuntu 用户来说直接使用 apt 安装即可，Arch 系的大部分发行版都已经包含。
+
+克隆官方的仓库之后，编辑 `config.mk` 文件，编译时 st 会基于这个文件进行配置，一般来说只需要改两行即可：
+
+```makefile
+X11INC = /usr/local/X11
+X11LIB = /usr/local/X11
+```
+
+然后用 root 权限执行编译安装：
+
+```bash
+sudo make clean install
+```
+
+文件会复制到 `/usr/local/bin/` 目录下，一般直接执行就能启动。
+
+#### 配置
+
+一般直接安装就能用了，但是没有人会喜欢一个黑黝黝字体那么丑的终端，所以需要进行一些基础配置。
+
+st 没有配置文件，所有的配置都是直接编译进二进制文件里的，在第一次执行完 `make install` 之后 st 目录下应该有个 `config.def.h` 和 `config.h` 文件，直接删除 `config.def.h` ，然后修改 `config.h`：
+
+- 修改字体
+
+在第一行就能看到一行 `...font...` 字样，你可以修改里面的字体名和文字大小
+
+```c
+static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+```
+
+建议你使用 Jet­brains Mono 或者 Fira Mono 这类有 nerd font 补丁的等宽字体，nerd fonts 可以在 github 下载：https://github.com/ryanoasis/nerd-fonts/releases 。下载完之后解压到 `~/.config/fonts` 文件夹并执行命令 `fc-cache -fv` 刷新字体缓存，然后回到 `config.h` 文件修改字体：
+
+```diff
+-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
++static char *font = "JetbrainsMono Nerd Font:pixelsize=24:antialias=true:autohint=true";
+```
+
+然后重新执行 `sudo make clean install` 安装。
+
+- 修改主题
+
+你可以在 http://terminal.sexy/ 上点击 Scheme Browser 选择喜欢的主题，然后点击 Ex­port，For­mat 选择 `Simple Terminal` 然后复制即可。
+
+打开 `config.h` 文件，找到 `/* Terminal Color...` 这行，把复制的文字替换即可。比如我这里选择了 To­mor­row Night 主题：
+
+```diff
+-       "black",
+-       "red3",
+-       "green3",
+-       "yellow3",
+-       "blue2",
+-       "magenta3",
+-       "cyan3",
+-       "gray90",
+-
+-       /* 8 bright colors */
+-       "gray50",
+-       "red",
+-       "green",
+-       "yellow",
+-       "#5c5cff",
+-       "magenta",
+-       "cyan",
+-       "white",
+-
+-       [255] = 0,
+-
+-       /* more colors can be added after 255 to use with DefaultXX */
+-       "#cccccc",
+-       "#555555",
++       [0] = "#1d1f21", /* black   */
++       [1] = "#cc6666", /* red     */
++       [2] = "#b5bd68", /* green   */
++       [3] = "#f0c674", /* yellow  */
++       [4] = "#81a2be", /* blue    */
++       [5] = "#b294bb", /* magenta */
++       [6] = "#8abeb7", /* cyan    */
++       [7] = "#c5c8c6", /* white   */
++
++/* 8 bright colors */
++       [8]  = "#969896", /* black   */
++       [9]  = "#cc6666", /* red     */
++       [10] = "#b5bd68", /* green   */
++       [11] = "#f0c674", /* yellow  */
++       [12] = "#81a2be", /* blue    */
++       [13] = "#b294bb", /* magenta */
++       [14] = "#8abeb7", /* cyan    */
++       [15] = "#ffffff", /* white   */
++
++       /* special colors */
++       [256] = "#1d1f21", /* background */
++       [257] = "#c5c8c6", /* foreground */
++
+ };
+```
+
+然后编译安装。
+
+- 打补丁
+
+你也可以给源码打上 diff 补丁来增加 st 的功能。补丁可以在官网 patches 页面下寻找：https://st.suckless.org/patches/ ，这里我推荐几个比较实用的补丁，别的可以根据自己需求安装。
+
+1. 背景透明
+
+首先是背景透明：https://st.suckless.org/patches/alpha/ ，通过给背景加上 al­pha 通道实现透明，打开页面下载最新的 0.8.2 版本，放到 st 仓库目录下后，执行命令打上补丁：
+
+```bash
+patch < st-alpha-0.8.2.diff
+```
+
+它会找不到 con­fig.def.h 然后询问你打到哪，你输入 con­fig.h 即可。
+
+你可能想修改透明度，找到下面这行修改值即可，1 即是不透明
+
+```diff
+- float alpha = 0.8;
++ float alpha = 0.2;
+```
+
+1. 然后是 [anysize](https://st.suckless.org/patches/anysize/)，可以帮助你的 simple terminal 适应各种大小的拉伸。
+2. 如果想在桌面启动 st，可以打上 [DesktopEntry](https://st.suckless.org/patches/desktopentry/) 补丁，他会帮你自动生成 .desktop 文件。
+3. 如果你的 st 显示 emoji 很奇怪你可能还会需要 [fontfix 补丁](https://github.com/Avimitin/st/blob/master/patches/st-fontfix.diff)
+4. 除此之外你还需要滚动终端显示内容，所以需要打上 [scrollback 补丁](https://st.suckless.org/patches/scrollback/)，默认下摁 Alt + PageUp 或 PageDown 翻页。
+
+如果你先修改上翻下翻的键位，可以参考下面：
+
+```diff
+-    { ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+-    { ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
++    { MODKEY,               XK_u,           kscrollup,      {.i = 1} },
++    { MODKEY,               XK_j,           kscrolldown,    {.i = 1} },
++    { MODKEY|ControlMask,   XK_u,           kscrollup,      {.i = -1} },
++    { MODKEY|ControlMask,   XK_j,           kscrolldown,    {.i = -1} },
+```
+
+这里我把上翻一行改为了 Mod + u （Mod 键即使 alt 键），下翻一行改为了 Mod + j，上翻一页改为 Mod + Ctrl + u。
+
+1. [font2](https://st.suckless.org/patches/font2/)，可以帮助你把 emoji 显示不正确的问题通过增加 fallback 的形式修复，你就不需要改变喜欢的字体了。
+
+> 如果在打补丁的时候遇到打不上错误的问题，他会在本地生成 con­fig.h.rej 文件你把里面带 + 号的复制到 con­fig.h 的指定位置，把带 - 的在 con­fig.h 里找到删除即可。
+
+#### 最后
+
+你也可以免去所有麻烦直接克隆我配置好的文件：
+
+```bash
+git clone git@github.com:Avimitin/st.git
+cd st
+sudo make clean install
+```
+
+或者前往 [release](https://github.com/Avimitin/st/releases)（可能有的修改不会及时上传）下载我预编译的 `linux-amd64` 版本。
+
+### 命令行浏览器w3m
+
+
+![img](https://img.linux.net.cn/data/attachment/album/202011/22/212553gpd6g2vzk20ve5sg.jpg)
+
+`w3m` 是一个流行的基于文本的开源终端 Web 浏览器。尽管其初始项目已经不再活跃，但另一个开发者 Tatsuya Kinoshita 正在维护着它的一个活跃分支。
+
+`w3m` 相当简单，支持 SSL 连接、色彩，也支持内嵌图片。当然，根据你试图访问的资源，你那边的情况可能会有所不同。根据我的简单测试，它似乎无法加载 [DuckDuckGo](https://duckduckgo.com/)，但我可以[在终端中使用 Google](https://itsfoss.com/review-googler-linux/)就够了。
+
+安装后，你可以简单的在终端中输入 `w3m` 以得到帮助。如果你感兴趣的话，也可以到 [GitHub](https://github.com/tats/w3m) 上去查看它的仓库。
+
+**如何安装和使用 w3m？**
+
+`w3m` 在任何基于 Debian 的 Linux 发行版的默认仓库中都是可用的。如果你有一个基于 Arch 的发行版，但没有直接可用的软件包，你可能需要查看一下 [AUR](https://itsfoss.com/aur-arch-linux/)。
+
+对于 Ubuntu，你可以通过键入以下内容来安装它：
+
+```bash
+sudo apt install w3m w3m-img
+```
+
+在这里，我们将 w3m 包和图片扩展一起安装，以支持内嵌图片。接下来，要开始安装，你只需要按照下面的命令进行操作即可：
+
+```bash
+w3m xyz.com
+```
+
+当然，你需要将 `xyz.com` 替换成任何你想浏览或测试的网站。最后，你应该知道，你可以使用键盘上的方向键来导航，当你想采取一个动作时，按回车键。
+
+要退出，你可以按 `SHIFT+Q`，返回上一页是 `SHIFT+B`。其他快捷键包括用 `SHIFT+T` 打开新标签页和用 `SHIFT+U` 打开新的 URL。
+
+你可以通过访问它的手册页来了解更多信息。
+
+### 命令行浏览器lynx
+
+
+![img](https://img.linux.net.cn/data/attachment/album/202011/22/212611h22p4g4db7k7fbpf.jpg)
+
+Lynx 是另一个开源的命令行浏览器，你可以试试。幸运的是，很多的网站在使用 Lynx 时往往能正常工作，所以我说它在这方面肯定更好。我能够加载 DuckDuckGo，并使其工作。
+
+除此之外，我还注意到它可以让你在访问各种 Web 资源时接受或拒绝 cookie。你也可以将它设置为总是接受或拒绝。所以，这是件好事。
+
+另一方面，在终端上使用时，窗口不能很好地调整大小。我还没有寻找到任何解决方法，所以如果你正在尝试这个，你可能会想要这样做。不论如何，它都很好用，当你在终端启动它时，你会得到所有键盘快捷键的说明。
+
+请注意，它与系统终端主题不匹配，所以无论你的终端看起来如何，它都会看起来不同。
+
+**如何安装 Lynx？**
+
+与 w3m 不同的是，如果你有兴趣尝试的话，确实可以找到一些 Win32 上的安装程序。不过，在 Linux 上，它在大多数的默认仓库中都是可用的。
+
+对于 Ubuntu 来说，你只需要输入：
+
+```bash
+sudo apt install lynx
+```
+
+要想使用，你只需要按照下面的命令进行操作：
+
+```bash
+lynx examplewebsite.com
+```
+
+在这里，你只需要将示例网站替换成你想要访问的资源即可。
+
+如果你想找其他 Linux 发行版的软件包，可以查看他们的[官网资源](https://lynx.invisible-island.net/lynx-resources.html)。
+
+
+
+### 命令行浏览器Links2
+
+
+![img](https://img.linux.net.cn/data/attachment/album/202011/22/212634u21h4jihxhyzrh4x.jpg)
+
+Links2 是一款有趣的基于文本的浏览器，你可以在你的终端上轻松使用，用户体验良好。它提供了一个很好的界面，你启动它后，只要输入网址就可以了。
+
+![img](https://img.linux.net.cn/data/attachment/album/202011/22/212700lhq9qivfoiqiod8q.jpg)
+
+值得注意的是，主题将取决于你的终端设置，我设置为“黑绿色”主题，因此你看到的就是这个。当你以命令行浏览器的方式启动它后，你只需要按任意键就会出现 URL 提示，或者按 `Q` 键退出。它相当好用，可以渲染大多数网站的文字。
+
+与 Lynx 不同的是，你没有接受或拒绝 cookie 的功能。除此之外，它似乎工作的还不错。
+
+**如何安装 Links2？**
+
+正如你所期望的，你会发现它在大多数默认的仓库中都有。对于 Ubuntu，你可以在终端输入以下命令来安装它：
+
+```bash
+sudo apt install links2
+```
+
+如果你想在其他 Linux 发行版上安装它，你可以参考它的[官方网站](http://links.twibright.com/download.php)获取软件包或文档。
+
+### 命令行浏览eLinks
+
+
+![img](https://img.linux.net.cn/data/attachment/album/202011/22/212735pxmbzpvx4980xxqq.jpg)
+
+eLinks 类似于 Links2，但它已经不再维护了。你仍然可以在各种发行版的默认仓库中找到它，因此，我把它保留在这个列表中。
+
+它不会与你的系统终端主题相融合。所以，如果你需要的话，作为一个没有“黑暗”模式的文本型浏览器，这可能不是一个漂亮的体验。
+
+**如何安装 eLinks？**
+
+在 Ubuntu 上，安装它很容易。你只需要在终端中输入以下内容：
+
+```bash
+sudo apt install elinks
+```
+
+对于其他 Linux 发行版，你应该可以在标准软件仓库中找到它。但是，如果你在软件仓库中找不到它，你可以参考[官方安装说明](http://elinks.or.cz/documentation/installation.html)。
+
+
+
+### [7-zip](https://mp.weixin.qq.com/s/xH175-7w-TctfUOQOmPEjA)
+
+用户可以进入这个链接下载：https://www.linuxmi.com/linux-7-zip.html
+
+用户可以从以下链接下载：
+
+- [适用于 64 位 Linux x86-64（AMD64）的 7-Zip](https://7-zip.org/a/7z2101-linux-x64.tar.xz)
+- [适用于 64 位 Linux ARM64 的 7-Zip](https://7-zip.org/a/7z2101-linux-arm64.tar.xz)
+- [适用于 32 位 Linux x86 的 7-Zip](https://7-zip.org/a/7z2101-linux-x86.tar.xz)
+- [适用于 32 位 Linux armhf 的 7-Zip](https://7-zip.org/a/7z2101-linux-arm.tar.xz)
 
 ###  射手影音
 
@@ -279,9 +651,9 @@ sudo ./install.py
 > 2. 火焰截图
 
 + 第一种方法：
-  
+
 + sudo apt-get install flameshot
-  
+
 + 第二种：
 
   ```bash
@@ -387,6 +759,288 @@ sudo ./install.py
 
    如果没有报错，则成功，可以完美的显示 eps 图像了.
 
+### [Glances](https://mp.weixin.qq.com/s/C7qXS7gXH385n-yJjBxprQ)
+
+top 命令是 Linux 中的实时任务管理器，也是 GNU/Linux 发行版中最常用的系统监控工具，用于查找系统中与性能相关的瓶颈，这有助于我们采取纠正措施。它具有一个很好的极简主义界面，并提供了一些合理的选项，使我们能够快速地更好地了解整体系统性能。
+
+但是，有时要找到一个消耗大量系统资源的应用程序 / 过程非常棘手，这在 top 很难实现。由于 top 命令无法高亮显示占用大量 CPU，RAM 和其他资源的程序。
+
+为了实现这种方法，我们引入了一个功能强大的名为 Glances 的系统监控程序，该程序自动高亮显示正在利用最高系统资源并提供有关 Linux/Unix 服务器的最大信息的程序。
+
+**什么是 Glances？**
+
+Glances 是使用 Python 语言编写的基于跨平台命令行 curses 的系统监视工具，该工具使用 psutil 库从系统中获取信息。使用 Glance，我们可以监视 CPU，平均负载，内存，网络接口，磁盘 I/O，进程和文件系统空间利用率。
+
+Glances 是一个免费工具，并根据 GPL 许可可监视 GNU/Linux 和 FreeBSD 操作系统。Glances 中也提供了许多有趣的选项。在 Glances 中看到的主要功能之一是，我们可以在配置文件中设置阈值（小心，警告和严重），并且信息将以颜色显示，这表明系统中的瓶颈。
+
+**Glances 功能**
+
+- CPU 信息（与用户相关的应用程序，系统核心程序和空闲程序）。
+- 总内存信息，包括 RAM，交换，可用内存等。
+- 过去 1 分钟，5 分钟和 15 分钟的平均 CPU 负载。
+- 网络连接的网络下载 / 上载速率。
+- 进程总数，活动进程，睡眠进程等。
+- 磁盘 I/O 相关（读或写）速度详细信息
+- 当前安装的设备磁盘使用情况。
+- 排名靠前的进程及其 CPU / 内存使用情况，名称和应用程序位置。
+- 在底部显示当前日期和时间。
+- 以红色高亮显示消耗最高系统资源的进程。
+
+以下是 Glances 的示例屏幕截图。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6Gw1yibycMusdad5pwhqliaBOWaxmsMVZM1z2yDBFI8EojhamNrrtfiaIDG3IpLFkfgH9p9qJ6XFnISg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+**在 Linux / Unix 系统中安装 Glances**
+
+尽管它是一个较新的实用程序，但是您可以通过打开 EPEL 存储库，然后在终端上运行以下命令，在基于 Red Hat 的系统中安装 “Glances”。
+
+**在 RHEL/CentOS/Fedora 上**
+
+yum install -y glances
+
+**在 Debian/Ubuntu/Linux Mint 上**
+
+```bash
+sudo apt-add-repository ppa:arnaud-hartmann/glances-stable
+sudo apt-get update
+sudo apt-get install glances
+```
+
+
+
+**Glances 使用**
+
+首先，在终端上启动 glances。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6Gw1yibycMusdad5pwhqliaBOXMsNlUTLAcLkU3ib8BtwZIeKZra1LGd2qYOicLORsiaakQVLlrdcVmsTA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+按 “q” 或（“ ESC” 或 “ Ctrl＆C” 也可以）从 Glances 终端退出。
+
+默认情况下，间隔时间设置为 “1” 秒。但是，您可以在从终端运行 glances 时定义自定义间隔时间。
+
+glances -t 2
+
+**glances 颜色代码**
+
+Glances 颜色代码的含义：
+
+- 绿色：OK（一切都很好）
+- 蓝色：CAREFUL 小心（需要注意）
+- 紫色：WARNING 警告（警报）
+- 红色：CRITICAL 严重（危险）
+
+我们可以在配置文件中设置阈值。默认情况下，阈值设置为（careful=50, warning=70 and critical=90），我们可以根据需要进行自定义。默认配置文件位于 “/etc/glances/glances.conf”。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6Gw1yibycMusdad5pwhqliaBOpdA5yt3unjdRQoD3p8TDic8lERHTLW7FXokBVIBL9UTYGecP7p2DL9A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+**glances 选项**
+
+除了几个命令行选项外，扫视还提供了更多的热键，可在扫视运行时查找输出信息。以下是几个热键的列表。
+
+- a - 自动对进程进行排序
+- c - 按 CPU％排序进程
+- m - 按 MEM％排序过程
+- p - 按名称对进程进行排序
+- i - 按 I/O 速率对进程进行排序
+- d - 显示 / 隐藏磁盘 I/ O 统计信息
+- f - 显示 / 隐藏文件系统
+- n - 显示 / 隐藏网络统计信息
+- s - 显示 / 隐藏传感器统计信息
+- y - 显示 / 隐藏 hddtemp 统计信息
+- l - 显示 / 隐藏日志
+- b - 网络 I/Oools 的字节或位
+- w - 删除警告日志
+- x - 删除警告和重要日志
+- 1 - 全局 CPU 或每个 CPU 的统计信息
+- h - 显示 / 隐藏此帮助屏幕
+- t - 查看网络 I/O 的组合
+- u - 查看累积的网络 I/O
+- q - 退出（Esc 和 Ctrl-C 也可以）
+
+**在远程系统上使用 Glances**
+
+使用 Glances，您甚至还可以监视远程系统。要在远程系统上使用 “glances”，请在服务器上运行 “ glances -s”（-s 启用服务器 / 客户端模式）命令。
+
+\# glances -s
+
+Define the password for the Glances server
+Password:
+Password (confirm):
+Glances server is running on 0.0.0.0:61209
+
+注意：发出 “glances” 命令后，它将提示您定义 Glances 服务器的密码。定义密码并按 Enter，您将看到端口 61209 上运行的内容。
+
+现在，转到远程主机并执行以下命令，通过指定 IP 地址或主机名来连接到 Glances 服务器，如下所示。这是我的 glances 服务器 IP 地址 “172.16.27.56”。
+
+\# glances -c -P 172.16.27.56
+
+以下是用户在服务器 / 客户端模式下使用 Glances 时必须知道的一些要点。
+
+\* 在服务器模式下，可以设置绑定地址 - B ADDRESS 和侦听 TCP 端口 - p PORT。
+\* 在客户端模式下，可以设置服务器的 TCP 端口 - p PORT。
+\* 默认绑定地址为 0.0.0.0，但它在端口 61209 上的所有网络接口上侦听。
+\* 在服务器 / 客户端模式下，限制由服务器端设置。
+\* 您还可以定义密码来访问服务器 - P 密码。
+
+**总结**
+
+对大多数用户来说，glance 是一个资源友好型工具。但是，如果您是一个系统管理员，希望通过浏览命令行来快速了解系统的总体 “想法”，那么这个工具将是系统管理员必须拥有的工具。
+
+
+
+
+
+### [sysstat](https://mp.weixin.qq.com/s/zfVcyDdBTiy5y8wFVd7x3A)
+
+### 简介
+
+sysstat 包含了许多商用 Unix 通用的各种工具，用于监视系统性能和活动情况：
+
+- iostat，统计设备和分区的 CPU 信息以及 IO 信息
+- mpstat，统计处理器相关的信息
+- pidstat，统计 Linux 进程的相关信息：IO、CPU、内存等
+- tapstat，统计磁盘驱动器的相关信息
+- cifsiostat，统计 CIFS 信息
+
+sysstat 还包含使用 cron 或 systemd 执行定时任务的工具（默认的采样时间是 10 分钟，可以修改。），用来收集历史性能和活动数据：
+
+- sar，统计并保存系统活动信息
+- sadc，sar 的后端，是系统活动数据的收集齐
+- sa1，收集二进制数据并将其村粗在系统活动每日数据文件中，是使用 cron 或 systemd 运行的 sar 前端
+- sa2，汇总日常系统活动，是使用 cron 或 systemd 运行的 sar 前端
+- sadf，以多种格式显示 sar 收集的数据，如 CSV、XML、JSON 等，并可以用来与其他程序进行数据交换。
+
+sar 收集的系统统计信息包括：
+
+- 输入 / 输出和传输速率统计信息
+- CPU 统计信息，包括对虚拟化体系结构的支持
+- 内存、交换空间利用率的统计信息
+- 虚拟内存、分页和故障统计
+- 进程创建活动信息
+- 中断信息统计，包括 APIC 中断，硬件中断，软件中断
+- 网络统计信息，包括网络接口活动，网络设备故障，IP、TCP、UDP、ICMP 协议的流量统计，支持 IPv6
+- 光纤通道流量统计
+- 基于软件的网络统计信息
+- NFS 服务器和客户端活动
+- 套接字统计
+- 运行队列和系统负载统计
+- 内核利用率统计信息
+- 交换统计
+- TTY 设备活动
+- 电源管理统计信息
+- USB 设备事件
+- 文件系统利用率（节点和块）
+- 失速信息统计
+
+sysstat 的主要功能包括：
+
+- 在报告中显示平均统计值。
+
+- 检测动态创建或注册的新设备（磁盘，网络接口等）。
+
+- 支持 UP 和 SMP 计算机，包括具有超线程或多核处理器的计算机。
+
+- 支持热插拔 CPU 和 tickless 的 CPU，自动检测正在动态禁用或启用的处理器。
+
+- 适用于许多不同的体系结构，无论是 32 位还是 64 位。
+
+- 占用很少的 CPU 时间（用 C 编写）。
+
+- 可以将 sar/sadc 收集的系统统计信息保存在文件中。
+
+- 可以以各种不同的格式（CSV，XML，JSON，SVG 等）导出由 sar/sadc 收集的系统统计信息。
+
+- iostat 可以显示由用户空间中的驱动程序管理的设备的统计信息。
+
+- 彩色输出，易于阅读和理解。
+
+  
+
+  ![图片](https://mmbiz.qpic.cn/mmbiz_png/DSU8cv1j3ibTjriaLlaIQPUzEnFhkkJDjB2VI3pFusQUy7Yia8ibWic2U2WNPatJrAW1yiasvR3DiaTYPpAKibPKSQWibgw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+  
+
+- 国际化支持，systat 已经被翻译为多种不同的语言。
+
+- 可以自动选择用于显示尺寸的单位，以便于阅读，参阅选项 --human
+
+  
+
+  ![图片](https://mmbiz.qpic.cn/mmbiz_png/DSU8cv1j3ibTjriaLlaIQPUzEnFhkkJDjBSrM1Nr1TfLFZdcWUXLtD7qiaGrXljYAyibicmUfbrpAhrVHXTYdFQ2D6g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+  
+
+- 可以生成 SVG 图形，并显示在浏览器中。
+
+  
+
+  ![图片](https://mmbiz.qpic.cn/mmbiz_jpg/DSU8cv1j3ibTjriaLlaIQPUzEnFhkkJDjBfSsUo7lx1an52y9foXbicSIpNWibY1Z00UQt55FnX1ngW8iaPPm48j57w/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+  
+
+  ![图片](https://mmbiz.qpic.cn/mmbiz_png/DSU8cv1j3ibTjriaLlaIQPUzEnFhkkJDjBmWQFkbNlPtKKdVs4eHHt2h0PCkJbMztprrbvH9aTbewXWJVZzgy2Qg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+  
+
+  ![图片](https://mmbiz.qpic.cn/mmbiz_png/DSU8cv1j3ibTjriaLlaIQPUzEnFhkkJDjBO66yujCQ8ktprwwsGhxekQAReWwX0t17YiaaqyibeCsCuw0UhiaCib4n0Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+项目地址：
+
+https://github.com/sysstat/sysstat
+
+### 安装使用
+
+sysstat 的安装使用非常简单，安装包后，启动服务即可。
+
+- REHL/Fedora/CentOS 使用以下命令安装：
+
+```bash
+$ sudo yum install sysstat
+```
+
+CentOS 和 Fedora 系统使用 /etc/cron.d 中的 cron 作业来调用收集器进程，并且默认情况下已启用它。在最新版本中，使用 systemd 代替 cron。可能需要启用 sysstat 服务：
+
+```bash
+$ sudo systemctl enable sysstat
+$ sudo systemctl start sysstat
+```
+
+- Ubuntu 使用以下命令安装：
+
+```bash
+$ sudo apt-get install sysstat
+```
+
+然后启用数据收集功能：
+
+```bash
+// 编辑/etc/default/sysstat配置文件，将ENABLED="false"改为ENABLED="true"，保存即可
+$ sudo vi /etc/default/sysstat
+```
+
+重新启动 syastat 服务：
+
+```bash
+$ sudo service sysstat restart
+```
+
+- 源代码安装：下载源代码：
+
+```bash
+$ git clone git://github.com/sysstat/sysstat
+```
+
+编译安装：
+
+```bash
+$ cd sysstat
+$ ./configure
+$ make
+$ sudo make install
+```
+
+
+
 ###  dstat
 
 + sudo apt install dstat
@@ -489,15 +1143,856 @@ sudo ./install.py
 
 
 
-### 
+### [tcpdump](https://mp.weixin.qq.com/s/iSqeA2hWbllEyq8yg-MPvQ)
 
 
 
-###
+今天要分享的是 `tcpdump`，它是 Linux 系统中特别有用的网络工具，通常用于故障诊断、网络分析，功能非常的强大。
+
+
+
+相对于其它 Linux 工具而言，`tcpdump` 是复杂的。当然我也不推荐你去学习它的全部，学以致用，能够解决工作中的问题才是关键。
+
+
+
+本文会从*应用场景*和*基础原理*出发，提供丰富的*实践案例*，让你快速的掌握 `tcpdump` 的核心使用方法，足以应对日常工作的需求。
+
+#### 应用场景
+
+在日常工作中遇到的很多网络问题都可以通过 tcpdump 优雅的解决：
+
+*1.* 相信大多数同学都遇到过 SSH 连接服务器缓慢，通过 tcpdump 抓包，可以快速定位到具体原因，一般都是因为 DNS 解析速度太慢。
+
+
+
+*2.* 当我们工程师与用户面对网络问题争执不下时，通过 tcpdump 抓包，可以快速定位故障原因，轻松甩锅，毫无压力。
+
+
+
+*3.* 当我们新开发的网络程序，没有按照预期工作时，通过 tcpdump 收集相关数据包，从包层面分析具体原因，让问题迎刃而解。
+
+
+
+*4.* 当我们的网络程序性能比较低时，通过 tcpdump 分析数据流特征，结合相关协议来进行网络参数优化，提高系统网络性能。
+
+
+
+*5.* 当我们学习网络协议时，通过 tcpdump 抓包，分析协议格式，帮助我们更直观、有效、快速的学习网络协议。
+
+
+
+上述只是简单罗列几种常见的应用场景，而 tcpdump 在网络诊断、网络优化、协议学习方面，确实是一款非常强大的网络工具，只要存在网络问题的地方，总能看到它的身影。
+
+
+
+熟练的运用 `tcpdump`，可以帮助我们解决工作中各种网络问题，下边我们先简单学习下它的工作原理。
+
+#### 工作原理
+
+tcpdump 是 Linux 系统中非常有用的网络工具，运行在用户态，本质上是通过调用 `libpcap` 库的各种 `api` 来实现数据包的抓取功能。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/yVibDjicRT1VuibxMD66omEqaKPQlDrSk5MWDBicnhK8F77HJENiaxia3DUwvLsxnU3VHicnsRGqic8N4kMtzXwtxsV7BQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+通过上图，我们可以很直观的看到，数据包到达网卡后，经过数据包过滤器（BPF）筛选后，拷贝至用户态的 tcpdump 程序，以供 tcpdump 工具进行后续的处理工作，输出或保存到 pcap 文件。
+
+
+
+数据包过滤器（BPF）主要作用，就是根据用户输入的过滤规则，只将用户关心的数据包拷贝至 tcpdump，这样能够减少不必要的数据包拷贝，降低抓包带来的性能损耗。
+
+
+
+**思考**：这里分享一个真实的面试题
+
+> 面试官：如果某些数据包被 iptables 封禁，是否可以通过 tcpdump 抓到包？
+
+通过上图，我们可以很轻易的回答此问题。
+
+
+
+因为 Linux 系统中 `netfilter` 是工作在协议栈阶段的，tcpdump 的过滤器（BPF）工作位置在协议栈之前，所以当然是可以抓到包了！
+
+
+
+我们理解了 tcpdump 基本原理之后，下边直接进入实战！
+
+#### 实战：基础用法
+
+我们先通过几个简单的示例来介绍 tcpdump 基本用法。
+
+
+
+*1.* 不加任何参数，默认情况下将抓取第一个非 lo 网卡上所有的数据包
+
+```bash
+$ tcpdump
+```
+
+*2.* 抓取 eth0 网卡上的所有数据包
+
+```bash
+$ tcpdump -i eth0
+```
+
+*3.* 抓包时指定 `-n` 选项，不解析主机和端口名。这个参数很关键，会影响抓包的性能，一般抓包时都需要指定该选项。
+
+```bash
+$ tcpdump -n -i eth0
+```
+
+*4.* 抓取指定主机  `192.168.1.100` 的所有数据包
+
+```bash
+$ tcpdump -ni eth0 host 192.168.1.100
+```
+
+*5.* 抓取指定主机 `10.1.1.2` 发送的数据包
+
+```bash
+$ tcpdump -ni eth0 src host 10.1.1.2
+```
+
+*6.* 抓取发送给 `10.1.1.2` 的所有数据包
+
+```bash
+$ tcpdump -ni eth0 dst host 10.1.1.2
+```
+
+*7.* 抓取 eth0 网卡上发往指定主机的数据包，抓到 10 个包就停止，这个参数也比较常用
+
+```bash
+$ tcpdump -ni eth0 -c 10 dst host 192.168.1.200
+```
+
+*8.* 抓取 eth0 网卡上所有 SSH 请求数据包，SSH 默认端口是 22
+
+```bash
+$ tcpdump -ni eth0 dst port 22
+```
+
+*9.* 抓取 eth0 网卡上 5 个 ping 数据包
+
+```bash
+$ tcpdump -ni eth0 -c 5 icmp
+```
+
+*10.* 抓取 eth0 网卡上所有的 arp 数据包
+
+```bash
+$ tcpdump -ni eth0 arp
+```
+
+*11.* 使用十六进制输出，当你想检查数据包内容是否有问题时，十六进制输出会很有帮助。
+
+```bash
+$ tcpdump -ni eth0 -c 1 arp -X
+listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+12:13:31.602995 ARP, Request who-has 172.17.92.133 tell 172.17.95.253, length 28
+    0x0000:  0001 0800 0604 0001 eeff ffff ffff ac11  ................
+    0x0010:  5ffd 0000 0000 0000 ac11 5c85            _.........\.
+```
+
+*12.* 只抓取 eth0 网卡上 IPv6 的流量
+
+```bash
+$ tcpdump -ni eth0 ip6
+```
+
+*13.* 抓取指定端口范围的流量
+
+```bash
+$ tcpdump -ni eth0 portrange 80-9000
+```
+
+*14.* 抓取指定网段的流量
+
+```bash
+$ tcpdump -ni eth0 net 192.168.1.0/24
+```
+
+#### 实战：高级进阶
+
+tcpdump 强大的功能和灵活的策略，主要体现在过滤器（BPF）强大的表达式组合能力。
+
+
+
+本节主要分享一些常见的所谓高级用法，希望读者能够举一反三，根据自己实际需求，来灵活使用它。
+
+
+
+*1.* 抓取指定客户端访问 ssh 的数据包
+
+```bash
+$ tcpdump -ni eth0 src 192.168.1.100 and dst port 22
+```
+
+*2.* 抓取从某个网段来，到某个网段去的流量
+
+```bash
+$ tcpdump -ni eth0 src net 192.168.1.0/16 and dst net 10.0.0.0/8 or 172.16.0.0/16
+```
+
+*3.* 抓取来自某个主机，发往非 ssh 端口的流量
+
+```bash
+$ tcpdump -ni eth0 src 10.0.2.4 and not dst port 22
+```
+
+*4.* 当构建复杂查询的时候，你可能需要使用引号，单引号告诉 tcpdump 忽略特定的特殊字符，这里的 `()` 就是特殊符号，如果不用引号的话，就需要使用转义字符
+
+```bash
+$ tcpdump -ni eth0 'src 10.0.2.4 and (dst port 3389 or 22)'
+```
+
+*5.* 基于包大小进行筛选，如果你正在查看特定的包大小，可以使用这个参数
+
+小于等于 64 字节：
+
+```bash
+$ tcpdump -ni less 64
+```
+
+大于等于 64 字节：
+
+```bash
+$ tcpdump -ni eth0 greater 64
+```
+
+等于 64 字节：
+
+```bash
+$ tcpdump -ni eth0 length == 64
+```
+
+*6.* 过滤 TCP 特殊标记的数据包
+
+抓取某主机发送的 `RST` 数据包：
+
+```bash
+$ tcpdump -ni eth0 src host 192.168.1.100 and 'tcp[tcpflags] & (tcp-rst) != 0'
+```
+
+抓取某主机发送的 `SYN` 数据包：
+
+```bash
+$ tcpdump -ni eth0 src host 192.168.1.100 and 'tcp[tcpflags] & (tcp-syn) != 0'
+```
+
+抓取某主机发送的 `FIN` 数据包：
+
+```bash
+$ tcpdump -ni eth0 src host 192.168.1.100 and 'tcp[tcpflags] & (tcp-fin) != 0'
+```
+
+抓取 TCP 连接中的 `SYN` 或 `FIN` 包
+
+```bash
+$ tcpdump 'tcp[tcpflags] & (tcp-syn|tcp-fin) != 0'
+```
+
+*7.* 抓取所有非 ping 类型的 `ICMP` 包
+
+```bash
+$ tcpdump 'icmp[icmptype] != icmp-echo and icmp[icmptype] != icmp-echoreply'
+```
+
+*8.* 抓取端口是 80，网络层协议为 IPv4， 并且含有数据，而不是 SYN、FIN 以及 ACK 等不含数据的数据包
+
+```bash
+$ tcpdump 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
+```
+
+解释一下这个复杂的表达式，具体含义就是，整个 IP 数据包长度减去 IP 头长度，再减去 TCP 头的长度，结果不为 0，就表示数据包有 `data`，如果还不是很理解，需要自行补一下 `tcp/ip` 协议
+
+
+
+*9.* 抓取 HTTP 报文，`0x4754` 是 `GET` 前两字符的值，`0x4854` 是 `HTTP` 前两个字符的值
+
+```bash
+$ tcpdump  -ni eth0 'tcp[20:2]=0x4745 or tcp[20:2]=0x4854'
+```
+
+#### 常用选项
+
+通过上述的实战案例，相信大家已经掌握的 `tcpdump` 基本用法，在这里来详细总结一下常用的选项参数。
+
+
+
+**（一）基础选项**
+
+- `-i`：指定接口
+- `-D`：列出可用于抓包的接口
+- `-s`：指定数据包抓取的长度
+- `-c`：指定要抓取的数据包的数量
+- `-w`：将抓包数据保存在文件中
+- `-r`：从文件中读取数据
+- `-C`：指定文件大小，与 `-w` 配合使用
+- `-F`：从文件中读取抓包的表达式
+- `-n`：不解析主机和端口号，这个参数很重要，一般都需要加上
+- `-P`：指定要抓取的包是流入还是流出的包，可以指定的值 `in`、`out`、`inout`
+
+
+
+**（二）输出选项**
+
+- `-e`：输出信息中包含数据链路层头部信息
+- `-t`：显示时间戳，`tttt` 显示更详细的时间
+- `-X`：显示十六进制格式
+- `-v`：显示详细的报文信息，尝试 `-vvv`，`v` 越多显示越详细
+
+#### 过滤表达式
+
+tcpdump 强大的功能和灵活的策略，主要体现在过滤器（BPF）强大的表达式组合能力。
+
+
+
+**（一）操作对象**
+
+表达式中可以操作的对象有如下几种：
+
+
+
+- `type`，表示对象的类型，比如：`host`、`net`、`port`、`portrange`，如果不指定 type 的话，默认是 host
+- `dir`：表示传输的方向，可取的方式为：`src`、`dst`。
+- `proto`：表示协议，可选的协议有：`ether`、`ip`、`ip6`、`arp`、`icmp`、`tcp`、`udp`。
+
+**（二）条件组合**
+
+表达对象之间还可以通过关键字 `and`、`or`、`not` 进行连接，组成功能更强大的表达式。
+
+
+
+- `or`：表示或操作
+- `and`：表示与操作
+- `not`：表示非操作
+
+
+
+建议看到这里后，再回头去看实战篇章的示例，相信必定会有更深的理解。如果是这样，那就达到了我预期的效果了！
+
+#### 经验
+
+到这里就不再加新知识点了，分享一些工作中总结的经验：
+
+*1.* 我们要知道 `tcpdump` 不是万能药，并不能解决所有的网络问题。
+
+*2.* 在高流量场景下，抓包可能会影响系统性能，如果是在生产环境，请谨慎使用！
+
+*3.* 在高流量场景下，`tcpdump` 并不适合做流量统计，如果需要，可以使用交换机镜像的方式去分析统计。
+
+*4.* 在 Linux 上使用 `tcpdump` 抓包，结合 `wireshark` 工具进行数据分析，能事半功倍。
+
+*5.* 抓包时，尽可能不要使用 `any` 接口来抓包。
+
+*6.* 抓包时，尽可能指定详细的数据包过滤表达式，减少无用数据包的拷贝。
+
+*7.* 抓包时，尽量指定 `-n` 选项，减少解析主机和端口带来的性能开销。
+
+#### 最后
+
+通过上述内容，我们知道 tcpdump 是一款功能强大的故障诊断、网络分析工具。在我们的日常工作中，遇到的网络问题总是能够通过 tcpdump 来解决。
+
+
+
+不过 tcpdump 相对于其它 Linux 命令来说，会复杂很多，但鉴于它强大功能的诱惑力，我们多花一些时间是值得的。要想很好地掌握 tcpdump，需要对网络报文（`TCP/IP` 协议）有一定的了解。
+
+
+
+当然，对于简单的使用来说，只要有网络基础概念就行，掌握了 tcpdump 常用方法，就足以应付工作中大部分网络相关的疑难杂症了。
+
+
+
+### [gdb](https://mp.weixin.qq.com/s/OLHurXiioQchhai4i9WYsw)
 
 
 
 
+
+# Linux小技巧
+
+## [Linux 文件的颜色代码](https://mp.weixin.qq.com/s?__biz=MzA4NzQzMzU4Mg==&mid=2652947251&idx=2&sn=43c7eaa497fc5e3bfeccfd788112f64e&chksm=8bedeb32bc9a62240c11c595926e46337a96b93d0485a89bf80c2c1ae977986dd9245f32b67e&scene=132#wechat_redirect)
+
+在 Linux 中使用颜色代码来区分文件类型，通常情况下目录、链接、文件的颜色将不同。在终端中使用 ls 命令时，会发现一些带有颜色的文件。
+
+`ls`命令使用环境变量`LS_COLORS`来确定文件名的显示颜色。你可以通过调用`LS_COLORS`变量来查看文件类型及其颜色代码的列表。
+
+```bash
+[root@localhost ~]# echo $LS_COLORS
+rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:
+```
+
+默认的颜色代码在`/etc/DIR_COLORS`配置文件中。
+
+它为文件使用三种类型的颜色代码：
+
+- 属性代码：代码范围 00-08
+- 文字颜色代码：代码范围 30-37,90-97
+- 背景颜色代码：代码范围 40-47,100-107
+
+> **文件类型代码列表**
+
+下面是常用文件类型代码的列表：
+
+| Code        | File Types         |
+| :---------- | :----------------- |
+| di          | 目录               |
+| fi          | 文件               |
+| ex          | 可执行文件         |
+| ln          | 符号链接文件       |
+| so          | 套接字             |
+| bd          | 块设备             |
+| cd          | 字符设备           |
+| mi          | 丢失文件           |
+| *.extension | 例如：*.mp3,*.jpeg |
+
+
+
+> **属性代码列表**
+
+下面表格是属性代码：
+
+```bash
++--------------+--------------------+
+|    Code      |      Attributes    |
++--------------+--------------------+
+|      00      | None               |
+|      01      | Bold               |
+|      04      | Underscore         |
+|      05      | Blink              |
+|      07      | Reverse            |
+|      08      | Concealed 隐藏     |
++--------------+--------------------+
+```
+
+>**文本颜色代码**
+
+下面表格是字体颜色的代码：
+
+```bash
++--------------+--------------------+     +--------------+--------------------+
+|    Code      |      Text Color    |     |    Code      |      Text Color    |
++--------------+--------------------+     +--------------+--------------------+
+|      30      | Black              |     |      90      | dark grey          |
+|      31      | Red                |     |      91      | light red          |
+|      32      | Green              |     |      92      | light green        |
+|      33      | Yellow             |     |      93      | yellow             |
+|      34      | Blue               |     |      94      | light blue         |
+|      35      | Magenta            |     |      95      | light purple       |
+|      36      | Cyan               |     |      96      | turquoise          |
+|      37      | White              |     |      97      | white              |
++--------------+--------------------+     +--------------+--------------------+
+```
+
+> **背景颜色代码**
+
+下面表格是背景颜色的代码：
+
+```bash
++--------------+--------------------+     +--------------+--------------------+
+|    Code      | Background Color   |     |    Code      | Background Color   |
++--------------+--------------------+     +--------------+--------------------+
+|      40      | Black              |     |     100      | dark grey          |
+|      41      | Red                |     |     101      | light red          |
+|      42      | Green              |     |     102      | light green        |
+|      43      | Yellow             |     |     103      | yellow             |
+|      44      | Blue               |     |     104      | light blue         |
+|      45      | Magenta            |     |     105      | light purple       |
+|      46      | Cyan               |     |     106      | turquoise  宝石绿  |
+|      47      | White              |     |     107      | white              |
++--------------+--------------------+     +--------------+--------------------+
+```
+
+
+
+> 如何在 Linux 中为文件设置自定义颜色
+
+默认的文件夹颜色为 “蓝色”，在这里我们将文件夹配色方案给为黄色 93 和 04 下换线，这种组合代码是`LS_COLORS="di=4;93"`
+如果使其生效，可在`~/.bashrc`中添加上面代码。
+
+```bash
+[root@localhost ~]# echo "LS_COLORS=\"di=04;93\"" >> ~/.bashrc
+[root@localhost ~]# source ~/.bashrc
+
+LS_COLORS="di=04;33:fi=01;37;40:ln=01;36:so=00;36:bd=05;95:cd=05;95:mi=00;90:*.md=01;36:*.docx=01;92:*.doc=01;92:*.pdf=01;92:*.tex=01;92:*.c=01;34:*.cpp=01;34:*.ex=00;91"
+```
+
+
+
+
+
+# C语言
+
+## errno全局变量
+
+[《errno 全局变量及使用细则，C 语言 errno 全局变量完全攻略》](http://c.biancheng.net/c/errno/)
+
+在 C 语言中，对于存放错误码的全局变量 errno，相信大家都不陌生。为防止和正常的返回值混淆，系统调用一般并不直接返回错误码，而是将错误码（是一个整数值，不同的值代表不同的含义）存入一个名为 errno 的全局变量中，errno 不同数值所代表的错误消息定义在 <errno.h> 文件中。如果一个系统调用或库函数调用失败，可以通过读出 errno 的值来确定问题所在，推测程序出错的原因，这也是调试程序的一个重要方法。
+
+配合 perror 和 strerror 函数，还可以很方便地查看出错的详细信息。其中:
+
+- perror 在 <stdio.h> 中定义，用于打印错误码及其消息描述；
+- strerror 在 <string.h> 中定义，用于获取错误码对应的消息描述；
+
+一般当进程收到信号时都会中断正在进行的系统调用，而去处理到来的信号，当处理完成时系统调用会返回－1 并且 errno == EINTR。
+一般的处理方法：
+
+1. 在你的进程设置系统调用自动恢复处理；这时被中断的系统调用会自动恢复而不会出错返回；
+2. 当收到 errno == EINTR 时继续执行系统调用；
+3. 在执行系统调用前阻塞信号的到达，在执行完系统调用后放开对信号的阻塞；
+
+
+需要特别强调的是，并不是所有的库函数都适合使用 errno 全局变量。
+
+
+
+> 调用 errno 之前必须先将其清零
+
+在 C 语言中，如果系统调用或库函数被正确地执行，那么 errno 的值不会被清零。换句话说，errno 的值只有在一个库函数调用发生错误时才会被设置，当库函数调用成功运行时，errno 的值不会被修改，当然也不会主动被置为 0。也正因为如此，在实际编程中进行错误诊断会有不少问题。
+
+例如，在一段示例代码中，首先执行函数 A 的调用，如果函数 A 在执行中发生了错误，那么 errno 的值将被修改。接下来，在不对 errno 的值做任何处理的情况下，继续直接执行函数 B 的调用，如果函数 B 被正确地执行，那么 errno 将还保留着函数 A 发生错误时被设置的值。也正是这个原因，我们不能通过测试 errno 的值来判断是否存在错误。
+
+由此可见，在调用 errno 之前，应该首先对函数的返回值进行判断，通过对返回值的判断来检查函数的执行是否发生了错误。如果通过检查返回值确认函数调用发生了错误，那么再继续利用 errno 的值来确认究竟是什么原因导致了错误。
+
+但是，如果一个函数调用无法从其返回值上判断是否发生了错误时，那么将只能通过 errno 的值来判断是否出错以及出错的原因。对于这种情况，必须在调用函数之前先将 errno 的值手动清零，否则，errno 的值将有可能够发生上面示例所展示的情况。
+
+例如，当调用 fopen 函数发生错误时，它将会去修改 errno 的值，这样外部的代码就可以通过判断 errno 的值来区分 fopen 内部执行时是否发生错误，并且根据 errno 值的不同来确定具体的错误类型。如下面的示例代码所示：
+
+```c
+int main(void)
+{
+    /*调用errno之前必须先将其清零*/
+    errno=0;
+    FILE *fp = fopen("test.txt","r");
+    if(errno!=0)
+    {
+        printf("errno值： %d\n",errno);
+        printf("错误信息： %s\n",strerror(errno));
+    }
+}
+```
+
+在这里，假设 “test.txt” 是一个根本不存在的文件。因此，在调用 fopen 函数尝试打开一个并不存在的文件时将发生错误，同时修改 errno 的值。这时，fopen 函数会将 errno 指向的值修改为 2。我们通过 stderror 函数可以看到错误代码 “2” 的意思是 “No such file or directory”，如图 3 所示。
+
+![图 3 示例代码的运行结果](http://c.biancheng.net/uploads/allimg/180910/2-1P910151023426.jpg)
+从上面的示例可以看出，使用 errno 来报告错误看起来似乎非常简单完美，但其实情况并非如此。前面也阐述过，在 C99 中，并没有在描述 fopen 时提到 errno。但是，POSIX.1 却声明了当 fopen 遇到一个错误时，它将返回 NULL，并且为 errno 设置一个值以提示这个错误，这就暗示一个遵循了 C99 但不遵循 POSIX 的程序不应该在调用 fopen 之后再继续检查 errno 的值。因此，下面的写法完全合乎要求：
+
+```c
+int main(void)
+{
+    FILE *fp = fopen("test.txt","r");
+    if(fp==NULL)
+    {
+        /*...*/
+    }
+}
+```
+
+但是，上面也说过，在 POSIX 标准中，当 fopen 遇到一个错误的时候将返回 NULL，并且为 errno 设置一个值以提示这个错误。因此，在遵循 POSIX 标准中，应该首先检查 fopen 是否返回 NULL 值，如果返回，再继续检查 errno 的值以确认产生错误的具体信息，如下面的代码所示：
+
+```c
+int main(void)
+{
+    /*调用errno之前必须先将其清零*/
+    errno=0;
+    FILE *fp = fopen("test.txt","r");
+    if(fp==NULL)
+    {
+        if（errno!=0）
+        {
+            printf("errno值: %d\n",errno);
+            printf("错误信息：%s\n",strerror(errno));
+        }
+    }
+}
+```
+
+其实，即使系统调用或者库函数正确执行，也不能够保证 errno 的值不会被改变。因此，在没有发生错误的情况下，fopen 也有可能修改的 errno 值。先检查 fopen 的返回值，再检查 errno 的值才是正确的做法。
+
+除此之外，建议在使用 errno 的值之前，必须先将其值赋给另外一个变量保存起来，因为很多函数（如 fprintf）自身就可能会改变 errno 的值。
+
+>  避免重定义 errno
+
+对于 errno，它是一个由 ISO C 与 POSIX 标准定义的符号。早些时候，POSIX 标准曾经将 errno 定义成 “extern int errno” 这种形式，但现在这种定义方式比较少见了，那是因为这种形式定义的 errno 对多线程来说是致命的。
+
+在多线程环境下，errno 变量是被多个线程共享的，这样就可能引发如下情况：线程 A 发生某些错误而改变了 errno 的值，那么线程 B 虽然没有发生任何错误，但是当它检测 errno 的值时，线程 B 同样会以为自己发生了错误。
+
+我们知道，在多线程环境中，多个线程共享进程地址空间，因此就要求每个线程都必须有属于自己的局部 errno，以避免一个线程干扰另一个线程。其实，现在的大多部分编译器都是通过将 errno 设置为线程局部变量的实现形式来保证线程之间的错误原因不会互相串改。
+
+例如，在 Linux 下的 GCC 编译器中，标准的 errno 在 “/usr/include/errno.h” 中的定义如下：
+
+```c
+/* Get the error number constants from the system-specific file.
+   This file will test __need_Emath and _ERRNO_H.  */
+#include <bits/errno.h>
+#undef   __need_Emath
+#ifdef   _ERRNO_H
+/* Declare the `errno' variable， unless it's defined as a macro by bits/errno.h.  This is the case in GNU， where it is a per-thread variable.  This redeclaration using the macro still works， but it will be a function declaration without a prototype and may trigger a -Wstrict-prototypes warning.  */
+#ifndef   errno
+extern int errno；
+#endif
+```
+
+其中，errno 在 “/usr/include/bits/errno.h” 文件中的具体实现如下：
+
+```c
+# ifndef __ASSEMBLER__
+/* Function to get address of global 'errno' variable.  */
+extern int *__errno_location (void) __THROW __attribute__ ((__const__));
+# if !defined _LIBC || defined _LIBC_REENTRANT
+/* When using threads，errno is a per-thread value.  */
+# define errno (*__errno_location ())
+# endif
+# endif /* !__ASSEMBLER__ */
+# endif /* _ERRNO_H */
+```
+
+这样，通过 “extern int*__errno_location（void）__THROW__attribute__((__const__));” 与 “#define errno (*__errno_location ())” 定义，使每个线程都有自己的 errno，不管哪个线程修改 errno 都是修改自己的局部变量，从而达到线程安全的目的。
+
+除此之外，如果要在多线程环境下正确使用 errno，首先需要确保 __ASSEMBLER__ 没有被定义，同时 _LIBC 没被定义或定义了 _LIBC_REENTRANT。可以通过下面的程序来在自己的开发环境中测试这几个宏的设置：
+
+```c
+int main(void)
+{
+#ifndef __ASSEMBLER__
+    printf( "__ASSEMBLER__ is not defined！\n" );
+#else
+    printf( "__ASSEMBLER__ is defined！\n" );
+#endif
+#ifndef __LIBC
+    printf( "__LIBC is not defined\n" );
+#else
+    printf( "__LIBC is defined！\n" );
+#endif
+#ifndef _LIBC_REENTRANT
+    printf( "_LIBC_REENTRANT is not defined\n" );
+#else
+    printf( "_LIBC_REENTRANT is defined！\n" );
+#endif
+    return 0;
+}
+```
+
+该程序的运行结果为：
+
+```bash
+__ASSEMBLER__ is not defined！
+__LIBC is not defined
+_LIBC_REENTRANT is not defined
+```
+
+
+
+由此可见，在使用 errno 时，只需要在程序中简单地包含它的头文件 “errno.h” 即可，千万不要多此一举，在程序中重新定义它。如果在程序中定义了一个名为 errno 的标识符，其行为是未定义的。
+
+>  避免使用 errno 检查文件流错误
+
+上面已经阐述过，在 POSIX 标准中，可以通过 errno 值来检查 fopen 函数调用是否发生了错误。但是，对特定文件流操作是否出错的检查则必须使用 ferror 函数，而不能够使用 errno 进行文件流错误检查。如下面的示例代码所示：
+
+```c
+int main(void)
+{
+    FILE* fp=NULL;
+    /*调用errno之前必须先将其清零*/
+    errno=0;
+    fp = fopen("Test.txt","w");
+    if(fp == NULL)
+    {
+        if(errno!=0)
+        {
+            /*处理错误*/
+        }
+    }
+    else
+    {
+        /*错误地从fp所指定的文件中读取一个字符*/
+        fgetc(fp);
+        /*判断是否读取出错*/
+        if(ferror(fp))
+        {
+            /*处理错误*/
+            clearerr(fp);
+        }
+        fclose(fp);
+        return 0;
+    }
+}
+```
+
+> 多线程安全
+
+有些教程说 errno 展开后是一个 int 类型的全局变量，如下所示：
+
+```c
+extern int _errno;
+#define errno _errno
+```
+
+很多单线程库确实也是这么做的；但是这种方案仅适用于单线程程序，不适用于多线程程序。
+
+`全局变量的作用范围是整个程序，是所有的源文件，而不仅限于当前的源文件。`
+
+在多线程程序中，线程之间是存在竞争的，各个线程交替使用 CPU 时间，将 errno 设置为全局变量会导致一个严重的问题：线程 A 中的函数修改了 errno 的值，还没来得及读取就挂起了，线程 B 获得 CPU 时间后又修改了 errno 的值，等到线程 A “苏醒” 后再读取 errno 的值时，已经找不到原来的值了，只能读取线程 B 设置的值，而线程 A 对此一无所知。
+
+要解决这个问题，就不能定义全局范围内的 errno，而要针对每个线程定义自己的 errno，所以很多支持多线程的库都将 errno 实现为一个函数。如下所示：
+
+```c
+#if define _MULTI_THREAD
+#define errno (*_errno_func())
+#endif
+```
+
+_MULTI_THREAD 是开启多线程后定义的宏，通过 _errno_func () 函数可以得到线程内部 errno 变量的地址，在前面加 `*` 就能够得到 errno 变量本身。
+
+`这段代码重在演示原理，使用的宏名和函数名都是假定的，真实的库实现并不使用这些名字。`
+
+
+
+## 与内存相关函数
+
+
+
+### memcpy函数
+
+
+
+```c
+#include<string.h>
+void *memcpy(void * dest, const void * src, size_t num );
+//复制 src 所指的内存内容的前 num 个字节到 dest 所指的内存地址上。
+```
+
+参数
+
+- **dest** -- 指向用于存储复制内容的目标数组，类型强制转换为 void* 指针。
+- **src** -- 指向要复制的数据源，类型强制转换为 void* 指针。
+- **num** -- 要被复制的字节数。
+
+ 返回值：该函数返回一个指向目标存储区 dest 的指针。
+
+需要注意的是：
+
+- dest 指针要分配足够的空间，也即大于等于 num 字节的空间。如果没有分配空间，会出现断错误。
+- dest 和 src 所指的内存空间不能重叠（如果发生了重叠，使用 [memmove()](http://c.biancheng.net/cpp/html/156.html) 会更加安全）。
+
+
+与 [strcpy()](http://c.biancheng.net/cpp/html/2540.html) 不同的是，memcpy () 会完整的复制 num 个字节，不会因为遇到 “\0” 而结束。
+
+【返回值】返回指向 dest 的指针。注意返回的指针类型是 void，使用时一般要进行强制类型转换。
+
+> 实例1
+>
+> ```c
+> // 将字符串复制到数组 dest 中
+> #include <stdio.h>
+> #include <string.h>
+>  
+> int main ()
+> {
+>    const char src[50] = "http://www.runoob.com";
+>    char dest[50];
+>  
+>    memcpy(dest, src, strlen(src)+1);
+>    printf("dest = %s\n", dest);
+>    
+>    return(0);
+> }
+> 
+> //让我们编译并运行上面的程序，这将产生以下结果：
+> dest = http://www.runoob.com
+> ```
+>
+> 实例2
+>
+> ```c
+> #include <stdio.h>
+> #include<string.h>
+>  
+> int main()
+>  
+> {
+>   char *s="http://www.runoob.com";
+>   char d[20];
+>   memcpy(d, s+11, 6);// 从第 11 个字符 (r) 开始复制，连续复制 6 个字符 (runoob)
+>   // 或者 memcpy (d, s+11*sizeof (char), 6*sizeof (char));
+>   d[6]='\0';
+>   printf("%s", d);
+>   return 0;
+> }
+> //让我们编译并运行上面的程序，这将产生以下结果：
+> runoob
+> ```
+>
+> 实例3
+>
+> ```c
+> #include<stdio.h>
+> #include<string.h>
+>  
+> int main(void)
+> {
+>   char src[] = "***";
+>   char ddest[] = "abcdefg";
+>   printf(" 使用 memcpy 前: % s\n", dest);
+>   memcpy(dest, src, strlen(src));
+>   printf(" 使用 memcpy 后: % s\n", dest);
+>   return 0;
+> }
+> //让我们编译并运行上面的程序，这将产生以下结果：
+> 使用 memcpy 前: abcdefg
+> 使用 memcpy 后: ***defg
+> ```
+>
+> 
+
+
+
+### bzero函数
+
+```c
+//bzero () 会将内存块（字符串）的前 n 个字节清零，其原型为：
+void bzero(void *s, int n);
+```
+
+【参数】s 为内存（字符串）指针，n 为需要清零的字节数。
+
+  bzero () 会将参数 s 所指的内存区域前 n 个字节，全部设为零值。
+
+  实际上，bzero (void *s, int n) 等价于 memset ((void*) s, 0,size_tn)，用来将内存块的前 n 个字节清零，但是 s 参数为指针，又很奇怪的位于 string.h 文件  中，也可以用来清零字符串。
+
+   注意：bzero () 不是标准函数，没有在 ANSI 中定义，笔者在 VC6.0 和 MinGW5 下编译没通过；据称 Linux 下的 GCC 支持，不过笔者没有亲测。鉴于此，还是使用 memset () 替代吧。
+
+
+
+#  CPU并行程序设计
+
+## MPI并行
+
+
+
+
+
+## OpenMP并行
+
+
+
+
+
+## Pthread并行
+
+
+
+```c
+pthread_mutex_init(&m_mutexNetRecv, NULL);
+pthread_create(&m_UDPReceive_Thread_ID, NULL, vUDPReceiveManager, (void*)&err);
+
+```
+
+
+
+
+
+
+
+# GPU并行程序设计
 
 
 
@@ -1205,7 +2700,7 @@ Light-weight process **轻量级进程是内核支持的用户线程**，它是�
 1. P 操作会把信号量减去 -1，相减后如果信号量 < 0，则表明资源已被占用，进程需阻塞等待。相减后如果信号量 >= 0，则表明还有资源可使用，进程可正常继续执行。
 2. V 操作会把信号量加上 1，相加后如果信号量 <= 0，则表明当前有阻塞中的进程，于是会将该进程唤醒运行。相加后如果信号量 > 0，则表明当前没有阻塞中的进程。
 
-#####  信号
+#####  <span id="信号1">信号</span>
 
 对于异常状态下进程工作模式需要用到信号工作方式来通知进程。比如Linux系统为了响应各种事件提供了很多异常信号`kill -l`，**信号是进程间通信机制中唯一的异步通信机制**，可以在任何时候发送信号给某一进程。比如：
 
@@ -1386,7 +2881,7 @@ Unix/Linux系统中**目录directory也是一种文件**，打开目录实际上
 
    ![位图法](https://mmbiz.qpic.cn/mmbiz_png/wJvXicD0z2dWtyQ6fLJR8SwofF59o2Iq2nQHcAG3ApMgUWGFHkpwhx1wezVS3TrtG3p5xU0iaxiaQKZhYK8lFDIHA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-   
+
 
 ### 输入输出管理
 
@@ -1463,7 +2958,7 @@ CPU发送指令让那个设备控制器去读写数据，完毕后如何通知CP
 
 可以发现整个数据传输过程中CPU是不会直接参与数据搬运工作，由DMA来直接负责数据读取工作，现如今每个IO设备一般都自带DMA控制器。读数据时候仅仅在传送开始跟结束时需要CPU干预。
 
-#####   Zero Copy 
+#####   Zero Copy
 
 Zero Copy 全程不会通过 CPU 来搬运数据，所有的数据都是通过 DMA 来进行传输的，中间只需要经过2次上下文切换跟2次DMA数据拷贝，相比最原始读写方式至少速度翻倍。其实在Kafka中已经讲过Zero Copy了。
 
@@ -2316,6 +3811,10 @@ int bind(int server_sockfd, struct sockaddr *server_addr, int addrlen);
   在 sa_data 一个成员里，包含了 ip、port 的地址信息，这样写起来很麻烦，所以有了新的结构体 sockaddr_in (IP 和端口进行了拆分)。sockaddr_in 结构体：
 
   ```c
+  typedef unsigned short int	uint16_t;
+  typedef uint16_t in_port_t;
+  typedef unsigned short int sa_family_t;
+
   struct sockaddr_in {
       __uint8_t sin_len;
       sa_family_t sin_family;  //地址族
@@ -2323,15 +3822,19 @@ int bind(int server_sockfd, struct sockaddr *server_addr, int addrlen);
       struct in_addr sin_addr; //IP地址
       char sin_zero[8];
   };
-  ```
 
-  在上面的结构体中，又嵌套了 in_addr 结构体，记录 IP 地址:
-
-  ```c
-  struct in_addr {
-  	in_addr_t s_addr; //32位IPv4地址
+  //在上面的结构体中，又嵌套了 in_addr 结构体，记录 IP 地址:
+  typedef unsigned int	uint32_t;
+  typedef uint32_t   in_addr_t;
+  struct in_addr{
+      in_addr_t s_addr; //32位IPv4地址
   };
+
   ```
+
+
+
+
 
   <font color=blue>结构体 sockaddr_in 的成员分析:</font>
 
@@ -2415,9 +3918,233 @@ if (bind(serv_sock, (struct sockaddr*) &serv_addr,sizeof(serv_addr) )==-1){
 
 大字节序更符合我们的阅读习惯。但是我们的主机使用的是哪种字节序取决于 CPU，不同的 CPU 型号有不同的选择。
 
-
-
 当我们两台计算机是需要网络通信时，规范统一约定为大端序进行通讯处理.
+
+
+
+##### htonl/htons/ntohl/ntohs函数
+
+
+
+htonl 函数将主机的 unsigned long 值转换成网络字节顺序（32 位）（一般主机跟网络上传输的字节顺序是不通的，分大小端），函数返回一个网络字节顺序的数字。
+
+作用相反的函数即把网络字节顺序转化成主机序列为 ntohl () 函数。
+
+记忆这类函数，主要看前面的 n 和后面的 hl。。n 代表网络，h 代表主机 host，l 代表 long 的长度，还有相对应的 s 代表 16 位的 short
+
+> 同类的函数：ntohs ()、htons () 就是转成 short 类型的。
+
+```c
+//
+main(){
+//u_long a = 0x12345678;
+//u_long b = htonl (a);// 将主机的 unsigned long 转为网络字节顺序（32 位）
+//u_long b = ntohl (a);// 将网络字节顺序（32 位）转为主机字节
+
+
+u_short a = 0x1234;
+//u_short b = ntohs (a);//32 位
+u_short b = htons(a);
+}
+```
+
+
+
+##### inet_addr / inet_ntoa函数
+
+函数原型：
+
+```c
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
+typedef unsigned int	uint32_t;
+typedef uint32_t   in_addr_t;
+typedef unsigned short int	uint16_t;
+typedef uint16_t in_port_t;
+typedef unsigned short int sa_family_t;
+
+
+struct sockaddr_in {
+    __uint8_t sin_len;
+    sa_family_t sin_family;  //地址族
+    in_port_t sin_port;      // TCP/UDP端口号
+    struct in_addr sin_addr; //IP地址
+    char sin_zero[8];
+};
+
+
+struct in_addr{
+    in_addr_t s_addr; //32位IPv4地址
+};
+
+in_addr_t inet_addr(const char *cp);
+int inet_aton(const char *cp, struct in_addr *inp);
+char *inet_ntoa(struct in_addr in)
+```
+
+函数说明：inet_addr () 用来将参数 cp 所指的网络地址字符串转换成网络所使用的二进制数字。网络地址字符串是以数字和点组成的字符串，例如：`"163. 13. 132. 68"`。
+
+返回值：成功则返回对应的网络二进制的数字，失败返回 - 1.
+
+```c
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    struct sockaddr_in m_sockaddr;
+    m_sockaddr.sin_family = AF_INET;
+    //将字符串转换为in_addr类型
+    m_sockaddr.sin_addr.s_addr = inet_addr("192.168.1.111");
+    m_sockaddr.sin_port = htons(5000);
+
+    printf("#############  1  ##########################\n\n");
+    printf("inet_addr(\"192.168.1.111\") = %u\n", inet_addr("192.168.1.111"));
+    printf("m_sockaddr.sin_addr.s_addr = %u\n", inet_addr("192.168.1.111"));
+    printf("inet_addr ip = %u\n", inet_addr("192.168.1.111"));
+
+    //将s_addr类型转换为字符串
+    printf("inet_ntoa ip = %s\n", inet_ntoa(m_sockaddr.sin_addr));
+
+    m_sockaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    m_sockaddr.sin_port = htons(5000);
+    printf("#############  2  ##########################\n\n");
+    printf("inet_addr(\"192.168.1.111\") = %u\n", htonl(INADDR_ANY));
+    printf("m_sockaddr.sin_addr.s_addr = %u\n", htonl(INADDR_ANY));
+    printf("inet_addr ip = %u\n", htonl(INADDR_ANY));
+
+    //将s_addr类型转换为字符串
+    printf("inet_ntoa ip = %s\n", inet_ntoa(m_sockaddr.sin_addr));
+
+    return 0;
+}
+
+```
+
+输出如下：
+
+```bash
+# junjie @ Ubuntu in ~/公共的/c文件/systemlib [日期: 周二 3月 16日, 时间:20:51:07]
+$ ./test
+#############  1  ##########################
+
+inet_addr("192.168.1.111") = 1862379712
+m_sockaddr.sin_addr.s_addr = 1862379712
+inet_addr ip = 1862379712
+inet_ntoa ip = 192.168.1.111
+#############  2  ##########################
+
+inet_addr("192.168.1.111") = 0
+m_sockaddr.sin_addr.s_addr = 0
+inet_addr ip = 0
+inet_ntoa ip = 0.0.0.0
+```
+
+
+
+
+
+##### **inet_pton** /  **inet_ntop**函数
+
+```c
+#include <arpa/inet.h>
+int inet_pton(int af, const char *src, void *dst);
+```
+
+ <font color=blue>功能说明：</font>
+
++ 将 IPv4 和 IPv6 地址从点分十进制转换为二进制
+
++ 该函数将字符串 `src` 转换为 `af` 地址类型协议簇的网络地址，并存储到 `dst` 中。对于 `af` 参数，必须为 `AF_INET` 或 `AF_INET6`
+
+<font color=blue>返回值：</font>
+
++ `inet_pton` 转换成功则返回 1, 对于指定的地址类型协议簇，如果不是一个有效的网络地址，将转换失败，返回 0, 如果指定的地址类型协议簇不合法，将返回 - 1 并，并且 `errno` 设置为 `EAFNOSUPPORT `
+
+
+
+```c
+#include <arpa/inet.h>
+const char *inet_ntop(int af, const void *src, char *dst, socklen_t size);
+```
+
+ <font color=blue>功能说明：</font>
+
++ 将 IPv4 和 IPv6 地址从二进制转换为点分十进制
+
++ 该函数将地址类型协议簇为 `af` 的网络地址 `src` 转换为字符串，并将其存储到 `dst` 中，其中 `dst` 不能是空指针。调用者在参数 `size` 中指定可使用的缓冲字节数。
+
+<font color=blue>返回值：</font>
+
++ `inet_ntop` 执行成功，返回一个指向 `dst` 的非空指针，如果执行失败，将返回 `NULL`，并且 `errno` 设置为相应的错误类型。
+
+<font color=blue>错误代码：</font>
+
+- EAFNOSUPPORT
+  `af` 并不是一个合法的地址类型协议簇
+- ENOSPC
+  要转换的字符串地址 `src` 其字节大小超过了给定的缓冲字节大小
+
+
+
+> 实例
+>
+> ```c
+> #include <arpa/inet.h>
+> #include <stdio.h>
+> #include <stdlib.h>
+> #include <string.h>
+>
+> int main(int argc, char *argv[])
+> {
+>     unsigned char buf[sizeof(struct in6_addr)];
+>     int domain, s;
+>     char str[INET6_ADDRSTRLEN];
+>
+>     if (argc != 3)
+>     {
+>         fprintf(stderr, "Usage: %s {i4|i6|<num>} string\n", argv[0]);
+>         exit(EXIT_FAILURE);
+>     }
+>
+>     domain = (strcmp(argv[1], "i4") == 0) ? AF_INET : (strcmp(argv[1], "i6") == 0) ? AF_INET6: atoi(argv[1]);
+>
+>     s = inet_pton(domain, argv[2], buf);
+>     if (s <= 0)
+>     {
+>         if (s == 0)
+>             fprintf(stderr, "Not in presentation format");
+>         else
+>             perror("inet_pton");
+>         exit(EXIT_FAILURE);
+>     }
+>
+>     if (inet_ntop(domain, buf, str, INET6_ADDRSTRLEN) == NULL)
+>     {
+>         perror("inet_ntop");
+>         exit(EXIT_FAILURE);
+>     }
+>
+>     printf("%s\n", str);
+>
+>     exit(EXIT_SUCCESS);
+> }
+> ```
+>
+> 输出：
+>
+> ```c
+> # junjie @ Ubuntu in ~/公共的/c文件/systemlib [日期: 周二 3月 16日, 时间:21:05:51]
+> $ ./test i4 192.168.1.110
+> 192.168.1.110
+> ```
+>
+>
 
 
 
@@ -2535,7 +4262,9 @@ ssize_t read(int fd,void *buf,size_t nbyte);
 
 write 和 read 可以用send/recv替代。
 
-> #####    send/recv函数
+
+
+##### send/recv函数
 
 ```c
 #include <sys/socket.h>
@@ -2613,41 +4342,41 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 > #include <stdlib.h>
 > #include <fcntl.h>
 > #include <sys/shm.h>
-> 
+>
 > #define MYPORT 8887
 > #define QUEUE 20
 > #define BUFFER_SIZE 1024
-> 
+>
 > int main()
 > {
 >     ///定义sockfd
 >     int server_sockfd = socket(AF_INET, SOCK_STREAM, 0);
-> 
+>
 >     ///定义sockaddr_in
 >     struct sockaddr_in server_sockaddr;
 >     server_sockaddr.sin_family = AF_INET;
 >     server_sockaddr.sin_port = htons(MYPORT);
 >     server_sockaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-> 
+>
 >     ///bind，成功返回0，出错返回-1
 >     if (bind(server_sockfd, (struct sockaddr *)&server_sockaddr, sizeof(server_sockaddr)) == -1)
 >     {
 >         perror("bind");
 >         exit(1);
 >     }
-> 
+>
 >     ///listen，成功返回0，出错返回-1
 >     if (listen(server_sockfd, QUEUE) == -1)
 >     {
 >         perror("listen");
 >         exit(1);
 >     }
-> 
+>
 >     ///客户端套接字
 >     char buffer[BUFFER_SIZE];
 >     struct sockaddr_in client_addr;
 >     socklen_t length = sizeof(client_addr);
-> 
+>
 >     ///成功返回非负描述字，出错返回-1
 >     int conn = accept(server_sockfd, (struct sockaddr *)&client_addr, &length);
 >     if (conn < 0)
@@ -2655,7 +4384,7 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 >         perror("connect");
 >         exit(1);
 >     }
-> 
+>
 >     while (1)
 >     {
 >         memset(buffer, 0, sizeof(buffer));
@@ -2683,29 +4412,29 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 > #include <stdlib.h>
 > #include <fcntl.h>
 > #include <sys/shm.h>
-> 
+>
 > #define MYPORT 8887
 > #define BUFFER_SIZE 1024
-> 
+>
 > int main()
 > {
 >     ///定义sockfd
 >     int sock_cli = socket(AF_INET, SOCK_STREAM, 0);
-> 
+>
 >     ///定义sockaddr_in
 >     struct sockaddr_in servaddr;
 >     memset(&servaddr, 0, sizeof(servaddr));
 >     servaddr.sin_family = AF_INET;
 >     servaddr.sin_port = htons(MYPORT);                 ///服务器端口
 >     servaddr.sin_addr.s_addr = inet_addr("127.0.0.1"); ///服务器ip
-> 
+>
 >     ///连接服务器，成功返回0，错误返回-1
 >     if (connect(sock_cli, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0)
 >     {
 >         perror("connect");
 >         exit(1);
 >     }
-> 
+>
 >     char sendbuf[BUFFER_SIZE];
 >     char recvbuf[BUFFER_SIZE];
 >     while (fgets(sendbuf, sizeof(sendbuf), stdin) != NULL)
@@ -2715,11 +4444,11 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 >             break;
 >         recv(sock_cli, recvbuf, sizeof(recvbuf), 0); ///接收
 >         fputs(recvbuf, stdout);
-> 
+>
 >         memset(sendbuf, 0, sizeof(sendbuf));
 >         memset(recvbuf, 0, sizeof(recvbuf));
 >     }
-> 
+>
 >     close(sock_cli);
 >     return 0;
 > }
@@ -2732,40 +4461,40 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 > #include <stdio.h>
 > #include <sys/socket.h>
 > #include <arpa/inet.h>
-> 
+>
 > #define BUF_SIZE 5
-> 
+>
 > int main(int argc, char *argv[])
 > {
 >     char message[BUF_SIZE];
 >     int str_len, i;
-> 
+>
 >     struct sockaddr_in serv_addr, clnt_addr;
-> 
+>
 >     int serv_sock = socket(PF_INET, SOCK_STREAM, 0);
 >     if (serv_sock == -1)
 >     {
 >         printf("socket() error");
 >         exit(1);
 >     }
-> 
+>
 >     memset(&serv_addr, 0, sizeof(serv_addr));
 >     serv_addr.sin_family = AF_INET;
 >     serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 >     serv_addr.sin_port = htons(9600);
-> 
+>
 >     if (bind(serv_sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) == -1)
 >     {
 >         printf("bind() error");
 >         exit(1);
 >     }
-> 
+>
 >     if (listen(serv_sock, 5) == 1)
 >     {
 >         printf("listen() error");
 >         exit(1);
 >     }
-> 
+>
 >     int clnt_addr_sz = sizeof(clnt_addr);
 >     for (i = 0; i < 5; i++)
 >     {
@@ -2775,15 +4504,15 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 >             printf("accept() error");
 >             exit(1);
 >         }
-> 
+>
 >         while (str_len = read(clnt_sock, message, BUF_SIZE) > 0)
 >         {
 >             write(clnt_sock, message, str_len);
 >         }
-> 
+>
 >         close(clnt_sock);
 >     }
-> 
+>
 >     close(serv_sock);
 >     return 0;
 > }
@@ -2795,58 +4524,456 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 > #include <string.h>
 > #include <sys/socket.h>
 > #include <arpa/inet.h>
-> 
+>
 > #define BUF_SIZE 5
-> 
+>
 > int main(int argc, char *argv[])
 > {
 >     char message[BUF_SIZE];
 >     int str_len, i;
-> 
+>
 >     struct sockaddr_in serv_addr, clnt_addr;
-> 
+>
 >     int serv_sock = socket(PF_INET, SOCK_STREAM, 0);
 >     if (serv_sock == -1)
 >     {
 >         printf("socket() error");
 >         exit(1);
 >     }
-> 
+>
 >     memset(&serv_addr, 0, sizeof(serv_addr));
 >     serv_addr.sin_family = AF_INET;
 >     serv_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
 >     serv_addr.sin_port = htons(9600);
-> 
+>
 >     if (connect(serv_sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) == -1)
 >     {
 >         printf("connect() error");
 >         exit(1);
 >     }
-> 
+>
 >     while (1)
 >     {
 >         fputs("请输入您的信息,按Q键退出\n", stdout);
 >         fgets(message, 1024, stdin);
-> 
+>
 >         //因为fgets会保留输入中换行符,故判断加\n
 >         if (!strcmp(message, "q\n") || !strcmp(message, "Q\n"))
 >         {
 >             break;
 >         }
-> 
+>
 >         write(serv_sock, message, sizeof(message));
 >         read(serv_sock, message, BUF_SIZE - 1);
 >         printf("Message from server: %s\n", message);
 >     }
-> 
+>
 >     close(serv_sock);
 >     return 0;
+> }
+> ```
+>
+>
+
+
+
+##### sendto / recvfrom函数
+
+```c
+#include < sys/types.h >
+#include < sys/socket.h >
+//定义函数
+int sendto(int s , const void * msg, int len, unsigned int flags, const struct sockaddr * to , int tolen ) ;
+
+```
+
+   <font color=blue>功能说明：</font>
+
++ sendto () 用来将数据由指定的 socket 传给对方主机。参数 s 为已建好连线的 socket, 如果利用 UDP 协议则不需经过连线操作。参数 msg 指向欲连线的数据内容，参数 flags 一般设 0，详细描述请参考 send ()。参数 to 用来指定欲传送的网络地址，结构 sockaddr 请参考 bind ()。参数 tolen 为 sockaddr 的结果长度。
+
+​    <font color=blue>返回值：</font>
+
++ 成功则返回实际传送出去的字符数，失败返回－1，错误原因存于 errno 中。
+
+   <font color=blue>errno错误代码：</font>
+
++  EBADF 参数 s 非法的 socket 处理代码。 
++ EFAULT 参数中有一指针指向无法存取的内存空间。 
++ WNOTSOCK canshu s 为一文件描述词，非socket。 
++ EINTR 被信号所中断。 
++ EAGAIN 此动作会令进程阻断，但参数 s 的 soket 为补课阻断的。 
++ ENOBUFS 系统的缓冲内存不足。
++  EINVAL 传给系统调用的参数不正确。
+
+```c
+#include < sys/types.h >
+#include < sys/socket.h >
+//定义函数
+int recvfrom(int s,void *buf,int len,unsigned int flags ,struct sockaddr *from ,int *fromlen);
+```
+
+   <font color=blue>功能说明：</font>
+
++  recv () 用来接收远程主机经指定的 socket 传来的数据，并把数据存到由参数 buf 指向的内存空间，参数 len 为可接收数据的最大长度。参数 flags 一般设 0，其他数值定义请参考 recv ()。参数 from 用来指定欲传送的网络地址，结构 sockaddr 请参考 bind ()。参数 fromlen 为 sockaddr 的结构长度。
+
+​    <font color=blue>返回值：</font>
+
++  成功则返回接收到的字符数，失败则返回 - 1，错误原因存于 errno 中。
+
+   <font color=blue>errno错误代码：</font>
+
++   EBADF 参数 s 非合法的 socket 处理代码;
++  EFAULT 参数中有一指针指向无法存取的内存空间。
++  ENOTSOCK 参数 s 为一文件描述词，非 socket。
++  EINTR 被信号所中断。 
++ EAGAIN 此动作会令进程阻断，但参数 s 的 socket 为不可阻断。 
++ ENOBUFS 系统的缓冲内存不足;
++ ENOMEM 核心内存不足 ；
++ EINVAL 传给系统调用的参数不正确。
+
+
+
+
+
+
+
+> 实例
+>
+> ```c
+> //server.c
+> #include <sys/types.h>  
+> #include <sys/socket.h>  
+> #include <netinet/in.h>  
+> #include <arpa/inet.h>  
+> #include <unistd.h>  
+> #include <stdlib.h>  
+> #include <string.h>  
+> #include <stdio.h>  
+> #define PORT 1111 /* 使用的 port*/  
+> main(){  
+>     int sockfd,len;  
+>     struct sockaddr_in addr;  
+>     int addr_len = sizeof(struct sockaddr_in);  
+>     char buffer[256];  
+>     /* 建立 socket*/  
+>     if((sockfd=socket(AF_INET,SOCK_DGRAM,0))<0){  
+>         perror ("socket");  
+>         exit(1);  
+>     }  
+>     /* 填写 sockaddr_in 结构 */  
+>     bzero ( &addr, sizeof(addr) );  
+>     addr.sin_family=AF_INET;  
+>     addr.sin_port=htons(PORT);  
+>     addr.sin_addr.s_addr=htonl(INADDR_ANY) ;  
+>     if (bind(sockfd, (struct sockaddr *)&addr, sizeof(addr))<0){  
+>         perror("connect");  
+>         exit(1);  
+>     }  
+>     while(1){  
+>         bzero(buffer,sizeof(buffer));  
+>         len = recvfrom(sockfd,buffer,sizeof(buffer), 0 , (struct sockaddr *)&addr ,&addr_len);  
+>         /* 显示 client 端的网络地址 */  
+>         printf("receive from %s\n" , inet_ntoa( addr.sin_addr));  
+>         /* 将字串返回给 client 端 */  
+>         sendto(sockfd,buffer,len,0,(struct sockaddr *)&addr,addr_len);  
+>     }  
+> }  
+> 
+> 
+> // client.c
+> #include <sys/types.h>  
+> #include <sys/socket.h>  
+> #include <netinet/in.h>  
+> #include <arpa/inet.h>  
+> #include <unistd.h>  
+> #include <stdlib.h>  
+> #include <string.h>  
+> #include <stdio.h>  
+> #define PORT 1111  
+> #define SERVER_IP "127.0.0.1"  
+> main()  
+> {  
+>     int s,len;  
+>     struct sockaddr_in addr;  
+>     int addr_len =sizeof(struct sockaddr_in);  
+>     char buffer[256];  
+>     /* 建立 socket*/  
+>     if((s = socket(AF_INET,SOCK_DGRAM,0))<0){  
+>         perror("socket");  
+>         exit(1);  
+>     }  
+>     /* 填写 sockaddr_in*/  
+>     bzero(&addr,sizeof(addr));  
+>     addr.sin_family = AF_INET;  
+>     addr.sin_port = htons(PORT);  
+>     addr.sin_addr.s_addr = inet_addr(SERVER_IP);  
+>     while(1){  
+>         bzero(buffer,sizeof(buffer));  
+>         /* 从标准输入设备取得字符串 */  
+>         len =read(STDIN_FILENO,buffer,sizeof(buffer));  
+>         /* 将字符串传送给 server 端 */  
+>         sendto(s,buffer,len,0,(struct sockaddr *)&addr,addr_len);  
+>         /* 接收 server 端返回的字符串 */  
+>         len = recvfrom(s,buffer,sizeof(buffer),0,(struct sockaddr *)&addr,&addr_len);  
+>         printf("receive: %s",buffer);  
+>     }  
 > }
 > ```
 >
 > 
 
 
+
+
+
+#### setsockopt () 函数
+
+```c
+#include <sys/types.h>
+#include <sys/socket.h>
+int setsockopt (int sockfd, int level, int optname, const void * optval, ,socklen_toptlen);
+
+struct in_addr
+{
+	in_addr_t s_addr;
+};
+
+struct ip_mreq
+{
+	struct in_addr imn_multiaddr; // 多播组 IP，类似于 QQ 群号
+	struct in_addr imr_interface;   // 将要添加到多播组的 IP，类似于QQ 成员号
+};
+// 若进程要加入到一个组播组中，用 soket 的 setsockopt () 函数发送该选项。该选项类型是 ip_mreq 结构，它的第一个字段 imr_multiaddr 指定了组播组的地址，第二个字段 imr_interface 指定了接口的 IPv4 地址。
+```
+
+<font color=blue>功能说明：</font>
+
++ setsockopt () 用来设置参数 sockfd 所指定的 socket 状态。获取或者***设置***与某个套接字关联的选 项。选项可能存在于多层**协议***中，它们总会出现在最上面的套接字层。当操作套接字选项时，选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为SOL_SOCKET。为了操作其它层的选项，控制选项的合适协议号必须给出。例如，为了表示一个选项由 ***TCP*** 协议解析，层应该设定为协议 号 TCP 。
+
+<font color=blue>参数说明：</font>
+
++ sockfd是套接字描述符,指向一个打开的套接口描述符。
+
++ 参数 level 是被设置的选项的级别，如果想要在套接字级别上设置选项，就必须把 level 设置为 SOL_SOCKET，它有以下选项：
+
+  + SOL_SOCKET: 基本套接口，通用套接字选项。
+  + IPPROTO_IP: IPv4 套接口
+  + IPPROTO_IPV6: IPv6 套接口
+  + IPPROTO_TCP: TCP 套接口
+
+    一般设成 SOL_SOCKET 以存取 socket 层。
+
++ 参数 optname (选项名) 代表欲设置的选项的名称，option_name 可以有哪些取值，这取决于 level，下面会具体阐述：
+
+
++ 参数 optval (选项值) 代表欲设置的值；
++ 参数 optlen  (选项长度) 则为 optval 的长度.
+
+返回值：成功则返回 0, 若有错误则返回 - 1, 错误原因存于 errno.
+
+errno附加说明：
+
++ EBADF参数 sockfd 不是有效的**文件**描述词；
++ ENOTSOCK 参数 sockfd描述的不是套接字；
++ ENOPROTOOPT 参数 optname 指定的选项不正确，指定的协议层不能识别选项；
++ EFAULT 参数 optval 指针指向无法存取的内存空间，optval 指向的内存并非有效的进程 空间 ；
+
+> 当level为SOL_SOCKET时，option_name 可以有以下取值：[见此处](https://www.cnblogs.com/cthon/p/9270778.html)
+>   + SO_DEBUG 打开或关闭调试信息，当 option_value 不等于 0 时，打开调试信息，否则，关闭调试信息；+  SO_REUSEADDR 允许在 bind () 过程中本地地址可重复使用，打开或关闭地址复用功能，当 option_value 不等于 0 时，打开，否则，关闭；
+>
+> + SO_TYPE 返回 socket 形态；
+>
+>  + SO_ERROR 返回 socket 已发生的错误原因；
+>
+>  + SO_DONTROUTE 送出的数据包不要利用路由设备来传输；
+>
+>  + SO_BROADCAST 使用广播方式传送；
+>
+>  + SO_SNDBUF 设置发送缓冲区的大小；
+>
+>    + 在 send () 的时候，返回的是实际发送出去的字节 (同步) 或发送到 socket 缓冲区的字节(异步); 系统默认的状态发送和接收一次为8688 字节 (约为 8.5K)；在实际的过程中发送数据和接收数据量比较大，可以设置 socket 缓冲区，而避免了 send (),recv () 不断的循环收发：
+>
+>      ```c
+>      // 接收缓冲区
+>      int nRecvBuf=32*1024;// 设置为 32K
+>      setsockopt(s,SOL_SOCKET,SO_RCVBUF,(const char*)&nRecvBuf,sizeof(int));
+>      // 发送缓冲区
+>      int nSendBuf=32*1024;// 设置为 32K
+>      setsockopt(s,SOL_SOCKET,SO_SNDBUF,(const char*)&nSendBuf,sizeof(int));
+>      //如果在发送数据的时，希望不经历由系统缓冲区到 socket 缓冲区的拷贝而影响程序的性能：
+>      int nZero=0;
+>      setsockopt(socket，SOL_S0CKET,SO_SNDBUF，(char *)&nZero,sizeof(nZero));
+>      
+>      //同上在 recv () 完成上述功能 (默认情况是将 socket 缓冲区的内容拷贝到系统缓冲区)：
+>      int nZero=0;
+>      setsockopt(socket，SOL_S0CKET,SO_RCVBUF，(char *)&nZero,sizeof(int));
+>      ```
+>
+>      
+>
+>  + SO_RCVBUF 设置接收缓冲区的大小；
+>
+>  + SO_KEEPALIVE 定期确定连线是否已终止，套接字保活，如果协议是 TCP，并且当前的套接字状态不是侦听 (listen) 或关闭 (close)，那么，当 option_value 不是零时，启用 TCP 保活定时 器，否则关闭保活定时器；
+>
+>  + SO_OOBINLINE 当接收到 OOB 数据时会马上送至标准输入设备；
+>
+>  +  SO_LINGER 确保数据安全且可靠的传送出去；
+>
+
+
+
+> 当level为IPPROTO_IP时，option_name 可以有以下取值：
+>
+>   +  IP_ADD_MEMBERSHIP这个 option 和下面的 option 是实现多播必不可少的，它用于加入一个多播组，例：
+>
+>     ```c
+>     struct ip_mreq ipmr;
+>     ipmr.imr_interface.s_addr = htonl(INADDR_ANY);//本地某一网络设备接口的IP地址。
+>     ipmr.imr_multiaddr.s_addr = inet_addr("234.5.6.7");//组播组的IP地址。
+>     setsockopt(s, IPPROTO_IP, IP_ADDR_MEMBERSHIP, (char*)&ipmr, sizeof(ipmr));
+>     ```
+>
+>     
+>
+>   +  IP_DROP_MEMBERSHIP 用于离开一个多播组，使用方法同 IP_ADDR_MEMBERSHIP:
+>
+>     ```c
+>     struct ip_mreq ipmr;
+>     int   len;
+>     setsockopt(s, IPPROTO_IP, IP_DROP_MEMBERSHIP, (char*)&ipmr, &len);
+>     ```
+>
+>     
+>
+> + IP_MULTICAST_IF 该选项可以修改网络接口，在结构 ip_mreq 中定义新的接口，发送多播报文时用的本地接口，默认情况下被设置成了本地接口的第一个地址；
+>
+>   
+>
+>  + IP_MULTICAST_TTL 设置组播报文的数据包的 TTL（生存时间）。默认值是 1，表示数据包只能在本地的子网中传送，默认情况下，多播报文的TTL被设置成了1，也就是说到这个报文在网络传送的时候，它只能在自己所在的网络传送，当要向外发送的时候，路由器把TTL减1以后变成了0，这个报文就已经被 Discard 了。例：
+>
+>    ```c
+>    char ttl;
+>    ttl = 2;
+>    setsockopt(s, IPPROTO_IP, IP_MULTICAST_TTL, (char*)ttl, sizeof(ttl));
+>    ```
+>
+>    
+>
+>  + IP_MULTICAST_LOOP 组播组中的成员自己也会收到它向本组发送的报文。这个选项用于选择是否激活这种状态，当接收者加入到一个多播组以后，再向这个多播组发送数据，这个字段的设置是否允许再返回到本身；
+>
+>    ```c
+>    int loop=1;    //1:on  0:off
+>    setsockopt(sock,IPPROTO_IP,IP_MULTICAST_LOOP,&loop,sizeof(loop));
+>    ```
+>
+>    
+
+
+
+> 当level为IPPROTO_TCP时，option_name 可以有以下取值：
+>
+>   +  TCP_NODELAY 是唯一使用 IPPROTO_TCP 层的选项;
+>   +  
+
+
+
+#### select函数
+
+```c
+#include<sys/time.h>
+#include<sys/types.h>
+#include<unistd.h>
+int select(int maxfdp,fd_set *readfds,fd_set *writefds,fd_set *errorfds,struct timeval*timeout);
+```
+
+<font color=blue>先说明两个结构体：</font>
+
++ 第一，struct fd_set 可以理解为一个集合，这个集合中存放的是文件描述符 (filedescriptor)，即文件句柄，这可以是我们所说的普通意义的文件，当然 Unix 下任何设备、管道、FIFO 等都是文件形式，全部包括在内，所以毫无疑问一个 socket 就是一个文件，socket 句柄就是一个文件描述符。fd_set 集合可以通过一些宏由人为来操作，比如清空集合 FD_ZERO (fd_set *)，将一个给定的文件描述符加入集合之中 FD_SET (int ,fd_set*)，将一个给定的文件描述符从集合中删除 FD_CLR (int,fd_set*)，检查集合中指定的文件描述符是否可以读写 FD_ISSET (int ,fd_set* )。 
++ 第二，struct timeval 是一个大家常用的结构，用来代表时间值，有两个成员，一个是秒数，另一个是毫秒数。
+
+<font color=blue>参数：</font>
+
++ int maxfdp 是一个整数值，是指集合中所有文件描述符的范围，即所有文件描述符的最大值加 1，不能错！在 Windows 中这个参数的值无所谓，可以设置不正确。
++ fd_set * readfds 是指向 fd_set 结构的指针，这个集合中应该包括文件描述符，我们是要监视这些文件描述符的读变化的，即我们关心是否可以从这些文件中读取数据了，如果这个集合中有一个文件可读，select 就会返回一个大于 0 的值，表示有文件可读，如果没有可读的文件，则根据 timeout 参数再判断是否超时，若超出 timeout 的时间，select 返回 0，若发生错误返回负值。可以传入 NULL 值，表示不关心任何文件的读变化。
++ fd_set * writefds 是指向 fd_set 结构的指针，这个集合中应该包括文件描述符，我们是要监视这些文件描述符的写变化的，即我们关心是否可以向这些文件中写入数据了，如果这个集合中有一个文件可写，select 就会返回一个大于 0 的值，表示有文件可写，如果没有可写的文件，则根据 timeout 参数再判断是否超时，若超出 timeout 的时间，select 返回 0，若发生错误返回负值。可以传入 NULL 值，表示不关心任何文件的写变化。
++ fd_set * errorfds 同上面两个参数的意图，用来监视文件错误异常。
++ struct timeval * timeout 是 select 的超时时间，这个参数至关重要，它可以使 select 处于三种状态，第一，若将 NULL 以形参传入，即不传入时间结构，就是将 select 置于阻塞状态，一定等到监视文件描述符集合中某个文件描述符发生变化为止；第二，若将时间值设为 0 秒 0 毫秒，就变成一个纯粹的非阻塞函数，不管文件描述符是否有变化，都立刻返回继续执行，文件无变化返回 0，有变化返回一个正值；第三，timeout 的值大于 0，这就是等待的超时时间，即 select 在 timeout 时间内阻塞，超时时间之内有事件到来就返回了，否则在超时后不管怎样一定返回，返回值同上述。
+
+<font color=blue>返回值：</font>**返回值：返回状态发生变化的描述符总数。**
+
++ 负值：select 错误；
+
++ 正值：某些文件可读写或出错；
+
++ 0：等待超时，没有可读写或错误的文件；
+
+
+
+> 实例1
+>
+> ```c
+> #include <sys/types.h>
+> #include <sys/time.h>
+> #include <stdio.h>
+> #include <fcntl.h>
+> #include <sys/ioctl.h>
+> #include <unistd.h>
+> 
+> int main()
+> {
+>     char buffer[128];
+>     int result, nread;
+>     fd_set inputs, testfds;
+>     struct timeval timeout;
+>     FD_ZERO(&inputs);   //用select函数之前先把集合清零
+>     FD_SET(0, &inputs); //把要检测的句柄——标准输入（0），加入到集合里。
+>     while (1)
+>     {
+>         testfds = inputs;
+>         timeout.tv_sec = 2;
+>         timeout.tv_usec = 500000;
+>         result = select(FD_SETSIZE, &testfds, (fd_set *)0, (fd_set *)0, &timeout);
+>         switch (result)
+>         {
+>         case 0:
+>             printf("timeout/n");
+>             break;
+>         case -1:
+>             perror("select");
+>             exit(1);
+>         default:
+>             if (FD_ISSET(0, &testfds))
+>             {
+>                 ioctl(0, FIONREAD, &nread); //取得从键盘输入字符的个数，包括回车。
+>                 if (nread == 0)
+>                 {
+>                     printf("keyboard done/n");
+>                     exit(0);
+>                 }
+>                 nread = read(0, buffer, nread);
+>                 buffer[nread] = 0;
+>                 printf("read %d from keyboard: %s", nread, buffer);
+>             }
+>             break;
+>         }
+>     }
+>     return 0;
+> }
+> ```
+>
+> 实例2
+>
+> ```c
+> //server.c
+> 
+> 
+> //client.c
+> 
+> 
+> 
+> ```
+>
+> 
 
 
 
@@ -3014,13 +5141,13 @@ int main(int argc, char **argv)
 #ifndef _CLOCK_T
 #define _CLOCK_T
 	typedef    long   clock_t;
-#endif 
+#endif
 
 
 // time_t  类型：长整型，一般用来表示从 1970-01-01 00:00:00 时以来的秒数，精确度：秒；由函数 time () 获取；
 #define _TIME_T
-	typedef   long   time_t;        
-#endif 
+	typedef   long   time_t;
+#endif
 
 #include <sys/timeb.h>
 // struct timeb 结构：它有两个主要成员，一个是秒，另一个是毫秒；精确度：毫秒 (10E-3 秒)；
@@ -3034,7 +5161,7 @@ struct  timeb{
 // struct timespec 有两个成员，一个是秒，一个是纳秒，所以最高精确度是纳秒。
 struct  timespec
 {
-	time_t    tv_sec;        // 秒   
+	time_t    tv_sec;        // 秒
 	long       tv_nsec;       //纳秒
 };
 
@@ -3050,8 +5177,8 @@ struct  timeval
 //struct  timezone 结构的定义为：
 struct  timezone
 {
-    int  tz_minuteswest; 
-    int  tz_dsttime;        
+    int  tz_minuteswest;
+    int  tz_dsttime;
 };
 
 // 结构 tm 的定义为
@@ -3059,8 +5186,8 @@ struct tm
 {
     int   tm_sec;    //tm_sec 代表目前秒数，正常范围为 0-59，但允许至 61 秒
     int   tm_min;    // tm_min 代表目前分数，范围 0-59
-    int   tm_hour;    //tm_hour 从午夜算起的时数，范围为 0-23 
-    int   tm_mday;    //tm_mday 目前月份的日数，范围 01-31 
+    int   tm_hour;    //tm_hour 从午夜算起的时数，范围为 0-23
+    int   tm_mday;    //tm_mday 目前月份的日数，范围 01-31
     int   tm_mon;    // tm_mon 代表目前月份，从一月算起，范围从 0-11
     int   tm_year;   //tm_year 从 1900 年算起至今的年数
     int   tm_wday;   // tm_wday 一星期的日数，从星期一算起，范围为 0-6
@@ -3087,7 +5214,7 @@ struct tm
 #include<time.h>
 int main(){
  time_t timep;
- 
+
  long seconds = time(&timep);
  printf("%ld\n",seconds);
  printf("%ld\n",timep);
@@ -3115,7 +5242,7 @@ char *ctime(const time_t *timep);
 #include<time.h>
 int main(void) {
  time_t timep;
- 
+
  time(&timep);
  printf("%s\n",ctime(&timep));
  return 0;
@@ -3139,13 +5266,13 @@ struct tm *gmtime(const time_t *timep);
 ```c
 #include <stdio.h>
 #include<time.h>
- 
+
 int main(void){
     char *wday[] = {"Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
- 
+
  	time_t timep;
 	struct tm *p;
- 
+
  	time(&timep);
  	p = gmtime(&timep);
  	printf("%d/%d/%d ",(1900+p->tm_year),(1+p->tm_mon),p->tm_mday);
@@ -3161,7 +5288,7 @@ int main(void){
 ####    strftime 函数
 
 ```c
-#include <time.h> 
+#include <time.h>
 size_t strftime(char *s, size_t max, const char *format,const struct tm *tm);
 ```
 
@@ -3249,8 +5376,8 @@ size_t strftime(char *s, size_t max, const char *format,const struct tm *tm);
   #define BUFLEN 255
   int main(int argc, char **argv)
   {
-  	time_t t = time( 0 );   
-      char tmpBuf[BUFLEN];                                                                           
+  	time_t t = time( 0 );
+      char tmpBuf[BUFLEN];
       strftime(tmpBuf, BUFLEN, "%Y%m%d%H%M%S", localtime(&t)); //format date a
       printf("%s\n",tmpBuf);
       return 0;
@@ -3321,11 +5448,11 @@ time_t mktime(struct tm *timeptr);
 #include <stdio.h>
 #include <stdlib.h>
 #include<time.h>
- 
+
 int main(void) {
  time_t timep;
  struct tm *p;
- 
+
  time(&timep);
  printf("time():%ld\n",timep);
  p = localtime(&timep);
@@ -3348,15 +5475,15 @@ int  gettimeofday(struct  timeval*  tv，struct  timezone*  tz);
 //struct  timeval 结构，它有两个成员；一个是秒，另一个表示微秒，精确度：微秒 (10E-6)；
 struct  timeval
 {
-    long  tv_sec;  
-    long  tv_usec;  
+    long  tv_sec;
+    long  tv_usec;
 }
 
 //struct  timezone 结构的定义为：
 struct  timezone
 {
-    int  tz_minuteswest; 
-    int  tz_dsttime;        
+    int  tz_minuteswest;
+    int  tz_dsttime;
 }
 ```
 
@@ -3391,7 +5518,7 @@ int main(void) {
 #include <sys/timeb.h>
 //函数定义：
 int ftime (struct timeb *tp);
-//函数说明：ftime () 将目前日期由 tp 所指的结构返回,ftime () 函数取得目前的时间和日期。
+//函数说明：ftime()将目前日期由 tp 所指的结构返回,ftime () 函数取得目前的时间和日期。
 
 #include <sys/timeb.h>
 // struct timeb 结构：它有两个主要成员，一个是秒，另一个是毫秒；精确度：毫秒 (10E-3 秒)；
@@ -3417,7 +5544,7 @@ clock_t   clock(void);
 
 ####   gethrestime、gethrestime_lasttick函数
 
- 
+
 
 ```c
 #include<time_impl.h>
@@ -3427,8 +5554,8 @@ void   gethrestime_lasttick(timespec_t*);
 // struct timespec 有两个成员，一个是秒，一个是纳秒，所以最高精确度是纳秒。
 struct  timespec
 {
-	time_t    tv_sec;           
-	long       tv_nsec;         
+	time_t    tv_sec;
+	long       tv_nsec;
 };
 ```
 
@@ -3477,7 +5604,7 @@ struct itimerspec
 // struct timespec 有两个成员，一个是秒，一个是纳秒，所以最高精确度是纳秒。
 struct  timespec
 {
-	time_t    tv_sec;        // 秒   
+	time_t    tv_sec;        // 秒
 	long       tv_nsec;       //纳秒
 };
 ````
@@ -3500,15 +5627,15 @@ int timer_create(clockid_t clock_id, struct sigevent *evp, timer_t *timerid);
 + clock_id：系统时钟的宏，该参数表明了定时器是基于哪个系统时钟来创建的。常见的宏有以下：
 
   ```c
-  #define CLOCK_REALTIME    0    
+  #define CLOCK_REALTIME    0
   //表示从1970.1.1到目前系统时间，属于相对时间
-  
+
   #define CLOCK_MONOTONIC   1
   //单调的时间，也是绝对的时间，表示系统开启到目前的时间
-  
+
   #define CLOCK_PROCESS_CPUTIME_ID  2
   // 本进程到当前代码系统CPU花费的时间
-  
+
   #define CLOCK_THREAD_CPUTIME_ID  3
   //本线程到当前代码系统CPU花费的时间
   ```
@@ -3526,8 +5653,9 @@ int timer_create(clockid_t clock_id, struct sigevent *evp, timer_t *timerid);
       void *sigev_notify_attributes;/* Attributes for notification thread (SIGEV_THREAD) */
       pid_t sigev_notify_thread_id; /* ID of thread to signal (SIGEV_THREAD_ID) */
   };
-  
-  
+  ```
+
+
   union sigval {          /* Data passed with notification */
    	int  sival_int;         /* Integer value */
       void   *sival_ptr;      /* Pointer value */
@@ -3594,7 +5722,7 @@ int timer_settime (timer_t timerid, int flags, const struct itimerspec *value, s
   };
   // it_value 用于指定当前的定时器到期时间。当定时器到期，it_value 的值会被更新成 it_interval 的值。如果 it_interval 的值为 0，则定时器不是一个时间间隔定时器，一旦 it_value 到期就会回到未启动状态。
   ```
-  
+
   ``` c
     // 而结构体 timespec 则有两个成员，分别是秒和纳秒，如下：
     struct timespec
@@ -3603,8 +5731,8 @@ int timer_settime (timer_t timerid, int flags, const struct itimerspec *value, s
       __syscall_slong_t tv_nsec;	/* Nanoseconds.纳秒  */
     };
   ```
-  
-  
+
+
 
 可见该定时器的精准度还是非常高的。
 
@@ -3622,7 +5750,7 @@ int timer_gettime(timer_t timerid, struct itimerspec * curr_value);
 参数：
 
 + timerid 定时器标识；
-  
+
 
 
 
@@ -3642,23 +5770,6 @@ int timer_delete (timer_t __timerid);
 
 好了，现在定时器有了，并且也可以设置定时器到期时产生的信号，现在就差信号产生时，怎么去触发执行指定的任务了。这就需要 signal 函数介入了。
 
-
-
-####   signal 函数
-
-```c
-void (*signal(int sig, void (*func)(int)))(int);
-```
-
-函数说明：该函数是用于设置捕获到某一信号时所要采用的动作。
-		参数说明：
-
-+ sig：指明了所要处理的信号类型，它可以取除 SIGKILL 和 SIGSTOP 之外的任意信号。
-+ 第二个参数则是一个函数指针，该函数无返回值，且包含一个 int 型的参数，表明了当产生信号时，函数指针指向的函数将会被调用。
-  
-
-
-
 > 实例
 >
 > >  接下来看一个简单的小例子来了解一下定时器的使用。该程序的功能就是在 while 中隔 1s 打印一个字符串，10s 后退出 while 结束打印。
@@ -3669,36 +5780,36 @@ void (*signal(int sig, void (*func)(int)))(int);
 > #include<time.h>
 > #include<string.h>
 > #include <unistd.h>
-> 
+>
 > static bool flag = true;
 > timer_t timeid;  //定义一个全局的定时器id
-> 
+>
 > void task(int i)
 > {
 >     printf("task start\n");
 >     flag = false;
 > }
-> 
+>
 > void create_timer()
 > {
 > /****创建定时器***********/
 >     struct sigevent evp;  //环境结构体
 >     int ret = 0;
-> 
+>
 >     memset(&evp, 0, sizeof(struct sigevent));
-> 
+>
 >     evp.sigev_value.sival_ptr = &timeid;    //绑定i定时器
 >     evp.sigev_notify = SIGEV_SIGNAL;  //设置定时器到期后触发的行为是为发送信号
 >     evp.sigev_signo = SIGUSR1;  //设置信号为用户自定义信号1
 >     signal(SIGUSR1, task);  //绑定产生信号后调用的函数
-> 
+>
 >     ret = timer_create(CLOCK_REALTIME, &evp, &timeid);  //创建定时器
 >     if( ret  == 0)
 >     {
 >         printf("timer_create ok\n");
->     }    
+>     }
 > }
-> 
+>
 > void init_timer()
 > {
 >     int ret = 0;
@@ -3707,12 +5818,12 @@ void (*signal(int sig, void (*func)(int)))(int);
 >     ts.it_interval.tv_nsec = 0;
 >     ts.it_value.tv_sec = 10;  //设置定时器10s后启动
 >     ts.it_value.tv_nsec = 0;
-> 
+>
 >     ret = timer_settime(timeid, 0, &ts, NULL);  //初始化定时器
 >     if( ret ==0)
 >         printf("timer_settime ok\n");
 > }
-> 
+>
 > int main()
 > {
 >     create_timer();
@@ -3725,7 +5836,94 @@ void (*signal(int sig, void (*func)(int)))(int);
 > }
 > ```
 >
-> 
+>
+
+
+
+####   signal 函数
+
+```c
+void (*signal(int sig, void (*func)(int)))(int);
+```
+
+函数说明：signal () 会依参数 signum 指定的信号编号来设置该信号的处理函数。当指定的信号到达时就会跳转到参数 handler 指定的函数执行。如果参数 handler 不是函数指针，则必须是下列两个常数之一：
+
+1、SIG_IGN 忽略参数 signum 指定的信号.
+2、SIG_DFL 将参数 signum 指定的信号重设为核心预设的信号处理方式.
+
+返回值：该函数返回信号处理程序之前的值，当发生错误时返回 SIG_ERR。
+
++ 参数说明：
+
+  + **sig** -- 在信号处理程序中作为变量使用的信号码，它可以取除 SIGKILL 和 SIGSTOP 之外的任意信号。下面是一些重要的标准信号常量：
+
+    |   宏    | 信号                                                         |
+    | :-----: | :----------------------------------------------------------- |
+    | SIGABRT | (Signal Abort) 程序异常终止。                                |
+    | SIGFPE  | (Signal Floating-Point Exception) 算术运算出错，如除数为 0 或溢出（不一定是浮点运算）。 |
+    | SIGILL  | (Signal Illegal Instruction) 非法函数映象，如非法指令，通常是由于代码中的某个变体或者尝试执行数据导致的。 |
+    | SIGINT  | (Signal Interrupt) 中断信号，如 ctrl-C，通常由用户生成。     |
+    | SIGSEGV | (Signal Segmentation Violation) 非法访问存储器，如访问不存在的内存单元。 |
+    | SIGTERM | (Signal Terminate) 发送给本程序的终止请求信号。              |
+
+  + **func** -- 一个指向函数的指针。第二个参数则是一个函数指针，该函数无返回值，且包含一个 int 型的参数，表明了当产生信号时，函数指针指向的函数将会被调用。它可以是一个由程序定义的函数，也可以是下面预定义函数之一：
+
+    | SIG_DFL | 默认的信号处理程序。 |
+    | ------- | -------------------- |
+    | SIG_IGN | 忽视信号。           |
+
+
+
+>  附加说明：
+>
+> >  在信号发生跳转到自定的 handler 处理函数执行后，系统会自动将此处理函数换回原来系统预设的处理方式，如果要改变此操作请改用 sigaction ().
+
+
+
+> 实例
+>
+> ```c
+> #include <stdio.h>
+> #include <unistd.h>
+> #include <stdlib.h>
+> #include <signal.h>
+>
+> void sighandler(int);
+>
+> int main()
+> {
+>    signal(SIGINT, sighandler);
+>
+>    while(1)
+>    {
+>       printf("开始休眠一秒钟...\n");
+>       sleep(1);
+>    }
+>
+>    return(0);
+> }
+>
+> void sighandler(int signum)
+> {
+>    printf("捕获信号 %d，跳出...\n", signum);
+>    exit(1);
+> }
+> ```
+>
+> 让我们编译并运行上面的程序，这将产生以下结果，且程序会进入无限循环，需使用 CTRL + C 键跳出程序。
+>
+> ```bash
+> 开始休眠一秒钟...
+> 开始休眠一秒钟...
+> 开始休眠一秒钟...
+> 开始休眠一秒钟...
+> 开始休眠一秒钟...
+> 捕获信号 2，跳出...
+> ```
+>
+>
+
+
 
 
 
@@ -3740,10 +5938,109 @@ void (*signal(int sig, void (*func)(int)))(int);
 int sigaction(int signum, const struct sigaction *act, struct sigaction *oldact);
 ```
 
-+  signum：要操作的信号，signum 参数指出要捕获的信号类型。
-+  act：要设置的对信号的新处理方式。
++ signum：要操作的信号，signum 参数指出要捕获的信号类型，可以为除 SIGKILL 及 SIGSTOP 外的任何一个特定有效的信号（为这两个信号定义自己的处理函数，将导致信号安装错误），有关信号可以查看[信号1](#信号1)、[信号2](#信号2)，SIGNUM有以下：
+
+  ```bash
+  # junjie @ Ubuntu in ~/公共的/c文件/计算机网络 [日期: 周二 3月 16日, 时间:14:23:28]
+  $ kill -l
+   1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP
+   6) SIGABRT      7) SIGBUS       8) SIGFPE       9) SIGKILL     10) SIGUSR1
+  11) SIGSEGV     12) SIGUSR2     13) SIGPIPE     14) SIGALRM     15) SIGTERM
+  16) SIGSTKFLT   17) SIGCHLD     18) SIGCONT     19) SIGSTOP     20) SIGTSTP
+  21) SIGTTIN     22) SIGTTOU     23) SIGURG      24) SIGXCPU     25) SIGXFSZ
+  26) SIGVTALRM   27) SIGPROF     28) SIGWINCH    29) SIGIO       30) SIGPWR
+  31) SIGSYS      34) SIGRTMIN    35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3
+  38) SIGRTMIN+4  39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8
+  43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13
+  48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12
+  53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7
+  58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
+  63) SIGRTMAX-1  64) SIGRTMAX
+  ```
+
+  列表中，编号为 1~31 的信号为传统 UNIX 支持的信号，是不可靠信号（非实时的），编号为 32~63 的信号是后来扩充的，称做可靠信号（实时信号）。不可靠信号和可靠信号的区别在于前者不支持排队，可能会造成信号丢失，而后者不会。
+
+  + 1）SIGHUP：本信号在用户终端连接（正常或非正常）结束时发出，通常是在终端的控制进程结束的，通知同一 session 内的各个作用，这是它们与控制终端不再关联。
+
+    登录 Linux 时，系统会分配给登录用户一个终端（Session）。在这个终端运行的所有程序，包括前台进程组和后台进程组，一般都属于这个 Session。当用户退出 Linux 登录时，前台进程和后台有对终端输出的进程将会收到 SIGHUP 信号，这个信号的默认操作为终止进程，因此前台进程组和后台有终端输出的进程就会终止。不过可以捕获这个信号，比如 wget 能捕获 SIGHUP 信号，并忽略它，这样就算退出了 Linux 登录，wget 也能继续下载。
+
+    此外，对于与终端脱离关系的守护进程，这个信号用于通知它重新读取配置文件。
+
+  + 2） SIGINT：程序终止 (interrupt) 信号，在用户键入 INTR 字符 (通常是 Ctrl-C) 时发出，用于通知前台进程组终止进程。
+
+  + 3）SIGQUIT：和 SIGINT 类似，但由 QUIT 字符 (通常是 Ctrl-/) 来控制。进程在因收到 SIGQUIT 退出时会产生 core 文件，在这个意义上类似于一个程序错误信号。
+
+  + 4） SIGILL：执行了非法指令。通常是因为可执行文件本身出现错误，或者试图执行数据段。堆栈溢出时也有可能产生这个信号。
+  + 5) SIGTRAP：由断点指令或其它 trap 指令产生。由 debugger 使用。
+  + 6) SIGABRT：调用 abort 函数生成的信号。
+
+  + 7) SIGBUS：非法地址，包括内存地址对齐 (alignment) 出错。比如访问一个四个字长的整数，但其地址不是 4 的倍数。它与 SIGSEGV 的区别在于后者是由于对合法存储地址的非法访问触发的 (如访问不属于自己存储空间或只读存储空间)。
+
+  + 8) SIGFPE：在发生致命的算术运算错误时发出。不仅包括浮点运算错误，还包括溢出及除数为 0 等其它所有的算术的错误。
+
+  +   9) SIGKILL：用来立即结束程序的运行。本信号不能被阻塞、处理和忽略。如果管理员发现某个进程终止不了，可尝试发送这个信号。
+
+  + 10) SIGUSR1：留给用户使用
+
+  + 11) SIGSEGV：试图访问未分配给自己的内存，或试图往没有写权限的内存地址写数据.
+
+  + 12) SIGUSR2：留给用户使用
+
+  + 13) SIGPIPE：管道破裂。这个信号通常在进程间通信产生，比如采用 FIFO (管道) 通信的两个进程，读管道没打开或者意外终止就往管道写，写进程会收到 SIGPIPE 信号。此外用 Socket 通信的两个进程，写进程在写 Socket 的时候，读进程已经终止。
+
+  + 14) SIGALRM：时钟定时信号，计算的是实际的时间或时钟时间. alarm 函数使用该信号.
+
+  + 15) SIGTERM：程序结束 (terminate) 信号，与 SIGKILL 不同的是该信号可以被阻塞和处理。通常用来要求程序自己正常退出，shell 命令 kill 缺省产生这个信号。如果进程终止不了，我们才会尝试 SIGKILL。
+
+  + 17) SIGCHLD：子进程结束时，父进程会收到这个信号。
+
+    如果父进程没有处理这个信号，也没有等待 (wait) 子进程，子进程虽然终止，但是还会在内核进程表中占有表项，这时的子进程称为僵尸进程。这种情况我们应该避免 (父进程或者忽略 SIGCHILD 信号，或者捕捉它，或者 wait 它派生的子进程，或者父进程先终止，这时子进程的终止自动由 init 进程来接管)。
+
+  + 18) SIGCONT：让一个停止 (stopped) 的进程继续执行。本信号不能被阻塞。可以用一个 handler 来让程序在由 stopped 状态变为继续执行时完成特定的工作。例如，重新显示提示符
+
+  + 19) SIGSTOP：停止 (stopped) 进程的执行。注意它和 terminate 以及 interrupt 的区别：该进程还未结束，只是暂停执行。本信号不能被阻塞，处理或忽略.
+
+  + 20) SIGTSTP：停止进程的运行，但该信号可以被处理和忽略。用户键入 SUSP 字符时 (通常是 Ctrl-Z) 发出这个信号
+
+  + 21) SIGTTIN：当后台作业要从用户终端读数据时，该作业中的所有进程会收到 SIGTTIN 信号。缺省时这些进程会停止执行.
+
+  + 22) SIGTTOU：类似于 SIGTTIN, 但在写终端 (或修改终端模式) 时收到.
+
+  + 23) SIGURG：有 "紧急" 数据或 out-of-band 数据到达 socket 时产生.
+
+  + 24) SIGXCPU：超过 CPU 时间资源限制。这个限制可以由 getrlimit/setrlimit 来读取 / 改变。
+
+  + 25) SIGXFSZ：当进程企图扩大文件以至于超过文件大小资源限制。
+
+  + 26) SIGVTALRM：虚拟时钟信号。类似于 SIGALRM, 但是计算的是该进程占用的 CPU 时间.
+
+  + 27) SIGPROF：类似于 SIGALRM/SIGVTALRM, 但包括该进程用的 CPU 时间以及系统调用的时间.
+
+  + 28) SIGWINCH：窗口大小改变时发出.
+
+  + 29) SIGIO：文件描述符准备就绪，可以开始进行输入 / 输出操作.
+
+  + 30) SIGPWR：Powerfailure
+
+  + 31) SIGSYS：非法的系统调用。
+
+    在以上列出的信号中，程序不可捕获、阻塞或忽略的信号有：SIGKILL,SIGSTOP
+    不能恢复至默认动作的信号有：SIGILL,SIGTRAP
+    默认会导致进程流产的信号有：SIGABRT,SIGBUS,SIGFPE,SIGILL,SIGIOT,SIGQUIT,SIGSEGV,SIGTRAP,SIGXCPU,SIGXFSZ
+    默认会导致进程退出的信号有：SIGALRM,SIGHUP,SIGINT,SIGKILL,SIGPIPE,SIGPOLL,SIGPROF,SIGSYS,SIGTERM,SIGUSR1,SIGUSR2,SIGVTALRM
+    默认会导致进程停止的信号有：SIGSTOP,SIGTSTP,SIGTTIN,SIGTTOU
+    默认进程忽略的信号有：SIGCHLD,SIGPWR,SIGURG,SIGWINCH
+
++ act：要设置的对信号的新处理方式。
+
 + oldact：原来对信号的处理方式。
+
 + 返回值：0 表示成功，-1 表示有错误发生。
+
+  错误代码：
+  1、EINVAL 参数 signum 不合法，或是企图拦截 SIGKILL/SIGSTOPSIGKILL 信号。
+  2、EFAULT 参数 act, oldact 指针地址无法存取。
+  3、EINTR 此调用被中断。
 
 ```c
 struct sigaction {
@@ -3763,9 +6060,35 @@ struct sigaction {
   +  SA_NOCLDSTOP：使父进程在它的子进程暂停或继续运行时不会收到 SIGCHLD 信号。
   + SA_NOCLDWAIT：使父进程在它的子进程退出时不会收到 SIGCHLD 信号，这时子进程如果退出也不会成为僵尸进程。
   + SA_NODEFER：使对信号的屏蔽无效，即在信号处理函数执行期间仍能发出这个信号，一般情况下， 当信号处理函数运行时，内核将阻塞该给定信号。但是如果设置了 SA_NODEFER 标记， 那么在该信号处理函数运行时，内核将不会阻塞该信号；
-  + SA_RESETHAND：信号处理之后重新设置为默认的处理方式。
+  + SA_ONESHOT/SA_RESETHAND：信号处理之后重新设置为默认的处理方式。
   + SA_SIGINFO：使用 sa_sigaction 成员而不是 sa_handler 作为信号处理函数。
 + **成员 re_restorer 则是一个已经废弃的数据域**，不要使用。
+
+与sigaction函数相关的函数还有：
+
+```c
+#include <signal.h>
+sigemptyset (sigset_t *set)
+//初始化由 set 指定的信号集，信号集里面的所有信号被清空；错误代码：EFAULT 参数 set 指针地址无法存取。
+
+sigfillset (sigset_t *set)
+//调用该函数后，set 指向的信号集中将包含 linux 支持的 64 种信号；
+
+sigaddset (sigset_t *set, int signum)
+//在 set 指向的信号集中加入 signum 信号；
+//错误代码：
+//1、EFAULT 参数 set 指针地址无法存取。
+//2、EINVAL 参数 signum 非合法的信号编号。
+
+
+sigdelset (sigset_t *set, int signum)
+//在 set 指向的信号集中删除 signum 信号；
+
+sigismember (const sigset_t *set, int signum)
+//判定信号 signum 是否在 set 指向的信号集中。
+
+// 以上函数执行成功则返回 0, 如果有错误则返回 - 1.
+```
 
 
 
@@ -3778,20 +6101,20 @@ struct sigaction {
 #include <unistd.h>
 #include <stdlib.h>
 #include <signal.h>
- 
+
 int main()
 {
     struct sigaction newact,oldact;
- 
+
     /* 设置信号忽略 */
     newact.sa_handler = SIG_IGN; //这个地方也可以是函数
     sigemptyset(&newact.sa_mask);
     newact.sa_flags = 0;
     int count = 0;
     pid_t pid = 0;
- 
+
     sigaction(SIGINT,&newact,&oldact);//原来的备份到oldact里面
- 
+
     pid = fork();
     if(pid == 0)
     {
@@ -3802,7 +6125,7 @@ int main()
         }
         return 0;
     }
- 
+
     while(1)
     {
         if(count++ > 3)
@@ -3811,11 +6134,11 @@ int main()
             printf("pid = %d\n",pid);
             kill(pid,SIGKILL); //父进程发信号，来杀死子进程
         }
- 
+
         printf("I am father .......... hahaha\n");
         sleep(1);
     }
- 
+
     return 0;
 }
 ```
@@ -3826,36 +6149,89 @@ int main()
 
 ```c
 // 实例2
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <signal.h>
 void show_handler(int sig)
 {
     printf("I got signal %d\n", sig);
     int i;
-    for(i = 0; i < 5; i++) 
+    for(i = 0; i < 5; i++)
    {
         printf("i = %d\n", i);
         sleep(1);
     }
 }
- 
+
 int main(void)
 {
     int i = 0;
     struct sigaction act, oldact;
     act.sa_handler = show_handler;
-    sigaddset(&act.sa_mask, SIGQUIT);         //见注(1)
-    act.sa_flags = SA_RESETHAND | SA_NODEFER; //见注(2)
-    //act.sa_flags = 0;                      //见注(3)
- 
+    sigaddset(&act.sa_mask, SIGQUIT);           //见注(1)
+    act.sa_flags = SA_RESETHAND | SA_NODEFER;   //见注(2)
+    //act.sa_flags = 0;                         //见注(3)
+
     sigaction(SIGINT, &act, &oldact);
-    while(1) 
+    while(1)
    {
         sleep(1);
         printf("sleeping %d\n", i);
         i++;
     }
 }
- 
 ```
+
+注：
+(1) 如果在信号 SIGINT (Ctrl + c) 的信号处理函数 show_handler 执行过程中，本进程收到信号 SIGQUIT (Crt+\\)，将阻塞该信号，直到 show_handler 执行结束才会处理信号 SIGQUIT。
+
+(2) SA_NODEFER 一般情况下， 当信号处理函数运行时，内核将阻塞 < 该给定信号 -- SIGINT>。但是如果设置了 SA_NODEFER 标记， 那么在该信号处理函数运行时，内核将不会阻塞该信号。 SA_NODEFER 是这个标记的正式的 POSIX 名字 (还有一个名字 SA_NOMASK，为了软件的可移植性，一般不用这个名字) 。
+
+ SA_RESETHAND 当调用信号处理函数时，将信号的处理函数重置为缺省值。 SA_RESETHAND 是这个标记的正式的 POSIX 名字 (还有一个名字 SA_ONESHOT，为了软件的可移植性，一般不用这个名字)
+
+(3) 如果不需要重置该给定信号的处理函数为缺省值；并且不需要阻塞该给定信号 (无须设置 sa_flags 标志)，那么必须将 sa_flags 清零，否则运行将会产生段错误。但是 sa_flags 清零后可能会造成信号丢失！
+
+
+
+输出如下：
+
+```bash
+# junjie @ Ubuntu in ~/公共的/c文件/systemlib [日期: 周二 3月 16日, 时间:09:50:59]
+$ ./test
+sleeping 0
+sleeping 1
+sleeping 2
+sleeping 3
+sleeping 4
+sleeping 5
+sleeping 6
+sleeping 7
+sleeping 8
+sleeping 9
+sleeping 10
+sleeping 11
+sleeping 12
+按下<ctrl + c> got signal 2
+i = 0
+i = 1
+i = 2
+i = 3
+i = 4
+sleeping 13
+sleeping 14
+sleeping 15
+sleeping 16
+sleeping 17
+sleeping 18
+sleeping 19
+sleeping 20
+sleeping 21
+sleeping 22
+按下<ctrl + c>
+```
+
+
 
 
 
@@ -3868,7 +6244,7 @@ int main(void)
 #include <unistd.h>
 #include <signal.h>
 #include <errno.h>
- 
+
 static void sig_usr(int signum)
 {
     if(signum == SIGUSR1)
@@ -3884,7 +6260,7 @@ static void sig_usr(int signum)
         printf("signal %d received\n", signum);
     }
 }
- 
+
 int main(void)
 {
     char buf[512];
@@ -3892,12 +6268,12 @@ int main(void)
     struct sigaction sa_usr;
     sa_usr.sa_flags = 0;
     sa_usr.sa_handler = sig_usr;   //信号处理函数
-    
+
     sigaction(SIGUSR1, &sa_usr, NULL);
     sigaction(SIGUSR2, &sa_usr, NULL);
-    
+
     printf("My PID is %d\n", getpid());
-    
+
     while(1)
     {
         if((n = read(STDIN_FILENO, buf, 511)) == -1)
@@ -3913,7 +6289,7 @@ int main(void)
             printf("%d bytes read: %s\n", n, buf);
         }
     }
-    
+
     return 0;
 }
 ```
@@ -3921,7 +6297,7 @@ int main(void)
  在这个例程中使用 sigaction 函数为 SIGUSR1 和 SIGUSR2 信号注册了处理函数，然后从标准输入读入字符。程序运行后首先输出自己的 PID，如：
 
 ```bash
-My PID is 5904 
+My PID is 5904
 ```
 
 
@@ -3944,6 +6320,8 @@ My PID is 5904
 
 ```c
 // 范例4
+#include<stdio.h>
+#include<stdlib.h>
 #include <unistd.h>
 #include <signal.h>
 void show_handler(struct sigaction * act)
@@ -3967,8 +6345,7 @@ main()
     struct sigaction act, oldact;
     act.sa_handler = show_handler;
     act.sa_flags = SA_ONESHOT|SA_NOMASK;
-    sigaction(S
-    IGUSR1, &act, &oldact);
+    sigaction(SIGUSR1, &act, &oldact);
     for(i = 5; i < 15; i++)
     {
         printf("sa_handler of signal %2d =", i);
@@ -4029,6 +6406,7 @@ int main(void)
 */
     struct sigaction sa_usr;
     sa_usr.sa_flags = 0;
+    //sa_usr.sa_flags = SA_RESTART;
     sa_usr.sa_handler = sig_usr;   //信号处理函数
     sigaction(SIGUSR1, &sa_usr, NULL);
     sigaction(SIGUSR2, &sa_usr, NULL);
@@ -4073,6 +6451,12 @@ read is interrupted by signal
 ```c
 sa_usr.sa_flags = SA_RESTART;
 ```
+
+此外，这里的errno非常让人纠结，她到底是read函数的错误代码还是sigaction的错误代码？？
+
+可以在 /usr/include/asm/errno.h 中找到errno的定义。
+
+
 
 
 
@@ -4298,7 +6682,7 @@ x86 CPU提供了“四界”：0,1,2,3，**这几个数字其实就是指CPU的�
    ```c
    void func(int a) {
      if (a > 100000000) return;
-     
+
      int arr[100] = {0};
      func(a + 1);
    }
@@ -4418,7 +6802,7 @@ x86 CPU提供了“四界”：0,1,2,3，**这几个数字其实就是指CPU的�
 
 当前，CPU执行函数A的机器指令，该指令的地址为0x400564，接下来CPU将执行下一条机器指令也就是:
 
-- 
+-
 
 ```c
 call 0x400540
@@ -4519,7 +6903,7 @@ call 0x400540
 ```c
 void func(int a) {
     if (a > 100000000) return;
-    
+
     int arr[100] = {0};
     func(a + 1);
 }
@@ -4570,7 +6954,7 @@ void main(){
 
 查理芒格经常说这样一句话：“反过来想，总是反过来想”，如果你对线程之间共享了哪些进程资源这个问题想不清楚的话那么也可以反过来思考，那就是**有哪些资源是线程私有的**。
 
- 
+
 
 > **线程私有资源**
 
@@ -4630,7 +7014,7 @@ void main(){
 char c; // 全局变量
 
 void func() {
-    
+
 }
 ```
 
@@ -4691,7 +7075,7 @@ void thread(void* var) {
 int main() {
     int a = 1;
     pthread_t tid;
-    
+
     pthread_create(&tid, NULL, thread, (void*)&a);
     return 0;
 }
@@ -5237,7 +7621,7 @@ Linux 进程间的通信机制通常被称为 `Internel-Process communication,IP
 
 下面我们分别对其进行概述
 
-#### 信号 signal
+#### <span id="信号2">信号 signal</span>
 
 信号是 UNIX 系统最先开始使用的进程间通信机制，因为 Linux 是继承于 UNIX 的，所以 Linux 也支持信号机制，通过向一个或多个进程发送`异步事件信号`来实现，信号可以从键盘或者访问不存在的位置等地方产生；信号通过 shell 将任务发送给子进程。
 
@@ -5453,7 +7837,7 @@ sort <f | head
 
 
 
-## 附录2 
+## 附录2
 
 
 
