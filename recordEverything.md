@@ -275,19 +275,177 @@ microsoft-edge
 
 
 
+### ZSH
+
+```bash
+#安装 zsh， on my zsh等
+
+#安装zsh
+sudo apt install zsh
+#安装on my zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+或
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+或
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+#安装incr
+cd .oh-my-zsh/plugins/
+mkdir incr
+cd incr
+wget http://mimosa-pudica.net/src/incr-0.2.zsh
+
+#安装zsh-autosuggestions
+git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
+
+#安装zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+#安装 autojump
+sudo apt-get install autojump
+或以下三个：
+git clone https://github.com/wting/autojump wting/autojump
+cd wting/autojump
+./install.py
+
+#安装nvm
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+
+#安装pyenv
+git clone https://github.com/davidparsson/zsh-pyenv-lazy.git ~/.oh-my-zsh/custom/plugins/pyenv-lazy
+
+#将~/.zshrc文件变成如下：
+```
+
+```bash
+# ~/.zshrc
+# Set up the prompt
+
+autoload -Uz promptinit
+promptinit
+prompt adam1
+
+setopt histignorealldups sharehistory
+
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -e
+
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
+
+# Use modern completion system
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/home/jack/.oh-my-zsh"
+# zsh-nvm lazy load
+export NVM_LAZY_LOAD=true
+
+ZSH_THEME="myys"
+ZSH_THEME="agnoster"
+
+plugins=(
+
+    sudo
+    z
+    cp
+    zsh_reload
+    safe-paste
+    extract
+    history-substring-search
+    colored-man-pages
+    git
+    history
+    ubuntu
+    yum
+    pip
+    docker
+    docker-compose
+    golang
+    npm
+    bower
+    adb
+
+    #第三方插件
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    pyenv-lazy
+    autojump
+    zsh-nvm
+
+)
+
+source $ZSH/oh-my-zsh.sh
+
+
+# added by Anaconda3 installer
+export PATH="/home/jack/anaconda3/bin:$PATH"
+export PYTHONPATH="/usr/local/mdsplus/python/MDSplus"
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+HIST_STAMPS="yyyy-mm-dd"
+DISABLE_UPDATE_PROMPT=true
+#source ~/.oh-my-zsh/plugins/incr/incr*.zsh
+source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -s /home/jack/.autojump/etc/profile.d/autojump.sh ]] && source /home/jack/.autojump/etc/profile.d/autojump.sh
+
+
+# zsh-nvm lazy load
+export NVM_LAZY_LOAD=true
+
+#export PS1='$\[\033[01;31m\][\u@\h\[\033[01m\]:\[\033[01;33m\]\w\[\033[01;36m\]\A\[\e[31;1m\]]\[\033[01;32m\]\$ '
+
+```
+
+
+
+
+
+
+
+
+
 ###  PDF阅读器
 
 + sudo apt install okular
 
 
 
-### [ST终端](https://cloud.tencent.com/developer/article/1771532)
+### [Simple Terminal终端](https://cloud.tencent.com/developer/article/1771532)
 
 <https://avimitin.com/system/simpleterminal.html>
 
 `linux` 下有许多优秀的 `Termainl`，我在用的有`deepin-terminal`,`alacritty`,‘simple terminal’.`alacritty` 是一款使用显卡渲染的终端模拟器，非常的快并且流畅，并且支持终端显示图片，所以比 `deepin-terminal` 更让我喜欢，然而 `simple terminal` 确实一款十分简单的终端模拟器，虽然简单但功能却一个不少，体积更小。甚至连配置文件都没有，每次更改配置都要修改源代码并且编译生成程序，实在是够简单。 但是在 `deepin` 上无法直接安装，需要安装几个依赖的软件。
 
-```javascript
+```bash
 sudo apt install libx11-dev
 sudo apt install libxft-dev
 ```
@@ -296,13 +454,13 @@ sudo apt install libxft-dev
 
 官方地址 ：https://st.suckless.org/ 。最后有一个 `Download` 但是不建议直接下载，可能版本比较老，上面有个 git 链接，可以直接克隆源仓库。
 
-```javascript
+```bash
 git clone https://git.suckless.org/st
 ```
 
 如果是 deepin 操作系统，还需要更改源代码中的 `config.mk` 文件，更改刚才安装的依赖软件位置
 
-```javascript
+```bash
 # 更改如下
 X11INC = /usr/X11R6/X11                                               
 X11LIB = /usr/include/X11
@@ -314,7 +472,7 @@ X11LIB = /usr/include/X11
 
 前面也说了，st 没有配置文件，所以我们直接进源码目录，找到 config.h 文件，通过注释来更改自己的内容，一般更改字体跟窗口大小即可，后面可以通过打补丁的方式增加更多的功能。
 
-```javascript
+```bash
 # config.h 
 static char *font = "JetBrains Mono:pixelsize=24:antialias=true:autohint=true"; # 更改字体跟大小
 sudo make clean install # 重新编译并安装，使用 st 命令即可打开。
@@ -327,7 +485,7 @@ sudo make clean install # 重新编译并安装，使用 st 命令即可打开�
 1. 下载补丁到本地，可以使用 `wget ` + 链接来直接下载到源码目录下。
 2. 安装补丁：
 
-```javascript
+```bash
 patch < fillname # 补丁文件
 ```
 
@@ -336,15 +494,24 @@ patch < fillname # 补丁文件
 - 成功：如果补丁成功，输出全部是 `success`，直接编译运行即可查看补丁的实际效果。
 - 失败：如果失败，也会响应的输出，打开补丁文件可以发现，所有的补丁文件都是一个 `diff` 文件，文件描述了补丁文件与配置文件的差异，+ 符号代表是需要添加的内容，- 代表需要删除的内容，根据文件描述来手动修改 `config.h` 文件即可，出现错误的原因就是没有自动的完成替换，那就手动完成。
 
+#### 推荐补丁
+
+1. st-alpha : 设置终端透明度
+2.  st-anysize : 设置终端大小为占满屏幕
+3.  st-copyurl : 对于终端输出的 url，使用 alt + l 快捷键来回选择，回车复制。
+4. st-dracula : 终端主题
+5.  st-blinking_cursor : 终端光标闪烁
+6.  st-desktopentry : 添加终端的应用图标及应用 desktop 文件
+7.  st-font2 : 字体代替，如果缺少字体，可以设置多个字体来逐级渲染
+8.  st-hidecursor : 终端输入时隐藏光标，防止光标遮挡住字符
+9.  st-opencliphboard : 结合 copyurl 使用，将复制的链接直接用浏览器打开
+10.  st-rightclickpaste : 右键粘贴
+11.  st-scrollback : 快捷键滚动屏幕，默认 shift pageon /shift pageup
+12. st-scrollback-mouse : 设置鼠标滚动屏幕输出
+
 #### 前言
 
 Sim­ple Ter­mi­nal 是一个基于 X 的终端，拥有非常棒的 Uni­code 和 Emoji 的支持，同时也支持 256 色，拥有绝大部分的终端特性，但是却极其微小，就算在我打了许多补丁之后，他仍然只占用 108K 的存储空间，快且轻量，是重度终端用户的一个很不错的选择。
-
-
-
-[![预编译的 st 仅占用 108k](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210210155347.png#vwid=910&vhei=157)](https://cdn.jsdelivr.net/gh/Avimitin/PicStorage/pic/20210210155347.png#vwid=910&vhei=157)预编译的 st 仅占用 108k
-
-
 
 本篇文章目的在教你打造一个自己的 st，如果没有需求也可以前往我的[仓库](https://github.com/Avimitin/st)克隆我的源码，直接编译安装就可以了。
 
@@ -362,7 +529,7 @@ Sim­ple Ter­mi­nal (以下简称 st) 需要 `libx11-dev` 和 `libxft-dev` 两
 
 克隆官方的仓库之后，编辑 `config.mk` 文件，编译时 st 会基于这个文件进行配置，一般来说只需要改两行即可：
 
-```makefile
+```bash
 X11INC = /usr/local/X11
 X11LIB = /usr/local/X11
 ```
@@ -759,6 +926,67 @@ sudo apt install elinks
 
    如果没有报错，则成功，可以完美的显示 eps 图像了.
 
+### exa
+
+```bash
+curl https://sh.rustup.rs -sSf | sh
+wget -c https://github.com/ogham/exa/releases/download/v0.8.0/exa-linux-x86_64-0.8.0.zip
+unzip exa-linux-x86_64-0.8.0.zip
+sudo mv exa-linux-x86_64 /usr/local/bin/exa
+```
+
+
+
+> 显示选项
+
+- -1, –oneline：每行显示一个条目
+- -G, -grid：将条目显示为网格(默认)
+- -l –long：显示扩展的详细信息和属性
+- -R, -recurse：递归到目录
+- -T, –tree：作为树递归到目录中
+- -x, -across：对网格进行排序, 而不是向下排序
+- –colo [u] r：何时使用终端颜色
+- –colo [u] r-scale：清楚地突出显示文件大小级别
+
+> 筛选选项
+
+- -a, -all：显示隐藏和”点”文件
+- -d, –list-dirs：列出目录, 例如常规文件
+- -L, –level =(depth)：限制递归深度
+- -r, -reverse：反转排序顺序
+- -s, –sort = {field)：要排序的字段
+- –group-directories-first：在其他文件之前列出目录
+- -D, –only-dirs：仅列出目录
+- –git-ignore：忽略.gitignore中提到的文件
+- -I, –ignore-glob = {globs)：要忽略的文件的glob模式(以管道分隔)
+
+两次–all选项也会显示。和..目录。
+
+> 长视选项
+
+当与–long(-l)一起运行时, 这些选项可用：
+
+- -b, -binary：列出带有二进制前缀的文件大小
+- -B, -bytes：列出文件大小(以字节为单位), 不带任何前缀
+- -g, –group：列出每个文件的组
+- -h, –header：向每列添加标题行
+- -H, –links：列出每个文件的硬链接数
+- -i, -inode：列出每个文件的inode编号
+- -m, –modified：使用修改后的时间戳字段
+- -S, -blocks：列出每个文件的文件系统块数
+- -t, –time = {field)：使用哪个时间戳字段
+- -u, –accessed：使用访问的时间戳字段
+- -U, –created：使用创建的时间戳字段
+- -@, -extended：列出每个文件的扩展属性和大小
+- –git：列出每个文件的Git状态, 如果被跟踪或忽略
+- –time-style：如何格式化时间戳
+- 有效的–color选项始终, 自动和永不。
+- 有效的排序字段将被访问, 创建, 扩展, 扩展, inode, 已修改, 名称, 名称, 大小, 类型和无。以大写字母开头的字段将大写字母排在小写字母之前。修改后的字段的别名为日期, 时间和最新, 而其反向字段的别名为age和oldest。
+- 有效时间字段被修改, 访问和创建。
+- 有效的时间样式是默认, iso, long-iso和full-iso。
+
+
+
 ### [Glances](https://mp.weixin.qq.com/s/C7qXS7gXH385n-yJjBxprQ)
 
 top 命令是 Linux 中的实时任务管理器，也是 GNU/Linux 发行版中最常用的系统监控工具，用于查找系统中与性能相关的瓶颈，这有助于我们采取纠正措施。它具有一个很好的极简主义界面，并提供了一些合理的选项，使我们能够快速地更好地了解整体系统性能。
@@ -1079,6 +1307,458 @@ $ sudo make install
 
 
 
+### WSL
+
+
+
+```json
+//这是windows terminal 的配置文件
+{
+  // 默认打开的 Profile GUID（下面会详细介绍）
+  "defaultProfile": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+  // 终端窗口默认大小
+  "initialCols": 120,
+  "initialRows": 30,
+  // 亮色或暗色主题，可选值 "light", "dark", "system"
+  "requestedTheme": "dark",
+  // 合并标题栏和标签栏
+  "showTabsInTitlebar": true,
+  // 如果 showTabsInTitlebar 与本值同为 false 时，自动隐藏标签栏
+  "alwaysShowTabs": true,
+  // 在标题栏上显示当前活动标签页的标题
+  "showTerminalTitleInTitlebar": true,
+  // 双击选择时用于分词的字符
+  "wordDelimiters": " /\\()\"'-.,:;<>~!@#$%^&*|+=[]{}~?\u2502",
+  // 选择时复制到剪贴板
+  "copyOnSelect": true,
+  // 标签页宽度不固定
+  "tabWidthMode": "titleLength",
+  //***************************************************************************************
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "copyFormatting": false,
+
+  "profiles": {
+    "defaults": {
+      // 所有 Profile 共用的设置可以放这里，就不用写多次了
+      // 字体设置
+      "fontFace": "Cascadia Code",
+      //"fontFace": "DejaVu Sans Mono",
+      //"fontFace": "Monospace Regular",
+      // "fontFace": "文泉驿微米黑",
+      "fontFace": "DroidSansMono NF",
+      "fontSize": 9,
+      // 光标类型，可选值 "vintage" ( ▃ ), "bar" ( ┃ ), "underscore" ( ▁ ), "filledBox" ( █ ), "emptyBox" ( ▯ )
+      "cursorShape": "bar",
+      // 是否开启背景亚克力透明效果（窗口失去焦点时无效）
+      "useAcrylic": false,
+      "cursorColor": "#0cee32",
+      "historySize": 2001,
+      "snapOnInput": true,
+      "acrylicOpacity": 0.8,
+      "backgroundImageOpacity": 0.1,
+      "foreground": "#A7B191",
+      "background": "#000000",
+      //"background": "#013456",
+      "padding": "0, 0, 0, 0",
+      "hidden": false,
+      //"startingDirectory": "//wsl$/Ubuntu-20.04/home/junjie",
+      "commandline": "wsl -d Ubuntu-20.04 -e bash -c \"cd ~;bash\"",
+      "colorScheme": "Snazzy"
+      //"colorScheme": "Tango Dark"
+      //"colorScheme": "Homebrew"
+      //"colorScheme": "Solarized Dark"
+      //"colorScheme": "Solarized Light"
+      //"colorScheme": "Night Owlish Light"
+      //"colorScheme": "Campbell"
+      //"colorScheme": "Snazzy"
+
+    },
+    "list": [
+      {
+        "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+        "hidden": false,
+        "name": "Ubuntu-20.04",
+        "tabTitle": "Ubuntu20.04",
+        "source": "Windows.Terminal.Wsl"
+      },
+      {
+        "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+        "hidden": false,
+        "name": "Ubuntu",
+        "tabTitle": "Ubuntu",
+        "source": "Windows.Terminal.Wsl"
+      },
+      {
+        // Make changes here to the powershell.exe profile.
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "name": "Windows PowerShell",
+        "tabTitle": "PowerShell",
+        "commandline": "powershell.exe",
+        "backgroundImageOpacity": 0.1
+      },
+      {
+        // Make changes here to the cmd.exe profile.
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "name": "命令提示符",
+        "commandline": "cmd.exe",
+        "tabTitle": "命令提示符",
+        "hidden": false
+      },
+      {
+        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+        "hidden": false,
+        "name": "Azure Cloud Shell",
+        "source": "Windows.Terminal.Azure"
+      }
+    ]
+  },
+
+  // Add custom color schemes to this array.
+  // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
+  "schemes": [
+    {
+      "name": "Tango Dark",
+      "foreground": "#A7B191",
+      "background": "#0C0C0C",
+      "black": "#000000",
+      "red": "#cc0000",
+      "green": "#4e9a06",
+      "yellow": "#c4a000",
+      "blue": "#3465a4",
+      "purple": "#75507b",
+      "cyan": "#06989a",
+      "white": "#d3d7cf",
+      "brightBlack": "#555753",
+      "brightRed": "#ef2929",
+      "brightGreen": "#8ae234",
+      "brightYellow": "#fce94f",
+      "brightBlue": "#729fcf",
+      "brightPurple": "#ad7fa8",
+      "brightCyan": "#34e2e2",
+      "brightWhite": "#eeeeec",
+      "background": "#000000",
+      "foreground": "#D3D7CF"
+    },
+    {
+      "name": "Snazzy",
+      "black": "#000000",
+      "red": "#fc4346",
+      "green": "#50fb7c",
+      "yellow": "#f0fb8c",
+      "blue": "#49baff",
+      "purple": "#fc4cb4",
+      "cyan": "#8be9fe",
+      "white": "#ededec",
+      "brightBlack": "#555555",
+      "brightRed": "#fc4346",
+      "brightGreen": "#50fb7c",
+      "brightYellow": "#f0fb8c",
+      "brightBlue": "#49baff",
+      "brightPurple": "#fc4cb4",
+      "brightCyan": "#8be9fe",
+      "brightWhite": "#ededec",
+      "background": "#000000",
+      "foreground": "#ebece6"
+    },
+    {
+      "name": "Homebrew",
+      "black": "#000000",
+      "red": "#FC5275",
+      "green": "#00a600",
+      "yellow": "#999900",
+      "blue": "#6666e9",
+      "purple": "#b200b2",
+      "cyan": "#00a6b2",
+      "white": "#bfbfbf",
+      "brightBlack": "#666666",
+      "brightRed": "#e50000",
+      "brightGreen": "#00d900",
+      "brightYellow": "#e5e500",
+      "brightBlue": "#0000ff",
+      "brightPurple": "#e500e5",
+      "brightCyan": "#00e5e5",
+      "brightWhite": "#e5e5e5",
+      "background": "#283033",
+      "foreground": "#00ff00"
+    },
+    {
+      "name": "Solarized Dark",
+      "foreground": "#FDF6E3",
+      "background": "#073642",
+      "colors": [
+        "#073642",
+        "#D30102",
+        "#859900",
+        "#B58900",
+        "#268BD2",
+        "#D33682",
+        "#2AA198",
+        "#EEE8D5",
+        "#002B36",
+        "#CB4B16",
+        "#586E75",
+        "#657B83",
+        "#839496",
+        "#6C71C4",
+        "#93A1A1",
+        "#FDF6E3"
+      ]
+    },
+    {
+      "name": "Solarized Light",
+      "foreground": "#073642",
+      "background": "#FDF6E3",
+      "colors": [
+        "#073642",
+        "#D30102",
+        "#859900",
+        "#B58900",
+        "#268BD2",
+        "#D33682",
+        "#2AA198",
+        "#EEE8D5",
+        "#002B36",
+        "#CB4B16",
+        "#586E75",
+        "#657B83",
+        "#839496",
+        "#6C71C4",
+        "#93A1A1",
+        "#FDF6E3"
+      ]
+    },
+    {
+      "name": "Night Owlish Light",
+      "background": "#FFFFFF",
+      "black": "#011627",
+      "blue": "#4876D6",
+      "brightBlack": "#7A8181",
+      "brightBlue": "#5CA7E4",
+      "brightCyan": "#00C990",
+      "brightGreen": "#49D0C5",
+      "brightPurple": "#697098",
+      "brightRed": "#F76E6E",
+      "brightWhite": "#989FB1",
+      "brightYellow": "#DAC26B",
+      "cyan": "#08916A",
+      "foreground": "#403F53",
+      "green": "#2AA298",
+      "purple": "#403F53",
+      "red": "#D3423E",
+      "white": "#7A8181",
+      "yellow": "#DAAA01"
+    },
+    {
+      "name": "Campbell",
+      "foreground": "#A7B191",
+      "background": "#0C0C0C",
+      "colors": [
+        "#0C0C0C",
+        "#C50F1F",
+        "#13A10E",
+        "#C19C00",
+        "#0037DA",
+        "#881798",
+        "#3A96DD",
+        "#CCCCCC",
+        "#767676",
+        "#E74856",
+        "#16C60C",
+        "#F9F1A5",
+        "#3B78FF",
+        "#B4009E",
+        "#61D6D6",
+        "#F2F2F2"
+      ]
+    }
+  ],
+
+  "keybindings": [
+    {
+      "command": {
+        "action": "copy",
+        "singleLine": false
+      },
+      "keys": "ctrl+c"
+    },
+    {
+      "command": "paste",
+      "keys": "ctrl+v"
+    },
+    //    {
+    //      "command": "find",
+    //     "keys": "ctrl+shift+f"
+    //   },
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "auto",
+        "splitMode": "duplicate"
+      },
+      "keys": "alt+shift+d"
+    },
+
+    {
+      "command": "newTab",
+      "keys": ["ctrl+N"]
+    },
+    {
+      "command": "closeTab",
+      "keys": ["ctrl+w"]
+    },
+    {
+      "command": "closePane",
+      "keys": ["ctrl+w"]
+    },
+    {
+      "command": "find",
+      "keys": ["ctrl+f"]
+    }, //搜索框
+
+    {
+      "command": "increaseFontSize",
+      "keys": ["ctrl+]"]
+    }, //增大字体
+    {
+      "command": "decreaseFontSize",
+      "keys": ["ctrl+["]
+    }, //减小字体
+    {
+      "command": "duplicateTab",
+      "keys": ["ctrl+shift+d"]
+    },
+    {
+      "command": "newTabProfile0",
+      "keys": ["ctrl+shift+1"]
+    },
+    {
+      "command": "newTabProfile1",
+      "keys": ["ctrl+shift+2"]
+    },
+    {
+      "command": "newTabProfile2",
+      "keys": ["ctrl+shift+3"]
+    },
+    {
+      "command": "newTabProfile3",
+      "keys": ["ctrl+shift+4"]
+    },
+    {
+      "command": "newTabProfile4",
+      "keys": ["ctrl+shift+5"]
+    },
+    {
+      "command": "newTabProfile5",
+      "keys": ["ctrl+shift+6"]
+    },
+    {
+      "command": "newTabProfile6",
+      "keys": ["ctrl+shift+7"]
+    },
+    {
+      "command": "newTabProfile7",
+      "keys": ["ctrl+shift+8"]
+    },
+    {
+      "command": "newTabProfile8",
+      "keys": ["ctrl+shift+9"]
+    },
+    {
+      "command": "openNewTabDropdown",
+      "keys": ["ctrl+shift+space"]
+    },
+    {
+      "command": "openSettings",
+      "keys": ["ctrl+,"]
+    }, //打开配置文件
+    {
+      "command": "nextTab",
+      "keys": ["ctrl+tab"]
+    }, //上一个tab
+    {
+      "command": "prevTab",
+      "keys": ["ctrl+shift+tab"]
+    }, //下一个tab
+    {
+      "command": "scrollDown",
+      "keys": ["ctrl+shift+down"]
+    }, //向下滚动
+    {
+      "command": "scrollUp",
+      "keys": ["ctrl+shift+up"]
+    }, //向上滚动
+    {
+      "command": "scrollUpPage",
+      "keys": ["pgup"]
+    }, //向上翻页
+    {
+      "command": "scrollDownPage",
+      "keys": ["pgdn"]
+    }, //向下翻页
+    {
+      "command": "switchToTab0",
+      "keys": ["ctrl+alt+1"]
+    },
+
+    //系统默认的是：水平分屏：Alt + Shift + 减号，垂直分屏：Alt + Shift + 加号
+    //但是这里变为：水平分屏：ctrl + Shift + 减号，垂直分屏：ctrl + Shift + 加号
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "vertical",
+        "splitMode": "duplicate"
+      },
+      "keys": "ctrl+shift+="
+    },
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "horizontal",
+        "splitMode": "duplicate"
+      },
+      "keys": "ctrl+shift+-"
+    },
+    {
+      "command": { "action": "moveFocus", "direction": "down" },
+      "keys": ["alt+down"]
+    },
+    {
+      "command": { "action": "moveFocus", "direction": "left" },
+      "keys": ["alt+left"]
+    },
+    {
+      "command": { "action": "moveFocus", "direction": "right" },
+      "keys": ["alt+right"]
+    },
+    {
+      "command": { "action": "moveFocus", "direction": "up" },
+      "keys": ["alt+up"]
+    },
+    {
+      "command": { "action": "resizePane", "direction": "down" },
+      "keys": ["alt+shift+down"]
+    },
+    {
+      "command": { "action": "resizePane", "direction": "left" },
+      "keys": ["alt+shift+left"]
+    },
+    {
+      "command": { "action": "resizePane", "direction": "right" },
+      "keys": ["alt+shift+right"]
+    },
+    {
+      "command": { "action": "resizePane", "direction": "up" },
+      "keys": ["alt+shift+up"]
+    }
+  ]
+}
+
+```
+
+
+
+
+
 ------
 
 
@@ -1139,11 +1819,613 @@ $ sudo make install
 
 
 
-##  linux命令大全
+#  linux命令大全
+
+## [dstat](https://mp.weixin.qq.com/s?__biz=MzAwMzc4MTExOA==&mid=2649798734&idx=1&sn=057c6137a17fcd1650eb2e744a0325c9&chksm=8331e0dfb44669c9c8f6c5a1adfeaccaf8ca4999f5262ba26cdd7ac541dee409bbc2d7f58acd&mpshare=1&scene=1&srcid=0129uc7hno0Q4seLXt2JWRCe&sharer_sharetime=1611916489458&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8#rd)
+
+
+安装方法
+Ubuntu/Mint 和 Debin 系统：
+本地软件库中有相关安装包，你可以用下面命令安装：
+
+\# sudo apt-get install dstat
+
+RHEL/Centos 和 Fedora 系统:
+你可以在 romforge 软件库中添加有相关安装包，参照指导，使用如下命令很简单就能进行安装：
+
+\# yum install dstat
+
+ArchLinux 系统：
+相关软件包在社区资源库中，你可以用这个命令来安装：
+
+\# pacman -S dstat
+
+使用方法
+dstat 的基本用法就是输入 dstat 命令，输出如下：
+这是默认输出显示的信息：
+CPU 状态：CPU 的使用率。这项报告更有趣的部分是显示了用户，系统和空闲部分，这更好地分析了 CPU 当前的使用状况。如果你看到 "wait" 一栏中，CPU 的状态是一个高使用率值，那说明系统存在一些其它问题。当 CPU 的状态处在 "waits" 时，那是因为它正在等待 I/O 设备（例如内存，磁盘或者网络）的响应而且还没有收到。
+磁盘统计（dsk）：磁盘的读写操作，这一栏显示磁盘的读、写总数。
+网络统计（net）：网络设备发送和接受的数据，这一栏显示的网络收、发数据总数。
+分页统计（paging）：系统的分页活动。分页指的是一种内存管理技术用于查找系统场景，一个较大的分页表明系统正在使用大量的交换空间，或者说内存非常分散，大多数情况下你都希望看到 page in（换入）和 page out（换出）的值是 0 0。
+系统统计（system）：这一项显示的是中断（int）和上下文切换（csw）。这项统计仅在有比较基线时才有意义。这一栏中较高的统计值通常表示大量的进程造成拥塞，需要对 CPU 进行关注。你的服务器一般情况下都会运行运行一些程序，所以这项总是显示一些数值。
+默认情况下，dstat 每秒都会刷新数据。如果想退出 dstat，你可以按 "CTRL+C" 键。
+需要注意的是报告的第一行，通常这里所有的统计都不显示数值的。
+这是由于 dstat 会通过上一次的报告来给出一个总结，所以第一次运行时是没有平均值和总值的相关数据。
+但是 dstat 可以通过传递 2 个参数运行来控制报告间隔和报告数量。例如，如果你想要 dstat 输出默认监控、报表输出的时间间隔为 3 秒钟，并且报表中输出 10 个结果，你可以运行如下命令：
+
+\# dstat 3 10
+
+在 dstat 命令中有很多参数可选，你可以通过 man dstat 命令查看，大多数常用的参数有这些：
+-c：显示 CPU 系统占用，用户占用，空闲，等待，中断，软件中断等信息。
+
+-C：当有多个 CPU 时候，此参数可按需分别显示 cpu 状态，例：-C 0,1 是显示 cpu0 和 cpu1 的信息。
+
+-d：显示磁盘读写数据大小。
+
+-D hda,total：include hda and total。
+
+-n：显示网络状态。
+
+-N eth1,total：有多块网卡时，指定要显示的网卡。
+
+-l：显示系统负载情况。
+
+-m：显示内存使用情况（包括 used，buffer，cache，free 值）。
+
+-g：显示页面使用情况。
+
+-p：显示进程状态。
+
+-s：显示交换分区使用情况。
+
+-S：类似 D/N。
+
+-r：I/O 请求情况。
+
+-y：系统状态。
+-t ：将当前时间显示在第一行
+
+--ipc：显示 ipc 消息队列，信号等信息。
+
+--socket：用来显示 tcp udp 端口状态。
+
+-a：此为默认选项，等同于 - cdngy。
+
+-v：等同于 -pmgdsc -D total。
+–socket ：显示网络统计数据
+–tcp ：显示常用的 TCP 统计
+–udp ：显示监听的 UDP 接口及其当前用量的一些动态数据–fs ：显示文件系统统计数据（包括文件总数量和 inodes 值）
+–nocolor ：不显示颜色（有时候有用）
+
+--output 文件：此选项也比较有用，可以把状态信息以 csv 的格式重定向到指定的文件中，以便日后查看。例：dstat --output /root/dstat.csv & 此时让程序默默的在后台运行并把结果输出到 /root/dstat.csv 文件中。
 
 
 
-### [tcpdump](https://mp.weixin.qq.com/s/iSqeA2hWbllEyq8yg-MPvQ)
+当然不止这些用法，dstat 附带了一些插件很大程度地扩展了它的功能。你可以通过查看 /usr/share/dstat 目录来查看它们的一些使用方法，常用的有这些：
+
+-–disk-util ：显示某一时间磁盘的忙碌状况
+
+-–freespace ：显示当前磁盘空间使用率
+
+-–proc-count ：显示正
+
+在运行的程序数量
+-–top-bio ：指出块 I/O 最大的进程
+-–top-cpu ：图形化显示 CPU 占用最大的进程
+-–top-io ：显示正常 I/O 最大的进程
+-–top-mem ：显示占用最多内存的进程
+举一些例子：
+查看全部内存都有谁在占用：
+
+\# dstat -g -l -m -s --top-mem
+
+
+显示一些关于 CPU 资源损耗的数据：
+
+\# dstat -c -y -l --proc-count --top-cpu
+
+您可以将多个内部 dstat 插件与外部 dstat 插件一起使用，以查看所有可用插件的列表，请运行以下命令：
+
+$ dstat --list
+
+## du、df、fdisk
+
+https://www.runoob.com/linux/linux-filesystem.html
+Linux 磁盘管理好坏直接关系到整个系统的性能问题。
+
+Linux 磁盘管理常用三个命令为 df、du 和 fdisk。
+
+df：列出文件系统的整体磁盘使用量
+du：检查磁盘空间使用量
+fdisk：用于磁盘分区
+
+
+df
+df 命令参数功能：检查文件系统的磁盘空间占用情况。可以利用该命令来获取硬盘被占用了多少空间，目前还剩下多少空间等信息。
+
+语法：
+
+df [-ahikHTm] [目录或文件名]
+选项与参数：
+
+-a ：列出所有的文件系统，包括系统特有的 /proc 等文件系统；
+-k ：以 KBytes 的容量显示各文件系统；
+-m ：以 MBytes 的容量显示各文件系统；
+-h ：以人们较易阅读的 GBytes, MBytes, KBytes 等格式自行显示；
+-H ：以 M=1000K 取代 M=1024K 的进位方式；
+-T ：显示文件系统类型，连同该 partition 的 filesystem 名称 (例如 ext3) 也列出；
+-i ：不用硬盘容量，而以 inode 的数量来显示
+实例 1
+将系统内所有的文件系统列出来！
+
+[root@www ~]# df
+Filesystem      1K-blocks      Used Available Use% Mounted on
+/dev/hdc2         9920624   3823112   5585444  41% /
+/dev/hdc3         4956316    141376   4559108   4% /home
+/dev/hdc1          101086     11126     84741  12% /boot
+tmpfs              371332         0    371332   0% /dev/shm
+在 Linux 底下如果 df 没有加任何选项，那么默认会将系统内所有的 (不含特殊内存内的文件系统与 swap) 都以 1 Kbytes 的容量来列出来！
+
+实例 2
+将容量结果以易读的容量格式显示出来
+
+[root@www ~]# df -h
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/hdc2             9.5G  3.7G  5.4G  41% /
+/dev/hdc3             4.8G  139M  4.4G   4% /home
+/dev/hdc1              99M   11M   83M  12% /boot
+tmpfs                 363M     0  363M   0% /dev/shm
+实例 3
+将系统内的所有特殊文件格式及名称都列出来
+
+[root@www ~]# df -aT
+Filesystem    Type 1K-blocks    Used Available Use% Mounted on
+/dev/hdc2     ext3   9920624 3823112   5585444  41% /
+proc          proc         0       0         0   -  /proc
+sysfs        sysfs         0       0         0   -  /sys
+devpts      devpts         0       0         0   -  /dev/pts
+/dev/hdc3     ext3   4956316  141376   4559108   4% /home
+/dev/hdc1     ext3    101086   11126     84741  12% /boot
+tmpfs        tmpfs    371332       0    371332   0% /dev/shm
+none   binfmt_misc         0       0         0   -  /proc/sys/fs/binfmt_misc
+sunrpc  rpc_pipefs         0       0         0   -  /var/lib/nfs/rpc_pipefs
+
+实例 4
+将 /etc 底下的可用的磁盘容量以易读的容量格式显示
+
+[root@www ~]# df -h /etc
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/hdc2             9.5G  3.7G  5.4G  41% /
+
+
+du
+Linux du 命令也是查看使用空间的，但是与 df 命令不同的是 Linux du 命令是对文件和目录磁盘使用的空间的查看，还是和 df 命令有一些区别的，这里介绍 Linux du 命令。
+
+语法：
+
+du [-ahskm] 文件或目录名称
+选项与参数：
+
+-a ：列出所有的文件与目录容量，因为默认仅统计目录底下的文件量而已。
+-h ：以人们较易读的容量格式 (G/M) 显示；
+-s ：列出总量而已，而不列出每个各别的目录占用容量；
+-S ：不包括子目录下的总计，与 -s 有点差别。
+-k ：以 KBytes 列出容量显示；
+-m ：以 MBytes 列出容量显示；
+
+实例 1
+只列出当前目录下的所有文件夹容量（包括隐藏文件夹）:
+
+[root@www ~]# du
+8       ./test4     <==每个目录都会列出来
+8       ./test2
+....中间省略....
+12      ./.gconfd   <==包括隐藏文件的目录
+220     .           <==这个目录(.)所占用的总量
+直接输入 du 没有加任何选项时，则 du 会分析当前所在目录的文件与目录所占用的硬盘空间。
+
+实例 2
+将文件的容量也列出来
+
+[root@www ~]# du -a
+12      ./install.log.syslog   <==有文件的列表了
+8       ./.bash_logout
+8       ./test4
+8       ./test2
+....中间省略....
+12      ./.gconfd
+220     .
+实例 3
+检查根目录底下每个目录所占用的容量
+
+[root@www ~]# du -sm /*
+7       /bin
+6       /boot
+.....中间省略....
+0       /proc
+.....中间省略....
+1       /tmp
+3859    /usr     <==系统初期最大就是他了啦！
+77      /var
+通配符 * 来代表每个目录。
+
+与 df 不一样的是，du 这个命令其实会直接到文件系统内去搜寻所有的文件数据。
+
+fdisk
+fdisk 是 Linux 的磁盘分区表操作工具。
+
+语法：
+
+fdisk [-l] 装置名称
+选项与参数：
+
+-l ：输出后面接的装置所有的分区内容。若仅有 fdisk -l 时， 则系统将会把整个系统内能够搜寻到的装置的分区均列出来。
+实例 1
+列出所有分区信息
+
+[root@AY120919111755c246621 tmp]# fdisk -l
+
+Disk /dev/xvda: 21.5 GB, 21474836480 bytes
+255 heads, 63 sectors/track, 2610 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x00000000
+
+    Device Boot      Start         End      Blocks   Id  System
+/dev/xvda1   *           1        2550    20480000   83  Linux
+/dev/xvda2            2550        2611      490496   82  Linux swap / Solaris
+
+Disk /dev/xvdb: 21.5 GB, 21474836480 bytes
+255 heads, 63 sectors/track, 2610 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x56f40944
+
+    Device Boot      Start         End      Blocks   Id  System
+/dev/xvdb2               1        2610    20964793+  83  Linux
+
+实例 2
+找出你系统中的根目录所在磁盘，并查阅该硬盘内的相关信息
+
+[root@www ~]# df /            <==注意：重点在找出磁盘文件名而已
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/hdc2              9920624   3823168   5585388  41% /
+
+[root@www ~]# fdisk /dev/hdc  <==仔细看，不要加上数字喔！
+The number of cylinders for this disk is set to 5005.
+There is nothing wrong with that, but this is larger than 1024,
+and could in certain setups cause problems with:
+1) software that runs at boot time (e.g., old versions of LILO)
+2) booting and partitioning software from other OSs
+   (e.g., DOS FDISK, OS/2 FDISK)
+
+Command (m for help):     <==等待你的输入！
+输入 m 后，就会看到底下这些命令介绍
+
+Command (m for help): m   <== 输入 m 后，就会看到底下这些命令介绍
+Command action
+   a   toggle a bootable flag
+   b   edit bsd disklabel
+   c   toggle the dos compatibility flag
+   d   delete a partition            <==删除一个partition
+   l   list known partition types
+   m   print this menu
+   n   add a new partition           <==新增一个partition
+   o   create a new empty DOS partition table
+   p   print the partition table     <==在屏幕上显示分割表
+   q   quit without saving changes   <==不储存离开fdisk程序
+   s   create a new empty Sun disklabel
+   t   change a partition's system id
+   u   change display/entry units
+   v   verify the partition table
+   w   write table to disk and exit  <==将刚刚的动作写入分割表
+   x   extra functionality (experts only)
+离开 fdisk 时按下 q，那么所有的动作都不会生效！相反的， 按下 w 就是动作生效的意思。
+
+Command (m for help): p  <== 这里可以输出目前磁盘的状态
+
+Disk /dev/hdc: 41.1 GB, 41174138880 bytes        <==这个磁盘的文件名与容量
+255 heads, 63 sectors/track, 5005 cylinders      <==磁头、扇区与磁柱大小
+Units = cylinders of 16065 * 512 = 8225280 bytes <==每个磁柱的大小
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/hdc1   *           1          13      104391   83  Linux
+/dev/hdc2              14        1288    10241437+  83  Linux
+/dev/hdc3            1289        1925     5116702+  83  Linux
+/dev/hdc4            1926        5005    24740100    5  Extended
+/dev/hdc5            1926        2052     1020096   82  Linux swap / Solaris
+
+### 装置文件名 启动区否 开始磁柱    结束磁柱  1K大小容量 磁盘分区槽内的系统
+
+Command (m for help): q
+想要不储存离开吗？按下 q 就对了！不要随便按 w 啊！
+
+使用 p 可以列出目前这颗磁盘的分割表信息，这个信息的上半部在显示整体磁盘的状态。
+
+磁盘格式化
+磁盘分割完毕后自然就是要进行文件系统的格式化，格式化的命令非常的简单，使用 mkfs（make filesystem） 命令。
+
+语法：
+
+mkfs [-t 文件系统格式] 装置文件名
+选项与参数：
+
+-t ：可以接文件系统格式，例如 ext3, ext2, vfat 等 (系统有支持才会生效)
+实例 1
+查看 mkfs 支持的文件格式
+
+[root@www ~]# mkfs[tab][tab]
+mkfs         mkfs.cramfs  mkfs.ext2    mkfs.ext3    mkfs.msdos   mkfs.vfat
+按下两个 [tab]，会发现 mkfs 支持的文件格式如上所示。
+
+实例 2
+将分区 /dev/hdc6（可指定你自己的分区） 格式化为 ext3 文件系统：
+
+[root@www ~]# mkfs -t ext3 /dev/hdc6
+mke2fs 1.39 (29-May-2006)
+Filesystem label=                <==这里指的是分割槽的名称(label)
+OS type: Linux
+Block size=4096 (log=2)          <==block 的大小配置为 4K 
+Fragment size=4096 (log=2)
+251392 inodes, 502023 blocks     <==由此配置决定的inode/block数量
+25101 blocks (5.00%) reserved for the super user
+First data block=0
+Maximum filesystem blocks=515899392
+16 block groups
+32768 blocks per group, 32768 fragments per group
+15712 inodes per group
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912
+
+Writing inode tables: done
+Creating journal (8192 blocks): done <==有日志记录
+Writing superblocks and filesystem accounting information: done
+
+This filesystem will be automatically checked every 34 mounts or
+180 days, whichever comes first.  Use tune2fs -c or -i to override.
+### 这样就创建起来我们所需要的 Ext3 文件系统了！简单明了！
+
+磁盘检验
+
+
+fsck（file system check）用来检查和维护不一致的文件系统。
+
+若系统掉电或磁盘发生问题，可利用 fsck 命令对文件系统进行检查。
+
+语法：
+
+fsck [-t 文件系统] [-ACay] 装置名称
+选项与参数：
+
+-t : 给定档案系统的型式，若在 /etc/fstab 中已有定义或 kernel 本身已支援的则不需加上此参数
+-s : 依序一个一个地执行 fsck 的指令来检查
+-A : 对 /etc/fstab 中所有列出来的 分区（partition）做检查
+-C : 显示完整的检查进度
+-d : 打印出 e2fsck 的 debug 结果
+-p : 同时有 -A 条件时，同时有多个 fsck 的检查一起执行
+-R : 同时有 -A 条件时，省略 / 不检查
+-V : 详细显示模式
+-a : 如果检查有错则自动修复
+-r : 如果检查有错则由使用者回答是否修复
+-y : 选项指定检测每个文件是自动输入 yes，在不确定那些是不正常的时候，可以执行 # fsck -y 全部检查修复。
+实例 1
+查看系统有多少文件系统支持的 fsck 命令：
+
+[root@www ~]# fsck[tab][tab]
+fsck         fsck.cramfs  fsck.ext2    fsck.ext3    fsck.msdos   fsck.vfat
+实例 2
+强制检测 /dev/hdc6 分区:
+
+[root@www ~]# fsck -C -f -t ext3 /dev/hdc6 
+fsck 1.39 (29-May-2006)
+e2fsck 1.39 (29-May-2006)
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+vbird_logical: 11/251968 files (9.1% non-contiguous), 36926/1004046 blocks
+如果没有加上 -f 的选项，则由于这个文件系统不曾出现问题，检查的经过非常快速！若加上 -f 强制检查，才会一项一项的显示过程。
+
+磁盘挂载与卸除
+Linux 的磁盘挂载使用 mount 命令，卸载使用 umount 命令。
+
+磁盘挂载语法：
+
+mount [-t 文件系统] [-L Label名] [-o 额外选项] [-n]  装置文件名  挂载点
+实例 1
+用默认的方式，将刚刚创建的 /dev/hdc6 挂载到 /mnt/hdc6 上面！
+
+[root@www ~]# mkdir /mnt/hdc6
+[root@www ~]# mount /dev/hdc6 /mnt/hdc6
+[root@www ~]# df
+Filesystem           1K-blocks      Used Available Use% Mounted on
+.....中间省略.....
+/dev/hdc6              1976312     42072   1833836   3% /mnt/hdc6
+磁盘卸载命令 umount 语法：
+
+umount [-fn] 装置文件名或挂载点
+选项与参数：
+
+-f ：强制卸除！可用在类似网络文件系统 (NFS) 无法读取到的情况下；
+-n ：不升级 /etc/mtab 情况下卸除。
+卸载 /dev/hdc6
+
+[root@www ~]# umount /dev/hdc6     
+
+
+
+## [curl和wget](https://mp.weixin.qq.com/s/VprxpaxQihFVHlJB3a9xkQ)
+
+Linux 命令行比 GUI 提供了更多的灵活性和控制力。与 GUI 相比，许多人更喜欢使用命令行，因为它比 GUI 更加易于使用和快捷。使用命令行可以更轻松地使用一行自动执行任务。另外，它比 GUI 使用更少的资源。
+
+下载文件是一项日常任务，通常每天执行，其中包括 ZIP，TAR，ISO，PNG 等文件类型。您可以使用命令行终端简单快速地执行此任务。只需要使用键盘即可。因此，今天，我将向您展示如何在 Linux 中使用命令行下载文件。通常有两种已知的方法可以做到这一点，即使用 wget 和 curl 工具。对于本文，我将使用 Ubuntu 20.04 LTS 来描述该过程。但是相同的命令也可以在其他 Linux 发行版（如 Debian，Gentoo 和 CentOS）上运行。
+
+### **使用 Curl 下载文件**
+
+Curl 可用于通过多种协议传输数据。它使用 Curl 支持许多协议，包括 HTTP ， HTTPS ， FTP ， TFTP ， TELNET，SCP 等。您可以下载任何远程文件。它也支持暂停和恢复功能。
+
+首先，您需要安装 curl。
+
+**安装 curl**
+
+通过按 Ctrl + Alt + T 组合键在 Ubuntu 终端中启动命令行应用程序。然后输入以下命令以使用 sudo 安装 curl。
+
+linuxmi@linuxmi:~/www.linuxmi.com$ sudo apt install curl
+
+当提示 [sudo] linuxmi 的密码：时请输入密码。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6G0sNV0L82GicyxOBrguDlJXSkdaVAEDwmnSZWrFQDCRUgKK1mRgo4wiauCW1HRVdyzMwe6CZQ3OicTA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+安装完成后，输入以下命令下载文件。
+
+**使用源文件名下载并保存文件**
+
+要使用与原始源文件相同的名称将文件保存在远程服务器上，请使用 - O（大写 O），然后使用 curl，如下所示：
+
+$ curl -O [URL]
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6G0sNV0L82GicyxOBrguDlJXNwR4rseuHkbHiacWTZEQUZVLYEuaskwcMEdoDpJOGpEMiawP2RVWeJpw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+除了 - O 外，您还可以指定 “–remote-name”，如下所示。两者的工作原理相同。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6G0sNV0L82GicyxOBrguDlJXt4sUwic9272abDw2CB8LDJwNQS9twa0cundOoYtabL8fJ6CTVUTVUMQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+**用其他名称下载并保存文件**
+
+如果要下载文件并将其保存为与远程服务器中文件名不同的名称，请使用 - o（小写的 o），如下所示。当远程 URL 在 URL 中不包含文件名时，这将很有用，如下例所示。
+
+$ curl –o [filename] [URL]
+
+[filename] 是输出文件的新名称。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6G0sNV0L82GicyxOBrguDlJXaDmjATDfl5XxRGrib5LIe3pE7arALursj6ou1jZH3jsicYtzppMRawnQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+curl --remote-name https://github.com/chrishunt/color-schemes/archive/master.zip
+
+curl -o linuxmi https://github.com/chrishunt/color-schemes/archive/master.zip
+
+**下载多个文件**
+
+要下载多个文件，请使用以下语法输入命令：
+
+$ curl -O [URL1] -O [URL2]
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6G0sNV0L82GicyxOBrguDlJXtEw6rGjq9cqiaCU9pofYInzUX58icVGcrtVSBIic6RsRfZsLWSs9bLFaA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+**从 FTP 服务器下载文件**
+
+要从 FTP 服务器下载文件，请使用以下语法输入命令：
+
+$ curl -O ftp://ftp.linuxmi.com/www.linuxmi.com.zip
+
+要从经过用户身份验证的 FTP 服务器下载文件，请使用以下语法：
+
+$ curl -u [ftp_user]:[ftp_passwd] -O [ftp_URL]
+
+**暂停并继续下载**
+
+在下载文件时，您可以使用 Ctrl + C 手动将其暂停，或者有时由于某种原因它会自动被中断和停止，您可以恢复它。导航到您先前下载文件的目录，然后使用以下语法输入命令：
+
+$ curl –c [选项] [URL]
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6G0sNV0L82GicyxOBrguDlJXu5a4vZpyoG1Ce89JvghjxRZCvuZiaP5PSs9y3IM2ffW4JsnbOnoG8Nw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+### **使用 Wget 下载文件**
+
+使用 wget，您可以从 Web 和 FTP 服务器下载文件和内容。Wget 是 www 和 get 的组合。它支持 FTP，SFTP，HTTP 和 HTTPS 等协议。它还支持递归下载功能。如果您要下载整个网站以供脱机查看或生成静态网站的备份，则此功能非常有用。另外，您可以使用它从各种 Web 服务器检索内容和文件。
+
+**安装 wget**
+
+通过按 Ctrl + Alt + T 组合键在 Ubuntu 终端中启动命令行应用程序。然后输入以下命令以使用 sudo 安装 wget。
+
+linuxmi@linuxmi:~/www.linuxmi.com$ sudo apt install wget
+
+当提示您输入密码时，输入 sudo 密码。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6G0sNV0L82GicyxOBrguDlJXntbtBdZIliaSn0Sb7D7W9zaXEC4BVE7gjia9Gw4QNx6kRXyD9hjibtAXQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+**使用 wget 下载文件或网页**
+
+要下载文件或网页，请打开终端并以以下语法输入命令：
+
+$ wget [URL]
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6G0sNV0L82GicyxOBrguDlJXA8fqNNIWW5XUzYicFRtepVibasPW7vru7nbeWDHiaryEGoOichYrhxbzFA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+要保存单个网页，请使用以下语法输入命令：
+
+$ wget [URL]
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6G0sNV0L82GicyxOBrguDlJX7OVkpAdfia1x76U27Fx14nvicGxhZhuHsouvLFibNaGVLlSMhbpIeZkbw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+**下载其他名称的文件**
+
+如果要下载和保存文件的名称与原始远程文件的名称不同，请使用 - O（大写 O），如下所示。这对您很有用，尤其是当您下载自动以名称 “index.html” 保存的网页时。
+
+要下载其他名称的文件，请使用以下语法输入命令：
+
+$ wget -O [文件名] [URL]
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6G0sNV0L82GicyxOBrguDlJXl1MXlj9w8WBDdPtPEanp4vMrbeSHydWNDp8yssUaiaWdf5zezYLwklQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+**通过 FTP 下载文件**
+
+要从 FTP 服务器下载文件，请使用以下语法键入命令：
+
+$ wget [ftp_link]
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6G0sNV0L82GicyxOBrguDlJXG7SuyRoPJjCgE60miaJjOtVZacBdDpiblBCoicjb6eX5KicU13HV7eLbrg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+要从经过用户身份验证的 FTP 服务器下载文件，请使用以下语法：
+
+$ wget -u [ftp_user]：[ftp_passwd] -O [ftp_URL]
+
+**递归下载文件**
+
+您可以使用递归下载功能来下载指定目录下的所有内容，无论是网站还是 FTP 站点。要使用递归下载功能，请使用以下语法输入命令：
+
+$ wget –r [URL]
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6G0sNV0L82GicyxOBrguDlJX8hXKb1Me2SDCuLFDoibCSsouaLggZnLJ1r6SWSm08icgQds4PVplHnTA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+**下载多个文件**
+
+您可以使用 wget 下载多个文件。创建一个带有文件 URL 列表的文本文件，然后使用以下语法的 wget 命令下载该列表。
+
+$ wget –i [filename.txt]
+
+例如，我有一个名为 “linuxmi.txt” 的文本文件，其中有两个要使用 wget 下载的 URL 列表。您可以在下图中看到我的文本文件内容。
+
+我将使用以下命令下载文本文件中包含的文件链接：
+
+$ wget –i linuxmi.txt
+
+使用包含网址的文件作为下载列表
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6G0sNV0L82GicyxOBrguDlJX7Avibm5rhMBg2Z04gR6cJib9pX6CmwcwqGzlwjSFrPtF4XcXy125a1iaQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+您会看到它正在一个接一个地下载两个链接。
+
+**暂停和恢复下载**
+
+您可以按 Ctrl + C 暂停下载。要恢复暂停的下载，请转至先前下载文件的目录，并在 wget 之后使用– c 选项，如以下语法所示：
+
+$ wget -c filename.zip
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/jhtEbpg4m6G0sNV0L82GicyxOBrguDlJXW8u79iaJI6m3SAZ1Zx1rXdftJOGejPA48G7o9w1FiayUXsVz2POr1r9g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+使用以上命令，您会注意到下载已从暂停位置恢复。
+
+**总结**
+
+在本文中，我们讨论了 Linux 下两种命令行方法的基本用法，您可以使用它们下载文件。需要注意的一件事是，如果您在下载文件时未指定目录，则文件将下载到您正在使用的当前目录中。
+
+
+
+## [tcpdump](https://mp.weixin.qq.com/s/iSqeA2hWbllEyq8yg-MPvQ)
 
 
 
@@ -1501,7 +2783,2577 @@ tcpdump 强大的功能和灵活的策略，主要体现在过滤器（BPF）强
 
 
 
-### [gdb](https://mp.weixin.qq.com/s/OLHurXiioQchhai4i9WYsw)
+## [gdb](https://mp.weixin.qq.com/s/OLHurXiioQchhai4i9WYsw)
+
+
+
+
+
+# git使用
+
+## [手把手指导您使用 Git](https://mp.weixin.qq.com/s/B7rjSShEFBkuxM7wsNtlkg)
+
+
+
+
+
+## [克隆、修改、添加和删除文件？](https://mp.weixin.qq.com/s/g_1iDs0W1ToGlmYoUbjEpw)
+
+
+
+
+
+## [git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+
+**Git 是什么？**
+
+Git 是目前世界上最先进的分布式版本控制系统（没有之一）。
+
+
+
+**Git 有什么特点？**
+
+简单来说就是：**高端大气上档次！**
+
+
+
+**那什么是版本控制系统？**
+
+如果你用 Microsoft Word 写过长篇大论，那你一定有这样的经历：
+
+想删除一个段落，又怕将来想恢复找不回来怎么办？有办法，先把当前文件 “另存为……” 一个新的 Word 文件，再接着改，改到一定程度，再 “另存为……” 一个新文件，这样一直改下去，最后你的 Word 文档变成了这样：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/QFzRdz9libEYJx98xK1ickW62zcHibtpaiavt1jPxIrBtjOBaBsgibLsqY9YdGk3PWG3KGL0rCMo7vxMvdZapAtxIog/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+过了一周，你想找回被删除的文字，但是已经记不清删除前保存在哪个文件里了，只好一个一个文件去找，真麻烦。
+
+看着一堆乱七八糟的文件，想保留最新的一个，然后把其他的删掉，又怕哪天会用上，还不敢删，真郁闷。
+
+更要命的是，有些部分需要你的财务同事帮助填写，于是你把文件 Copy 到 U 盘里给她（也可能通过 Email 发送一份给她），然后，你继续修改 Word 文件。一天后，同事再把 Word 文件传给你，此时，你必须想想，发给她之后到你收到她的文件期间，你作了哪些改动，得把你的改动和她的部分合并，真困难。
+
+于是你想，如果有一个软件，不但能自动帮我记录每次文件的改动，还可以让同事协作编辑，这样就不用自己管理一堆类似的文件了，也不需要把文件传来传去。如果想查看某次改动，只需要在软件里瞄一眼就可以，岂不是很方便？
+
+这个软件用起来就应该像这个样子，能记录每次文件的改动：
+
+| 版本 | 文件名      | 用户 | 说明                    | 日期       |
+| :--- | :---------- | :--- | :---------------------- | :--------- |
+| 1    | service.doc | 张三 | 删除了软件服务条款 5    | 7/12 10:38 |
+| 2    | service.doc | 张三 | 增加了 License 人数限制 | 7/12 18:09 |
+| 3    | service.doc | 李四 | 财务部门调整了合同金额  | 7/13 9:51  |
+| 4    | service.doc | 张三 | 延长了免费升级周期      | 7/14 15:17 |
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/rrbZLC2ibIgtgV382cFCwmibpHFT7jndu1ibEDpFia0dzsjETHdt0HFzYlVRnHIaumpf3QyVos7giadDicqSku9zOEibw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+Git 有很多命令记不住，怎么办？
+
+一般来说，日常使用只要记住下图 6 个命令，就可以了。但是熟练使用，恐怕要记住 60～100 个命令。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/QFzRdz9libEZPZW2tdOpBSZ3DvJl6ibxIzbFsPoFbL8rT7DBpcOgFJ8JoUd3VCXvGdHQ0ApqfOBGXoNrPFGo5cSg/640?tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。
+
+
+
+```bash
+Workspace：工作区Index / Stage：暂存区Repository：仓库区（或本地仓库）Remote：远程仓库
+```
+
+### **一、新建代码库**
+
+
+
+```bash
+# 在当前目录新建一个Git代码库
+$ git init
+
+# 新建一个目录，将其初始化为Git代码库
+$ git init [project-name]
+
+#  下载一个项目和它的整个代码历史
+$ git clone [url]
+```
+
+### **二、配置**
+
+ Git 的设置文件为`.gitconfig`，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
+
+```bash
+# 显示当前的Git配置
+$ git config --list
+
+# 编辑Git配置文件
+$ git config -e [--global]
+
+# 设置提交代码时的用户信息
+$ git config [--global] user.name "[name]"
+$ git config [--global] user.email "[email address]"
+```
+
+### **三、增加 / 删除文件**
+
+
+
+```bash
+# 添加指定文件到暂存区
+$ git add [file1] [file2] ...
+# 添加指定目录到暂存区，包括子目录
+$ git add [dir]
+# 添加当前目录的所有文件到暂存区
+$ git add .
+# 添加每个变化前，都会要求确认
+# 对于同一个文件的多处变化，可以实现分次提交
+$ git add -p
+# 删除工作区文件，并且将这次删除放入暂存区
+$ git rm [file1] [file2] ...
+# 停止追踪指定文件，但该文件会保留在工作区
+$ git rm --cached [file]
+# 改名文件，并且将这个改名放入暂存区
+$ git mv [file-original] [file-renamed]
+```
+
+### 四、代码提交
+
+- 
+
+```bash
+# 提交暂存区到仓库区
+$ git commit -m [message]
+# 提交暂存区的指定文件到仓库区
+$ git commit [file1] [file2] ... -m [message]
+# 提交工作区自上次commit之后的变化，直接到仓库区
+$ git commit -a
+# 提交时显示所有diff信息
+$ git commit -v
+# 使用一次新的commit，替代上一次提交
+# 如果代码没有任何新变化，则用来改写上一次commit的提交信息
+$ git commit --amend -m [message]
+# 重做上一次commit，并包括指定文件的新变化
+$ git commit --amend [file1] [file2] ...
+
+```
+
+### 五、分支
+
+```bash
+# 列出所有本地分支
+$ git branch
+# 列出所有远程分支
+$ git branch -r
+# 列出所有本地分支和远程分支
+$ git branch -a
+# 新建一个分支，但依然停留在当前分支
+$ git branch [branch-name]
+# 新建一个分支，并切换到该分支
+$ git checkout -b [branch]
+# 新建一个分支，指向指定commit
+$ git branch [branch] [commit]
+# 新建一个分支，与指定的远程分支建立追踪关系
+$ git branch --track [branch] [remote-branch]
+# 切换到指定分支，并更新工作区
+$ git checkout [branch-name]
+# 切换到上一个分支
+$ git checkout -
+# 建立追踪关系，在现有分支与指定的远程分支之间
+$ git branch --set-upstream [branch] [remote-branch]
+# 合并指定分支到当前分支
+$ git merge [branch]
+# 选择一个commit，合并进当前分支
+$ git cherry-pick [commit]
+# 删除分支
+$ git branch -d [branch-name]
+# 删除远程分支
+$ git push origin --delete [branch-name]$ git branch -dr [remote/branch]
+
+```
+
+### 六、标签
+
+```bash
+# 列出所有tag
+$ git tag
+# 新建一个tag在当前commit
+$ git tag [tag]
+# 新建一个tag在指定commit
+$ git tag [tag] [commit]
+# 删除本地tag
+$ git tag -d [tag]
+# 删除远程tag
+$ git push origin :refs/tags/[tagName]
+# 查看tag信息
+$ git show [tag]
+# 提交指定tag
+$ git push [remote] [tag]
+# 提交所有tag
+$ git push [remote] --tags
+# 新建一个分支，指向某个tag
+$ git checkout -b [branch] [tag]
+
+```
+
+### 七、查看信息
+
+```bash
+# 显示有变更的文件
+$ git status
+# 显示当前分支的版本历史
+$ git log
+# 显示commit历史，以及每次commit发生变更的文件
+$ git log --stat
+# 搜索提交历史，根据关键词
+$ git log -S [keyword]
+# 显示某个commit之后的所有变动，每个commit占据一行
+$ git log [tag] HEAD --pretty=format:%s
+# 显示某个commit之后的所有变动，其"提交说明"必须符合搜索条件
+$ git log [tag] HEAD --grep feature
+# 显示某个文件的版本历史，包括文件改名
+$ git log --follow [file]
+$ git whatchanged [file]
+# 显示指定文件相关的每一次diff
+$ git log -p [file]
+# 显示过去5次提交
+$ git log -5 --pretty --oneline
+# 显示所有提交过的用户，按提交次数排序
+$ git shortlog -sn
+# 显示指定文件是什么人在什么时间修改过
+$ git blame [file]
+# 显示暂存区和工作区的差异
+$ git diff
+# 显示暂存区和上一个commit的差异
+$ git diff --cached [file]
+# 显示工作区与当前分支最新commit之间的差异
+$ git diff HEAD
+# 显示两次提交之间的差异
+$ git diff [first-branch]...[second-branch]
+# 显示今天你写了多少行代码
+$ git diff --shortstat "@{0 day ago}"
+# 显示某次提交的元数据和内容变化
+$ git show [commit]
+# 显示某次提交发生变化的文件
+$ git show --name-only [commit]
+# 显示某次提交时，某个文件的内容
+$ git show [commit]:[filename]
+# 显示当前分支的最近几次提交
+$ git reflog
+```
+
+### 八、远程同步
+
+```bash
+# 下载远程仓库的所有变动
+$ git fetch [remote]
+# 显示所有远程仓库
+$ git remote -v
+# 显示某个远程仓库的信息
+$ git remote show [remote]
+# 增加一个新的远程仓库，并命名
+$ git remote add [shortname] [url]
+# 取回远程仓库的变化，并与本地分支合并
+$ git pull [remote] [branch]
+# 上传本地指定分支到远程仓库
+$ git push [remote] [branch]
+# 强行推送当前分支到远程仓库，即使有冲突
+$ git push [remote] --force
+# 推送所有分支到远程仓库
+$ git push [remote] --all
+```
+
+## 九、撤销
+
+
+
+```bash
+# 恢复暂存区的指定文件到工作区
+$ git checkout [file]
+
+# 恢复某个commit的指定文件到暂存区和工作区
+$ git checkout [commit] [file]
+
+# 恢复暂存区的所有文件到工作区
+$ git checkout .
+
+# 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
+$ git reset [file]
+
+# 重置暂存区与工作区，与上一次commit保持一致
+$ git reset --hard
+
+# 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
+$ git reset [commit]
+
+# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
+$ git reset --hard [commit]
+
+# 重置当前HEAD为指定commit，但保持暂存区和工作区不变
+$ git reset --keep [commit]
+
+# 新建一个commit，用来撤销指定commit# 后者的所有变化都将被前者抵消，并且应用到当前分支
+$ git revert [commit]
+
+# 暂时将未提交的变化移除，稍后再移入
+$ git stash
+$ git stash pop
+
+```
+
+## 十、其他
+
+```bash
+# 生成一个可供发布的压缩包
+$ git archive
+```
+
+
+
+## [Git 使用教程！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)
+
+### **一、Git 是什么？**
+Git 是目前世界上最先进的分布式版本控制系统。
+工作原理 / 流程：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxiaCC3m4XHaxHaaqLkYlukTUALnHN74icx3VZyIM3uEXz7JA9ldicwe8BQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+- Workspace：工作区
+- Index / Stage：暂存区
+- Repository：仓库区（或本地仓库）
+- Remote：远程仓库
+
+### **二、SVN 与 Git 的最主要的区别？**
+
+SVN 是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑，所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网速慢的话，就纳闷了。
+
+Git 是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件 A，其他人也在电脑上改了文件 A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。
+
+### **三、在 windows 上如何安装 Git？**
+
+msysgit 是 windows 版的 Git, 如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxosiaDLmDfnv75UCUBV06SuFZBoyayrJxatPyPc7gUryQWLTyh0RZa1w/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+需要从网上下载一个，然后进行默认安装即可。安装完成后，在开始菜单里面找到 "Git --> Git Bash", 如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxFjQkg9D22szLw1gZ3Ss5ZXIXaaiatM050XBzkItSWEBMVrtq90a3BAw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+会弹出一个类似的命令窗口的东西，就说明 Git 安装成功。如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxn02qf5YPEzHMHnCC5UfsfQUJLX0QKFFU5pguJWydNQsiaeQ6b3NtHJQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+安装完成后，还需要最后一步设置，在命令行输入如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxI8VU7mUGVtA2tvr4WLUSF0rAuP0dVicSeiab136Pr8scaKAKW2BUBXxQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+因为 Git 是分布式版本控制系统，所以需要填写用户名和邮箱作为一个标识。
+
+注意：git config --global 参数，有了这个参数，表示你这台机器上所有的 Git 仓库都会使用这个配置，当然你也可以对某个仓库指定的不同的用户名和邮箱。
+
+### **四、如何操作？**
+
+**1. 创建版本库。**
+
+什么是版本库？版本库又名仓库，英文名 repository, 你可以简单的理解一个目录，这个目录里面的所有文件都可以被 Git 管理起来，每个文件的修改，删除，Git 都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻还可以将文件” 还原”。
+
+所以创建一个版本库也非常简单，如下我是 D 盘 –> www 下 目录下新建一个 testgit 版本库。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKx1h3uRSPw2KGCqJa6JKW2icELLWv9yDibjJcQnQQdWiakRHWCCE0ZJ1tWw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+pwd 命令是用于显示当前的目录。
+
+通过命令 git init 把这个目录变成 git 可以管理的仓库，如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxw1YVClI71BJSN2tpvKc0r9asuATe8rc0l9fg41p7X9cz4OHwB3duaw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+这时候你当前 testgit 目录下会多了一个.git 的目录，这个目录是 Git 来跟踪管理版本的，没事千万不要手动乱改这个目录里面的文件，否则，会把 git 仓库给破坏了。如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxaneuRvlyPJhnMgZTLL365iaTqvBZibLwPiaq0OxiblbhYRIUJdibX5PHfaQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+下面先看下 demo 如下演示：
+
+我在版本库 testgit 目录下新建一个记事本文件 readme.txt 内容如下：11111111
+
+第一步：使用命令 git add readme.txt 添加到暂存区里面去。如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxbH4oUnicLrxsrsMf5bXot8hl4EuExIZ0w3sBM5zktDTxxYEuRLONxaw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+如果和上面一样，没有任何提示，说明已经添加成功了。
+
+第二步：用命令 git commit 告诉 Git，把文件提交到仓库。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKx2IJicDvF99RasEj8lhSnXI4B5glBAhw57qBMuWUJdVw61sykLBbZBEA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+现在我们已经提交了一个 readme.txt 文件了，我们下面可以通过命令 git status 来查看是否还有文件未提交，如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxqcB7Jia6OXyLqdBhcJ0X4WU62qNicfiblnd0rZF3yz6A7jRFvf8K29Qbg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+说明没有任何文件未提交，但是我现在继续来改下 readme.txt 内容，比如我在下面添加一行 2222222222 内容，继续使用 git status 来查看下结果，如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKx8SxcS22lvuD97h5jGJdMRwg5mVK2XByialZY3BoE328cfR0vPuKfCicg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+上面的命令告诉我们 readme.txt 文件已被修改，但是未被提交的修改。
+
+把文件添加到版本库中。
+
+首先要明确下，所有的版本控制系统，只能跟踪文本文件的改动，比如 txt 文件，网页，所有程序的代码等，Git 也不列外，版本控制系统可以告诉你每次的改动，但是图片，视频这些二进制文件，虽能也能由版本控制系统管理，但没法跟踪文件的变化，只能把二进制文件每次改动串起来，也就是知道图片从 1kb 变成 2kb，但是到底改了啥，版本控制也不知道。
+
+接下来我想看下 readme.txt 文件到底改了什么内容，如何查看呢？可以使用如下命令：
+
+git diff readme.txt 如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxUNT0TGOicgPicIicJcOhfJgos4KeqzfuQgOicg50VaNMdBIe7tkxLeXs5A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+如上可以看到，readme.txt 文件内容从一行 11111111 改成 二行 添加了一行 22222222 内容。
+
+知道了对 readme.txt 文件做了什么修改后，我们可以放心的提交到仓库了，提交修改和提交文件是一样的 2 步 (第一步是 git add 第二步是：git commit)。
+
+如下：
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxUn21BC9qPH8N7pfeKXpWFD5TEia04NGT9zicWqdXwxaQgJFgqGuH5Fkg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+**2. 版本回退：**
+如上，我们已经学会了修改文件，现在我继续对 readme.txt 文件进行修改，再增加一行
+
+内容为 33333333333333. 继续执行命令如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKx8TZM765aCk7FVHJt6VEtKseBSBwhdFc9EwchbVjhgCJHPbFgZgxRDQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+现在我已经对 readme.txt 文件做了三次修改了，那么我现在想查看下历史记录，如何查呢？我们现在可以使用命令 git log 演示如下所示：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxXBTeneAI92ZOgvhTOzicfZKvHiaibDqm0BrHEzPrOoo5osFcqHrR28rBg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+git log 命令显示从最近到最远的显示日志，我们可以看到最近三次提交，最近的一次是，增加内容为 333333. 上一次是添加内容 222222，第一次默认是 111111. 如果嫌上面显示的信息太多的话，我们可以使用命令 git log –pretty=oneline 演示如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKx0fw4yCALyund7fuuIcdRVt7XwHYUfRAAN38mzEyxl5Ss8Zuvzrg7KQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/jhtEbpg4m6Hicg8GicVuMiaKfhq6tG3JBiaCT6dIwJpMKQdpPMeYZ3tzmxrwrWHopqZaBR8BV6gFEto4aUEhr5ibhcg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+现在我想使用版本回退操作，我想把当前的版本回退到上一个版本，要使用什么命令呢？可以使用如下 2 种命令，第一种是：git reset --hard HEAD^ 那么如果要回退到上上个版本只需把 HEAD^ 改成 HEAD^^ 以此类推。那如果要回退到前 100 个版本的话，使用上面的方法肯定不方便，我们可以使用下面的简便命令操作：git reset --hard HEAD~100 即可。未回退之前的 readme.txt 内容如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxKmtk6uNibcOJOiaia955rrSKOayqRUeAd62qibicZ3UoRibkicjMhlp2VHn4Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+如果想回退到上一个版本的命令如下操作：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKx1eqDr0rBic0YiameTSpfDbGibnv6ibXz9I7egjrYcMy9JmdgCf2CDAeDow/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+再来查看下 readme.txt 内容如下：通过命令 cat readme.txt 查看
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxAVr16pKOlFZxEqwWNsjUMmzcdiazXp2IYemHA9upn7FH6eNKlnia57Nw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+可以看到，内容已经回退到上一个版本了。我们可以继续使用 git log 来查看下历史记录信息，如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxzwR6ibLPia9HmdzM138Mxev2b6qjsWlRZPtUDI1Yw73QV1HfcCYib3DjQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+我们看到 增加 333333 内容我们没有看到了，但是现在我想回退到最新的版本，如：有 333333 的内容要如何恢复呢？我们可以通过版本号回退，使用命令方法如下：
+
+git reset --hard 版本号 ，但是现在的问题假如我已经关掉过一次命令行或者 333 内容的版本号我并不知道呢？要如何知道增加 3333 内容的版本号呢？可以通过如下命令即可获取到版本号：git reflog 演示如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxpFmicd5ic3Qc1Gz4FVlTAhXodbgOCj5NBLicibDg7rrFJialJAurM7L7aNQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+通过上面的显示我们可以知道，增加内容 3333 的版本号是 6fcfc89. 我们现在可以命令
+
+git reset --hard 6fcfc89 来恢复了。演示如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxnBYVj3lp0vH6azdLoT9UgZxS4qA3fbeNDDePpYhGWiclUl60jz9TKLw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+可以看到 目前已经是最新的版本了。
+
+**3. 理解工作区与暂存区的区别？**
+工作区：就是你在电脑上看到的目录，比如目录下 testgit 里的文件 (.git 隐藏目录版本库除外)。或者以后需要再新建的目录文件等等都属于工作区范畴。
+版本库 (Repository)：工作区有一个隐藏目录.git, 这个不属于工作区，这是版本库。其中版本库里面存了很多东西，其中最重要的就是 stage (暂存区)，还有 Git 为我们自动创建了第一个分支 master, 以及指向 master 的一个指针 HEAD。
+
+我们前面说过使用 Git 提交文件到版本库有两步：
+
+**第一步：是使用 git add 把文件添加进去，实际上就是把文件添加到暂存区。**
+
+**第二步：使用 git commit 提交更改，实际上就是把暂存区的所有内容提交到当前分支上。**
+
+我们继续使用 demo 来演示下：
+
+我们在 readme.txt 再添加一行内容为 4444444，接着在目录下新建一个文件为 test.txt 内容为 test，我们先用命令 git status 来查看下状态，如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+现在我们先使用 git add 命令把 2 个文件都添加到暂存区中，再使用 git status 来查看下状态，如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+接着我们可以使用 git commit 一次性提交到分支上，如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+**4. Git 撤销修改和删除文件操作。**
+\1. 撤销修改：
+比如我现在在 readme.txt 文件里面增加一行 内容为 555555555555，我们先通过命令查看如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxAibZH3tONgGp9hWriaoHjdVWgduTWxYVInEXO6cEyicdZTE5rHGibSuoMQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+在我未提交之前，我发现添加 5555555555555 内容有误，所以我得马上恢复以前的版本，现在我可以有如下几种方法可以做修改：
+
+**第一：如果我知道要删掉那些内容的话，直接手动更改去掉那些需要的文件，然后 add 添加到暂存区，最后 commit 掉。**
+
+**第二：我可以按以前的方法直接恢复到上一个版本。使用 git reset --hard HEAD^**
+
+但是现在我不想使用上面的 2 种方法，我想直接想使用撤销命令该如何操作呢？首先在做撤销之前，我们可以先用 git status 查看下当前的状态。如下所示：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxVk0Vl4jMqol7kZOnoPO0tEa05ZOfDicaribrib8OZ1a3INpKkicicGVSIDQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+可以发现，Git 会告诉你，git checkout -- file 可以丢弃工作区的修改，如下命令：
+git checkout -- readme.txt, 如下所示：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+命令 git checkout --readme.txt 意思就是，把 readme.txt 文件在工作区做的修改全部撤销，这里有 2 种情况，如下：
+
+**1.readme.txt 自动修改后，还没有放到暂存区，使用 撤销修改就回到和版本库一模一样的状态。
+\2. 另外一种是 readme.txt 已经放入暂存区了，接着又作了修改，撤销修改就回到添加暂存区后的状态。**
+对于第二种情况，我想我们继续做 demo 来看下，假如现在我对 readme.txt 添加一行 内容为 6666666666666，我 git add 增加到暂存区后，接着添加内容 7777777，我想通过撤销命令让其回到暂存区后的状态。如下所示：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+注意：命令 git checkout -- readme.txt 中的 -- 很重要，如果没有 -- 的话，那么命令变成创建分支了。
+
+\2. 删除文件。
+假如我现在版本库 testgit 目录添加一个文件 b.txt, 然后提交。如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+如上：一般情况下，可以直接在文件目录中把文件删了，或者使用如上 rm 命令：rm b.txt ，如果我想彻底从版本库中删掉了此文件的话，可以再执行 commit 命令 提交掉，现在目录是这样的，
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+只要没有 commit 之前，如果我想在版本库中恢复此文件如何操作呢？
+
+可以使用如下命令 git checkout -- b.txt，如下所示：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+再来看看我们 testgit 目录，添加了 3 个文件了。如下所示：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+### **五、远程仓库**
+在了解之前，先注册 github 账号，由于你的本地 Git 仓库和 github 仓库之间的传输是通过 SSH 加密的，所以需要一点设置：
+第一步：创建 SSH Key。在用户主目录下，看看有没有.ssh 目录，如果有，再看看这个目录下有没有 id_rsa 和 id_rsa.pub 这两个文件，如果有的话，直接跳过此如下命令，如果没有的话，打开命令行，输入如下命令：
+
+ssh-keygen -t rsa –C “youremail@example.com”, 由于我本地此前运行过一次，所以本地有，如下所示：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxbyG27Gkt7KQt4BeZKXVgPyyWa6gu68SjCOS7WNLmZvR6KUEDZFH0eA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+id_rsa 是私钥，不能泄露出去，id_rsa.pub 是公钥，可以放心地告诉任何人。
+
+第二步：登录 github, 打开” settings” 中的 SSH Keys 页面，然后点击 “Add SSH Key”, 填上任意 title，在 Key 文本框里黏贴 id_rsa.pub 文件的内容。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKx9HfRIwgwuTkiaggs8OS1CZYHGMpnKVx6Yl2bicM8s9NGb69hrVMziaBAQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+点击 Add Key，你就应该可以看到已经添加的 key。
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+\1. 如何添加远程库？
+现在的情景是：我们已经在本地创建了一个 Git 仓库后，又想在 github 创建一个 Git 仓库，并且希望这两个仓库进行远程同步，这样 github 的仓库可以作为备份，又可以其他人通过该仓库来协作。
+
+首先，登录 github 上，然后在右上角找到 “create a new repo” 创建一个新的仓库。如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+在 Repository name 填入 testgit，其他保持默认设置，点击 “Create repository” 按钮，就成功地创建了一个新的 Git 仓库：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+```
+目前，在GitHub上的这个testgit仓库还是空的，GitHub告诉我们，可以从这个仓库克隆出新的仓库，也可以把一个已有的本地仓库与之关联，然后，把本地仓库的内容推送到GitHub仓库。
+```
+
+现在，我们根据 GitHub 的提示，在本地的 testgit 仓库下运行命令：
+
+```bash
+git remote add origin https://github.com/tugenhua0707/testgit.git
+```
+
+所有的如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+把本地库的内容推送到远程，使用 git push 命令，实际上是把当前分支 master 推送到远程。
+
+由于远程库是空的，我们第一次推送 master 分支时，加上了 –u 参数，Git 不但会把本地的 master 分支内容推送的远程新的 master 分支，还会把本地的 master 分支和远程的 master 分支关联起来，在以后的推送或者拉取时就可以简化命令。推送成功后，可以立刻在 github 页面中看到远程库的内容已经和本地一模一样了，上面的要输入 github 的用户名和密码如下所示：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+从现在起，只要本地作了提交，就可以通过如下命令：
+
+```
+git push origin master
+```
+
+把本地 master 分支的最新修改推送到 github 上了，现在你就拥有了真正的分布式版本库了。
+
+\2. 如何从远程库克隆？
+
+上面我们了解了先有本地库，后有远程库时候，如何关联远程库。
+
+现在我们想，假如远程库有新的内容了，我想克隆到本地来 如何克隆呢？
+
+首先，登录 github，创建一个新的仓库，名字叫 testgit2. 如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxyL3oLKwQwWFmw0Mg5pDn9xJCgXg27uwGMWcpEQcG0miaic8LuyekBw1A/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+如下，我们看到：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxtUO9rb7NUo5Iq7UCxsRkEfSvhvKASkwZ7FGgW2s548W3mRZ2fMWEOw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+现在，远程库已经准备好了，下一步是使用命令 git clone 克隆一个本地库了。如下所示：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+接着在我本地目录下 生成 testgit2 目录了，如下所示：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+### **六、创建与合并分支**
+
+在 版本回填退里，你已经知道，每次提交，Git 都把它们串成一条时间线，这条时间线就是一个分支。截止到目前，只有一条时间线，在 Git 里，这个分支叫主分支，即 master 分支。HEAD 严格来说不是指向提交，而是指向 master，master 才是指向提交的，所以，HEAD 指向的就是当前分支。
+
+首先，我们来创建 dev 分支，然后切换到 dev 分支上。如下操作：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+git checkout 命令加上 –b 参数表示创建并切换，相当于如下 2 条命令
+
+```
+git branch dev
+git checkout dev
+```
+
+git branch 查看分支，会列出所有的分支，当前分支前面会添加一个星号。然后我们在 dev 分支上继续做 demo，比如我们现在在 readme.txt 再增加一行 7777777777777
+
+首先我们先来查看下 readme.txt 内容，接着添加内容 77777777，如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+现在 dev 分支工作已完成，现在我们切换到主分支 master 上，继续查看 readme.txt 内容如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+现在我们可以把 dev 分支上的内容合并到分支 master 上了，可以在 master 分支上，使用如下命令 git merge dev 如下所示：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+git merge 命令用于合并指定分支到当前分支上，合并后，再查看 readme.txt 内容，可以看到，和 dev 分支最新提交的是完全一样的。
+
+注意到上面的 Fast-forward 信息，Git 告诉我们，这次合并是 “快进模式”，也就是直接把 master 指向 dev 的当前提交，所以合并速度非常快。
+
+合并完成后，我们可以接着删除 dev 分支了，操作如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+总结创建与合并分支命令如下：
+
+查看分支：git branch
+
+创建分支：git branch name
+
+切换分支：git checkout name
+
+创建 + 切换分支：git checkout –b name
+
+合并某分支到当前分支：git merge name
+
+删除分支：git branch –d name
+
+**如何解决冲突？**
+
+下面我们还是一步一步来，先新建一个新分支，比如名字叫 fenzhi1，在 readme.txt 添加一行内容 8888888，然后提交，如下所示：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxJkPIPnRTjL5HOeWHEHumhXBHBibeMMXdpNtM5hzkVv3Yv8ic7N6oRU7g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+同样，我们现在切换到 master 分支上来，也在最后一行添加内容，内容为 99999999，如下所示：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+现在我们需要在 master 分支上来合并 fenzhi1，如下操作：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+Git 用 <<<<<<<，=======，>>>>>>> 标记出不同分支的内容，其中 <<<HEAD 是指主分支修改的内容，>>>>>fenzhi1 是指 fenzhi1 上修改的内容，我们可以修改下如下后保存：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+如果我想查看分支合并的情况的话，需要使用命令 git log. 命令行演示如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+\3. 分支管理策略。通常合并分支时，git 一般使用”Fast forward” 模式，在这种模式下，删除分支后，会丢掉分支信息，现在我们来使用带参数 –no-ff 来禁用”Fast forward” 模式。首先我们来做 demo 演示下：
+
+- 创建一个 dev 分支。
+- 修改 readme.txt 内容。
+- 添加到暂存区。
+- 切换回主分支 (master)。
+- 合并 dev 分支，使用命令 git merge –no-ff -m “注释” dev
+- 查看历史记录
+
+截图如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKx7iceyn13JXfXDYiaTUDO9xs7KXIMBRB1SjFJuobHCR97HwabsoIk5jmw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+分支策略：首先 master 主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般情况下在新建的 dev 分支上干活，干完后，比如上要发布，或者说 dev 分支代码稳定后可以合并到主分支 master 上来。
+
+### **七、bug 分支**
+在开发中，会经常碰到 bug 问题，那么有了 bug 就需要修复，在 Git 中，分支是很强大的，每个 bug 都可以通过一个临时分支来修复，修复完成后，合并分支，然后将临时的分支删除掉。
+
+比如我在开发中接到一个 404 bug 时候，我们可以创建一个 404 分支来修复它，但是，当前的 dev 分支上的工作还没有提交。比如如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+并不是我不想提交，而是工作进行到一半时候，我们还无法提交，比如我这个分支 bug 要 2 天完成，但是我 issue-404 bug 需要 5 个小时内完成。怎么办呢？还好，Git 还提供了一个 stash 功能，可以把当前工作现场 ” 隐藏起来”，等以后恢复现场后继续工作。如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+所以现在我可以通过创建 issue-404 分支来修复 bug 了。
+
+首先我们要确定在那个分支上修复 bug，比如我现在是在主分支 master 上来修复的，现在我要在 master 分支上创建一个临时分支，演示如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+修复完成后，切换到 master 分支上，并完成合并，最后删除 issue-404 分支。演示如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+现在，我们回到 dev 分支上干活了。
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+工作区是干净的，那么我们工作现场去哪里呢？我们可以使用命令 git stash list 来查看下。如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+工作现场还在，Git 把 stash 内容存在某个地方了，但是需要恢复一下，可以使用如下 2 个方法：
+
+**1.git stash apply 恢复，恢复后，stash 内容并不删除，你需要使用命令 git stash drop 来删除。
+\2. 另一种方式是使用 git stash pop, 恢复的同时把 stash 内容也删除了。**
+演示如下
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxUzE75xA8deXFxdwaokkEtXXWKeQw1fFlVzS1OU40ufqxBa31rjyicUg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+### **八、多人协作**
+当你从远程库克隆时候，实际上 Git 自动把本地的 master 分支和远程的 master 分支对应起来了，并且远程库的默认名称是 origin。
+
+1. 要查看远程库的信息 使用 git remote
+2. 要查看远程库的详细信息 使用 git remote –v
+
+
+
+如下演示：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxxFFDnmuJtDibwbTCQWS4z4E5DN2O5xnq5WLzIPy8y3fPLt3XhUlwFicA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+**1. 推送分支：**
+
+推送分支就是把该分支上所有本地提交到远程库中，推送时，要指定本地分支，这样，Git 就会把该分支推送到远程库对应的远程分支上：使用命令 git push origin master
+
+比如我现在的 github 上的 readme.txt 代码如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxjMJarLRzRPIpRdlr0nxYV8aszZbhMbZZcclTGoU65gVElTLr5l2rBw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+本地的 readme.txt 代码如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxNZ7RssbD3x30aTSNlvhZAmeXwDQnxDMhy7rjgqouaYXatkjBYiaRRxg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+现在我想把本地更新的 readme.txt 代码推送到远程库中，使用命令如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxlYMqb9dGqq8vJ3n6jYKt8Dm1Af0iafXh2eHSIjiajk4QtawKX5NIWkPQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+我们可以看到如上，推送成功，我们可以继续来截图 github 上的 readme.txt 内容 如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+可以看到 推送成功了，如果我们现在要推送到其他分支，比如 dev 分支上，我们还是那个命令 git push origin dev
+
+那么一般情况下，那些分支要推送呢？
+
+master 分支是主分支，因此要时刻与远程同步。
+一些修复 bug 分支不需要推送到远程去，可以先合并到主分支上，然后把主分支 master 推送到远程去。
+**2. 抓取分支：**
+
+多人协作时，大家都会往 master 分支上推送各自的修改。现在我们可以模拟另外一个同事，可以在另一台电脑上（注意要把 SSH key 添加到 github 上）或者同一台电脑上另外一个目录克隆，新建一个目录名字叫 testgit2
+
+但是我首先要把 dev 分支也要推送到远程去，如下
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+接着进入 testgit2 目录，进行克隆远程的库到本地来，如下：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+现在目录下生成有如下所示：
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+现在我们的小伙伴要在 dev 分支上做开发，就必须把远程的 origin 的 dev 分支到本地来，于是可以使用命令创建本地 dev 分支：
+
+```
+git checkout –b dev origin/dev
+```
+
+现在小伙伴们就可以在 dev 分支上做开发了，开发完成后把 dev 分支推送到远程库时。
+
+如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxSI3BiaLtauS2CafXJ8O7uWX8mbTuBLhibMCMAjYkxeWOqwiajiaXCFwV6w/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+小伙伴们已经向 origin/dev 分支上推送了提交，而我在我的目录文件下也对同样的文件同个地方作了修改，也试图推送到远程库时，如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxtiavtxSHLqrCAP5fPLSP1E8icNlFicwsVc2V9MibjHCdbIR725DWV3icY8w/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+由上面可知：推送失败，因为我的小伙伴最新提交的和我试图推送的有冲突，解决的办法也很简单，上面已经提示我们，先用 git pull 把最新的提交从 origin/dev 抓下来，然后在本地合并，解决冲突，再推送。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxugZ4icLTBK2QlBibjqXZRFEhFHH90VuwlHo30ib7ic2Iv1aJwF0UvKMiadA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+git pull 也失败了，原因是没有指定本地 dev 分支与远程 origin/dev 分支的链接，根据提示，设置 dev 和 origin/dev 的链接：如下：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxZJenbMVZgrPpic6qkdtSQLsvNpme1ltbsWrbichK6pbJJMQ0iah3kyyAg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+这回 git pull 成功，但是合并有冲突，需要手动解决，解决的方法和分支管理中的 解决冲突完全一样。解决后，提交，再 push：
+我们可以先来看看 readme.txt 内容了。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxm3Ijz0ScjY4cSa27ibmvZUZtYFD52b3q88Hk8f6I3cNLcxmiadia0NnLw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+现在手动已经解决完了，我接在需要再提交，再 push 到远程库里面去。如下所示：
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/e1jmIzRpwWiaEynpFwWSmr59icj386rKKxiao0xm3MgoHqu8yLA6pH79BVS8URqfg1aR9iacPV0sJZw5htaPdkwdvw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+因此：多人协作工作模式一般是这样的：
+
+首先，可以试图用 git push origin branch-name 推送自己的修改.
+如果推送失败，则因为远程分支比你的本地更新早，需要先用 git pull 试图合并。
+如果合并有冲突，则需要解决冲突，并在本地提交。再用 git push origin branch-name 推送。
+
+
+
+## [图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)
+
+
+
+本文图解 Git 中的最常用命令。如果你稍微理解 Git 的工作原理，这篇文章能够让你理解的更透彻。
+
+
+
+### 基本用法
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/b2YlTLuGbKDsbJzupnILVFhPtMaRjmvPKYRqTMjibE9pnd8oiawLVrQbOHQe4wBXkBQkzpKCWPKBqWgOLgwccBug/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdVldJGOGXuibWZGhib6OyVXMic1ZznAwYtO2eFpicV29aUVpNpwCMDia6B4w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+上面的四条命令在工作目录、暂存目录（也叫做索引）和仓库之间复制文件。
+
+
+
+- git add files 把当前文件放入暂存区域。
+- git commit 给暂存区域生成快照并提交。
+- git reset – files 用来撤销最后一次 git add files，你也可以用 git reset 撤销所有暂存区域文件。
+- git checkout – files 把文件从暂存区域复制到工作目录，用来丢弃本地修改。
+
+
+
+你可以用 git reset -p，git checkout -p，or git add -p 进入交互模式。
+
+
+
+也可以跳过暂存区域直接从仓库取出文件或者直接提交代码。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdYReXDk7rS1rOicCQ7WtiagoMiaicu2xX2XmnNtiaiariayeskukH5fu1J3UibQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+- git commit -a 相当于运行 git add 把所有当前目录下的文件加入暂存区域再运行。
+- git commit files 进行一次包含最后一次提交加上工作目录中文件快照的提交。并且文件被添加到暂存区域。
+- git checkout HEAD – files 回滚到复制最后一次提交。
+
+
+
+###  约定
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/b2YlTLuGbKDsbJzupnILVFhPtMaRjmvPKYRqTMjibE9pnd8oiawLVrQbOHQe4wBXkBQkzpKCWPKBqWgOLgwccBug/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+后文中以下面的形式使用图片。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdbdwYDx6TQR4KD6FWsr2B8UI1QBYzIlp7LGzmSLG1DU0Z1gUESMqGDg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+绿色的 5 位字符表示提交的 ID，分别指向父节点。分支用橘色显示，分别指向特定的提交。当前分支由附在其上的 HEAD 标识。这张图片里显示最后 5 次提交，ed489 是最新提交。master 分支指向此次提交，另一个 maint 分支指向祖父提交节点。
+
+
+
+### 命令详解
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+
+
+ #### **Diff**
+
+
+
+有许多种方法查看两次提交之间的变动，下面是一些示例。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdDpAGboibbjp15iaKlk0LyveH5aibicWiaibs0icmJgohye76ojHT8gBOVQA3w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+
+
+ #### **Commit**
+
+
+
+提交时，Git 用暂存区域的文件创建一个新的提交，并把此时的节点设为父节点。然后把当前分支指向新的提交节点。下图中，当前分支是 master。在运行命令之前，master 指向 ed489，提交后，master 指向新的节点 f0cec 并以 ed489 作为父节点。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdVZvuXkGQXTnibv4hkRL3ALkCXGibtgPicPgmTjllf8dRg7sJ9PNozzOaQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+即便当前分支是某次提交的祖父节点，git 会同样操作。下图中，在 master 分支的祖父节点 maint 分支进行一次提交，生成了 1800b。这样，maint 分支就不再是 master 分支的祖父节点。此时，合并 [1]（或者衍合 [2]）是必须的。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacduYic50KBcqN9pwAdTEJDI63zxQTx8aapgIkopvqXCDwK1UpQUf9icypg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+如果想更改一次提交，使用 git commit –amend。Git 会使用与当前提交相同的父节点进行一次新提交，旧的提交会被取消。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdrSBGHl2PZIfsTticrNYGQDgQqLC1Zn7rJVicpIJaJXDkiaVjrAnbfh0Bw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+另一个例子是分离 HEAD 提交 [3]，后文讲。
+
+
+
+#### **Checkout**
+
+
+
+Checkout 命令用于从历史提交（或者暂存区域）中拷贝文件到工作目录，也可用于切换分支。
+
+
+
+当给定某个文件名（或者打开 - p 选项，或者文件名和 - p 选项同时打开）时，Git 会从指定的提交中拷贝文件到暂存区域和工作目录。比如，git checkout HEAD~ foo.c 会将提交节点 HEAD~（即当前提交节点的父节点）中的 foo.c 复制到工作目录并且加到暂存区域中。（如果命令中没有指定提交节点，则会从暂存区域中拷贝内容。）注意当前分支不会发生变化。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacd3nvKaac5eIaNEa0ibH7D3HGJRNHA57Vc8icte35clLq7sbOCo41Q9uKA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+当不指定文件名，而是给出一个（本地）分支时，那么 HEAD 标识会移动到那个分支（也就是说，我们 “切换” 到那个分支了），然后暂存区域和工作目录中的内容会和 HEAD 对应的提交节点一致。新提交节点（下图中的 a47c3）中的所有文件都会被复制（到暂存区域和工作目录中）；只存在于老的提交节点（ed489）中的文件会被删除；不属于上述两者的文件会被忽略，不受影响。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacd4njffFGDBaiaiawib1jv6eS5umZXNwl0jdVibDlCdZrSN0aT6JGYgu2bYQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+如果既没有指定文件名，也没有指定分支名，而是一个标签、远程分支、SHA-1 值或者是像 master~3 类似的东西，就得到一个匿名分支，称作 detached HEAD（被分离的 HEAD 标识）。这样可以很方便地在历史版本之间互相切换。比如说你想要编译 1.6.6.1 版本的 Git，你可以运行 git checkout v1.6.6.1（这是一个标签，而非分支名），编译，安装，然后切换回另一个分支，比如说 git checkout master。然而，当提交操作涉及到 “分离的 HEAD” 时，其行为会略有不同，详情见在下面。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdVxGHWej6PnlIiaoREvuQrnIicXPaltU9SAJ72TbePvOtA0icELZOlYcdg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+#### **HEAD 标识处于分离状态时的提交操作**
+
+
+
+当 HEAD 处于分离状态（不依附于任一分支）时，提交操作可以正常进行，但是不会更新任何已命名的分支。（你可以认为这是在更新一个匿名分支。）
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdIknsiaJ60s2S1aYoPyn4qjkn9YepPUcpXosgNicGSKo2lEV7MmYL3bwQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+一旦此后你切换到别的分支，比如说 master，那么这个提交节点（可能）再也不会被引用到，然后就会被丢弃掉了。注意这个命令之后就不会有东西引用 2eecb。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdtUMpFj1s3iaVAHc8OdO1nQNpE1OFqibZca2gGhDib6GOgAvC1HUdJeUFg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+
+
+但是，如果你想保存这个状态，可以用命令 git checkout -b name 来创建一个新的分支。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdQ9sMJahbLwjLRUCcWBX9IX4TAPZDg4zYmCHmtKwdD1JO0K8IQ1678A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+#### **Reset**
+
+Reset 命令把当前分支指向另一个位置，并且有选择的变动工作目录和索引。也用来在从历史仓库中复制文件到索引，而不动工作目录。
+
+
+
+如果不给选项，那么当前分支指向到那个提交。如果用–hard 选项，那么工作目录也更新，如果用–soft 选项，那么都不变。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdg7cp5MbL5g78655RSGxzh9xLFapI79n5WGbicWSMSwA3zickCZlnslicw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+如果没有给出提交点的版本号，那么默认用 HEAD。这样，分支指向不变，但是索引会回滚到最后一次提交，如果用–hard 选项，工作目录也同样。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdlpE3ic4w3pOznB3LDhric6FYMjPLiam2d9eytrmcKJ32f1wrYw41Q6YHw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+如果给了文件名（或者 - p 选项），那么工作效果和带文件名的 checkout 差不多，除了索引被更新。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdIkvt4DjfTJp02cNdxicsCPWLAxEVwWyicG0Vh0PG94prKJJMEjORdzZg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+
+
+
+
+#### **Merge**
+
+
+
+Merge 命令把不同分支合并起来。合并前，索引必须和当前提交相同。如果另一个分支是当前提交的祖父节点，那么合并命令将什么也不做。另一种情况是如果当前提交是另一个分支的祖父节点，就导致 fast-forward 合并。指向只是简单的移动，并生成一个新的提交。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdxsnHyTf9U6NVM6iasdyop8ZFMDtINC7qYhzfpp84ECg8ArLPiauXX2iag/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+否则就是一次真正的合并。默认把当前提交（ed489 如下所示）和另一个提交（33104）以及他们的共同祖父节点（b325c）进行一次三方合并 [4]。结果是先保存当前目录和索引，然后和父节点 33104 一起做一次新提交。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdDFSlUbw008ODVcP0qlj9FF1kpMV1ZsQSzX5BspvfkiajVaE2q428oibQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+#### **Cherry Pick**
+
+
+
+cherry-pick 命令 “复制” 一个提交节点并在当前分支做一次完全一样的新提交。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdlGk2GCEeqNdG4opRvmPcxglggpuYSJ2OibqKtrk6k3CHeia1Uc9ewOVw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+#### **Rebase**
+
+衍合是合并命令的另一种选择。合并把两个父分支合并进行一次提交，提交历史不是线性的。衍合在当前分支上重演另一个分支的历史，提交历史是线性的。本质上，这是线性化的自动的 cherry-pick。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdNpPX70icDA8vR1DKM7B0HATDmibTGZoLVvtKzH6RVwabwddKRfa3wefQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+上面的命令都在 topic 分支中进行，而不是 master 分支，在 master 分支上重演，并且把分支指向新的节点。注意旧提交没有被引用，将被回收。
+
+
+
+要限制回滚范围，使用–onto 选项。下面的命令在 master 分支上重演当前分支从 169a6 以来的最近几个提交，即 2c33a。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNnZfxjv4QgIc8lho4spoiacdEy3uLQL1VCFeOsGeC1uaVM6UPwiafbiaycrzpnWBujErcic7sH1SIYmcQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+同样有 git rebase –interactive 让你更方便的完成一些复杂操作，比如丢弃、重排、修改、合并提交。没有图片体现这些，细节看这里：git-rebase (1)[5]。
+
+
+
+### 技术说明
+
+文件内容并没有真正存储在索引（.git/index）或者提交对象中，而是以 blob 的形式分别存储在数据库中（.git/objects），并用 SHA-1 值来校验。索引文件用识别码列出相关的 blob 文件以及别的数据。对于提交来说，以树（tree）的形式存储，同样用对于的哈希值识别。树对应着工作目录中的文件夹，树中包含的 树或者 blob 对象对应着相应的子目录和文件。每次提交都存储下它的上一级树的识别码。
+
+
+
+如果用 detached HEAD 提交，那么最后一次提交会被 the reflog for HEAD 引用。但是过一段时间就失效，最终被回收，与 git commit –amend 或者 git rebase 很像。
+
+
+
+>  相关链接：
+>
+> 1. http://marklodato.github.io/visual-git-guide/index-zh-cn.html#merge
+> 2. http://marklodato.github.io/visual-git-guide/index-zh-cn.html#rebase
+> 3. http://marklodato.github.io/visual-git-guide/index-zh-cn.html#detached
+> 4. http://en.wikipedia.org/wiki/Three-way_merge
+> 5. http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html#_interactive_mode
+>
+> 
+>
+> 原文链接：http://marklodato.github.io/visual-git-guide/index-zh-cn.html
+
+
+
+
+
+
+
+## [Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+
+
+
+### 简介
+
+#### Git 是什么
+
+Git 是一个开源的分布式版本控制系统。
+
+#### 什么是版本控制
+
+版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。
+
+#### 什么是分布式版本控制系统
+
+介绍分布式版本控制系统前，有必要先了解一下传统的集中式版本控制系统。
+
+**集中化的版本控制系统**，诸如 CVS，Subversion 等，都有一个单一的集中管理的服务器，保存所有文件的修订版本，而协同工作的人们都通过客户端连到这台服务器，取出最新的文件或者提交更新。
+
+这么做最显而易见的缺点是中央服务器的单点故障。如果宕机一小时，那么在这一小时内，谁都无法提交更新，也就无法协同工作。要是中央服务器的磁盘发生故障，碰巧没做备份，或者备份不够及时，就会有丢失数据的风险。最坏的情况是彻底丢失整个项目的所有历史更改记录。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/eQPyBffYbufvk6Wu4gUFIbsGamZ1UmHO0xpU821gkUDY10vY6Pcp6632R14LQSI4u1BI7rxAxQApMaic0kMEEMw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+**分布式版本控制系统**的客户端并不只提取最新版本的文件快照，而是把代码仓库完整地镜像下来。这么一来，任何一处协同工作用的服务器发生故障，事后都可以用任何一个镜像出来的本地仓库恢复。因为每一次的提取操作，实际上都是一次对代码仓库的完整备份。
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+#### 为什么使用 Git
+
+Git 是分布式的。这是 Git 和其它非分布式的版本控制系统，例如 svn，cvs 等，最核心的区别。分布式带来以下好处：
+
+**工作时不需要联网**
+
+首先，分布式版本控制系统根本没有 “中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。既然每个人电脑上都有一个完整的版本库，那多个人如何协作呢？比方说你在自己电脑上改了文件 A，你的同事也在他的电脑上改了文件 A，这时，你们俩之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。
+
+**更加安全**
+
+集中式版本控制系统，一旦中央服务器出了问题，所有人都无法工作。
+
+分布式版本控制系统，每个人电脑中都有完整的版本库，所以某人的机器挂了，并不影响其它人。
+
+### 安装
+
+**Debian/Ubuntu 环境安装**
+
+如果你使用的系统是 Debian/Ubuntu ， 安装命令为：
+
+```bash
+$ apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \
+> libz-dev libssl-dev
+$ apt-get install git-core
+$ git --version
+git version 1.8.1.2
+```
+
+**Centos/RedHat 环境安装**
+
+如果你使用的系统是 Centos/RedHat ，安装命令为：
+
+```bash
+$ yum install curl-devel expat-devel gettext-devel \
+> openssl-devel zlib-devel
+$ yum -y install git-core
+$ git --version
+git version 1.7.1
+```
+
+**Windows 环境安装**
+
+在 *Git 官方下载地址*下载 exe 安装包。按照安装向导安装即可。
+
+建议安装 Git Bash 这个 git 的命令行工具。
+
+**Mac 环境安装**
+
+在 *Git 官方下载地址*下载 mac 安装包。按照安装向导安装即可。
+
+> https://git-scm.com/downloads
+
+### 配置
+
+Git 自带一个 `git config` 的工具来帮助设置控制 Git 外观和行为的配置变量。这些变量存储在三个不同的位置：
+
+1. `/etc/gitconfig` 文件：包含系统上每一个用户及他们仓库的通用配置。如果使用带有 `--system` 选项的 `git config` 时，它会从此文件读写配置变量。
+2. `~/.gitconfig` 或 `~/.config/git/config` 文件：只针对当前用户。可以传递 `--global` 选项让 Git 读写此文件。
+3. 当前使用仓库的 Git 目录中的 `config` 文件（就是 `.git/config`）：针对该仓库。
+
+每一个级别覆盖上一级别的配置，所以 `.git/config` 的配置变量会覆盖 `/etc/gitconfig` 中的配置变量。
+
+在 Windows 系统中，Git 会查找 `$HOME` 目录下（一般情况下是 `C:\Users\$USER`）的 `.gitconfig` 文件。Git 同样也会寻找 `/etc/gitconfig` 文件，但只限于 MSys 的根目录下，即安装 Git 时所选的目标位置。
+
+#### 用户信息
+
+当安装完 Git 应该做的第一件事就是设置你的用户名称与邮件地址。这样做很重要，因为每一个 Git 的提交都会使用这些信息，并且它会写入到你的每一次提交中，不可更改：
+
+```bash
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+```
+
+再次强调，如果使用了 `--global` 选项，那么该命令只需要运行一次，因为之后无论你在该系统上做任何事情， Git 都会使用那些信息。当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 `--global` 选项的命令来配置。
+
+很多 GUI 工具都会在第一次运行时帮助你配置这些信息。
+
+#### .gitignore
+
+`.gitignore` 文件可能从字面含义也不难猜出：这个文件里配置的文件或目录，会自动被 git 所忽略，不纳入版本控制。
+
+在日常开发中，我们的项目经常会产生一些临时文件，如编译 Java 产生的 `*.class` 文件，又或是 IDE 自动生成的隐藏目录（Intellij 的 `.idea` 目录、Eclipse 的 `.settings` 目录等）等等。这些文件或目录实在没必要纳入版本管理。在这种场景下，你就需要用到 `.gitignore` 配置来过滤这些文件或目录。
+
+配置的规则很简单，也没什么可说的，看几个例子，自然就明白了。
+
+这里推荐一下 Github 的开源项目：https://github.com/github/gitignore
+
+在这里，你可以找到很多常用的模板，如：Java、Nodejs、C++ 的 `.gitignore` 模板等等。
+
+### 原理
+
+个人认为，对于 Git 这个版本工具，再不了解原理的情况下，直接去学习命令行，可能会一头雾水。所以，本文特意将原理放在命令使用章节之前讲解。可以参考：[Git 原理入门解析](http://mp.weixin.qq.com/s?__biz=MzI4Njc5NjM1NQ==&mid=2247489338&idx=2&sn=6fdd8968003b8f59d43c09b72894e877&chksm=ebd62816dca1a1003dcefb6dae8296dd08924426fa6f12d09b8695922007fcb9bfa342c35bd1&scene=21#wechat_redirect)
+
+#### 版本库
+
+当你一个项目到本地或创建一个 git 项目，项目目录下会有一个隐藏的 `.git` 子目录。这个目录是 git 用来跟踪管理版本库的，千万不要手动修改。
+
+#### 哈希值
+
+Git 中所有数据在存储前都计算校验和，然后以校验和来引用。这意味着不可能在 Git 不知情时更改任何文件内容或目录内容。这个功能建构在 Git 底层，是构成 Git 哲学不可或缺的部分。若你在传送过程中丢失信息或损坏文件，Git 就能发现。
+
+Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。这是一个由 40 个十六进制字符（0-9 和 a-f）组成字符串，基于 Git 中文件的内容或目录结构计算出来。SHA-1 哈希看起来是这样：
+
+```bash
+24b9da6552252987aa493b52f8696cd6d3b00373
+```
+
+Git 中使用这种哈希值的情况很多，你将经常看到这种哈希值。实际上，Git 数据库中保存的信息都是以文件内容的哈希值来索引，而不是文件名。
+
+#### 文件状态
+
+在 GIt 中，你的文件可能会处于三种状态之一：
+
+- **已修改（modified）** - 已修改表示修改了文件，但还没保存到数据库中。
+- **已暂存（staged）** - 已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。
+- **已提交（committed）** - 已提交表示数据已经安全的保存在本地数据库中。
+
+#### 工作区域
+
+与文件状态对应的，不同状态的文件在 Git 中处于不同的工作区域。
+
+- **工作区（working）** - 当你 `git clone` 一个项目到本地，相当于在本地克隆了项目的一个副本。工作区是对项目的某个版本独立提取出来的内容。这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。
+
+- **暂存区（staging）** - 暂存区是一个文件，保存了下次将提交的文件列表信息，一般在 Git 仓库目录中。有时候也被称作`索引`，不过一般说法还是叫暂存区。
+
+- **本地仓库（local）** - 提交更新，找到暂存区域的文件，将快照永久性存储到 Git 本地仓库。
+
+- **远程仓库（remote）** - 以上几个工作区都是在本地。为了让别人可以看到你的修改，你需要将你的更新推送到远程仓库。同理，如果你想同步别人的修改，你需要从远程仓库拉取更新。
+
+  
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+### 命令
+
+国外网友制作了一张 Git Cheat Sheet，总结很精炼，各位不妨收藏一下。
+
+本节选择性介绍 git 中比较常用的命令行场景。
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+#### 创建仓库
+
+克隆一个已创建的仓库：
+
+```bash
+# 通过 SSH
+$ git clone ssh://user@domain.com/repo.git
+
+#通过 HTTP
+$ git clone http://domain.com/user/repo.git
+```
+
+创建一个新的本地仓库：
+
+```bash
+$ git init
+```
+
+#### 添加修改
+
+添加修改到暂存区：
+
+```bash
+# 把指定文件添加到暂存区
+$ git add xxx
+
+# 把当前所有修改添加到暂存区
+$ git add .
+
+# 把所有修改添加到暂存区
+$ git add -A
+```
+
+提交修改到本地仓库：
+
+```bash
+# 提交本地的所有修改
+$ git commit -a
+
+# 提交之前已标记的变化
+$ git commit
+
+# 附加消息提交
+$ git commit -m 'commit message'
+```
+
+##### 储藏
+
+有时，我们需要在同一个项目的不同分支上工作。当需要切换分支时，偏偏本地的工作还没有完成，此时，提交修改显得不严谨，但是不提交代码又无法切换分支。这时，你可以使用 `git stash` 将本地的修改内容作为草稿储藏起来。
+
+官方称之为储藏，但我个人更喜欢称之为存草稿。
+
+```bash
+# 1. 将修改作为当前分支的草稿保存
+$ git stash
+
+# 2. 查看草稿列表
+$ git stash list
+stash@{0}: WIP on master: 6fae349 :memo: Writing docs.
+
+# 3.1 删除草稿
+$ git stash drop stash@{0}
+
+# 3.2 读取草稿
+$ git stash apply stash@{0}
+```
+
+#### 撤销修改
+
+撤销本地修改：
+
+```bash
+# 移除缓存区的所有文件（i.e. 撤销上次git add）
+$ git reset HEAD
+
+# 将HEAD重置到上一次提交的版本，并将之后的修改标记为未添加到缓存区的修改
+$ git reset <commit>
+
+# 将HEAD重置到上一次提交的版本，并保留未提交的本地修改
+$ git reset --keep <commit>
+
+# 放弃工作目录下的所有修改
+$ git reset --hard HEAD
+
+# 将HEAD重置到指定的版本，并抛弃该版本之后的所有修改
+$ git reset --hard <commit-hash>
+
+# 用远端分支强制覆盖本地分支
+$ git reset --hard <remote/branch> e.g., upstream/master, origin/my-feature
+
+# 放弃某个文件的所有本地修改
+$ git checkout HEAD <file>
+```
+
+删除添加`.gitignore` 文件前错误提交的文件：
+
+```bash
+$ git rm -r --cached .
+$ git add .
+$ git commit -m "remove xyz file"
+```
+
+撤销远程修改（创建一个新的提交，并回滚到指定版本）：
+
+```bash
+$ git revert <commit-hash>
+```
+
+彻底删除指定版本：
+
+```bash
+# 执行下面命令后，commit-hash 提交后的记录都会被彻底删除，使用需谨慎
+$ git reset --hard <commit-hash>
+$ git push -f
+```
+
+#### 更新与推送
+
+更新：
+
+```bash
+# 下载远程端版本，但不合并到HEAD中
+$ git fetch <remote>
+
+# 将远程端版本合并到本地版本中
+$ git pull origin master
+
+# 以rebase方式将远端分支与本地合并
+$ git pull --rebase <remote> <branch>
+```
+
+推送：
+
+```bash
+# 将本地版本推送到远程端
+$ git push remote <remote> <branch>
+
+# 删除远程端分支
+$ git push <remote> :<branch> (since Git v1.5.0)
+$ git push <remote> --delete <branch> (since Git v1.7.0)
+
+# 发布标签
+$ git push --tags
+```
+
+#### 查看信息
+
+显示工作路径下已修改的文件：
+
+```
+$ git status
+```
+
+显示与上次提交版本文件的不同：
+
+```
+$ git diff
+```
+
+显示提交历史：
+
+```
+# 从最新提交开始，显示所有的提交记录（显示hash， 作者信息，提交的标题和时间）
+$ git log
+
+# 显示某个用户的所有提交
+$ git log --author="username"
+
+# 显示某个文件的所有修改
+$ git log -p <file>
+```
+
+显示搜索内容：
+
+```
+# 从当前目录的所有文件中查找文本内容
+$ git grep "Hello"
+
+# 在某一版本中搜索文本
+$ git grep "Hello" v2.5
+```
+
+#### 分支
+
+增删查分支：
+
+```
+# 列出所有的分支
+$ git branch
+
+# 列出所有的远端分支
+$ git branch -r
+
+# 基于当前分支创建新分支
+$ git branch <new-branch>
+
+# 基于远程分支创建新的可追溯的分支
+$ git branch --track <new-branch> <remote-branch>
+
+# 删除本地分支
+$ git branch -d <branch>
+
+# 强制删除本地分支，将会丢失未合并的修改
+$ git branch -D <branch>
+```
+
+切换分支：
+
+```
+# 切换分支
+$ git checkout <branch>
+
+# 创建并切换到新分支
+$ git checkout -b <branch>
+```
+
+#### 标签
+
+```
+# 给当前版本打标签
+$ git tag <tag-name>
+
+# 给当前版本打标签并附加消息
+$ git tag -a <tag-name>
+```
+
+#### 合并与重置
+
+> merge 与 rebase 虽然是 git 常用功能，但是强烈建议不要使用 git 命令来完成这项工作。
+>
+> 因为如果出现代码冲突，在没有代码比对工具的情况下，实在太艰难了。
+>
+> 你可以考虑使用各种 Git GUI 工具。
+
+合并：
+
+```
+# 将分支合并到当前HEAD中
+$ git merge <branch>
+```
+
+重置：
+
+```
+# 将当前HEAD版本重置到分支中，请勿重置已发布的提交
+$ git rebase <branch>
+```
+
+#### Github
+
+Github 作为最著名的代码开源协作社区，在程序员圈想必无人不知，无人不晓。[关于 Git 和 Github 你不知道的十件事](http://mp.weixin.qq.com/s?__biz=MzI4Njc5NjM1NQ==&mid=2247489949&idx=2&sn=99b2d900eed1e313ba165c75d07348bd&chksm=ebd626b1dca1afa7affee39ed37d094a62a24303eb08d364fa060fa3f29dc1780409fc33f022&scene=21#wechat_redirect)
+
+这里不赘述 Github 的用法，确实有不会用的新手同学，可以参考官方教程：
+
+> https://guides.github.com/
+
+#### clone 方式
+
+Git 支持三种协议：HTTPS / SSH / GIT
+
+而 Github 上支持 HTTPS 和 SSH。
+
+HTTPS 这种方式要求你每次 push 时都要输入用户名、密码，有些繁琐。
+
+而 SSH 要求你本地生成证书，然后在你的 Github 账户中注册。第一次配置麻烦是麻烦了点，但是以后就免去了每次 push 需要输入用户名、密码的繁琐。
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+以下介绍一下，如何生成证书，以及在 Github 中注册。
+
+##### 生成 SSH 公钥
+
+如前所述，许多 Git 服务器都使用 SSH 公钥进行认证。为了向 Git 服务器提供 SSH 公钥，如果某系统用户尚未拥有密钥，必须事先为其生成一份。这个过程在所有操作系统上都是相似的。首先，你需要确认自己是否已经拥有密钥。默认情况下，用户的 SSH 密钥存储在其 `\~/.ssh` 目录下。进入该目录并列出其中内容，你便可以快速确认自己是否已拥有密钥：
+
+```
+$ cd ~/.ssh
+$ ls
+authorized_keys2  id_dsa       known_hosts
+config            id_dsa.pub
+```
+
+我们需要寻找一对以 `id_dsa` 或 `id_rsa` 命名的文件，其中一个带有 `.pub` 扩展名。 `.pub` 文件是你的公钥，另一个则是私钥。如果找不到这样的文件（或者根本没有 `.ssh` 目录），你可以通过运行 `ssh-keygen` 程序来创建它们。在 Linux/Mac 系统中，`ssh-keygen` 随 SSH 软件包提供；在 Windows 上，该程序包含于 MSysGit 软件包中。
+
+```
+$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/schacon/.ssh/id_rsa):
+Created directory '/home/schacon/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/schacon/.ssh/id_rsa.
+Your public key has been saved in /home/schacon/.ssh/id_rsa.pub.
+The key fingerprint is:
+d0:82:24:8e:d7:f1:bb:9b:33:53:96:93:49:da:9b:e3 schacon@mylaptop.local
+```
+
+首先 `ssh-keygen` 会确认密钥的存储位置（默认是 `.ssh/id_rsa`），然后它会要求你输入两次密钥口令。如果你不想在使用密钥时输入口令，将其留空即可。
+
+现在，进行了上述操作的用户需要将各自的公钥发送给任意一个 Git 服务器管理员（假设服务器正在使用基于公钥的 SSH 验证设置）。他们所要做的就是复制各自的 `.pub` 文件内容，并将其通过邮件发送。公钥看起来是这样的：
+
+```
+$ cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== schacon@mylaptop.local
+```
+
+在你的 Github 账户中，依次点击 **Settings** > **SSH and GPG keys** > **New SSH key**
+
+然后，将上面生成的公钥内容粘贴到 `Key` 编辑框并保存。至此大功告成。
+
+后面，你在克隆你的 Github 项目时使用 SSH 方式即可。
+
+如果觉得我的讲解还不够细致，可以参考：https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+
+### 最佳实践 Git Flow
+
+> 详细内容，可以参考这篇文章：Git 在团队中的最佳实践 -- 如何正确使用 Git Flow
+
+> https://www.cnblogs.com/cnblogsfans/p/5075073.html
+
+Git 在实际开发中的最佳实践策略 Git Flow 可以归纳为以下：
+
+- **`master` 分支** - 也就是我们经常使用的主线分支，这个分支是最近发布到生产环境的代码，这个分支只能从其他分支合并，不能在这个分支直接修改。
+- **`develop` 分支** - 这个分支是我们的主开发分支，包含所有要发布到下一个 release 的代码，这个分支主要是从其他分支合并代码过来，比如 feature 分支。
+- **`feature` 分支** - 这个分支主要是用来开发一个新的功能，一旦开发完成，我们合并回 develop 分支进入下一个 release。
+- **`release` 分支** - 当你需要一个发布一个新 release 的时候，我们基于 Develop 分支创建一个 release 分支，完成 release 后，我们合并到 master 和 develop 分支。
+- **`hotfix` 分支** - 当我们在 master 发现新的 Bug 时候，我们需要创建一个 hotfix, 完成 hotfix 后，我们合并回 master 和 develop 分支，所以 hotfix 的改动会进入下一个 release
+
+### 常见问题
+
+#### 编辑提交 (editting commits)
+
+##### 我刚才提交了什么
+
+如果你用 `git commit -a` 提交了一次变化 (changes)，而你又不确定到底这次提交了哪些内容。你就可以用下面的命令显示当前 `HEAD` 上的最近一次的提交 (commit):
+
+```
+(master)$ git show
+```
+
+或者
+
+```
+$ git log -n1 -p
+```
+
+##### 我的提交信息 (commit message) 写错了
+
+如果你的提交信息 (commit message) 写错了且这次提交 (commit) 还没有推 (push), 你可以通过下面的方法来修改提交信息 (commit message):
+
+```
+$ git commit --amend
+```
+
+这会打开你的默认编辑器，在这里你可以编辑信息。另一方面，你也可以用一条命令一次完成:
+
+```
+$ git commit --amend -m 'xxxxxxx'
+```
+
+如果你已经推 (push) 了这次提交 (commit), 你可以修改这次提交 (commit) 然后强推 (force push), 但是不推荐这么做。
+
+##### 我提交 (commit) 里的用户名和邮箱不对
+
+如果这只是单个提交 (commit)，修改它：
+
+```
+$ git commit --amend --author "New Authorname <authoremail@mydomain.com>"
+```
+
+如果你需要修改所有历史，参考 'git filter-branch' 的指南页.
+
+##### 我想从一个提交 (commit) 里移除一个文件
+
+通过下面的方法，从一个提交 (commit) 里移除一个文件:
+
+```
+$ git checkout HEAD^ myfile
+$ git add -A
+$ git commit --amend
+```
+
+这将非常有用，当你有一个开放的补丁 (open patch)，你往上面提交了一个不必要的文件，你需要强推 (force push) 去更新这个远程补丁。
+
+##### 我想删除我的的最后一次提交 (commit)
+
+如果你需要删除推了的提交 (pushed commits)，你可以使用下面的方法。可是，这会不可逆的改变你的历史，也会搞乱那些已经从该仓库拉取 (pulled) 了的人的历史。简而言之，如果你不是很确定，千万不要这么做。
+
+```
+$ git reset HEAD^ --hard
+$ git push -f [remote] [branch]
+```
+
+如果你还没有推到远程，把 Git 重置 (reset) 到你最后一次提交前的状态就可以了 (同时保存暂存的变化):
+
+```
+(my-branch*)$ git reset --soft HEAD@{1}
+```
+
+这只能在没有推送之前有用。如果你已经推了，唯一安全能做的是 `git revert SHAofBadCommit`， 那会创建一个新的提交 (commit) 用于撤消前一个提交的所有变化 (changes)；或者，如果你推的这个分支是 rebase-safe 的 (例如：其它开发者不会从这个分支拉), 只需要使用 `git push -f`；更多，请参考 *the above section*。
+
+> https://juejin.im/post/5c8296f85188257e3941b2d4
+
+##### 删除任意提交 (commit)
+
+同样的警告：不到万不得已的时候不要这么做.
+
+```
+$ git rebase --onto SHA1_OF_BAD_COMMIT^ SHA1_OF_BAD_COMMIT
+$ git push -f [remote] [branch]
+```
+
+或者做一个 交互式 rebase 删除那些你想要删除的提交 (commit) 里所对应的行。
+
+##### 我尝试推一个修正后的提交 (amended commit) 到远程，但是报错：
+
+```
+To https://github.com/yourusername/repo.git
+! [rejected]        mybranch -> mybranch (non-fast-forward)
+error: failed to push some refs to 'https://github.com/tanay1337/webmaker.org.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+注意，rebasing (见下面) 和修正 (amending) 会用一个**新的提交 (commit) 代替旧的** , 所以如果之前你已经往远程仓库上推过一次修正前的提交 (commit)，那你现在就必须强推 (force push) (`-f`)。注意 – *总是* 确保你指明一个分支！
+
+```
+(my-branch)$ git push origin mybranch -f
+```
+
+一般来说， **要避免强推**. 最好是创建和推 (push) 一个新的提交 (commit)，而不是强推一个修正后的提交。后者会使那些与该分支或该分支的子分支工作的开发者，在源历史中产生冲突。
+
+##### 我意外的做了一次硬重置 (hard reset)，我想找回我的内容
+
+如果你意外的做了 `git reset --hard`, 你通常能找回你的提交 (commit), 因为 Git 对每件事都会有日志，且都会保存几天。
+
+```
+(master)$ git reflog
+```
+
+你将会看到一个你过去提交 (commit) 的列表，和一个重置的提交。选择你想要回到的提交 (commit) 的 SHA，再重置一次:
+
+```
+(master)$ git reset --hard SHA1234
+```
+
+这样就完成了。
+
+#### 暂存 (Staging)
+
+##### 我需要把暂存的内容添加到上一次的提交 (commit)
+
+```
+(my-branch*)$ git commit --amend
+```
+
+##### 我想要暂存一个新文件的一部分，而不是这个文件的全部
+
+一般来说，如果你想暂存一个文件的一部分，你可这样做:
+
+```
+$ git add --patch filename.x
+```
+
+`-p` 简写。这会打开交互模式， 你将能够用 `s` 选项来分隔提交 (commit)；然而，如果这个文件是新的，会没有这个选择， 添加一个新文件时，这样做:
+
+```
+$ git add -N filename.x
+```
+
+然后，你需要用 `e` 选项来手动选择需要添加的行，执行 `git diff --cached` 将会显示哪些行暂存了哪些行只是保存在本地了。
+
+##### 我想把在一个文件里的变化 (changes) 加到两个提交 (commit) 里
+
+`git add` 会把整个文件加入到一个提交. `git add -p` 允许交互式的选择你想要提交的部分.
+
+##### 我想把暂存的内容变成未暂存，把未暂存的内容暂存起来
+
+这个有点困难， 我能想到的最好的方法是先 stash 未暂存的内容， 然后重置 (reset)，再 pop 第一步 stashed 的内容，最后再 add 它们。
+
+```
+$ git stash -k
+$ git reset --hard
+$ git stash pop
+$ git add -A
+```
+
+#### 未暂存 (Unstaged) 的内容
+
+##### 我想把未暂存的内容移动到一个新分支
+
+```
+$ git checkout -b my-branch
+```
+
+##### 我想把未暂存的内容移动到另一个已存在的分支
+
+```
+$ git stash
+$ git checkout my-branch
+$ git stash pop
+```
+
+##### 我想丢弃本地未提交的变化 (uncommitted changes)
+
+如果你只是想重置源 (origin) 和你本地 (local) 之间的一些提交 (commit)，你可以：
+
+```
+## one commit
+(my-branch)$ git reset --hard HEAD^
+## two commits
+(my-branch)$ git reset --hard HEAD^^
+## four commits
+(my-branch)$ git reset --hard HEAD~4
+## or
+(master)$ git checkout -f
+```
+
+重置某个特殊的文件，你可以用文件名做为参数:
+
+```
+$ git reset filename
+```
+
+##### 我想丢弃某些未暂存的内容
+
+如果你想丢弃工作拷贝中的一部分内容，而不是全部。
+
+签出 (checkout) 不需要的内容，保留需要的。
+
+```
+$ git checkout -p
+## Answer y to all of the snippets you want to drop
+```
+
+另外一个方法是使用 `stash`， Stash 所有要保留下的内容，重置工作拷贝，重新应用保留的部分。
+
+```
+$ git stash -p
+## Select all of the snippets you want to save
+$ git reset --hard
+$ git stash pop
+```
+
+或者，stash 你不需要的部分，然后 stash drop。
+
+```
+$ git stash -p
+## Select all of the snippets you don't want to save
+$ git stash drop
+```
+
+#### 分支 (Branches)
+
+##### 我从错误的分支拉取了内容，或把内容拉取到了错误的分支
+
+这是另外一种使用 `git reflog` 情况，找到在这次错误拉 (pull) 之前 HEAD 的指向。
+
+```
+(master)$ git reflog
+ab7555f HEAD@{0}: pull origin wrong-branch: Fast-forward
+c5bc55a HEAD@{1}: checkout: checkout message goes here
+```
+
+重置分支到你所需的提交 (desired commit):
+
+```
+$ git reset --hard c5bc55a
+```
+
+完成。
+
+##### 我想扔掉本地的提交 (commit)，以便我的分支与远程的保持一致
+
+先确认你没有推 (push) 你的内容到远程。
+
+`git status` 会显示你领先 (ahead) 源 (origin) 多少个提交:
+
+```
+(my-branch)$ git status
+## On branch my-branch
+## Your branch is ahead of 'origin/my-branch' by 2 commits.
+##   (use "git push" to publish your local commits)
+#
+```
+
+一种方法是:
+
+```
+(master)$ git reset --hard origin/my-branch
+```
+
+##### 我需要提交到一个新分支，但错误的提交到了 master
+
+在 master 下创建一个新分支，不切换到新分支，仍在 master 下:
+
+```
+(master)$ git branch my-branch
+```
+
+把 master 分支重置到前一个提交:
+
+```
+(master)$ git reset --hard HEAD^
+```
+
+`HEAD^` 是 `HEAD^1` 的简写，你可以通过指定要设置的 `HEAD` 来进一步重置。
+
+或者，如果你不想使用 `HEAD^`, 找到你想重置到的提交 (commit) 的 hash (`git log` 能够完成)， 然后重置到这个 hash。使用 `git push` 同步内容到远程。
+
+例如，master 分支想重置到的提交的 hash 为 `a13b85e`:
+
+```
+(master)$ git reset --hard a13b85e
+HEAD is now at a13b85e
+```
+
+签出 (checkout) 刚才新建的分支继续工作:
+
+```
+(master)$ git checkout my-branch
+```
+
+##### 我想保留来自另外一个 ref-ish 的整个文件
+
+假设你正在做一个原型方案 (原文为 working spike (see note)), 有成百的内容，每个都工作得很好。现在，你提交到了一个分支，保存工作内容:
+
+```
+(solution)$ git add -A && git commit -m "Adding all changes from this spike into one big commit."
+```
+
+当你想要把它放到一个分支里 (可能是 `feature`, 或者 `develop`), 你关心是保持整个文件的完整，你想要一个大的提交分隔成比较小。
+
+假设你有:
+
+- 分支 `solution`, 拥有原型方案， 领先 `develop` 分支。
+- 分支 `develop`, 在这里你应用原型方案的一些内容。
+
+我去可以通过把内容拿到你的分支里，来解决这个问题:
+
+```bash
+(develop)$ git checkout solution -- file1.txt
+```
+
+这会把这个文件内容从分支 `solution` 拿到分支 `develop` 里来:
+
+```bash
+## On branch develop
+## Your branch is up-to-date with 'origin/develop'.
+## Changes to be committed:
+##  (use "git reset HEAD <file>..." to unstage)
+#
+##        modified:   file1.txt
+```
+
+然后，正常提交。
+
+Note: Spike solutions are made to analyze or solve the problem. These solutions are used for estimation and discarded once everyone gets clear visualization of the problem. ~ Wikipedia.
+
+##### 我把几个提交 (commit) 提交到了同一个分支，而这些提交应该分布在不同的分支里
+
+假设你有一个 `master` 分支， 执行 `git log`, 你看到你做过两次提交:
+
+```bash
+(master)$ git log
+
+commit e3851e817c451cc36f2e6f3049db528415e3c114
+Author: Alex Lee <alexlee@example.com>
+Date:   Tue Jul 22 15:39:27 2014 -0400
+
+    Bug #21 - Added CSRF protection
+
+commit 5ea51731d150f7ddc4a365437931cd8be3bf3131
+Author: Alex Lee <alexlee@example.com>
+Date:   Tue Jul 22 15:39:12 2014 -0400
+
+    Bug #14 - Fixed spacing on title
+
+commit a13b85e984171c6e2a1729bb061994525f626d14
+Author: Aki Rose <akirose@example.com>
+Date:   Tue Jul 21 01:12:48 2014 -0400
+
+    First commit
+```
+
+让我们用提交 hash (commit hash) 标记 bug (`e3851e8` for #21, `5ea5173` for #14).
+
+首先，我们把 `master` 分支重置到正确的提交 (`a13b85e`):
+
+```bash
+(master)$ git reset --hard a13b85e
+HEAD is now at a13b85e
+```
+
+现在，我们对 bug #21 创建一个新的分支:
+
+```bash
+(master)$ git checkout -b 21
+(21)$
+```
+
+接着，我们用 *cherry-pick* 把对 bug #21 的提交放入当前分支。这意味着我们将应用 (apply) 这个提交 (commit)，仅仅这一个提交 (commit)，直接在 HEAD 上面。
+
+```bash
+(21)$ git cherry-pick e3851e8
+```
+
+这时候，这里可能会产生冲突， 参见交互式 rebasing 章 **冲突节** 解决冲突.
+
+再者， 我们为 bug #14 创建一个新的分支，也基于 `master` 分支
+
+```bash
+(21)$ git checkout master
+(master)$ git checkout -b 14
+(14)$
+```
+
+最后，为 bug #14 执行 `cherry-pick`:
+
+```bash
+(14)$ git cherry-pick 5ea5173
+```
+
+##### 我想删除上游 (upstream) 分支被删除了的本地分支
+
+一旦你在 github 上面合并 (merge) 了一个 pull request, 你就可以删除你 fork 里被合并的分支。如果你不准备继续在这个分支里工作，删除这个分支的本地拷贝会更干净，使你不会陷入工作分支和一堆陈旧分支的混乱之中。
+
+```bash
+$ git fetch -p
+```
+
+##### 我不小心删除了我的分支
+
+如果你定期推送到远程，多数情况下应该是安全的，但有些时候还是可能删除了还没有推到远程的分支。让我们先创建一个分支和一个新的文件:
+
+```bash
+(master)$ git checkout -b my-branch
+(my-branch)$ git branch
+(my-branch)$ touch foo.txt
+(my-branch)$ ls
+README.md foo.txt
+```
+
+添加文件并做一次提交
+
+```bash
+(my-branch)$ git add .
+(my-branch)$ git commit -m 'foo.txt added'
+(my-branch)$ foo.txt added
+ 1 files changed, 1 insertions(+)
+ create mode 100644 foo.txt
+(my-branch)$ git log
+
+commit 4e3cd85a670ced7cc17a2b5d8d3d809ac88d5012
+Author: siemiatj <siemiatj@example.com>
+Date:   Wed Jul 30 00:34:10 2014 +0200
+
+    foo.txt added
+
+commit 69204cdf0acbab201619d95ad8295928e7f411d5
+Author: Kate Hudson <katehudson@example.com>
+Date:   Tue Jul 29 13:14:46 2014 -0400
+
+    Fixes #6: Force pushing after amending commits
+```
+
+现在我们切回到主 (master) 分支，‘不小心的’删除 `my-branch` 分支
+
+```bash
+(my-branch)$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+(master)$ git branch -D my-branch
+Deleted branch my-branch (was 4e3cd85).
+(master)$ echo oh noes, deleted my branch!
+oh noes, deleted my branch!
+```
+
+在这时候你应该想起了 `reflog`, 一个升级版的日志，它存储了仓库 (repo) 里面所有动作的历史。
+
+```bash
+(master)$ git reflog
+69204cd HEAD@{0}: checkout: moving from my-branch to master
+4e3cd85 HEAD@{1}: commit: foo.txt added
+69204cd HEAD@{2}: checkout: moving from master to my-branch
+```
+
+正如你所见，我们有一个来自删除分支的提交 hash (commit hash)，接下来看看是否能恢复删除了的分支。
+
+```bash
+(master)$ git checkout -b my-branch-help
+Switched to a new branch 'my-branch-help'
+(my-branch-help)$ git reset --hard 4e3cd85
+HEAD is now at 4e3cd85 foo.txt added
+(my-branch-help)$ ls
+README.md foo.txt
+```
+
+看！我们把删除的文件找回来了。Git 的 `reflog` 在 rebasing 出错的时候也是同样有用的。
+
+##### 我想删除一个分支
+
+删除一个远程分支:
+
+```bash
+(master)$ git push origin --delete my-branch
+```
+
+你也可以:
+
+```bash
+(master)$ git push origin :my-branch
+```
+
+删除一个本地分支:
+
+```bash
+(master)$ git branch -D my-branch
+```
+
+##### 我想从别人正在工作的远程分支签出 (checkout) 一个分支
+
+首先，从远程拉取 (fetch) 所有分支:
+
+```bash
+(master)$ git fetch --all
+```
+
+假设你想要从远程的 `daves` 分支签出到本地的 `daves`
+
+```bash
+(master)$ git checkout --track origin/daves
+Branch daves set up to track remote branch daves from origin.
+Switched to a new branch 'daves'
+```
+
+(`--track` 是 `git checkout -b [branch] [remotename]/[branch]` 的简写)
+
+这样就得到了一个 `daves` 分支的本地拷贝，任何推过 (pushed) 的更新，远程都能看到.
+
+#### Rebasing 和合并 (Merging)
+
+##### 我想撤销 rebase/merge
+
+你可以合并 (merge) 或 rebase 了一个错误的分支，或者完成不了一个进行中的 rebase/merge。Git 在进行危险操作的时候会把原始的 HEAD 保存在一个叫 ORIG_HEAD 的变量里，所以要把分支恢复到 rebase/merge 前的状态是很容易的。
+
+```bash
+(my-branch)$ git reset --hard ORIG_HEAD
+```
+
+##### 我已经 rebase 过，但是我不想强推 (force push)
+
+不幸的是，如果你想把这些变化 (changes) 反应到远程分支上，你就必须得强推 (force push)。是因你快进 (Fast forward) 了提交，改变了 Git 历史，远程分支不会接受变化 (changes)，除非强推 (force push)。这就是许多人使用 merge 工作流，而不是 rebasing 工作流的主要原因之一， 开发者的强推 (force push) 会使大的团队陷入麻烦。使用时需要注意，一种安全使用 rebase 的方法是，不要把你的变化 (changes) 反映到远程分支上，而是按下面的做:
+
+```bash
+(master)$ git checkout my-branch
+(my-branch)$ git rebase -i master
+(my-branch)$ git checkout master
+(master)$ git merge --ff-only my-branch
+```
+
+更多，参见 *this SO thread.*
+
+> http://stackoverflow.com/questions/11058312/how-can-i-use-git-rebase-without-requiring-a-forced-push
+
+##### 我需要组合 (combine) 几个提交 (commit)
+
+假设你的工作分支将会做对于 `master` 的 pull-request。一般情况下你不关心提交 (commit) 的时间戳，只想组合 *所有* 提交 (commit) 到一个单独的里面，然后重置 (reset) 重提交 (recommit)。确保主 (master) 分支是最新的和你的变化都已经提交了，然后:
+
+```bash
+(my-branch)$ git reset --soft master
+(my-branch)$ git commit -am "New awesome feature"
+```
+
+如果你想要更多的控制，想要保留时间戳，你需要做交互式 rebase (interactive rebase):
+
+```bash
+(my-branch)$ git rebase -i master
+```
+
+如果没有相对的其它分支， 你将不得不相对自己的 `HEAD` 进行 rebase。例如：你想组合最近的两次提交 (commit), 你将相对于 `HEAD\~2` 进行 rebase， 组合最近 3 次提交 (commit), 相对于 `HEAD\~3`, 等等。
+
+```bash
+(master)$ git rebase -i HEAD~2
+```
+
+在你执行了交互式 rebase 的命令 (interactive rebase command) 后，你将在你的编辑器里看到类似下面的内容:
+
+```bash
+pick a9c8a1d Some refactoring
+pick 01b2fd8 New awesome feature
+pick b729ad5 fixup
+pick e3851e8 another fix
+
+## Rebase 8074d12..b729ad5 onto 8074d12
+#
+## Commands:
+##  p, pick = use commit
+##  r, reword = use commit, but edit the commit message
+##  e, edit = use commit, but stop for amending
+##  s, squash = use commit, but meld into previous commit
+##  f, fixup = like "squash", but discard this commit's log message
+##  x, exec = run command (the rest of the line) using shell
+#
+## These lines can be re-ordered; they are executed from top to bottom.
+#
+## If you remove a line here THAT COMMIT WILL BE LOST.
+#
+## However, if you remove everything, the rebase will be aborted.
+#
+## Note that empty commits are commented out
+```
+
+所有以 `#` 开头的行都是注释，不会影响 rebase.
+
+然后，你可以用任何上面命令列表的命令替换 `pick`, 你也可以通过删除对应的行来删除一个提交 (commit)。
+
+例如，如果你想 **单独保留最旧 (first) 的提交 (commit), 组合所有剩下的到第二个里面** , 你就应该编辑第二个提交 (commit) 后面的每个提交 (commit) 前的单词为 `f`:
+
+```bash
+pick a9c8a1d Some refactoring
+pick 01b2fd8 New awesome feature
+f b729ad5 fixup
+f e3851e8 another fix
+```
+
+如果你想组合这些提交 (commit) **并重命名这个提交 (commit)**, 你应该在第二个提交 (commit) 旁边添加一个 `r`，或者更简单的用 `s` 替代 `f`:
+
+```bash
+pick a9c8a1d Some refactoring
+pick 01b2fd8 New awesome feature
+s b729ad5 fixup
+s e3851e8 another fix
+```
+
+你可以在接下来弹出的文本提示框里重命名提交 (commit)。
+
+```
+Newer, awesomer features
+
+## Please enter the commit message for your changes. Lines starting
+## with '#' will be ignored, and an empty message aborts the commit.
+## rebase in progress; onto 8074d12
+## You are currently editing a commit while rebasing branch 'master' on '8074d12'.
+#
+## Changes to be committed:
+#    modified:   README.md
+#
+```
+
+如果成功了，你应该看到类似下面的内容:
+
+```
+(master)$ Successfully rebased and updated refs/heads/master.
+```
+
+##### 安全合并 (merging) 策略
+
+`--no-commit` 执行合并 (merge) 但不自动提交，给用户在做提交前检查和修改的机会。 `no-ff` 会为特性分支 (feature branch) 的存在过留下证据，保持项目历史一致。
+
+```
+(master)$ git merge --no-ff --no-commit my-branch
+```
+
+##### 我需要将一个分支合并成一个提交 (commit)
+
+```
+(master)$ git merge --squash my-branch
+```
+
+##### 我只想组合 (combine) 未推的提交 (unpushed commit)
+
+有时候，在将数据推向上游之前，你有几个正在进行的工作提交 (commit)。这时候不希望把已经推 (push) 过的组合进来，因为其他人可能已经有提交 (commit) 引用它们了。
+
+```
+(master)$ git rebase -i @{u}
+```
+
+这会产生一次交互式的 rebase (interactive rebase), 只会列出没有推 (push) 的提交 (commit)， 在这个列表时进行 reorder/fix/squash 都是安全的。
+
+##### 检查是否分支上的所有提交 (commit) 都合并 (merge) 过了
+
+检查一个分支上的所有提交 (commit) 是否都已经合并 (merge) 到了其它分支，你应该在这些分支的 head (或任何 commits) 之间做一次 diff:
+
+```
+(master)$ git log --graph --left-right --cherry-pick --oneline HEAD...feature/120-on-scroll
+```
+
+这会告诉你在一个分支里有而另一个分支没有的所有提交 (commit), 和分支之间不共享的提交 (commit) 的列表。另一个做法可以是:
+
+```
+(master)$ git log master ^feature/120-on-scroll --no-merges
+```
+
+##### 交互式 rebase (interactive rebase) 可能出现的问题
+
+###### 这个 rebase 编辑屏幕出现 'noop'
+
+如果你看到的是这样:
+
+```
+noop
+```
+
+这意味着你 rebase 的分支和当前分支在同一个提交 (commit) 上，或者 *领先 (ahead)* 当前分支。你可以尝试:
+
+- 检查确保主 (master) 分支没有问题
+- rebase `HEAD~2` 或者更早
+
+###### 有冲突的情况
+
+如果你不能成功的完成 rebase, 你可能必须要解决冲突。
+
+首先执行 `git status` 找出哪些文件有冲突:
+
+```
+(my-branch)$ git status
+On branch my-branch
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+    modified:   README.md
+```
+
+在这个例子里面， `README.md` 有冲突。打开这个文件找到类似下面的内容:
+
+```
+   <<<<<<< HEAD
+   some code
+   =========
+   some code
+   >>>>>>> new-commit
+```
+
+你需要解决新提交的代码 (示例里，从中间 `==` 线到 `new-commit` 的地方) 与 `HEAD` 之间不一样的地方.
+
+有时候这些合并非常复杂，你应该使用可视化的差异编辑器 (visual diff editor):
+
+```
+(master*)$ git mergetool -t opendiff
+```
+
+在你解决完所有冲突和测试过后， `git add` 变化了的 (changed) 文件，然后用 `git rebase --continue` 继续 rebase。
+
+```
+(my-branch)$ git add README.md
+(my-branch)$ git rebase --continue
+```
+
+如果在解决完所有的冲突过后，得到了与提交前一样的结果，可以执行 `git rebase --skip`。
+
+任何时候你想结束整个 rebase 过程，回来 rebase 前的分支状态，你可以做:
+
+```
+(my-branch)$ git rebase --abort
+```
+
+#### 杂项 (Miscellaneous Objects)
+
+##### 克隆所有子模块
+
+```
+$ git clone --recursive git://github.com/foo/bar.git
+```
+
+如果已经克隆了:
+
+```
+$ git submodule update --init --recursive
+```
+
+##### 删除标签 (tag)
+
+```
+$ git tag -d <tag_name>
+$ git push <remote> :refs/tags/<tag_name>
+```
+
+##### 恢复已删除标签 (tag)
+
+如果你想恢复一个已删除标签 (tag), 可以按照下面的步骤：首先，需要找到无法访问的标签 (unreachable tag):
+
+```
+$ git fsck --unreachable | grep tag
+```
+
+记下这个标签 (tag) 的 hash，然后用 Git 的 update-ref:
+
+```
+$ git update-ref refs/tags/<tag_name> <hash>
+```
+
+这时你的标签 (tag) 应该已经恢复了。
+
+##### 已删除补丁 (patch)
+
+如果某人在 GitHub 上给你发了一个 pull request, 但是然后他删除了他自己的原始 fork, 你将没法克隆他们的提交 (commit) 或使用 `git am`。在这种情况下，最好手动的查看他们的提交 (commit)，并把它们拷贝到一个本地新分支，然后做提交。
+
+做完提交后，再修改作者，参见变更作者。然后，应用变化，再发起一个新的 pull request。
+
+#### 跟踪文件 (Tracking Files)
+
+##### 我只想改变一个文件名字的大小写，而不修改内容
+
+```
+(master)$ git mv --force myfile MyFile
+```
+
+##### 我想从 Git 删除一个文件，但保留该文件
+
+```
+(master)$ git rm --cached log.txt
+```
+
+#### 配置 (Configuration)
+
+##### 我想给一些 Git 命令添加别名 (alias)
+
+在 OS X 和 Linux 下，你的 Git 的配置文件储存在 `~/.gitconfig`。我在 `[alias]` 部分添加了一些快捷别名 (和一些我容易拼写错误的)，如下:
+
+```
+[alias]
+    a = add
+    amend = commit --amend
+    c = commit
+    ca = commit --amend
+    ci = commit -a
+    co = checkout
+    d = diff
+    dc = diff --changed
+    ds = diff --staged
+    f = fetch
+    loll = log --graph --decorate --pretty=oneline --abbrev-commit
+    m = merge
+    one = log --pretty=oneline
+    outstanding = rebase -i @{u}
+    s = status
+    unpushed = log @{u}
+    wc = whatchanged
+    wip = rebase -i @{u}
+    zap = fetch -p
+```
+
+##### 我想缓存一个仓库 (repository) 的用户名和密码
+
+你可能有一个仓库需要授权，这时你可以缓存用户名和密码，而不用每次推 / 拉 (push/pull) 的时候都输入，Credential helper 能帮你。
+
+```
+$ git config --global credential.helper cache
+## Set git to use the credential memory cache
+$ git config --global credential.helper 'cache --timeout=3600'
+## Set the cache to timeout after 1 hour (setting is in seconds)
+```
+
+#### 我不知道我做错了些什么
+
+你把事情搞砸了：你 `重置(reset)` 了一些东西，或者你合并了错误的分支，亦或你强推了后找不到你自己的提交 (commit) 了。有些时候，你一直都做得很好，但你想回到以前的某个状态。
+
+这就是 `git reflog` 的目的， `reflog` 记录对分支顶端 (the tip of a branch) 的任何改变，即使那个顶端没有被任何分支或标签引用。基本上，每次 HEAD 的改变，一条新的记录就会增加到 `reflog`。遗憾的是，这只对本地分支起作用，且它只跟踪动作 (例如，不会跟踪一个没有被记录的文件的任何改变)。
+
+```
+(master)$ git reflog
+0a2e358 HEAD@{0}: reset: moving to HEAD\~2
+0254ea7 HEAD@{1}: checkout: moving from 2.2 to master
+c10f740 HEAD@{2}: checkout: moving from master to 2.2
+```
+
+上面的 reflog 展示了从 master 分支签出 (checkout) 到 2.2 分支，然后再签回。那里，还有一个硬重置 (hard reset) 到一个较旧的提交。最新的动作出现在最上面以 `HEAD@{0}` 标识.
+
+如果事实证明你不小心回移 (move back) 了提交 (commit), reflog 会包含你不小心回移前 master 上指向的提交 (0254ea7)。
+
+```
+$ git reset --hard 0254ea7
+```
+
+然后使用 git reset 就可以把 master 改回到之前的 commit，这提供了一个在历史被意外更改情况下的安全网。
+
+### 小结
+
+最后，放一张总结的脑图总结一下以上的知识点。
+
+![图片](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/eQPyBffYbufvk6Wu4gUFIbsGamZ1UmHOO3hhdZbTvgn48niaC2xQGjwyacjUkJ8j1YkvrjibF1nnEPhWtoiahiapicQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+### 参考资料
+
+- **官方资源**
+
+- - Git 官网：https://git-scm.com/
+  - Git Github：https://github.com/git/git
+
+- **模板**
+
+- - gitignore 模板 - .gitignore 文件模板
+  - gitattributes 模板 - .gitattributes 文件模板
+  - github-cheat-sheet - git 命令简略图表
+
+- **Git 书**
+
+- Git 官方推荐教程 - Scott Chacon 的 Git 书。
+
+- **Git 工具**
+
+- - guis - Git 官网展示的客户端工具列表。
+  - gogs - 极易搭建的自助 Git 服务。
+  - gitflow - 应用 fit-flow 模型的工具。
+  - firstaidgit.io 一个可搜索的最常被问到的 Git 的问题
+  - git-extra-commands - 一堆有用的额外的 Git 脚本
+  - git-extras - GIT 工具集 -- repo summary, repl, changelog population, author commit percentages and more
+  - git-fire - git-fire 是一个 Git 插件，用于帮助在紧急情况下添加所有当前文件，做提交 (committing), 和推 (push) 到一个新分支 (阻止合并冲突)。
+  - git-tips - Git 小提示
+  - git-town - 通用，高级 Git 工作流支持！http://www.git-town.com
+
+- **GUI 客户端 (GUI Clients)**
+
+- - GitKraken - 豪华的 Git 客户端 Windows, Mac & Linux
+  - git-cola - 另外一个 Git 客户端 Windows & OS X
+  - GitUp - 一个新的 Git 客户端，在处理 Git 的复杂性上有自己的特点
+  - gitx-dev - 图形化的 Git 客户端 OS X
+  - Source Tree - 免费的图形化 Git 客户端 Windows & OS X
+  - Tower - 图形化 Git 客户端 OS X (付费)
+
+- **git cheat sheet**
+
+- github-git-cheat-sheet：https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf
+
+
+
+
+
+
+
+
+
+
+
+# 数据结构与算法
+
+## 排序算法
+
+### 冒泡
+
+
+
+
+
+
+
+## 选择排序
+
+
+
+
+
+
+
+## 数据结构
+
+
+
+
 
 
 
@@ -1615,7 +5467,7 @@ rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:
 LS_COLORS="di=04;33:fi=01;37;40:ln=01;36:so=00;36:bd=05;95:cd=05;95:mi=00;90:*.md=01;36:*.docx=01;92:*.doc=01;92:*.pdf=01;92:*.tex=01;92:*.c=01;34:*.cpp=01;34:*.ex=00;91"
 ```
 
-
+blacklight,SolarizedLight,adrian,darkblack,darkzen,gor,habLight,neverness,putty,redstring,relaxedgreen,satori,tcsoft,
 
 
 
@@ -3693,12 +7545,11 @@ int main(){
 
 
 
-
-##   Linux/C网络
-
+#   Linux/C网络
 
 
-###  Socket函数介绍与使用
+
+##  Socket函数介绍与使用
 
 [<font color=green> <工程师纯干货总结：TCP/IP 网络编程></font>](https://mp.weixin.qq.com/s/SIFdmkoZDVJGD-0Z4SIEiA)
 
@@ -3714,11 +7565,11 @@ Socket 是应用层与协议族通信的中间软件抽象层，它是一组接�
 
 ![img](https://img-blog.csdn.net/20151218101102971?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
-#### 基本 socket 函数
+### 基本 socket 函数
 
 Linux 系统是通过提供套接字 (socket) 来进行网络编程的。网络的 socket 数据传输是一种特殊的I/O,socket 也是一种文件描述符。socket 也有一个类似于打开文件的函数：socket (), 调用 socket (), 该函数返回一个整型的 socket 的描述符，随后的连接建立、数据传输等操作也都是通过该 socket 实现。
 
-#####   socket 函数
+####   socket 函数
 
 ```c
 #include <sys/scoket.h>
@@ -3780,7 +7631,7 @@ int socket(int af, int type, int protocol)；
 
 
 
-#####   bind 函数
+####   bind 函数
 
 ```c
 #include <sys/socket.h>
@@ -3922,7 +7773,7 @@ if (bind(serv_sock, (struct sockaddr*) &serv_addr,sizeof(serv_addr) )==-1){
 
 
 
-##### htonl/htons/ntohl/ntohs函数
+#### htonl/htons/ntohl/ntohs函数
 
 
 
@@ -3950,7 +7801,7 @@ u_short b = htons(a);
 
 
 
-##### inet_addr / inet_ntoa函数
+#### inet_addr / inet_ntoa函数
 
 函数原型：
 
@@ -4049,7 +7900,7 @@ inet_ntoa ip = 0.0.0.0
 
 
 
-##### **inet_pton** /  **inet_ntop**函数
+#### **inet_pton** /  **inet_ntop**函数
 
 ```c
 #include <arpa/inet.h>
@@ -4148,7 +7999,7 @@ const char *inet_ntop(int af, const void *src, char *dst, socklen_t size);
 
 
 
-#####   connect 函数
+####   connect 函数
 
 ```c
 #include <sys/types.h>
@@ -4163,7 +8014,7 @@ int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
 
 + client_sockfd 是客户端 socket 函数返回的 socket 描述符；serv_addr是包含远端主机 IP 地址和端口号的指针；addrlen 是结构 sockaddr_in 的长度。
 
-#####  listen 函数
+####  listen 函数
 
    ```c
    #include <sys/socket.h>
@@ -4226,7 +8077,7 @@ int connect(int client_sockfd, struct sockaddr_in *serv_addr,int addrlen);
 
 
 
-#####   write函数
+####   write函数
 
 ```c
 #include <unistd.h>
@@ -4242,7 +8093,7 @@ ssize_t write(int fd, const void *buf, size_t nbytes);
 
 <font color=blue>参数说明：</font>
 
-#####    read函数
+####    read函数
 
 ```c
 #include <unistd.h>
@@ -4264,7 +8115,7 @@ write 和 read 可以用send/recv替代。
 
 
 
-##### send/recv函数
+#### send/recv函数
 
 ```c
 #include <sys/socket.h>
@@ -4312,8 +8163,7 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 + 当协议把数据接收完毕，recv 函数就把 sockfd 的接收缓冲中的数据 copy 到 buf 中（注意协议接收到的数据可能大于 buf 的长度，所以在这种情况下要调用几次 recv 函数才能把 sockfd 的接收缓冲中的数据 copy 完。recv 函数仅仅是 copy 数据，真正的接收数据是协议来完成的），recv 函数返回其实际 copy 的字节数;
 + 如果 recv 在 copy 时出错，那么它返回 SOCKET_ERROR；如果 recv 函数在等待协议接收数据时网络中断了，那么它返回0。
 
-
-#####  close函数
+####  close函数
 
    ```
    #include <unistd.h>
@@ -4326,7 +8176,8 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 
 
 
-#####  示例
+####  示例
+
 >
 > 实例1：
 >
@@ -4577,7 +8428,7 @@ ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 
 
 
-##### sendto / recvfrom函数
+#### sendto / recvfrom函数
 
 ```c
 #include < sys/types.h >
@@ -4671,7 +8522,7 @@ int recvfrom(int s,void *buf,int len,unsigned int flags ,struct sockaddr *from ,
 >     }  
 >     while(1){  
 >         bzero(buffer,sizeof(buffer));  
->         len = recvfrom(sockfd,buffer,sizeof(buffer), 0 , (struct sockaddr *)&addr ,&addr_len);  
+>         len = recvfrom(sockfd, buffer,sizeof(buffer), 0 , (struct sockaddr *)&addr ,&addr_len);  
 >         /* 显示 client 端的网络地址 */  
 >         printf("receive from %s\n" , inet_ntoa( addr.sin_addr));  
 >         /* 将字串返回给 client 端 */  
@@ -4714,7 +8565,7 @@ int recvfrom(int s,void *buf,int len,unsigned int flags ,struct sockaddr *from ,
 >         /* 将字符串传送给 server 端 */  
 >         sendto(s,buffer,len,0,(struct sockaddr *)&addr,addr_len);  
 >         /* 接收 server 端返回的字符串 */  
->         len = recvfrom(s,buffer,sizeof(buffer),0,(struct sockaddr *)&addr,&addr_len);  
+>         len = recvfrom(s, buffer, sizeof(buffer), 0, (struct sockaddr *)&addr, &addr_len);  
 >         printf("receive: %s",buffer);  
 >     }  
 > }
@@ -4726,7 +8577,7 @@ int recvfrom(int s,void *buf,int len,unsigned int flags ,struct sockaddr *from ,
 
 
 
-#### setsockopt () 函数
+## setsockopt () 函数
 
 ```c
 #include <sys/types.h>
@@ -4877,7 +8728,7 @@ errno附加说明：
 
 
 
-#### select函数
+## select函数
 
 ```c
 #include<sys/time.h>
@@ -4977,7 +8828,7 @@ int select(int maxfdp,fd_set *readfds,fd_set *writefds,fd_set *errorfds,struct t
 
 
 
-#### gethostbyname函数
+## gethostbyname函数
 
 域名仅仅是 IP 地址的一个助记符，目的是方便记忆，通过域名并不能找到目标计算机，通信之前必须要将域名转换成 IP 地址。
 
@@ -5119,7 +8970,7 @@ int main(int argc, char **argv)
 
 
 
-##   [Linux/C时间函数]()
+#   [Linux/C时间函数]()
 
 ​      time () 提供了秒级的精确度，用 time () 函数结合其他函数（如：localtime、gmtime、asctime、ctime）可以获得当前系统时间或是标准时间。如果需要更高的时间精确度，就需要 `struct timespec` 和 `struct timeval `来处理。
 
@@ -5132,9 +8983,9 @@ int main(int argc, char **argv)
 
 
 
-###   一般时间函数
+##   一般时间函数
 
-####   相关结构体
+###   相关结构体
 
 ```c
 #include<types.h>
@@ -5199,7 +9050,7 @@ struct tm
 
 
 
-####    time函数
+###    time函数
 
 ```c
 // 头文件：time.h
@@ -5228,7 +9079,7 @@ int main(){
 
 
 
-####   ctime函数
+###   ctime函数
 
 ```
 char *ctime(const time_t *timep);
@@ -5251,7 +9102,7 @@ int main(void) {
 
 
 
-####    gmtime 函数
+###    gmtime 函数
 
 ```c
 struct tm *gmtime(const time_t *timep);
@@ -5285,7 +9136,7 @@ int main(void){
 
 
 
-####    strftime 函数
+###    strftime 函数
 
 ```c
 #include <time.h>
@@ -5384,7 +9235,7 @@ size_t strftime(char *s, size_t max, const char *format,const struct tm *tm);
   }
   ```
 
-####    asctime 函数
+###    asctime 函数
 
 ```c
 char *asctime(const struct tm *timeptr);
@@ -5407,7 +9258,7 @@ int main(void) {
 
 
 
-####    localhost 函数
+###    localhost 函数
 
 ```c
 struct tm *localhost(const time_t *timep);
@@ -5436,7 +9287,7 @@ int main(void) {
 
 
 
-####   mktime 函数
+###   mktime 函数
 
 ````c
 time_t mktime(struct tm *timeptr);
@@ -5462,7 +9313,7 @@ int main(void) {
 }
 ```
 
-####   gettimeofday 函数
+###   gettimeofday 函数
 
 
 
@@ -5511,7 +9362,7 @@ int main(void) {
 
 
 
-####    ftime函数
+###    ftime函数
 
 ```c
 //表头文件：
@@ -5533,7 +9384,7 @@ struct  timeb{
 
 
 
-####    clock函数
+###    clock函数
 
 ```c
 clock_t   clock(void);
@@ -6460,9 +10311,9 @@ sa_usr.sa_flags = SA_RESTART;
 
 
 
-## 函数与内存
+# 函数与内存
 
-### [申请内存时底层发生了什么？](https://mp.weixin.qq.com/s/DN-ckM1YrPMeicN7P9FvXg)
+## [申请内存时底层发生了什么？](https://mp.weixin.qq.com/s/DN-ckM1YrPMeicN7P9FvXg)
 
 识不到的东西却无比重要，申请过这么多内存，**你知道申请内存时底层都发生什么了吗**？
 
@@ -6671,7 +10522,7 @@ x86 CPU提供了“四界”：0,1,2,3，**这几个数字其实就是指CPU的�
 
 有的同学可能会问，为什么我们要理解这背后的原理呢？理解了原理后我才能知道内存申请的复杂性，对于高性能程序来讲频繁的调用malloc对系统性能是有影响的，那么很自然的一个问题就是我们能否避免malloc？
 
-###   [函数与内存](https://mp.weixin.qq.com/s/fyrnqiK8ucGjmUxuHeakNQ)
+##   [函数与内存](https://mp.weixin.qq.com/s/fyrnqiK8ucGjmUxuHeakNQ)
 
 
 
@@ -6934,7 +10785,7 @@ void main(){
 
 
 
-###   [线程间共享了哪些进程资源？](https://mp.weixin.qq.com/s/5Xq-uzbjCExWfws-czVYGQ)
+##   [线程间共享了哪些进程资源？](https://mp.weixin.qq.com/s/5Xq-uzbjCExWfws-czVYGQ)
 
 进程和线程这两个话题是程序员绕不开的，操作系统提供的这两个抽象概念实在是太重要了。
 
@@ -7231,17 +11082,17 @@ __thread int a = 1; // 线程局部存储
 
 
 
-##   Linux/C进程与线程
+#   Linux/C进程与线程
 
 
 
-### 进程
+## 进程
 
 全文脉络思维导图如下：
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/PocakShgoGGwkgiaicj3v8lMl3EEUzpb9x0wgXBMLYGsibCWVjiaCOn0fHO06Cfj4jYuOEPWAUrKHJDJID222B328A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-####   进程与线程的简单解释
+###   进程与线程的简单解释
 
 进程（Process）和线程（Thread）是操作系统的基本概念，但是它们比较抽象，不容易掌握。以下这个解释出自阮一峰老师的博客（http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html），虽然**「不是非常严谨，但是足够形象」**，看完之后能对进程和线程有个非常直观的印象，这样也方便理解后文。
 
@@ -7281,7 +11132,7 @@ __thread int a = 1; // 线程局部存储
 
 不难看出，互斥锁 Mutex 是信号量 semaphore 的一种特殊情况（n = 1时）。也就是说，完全可以用后者替代前者。但是，因为 Mutex 较为简单，且效率高，所以在必须保证资源独占的情况下，还是采用这种设计。
 
-####  什么是进程
+###  什么是进程
 
 结合上文的简单解释，下面给出进程的科学定义：**「进程是程序在某个数据集合上的一次运行活动，也是操作系统进行资源分配和保护的基本单位」**。
 
@@ -7291,7 +11142,7 @@ __thread int a = 1; // 线程局部存储
 
 进程不仅包含正在运行的程序实体，并且包括这个运行的程序中占据的所有系统资源，比如说 CPU、内存、网络资源等。很多小伙伴在回答进程的概念的时候，往往只会说它是一个运行的实体，而会忽略掉进程所占据的资源。比如说，同样一个程序，同一时刻被两次运行了，那么他们就是两个独立的进程。
 
-####  进程的组成
+###  进程的组成
 
 进程主要由三个部分组成：
 
@@ -7333,7 +11184,7 @@ PCB 是提供给操作系统用的，而程序段、数据段是给进程自己�
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/PocakShgoGGwkgiaicj3v8lMl3EEUzpb9xBfLA3GdgUB9j2Xxh1WQkYXgqTZ14EtGwavicMrfgU42NyRcUv1nEq5A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-####  进程的状态
+###  进程的状态
 
 尽管每一个进程都是独立的实体，有其自己的 PCB 和内部状态，但是进程之间经常需要相互作用。一个进程的输出结果可能是另一个进程的输入。假设进程 A 的输入依赖进程 B 的输出，那么在进程 B 的输出结果没有出来之前，进程 A 就无法执行，它就会被阻塞。这就是进程的阻塞态。
 
@@ -7364,7 +11215,7 @@ PCB 是提供给操作系统用的，而程序段、数据段是给进程自己�
 
 进程的 PCB 会通过某种方式组织起来，一般来说，操作系统会把处于同一状态的所有进程的 PCB 链接在一起，这种数据结构就称为**「进程队列」**（Process Queue）。
 
-#### 进程控制
+### 进程控制
 
 所谓进程控制就是对系统中的所有进程实施有效的管理，**「实现进程状态转换」**功能。包括创建进程、阻塞进程、唤醒进程、终止进程等，这些功能均由**「原语」**来实现，操作系统通过原语来完成进程原理，包括进程的同步和互斥、进程的通信和管理。
 
@@ -7376,7 +11227,7 @@ PCB 是提供给操作系统用的，而程序段、数据段是给进程自己�
 
 答：如果进程状态转换的过程不能一气呵成，就有可能导致操作系统中的某些关键数据结构信息不统一，这会影响操作系统进行别的管理工作。
 
-##### 进程的创建
+#### 进程的创建
 
 操作系统初始启动时会创建承担系统资源分配和控制管理的一些系统进程，同时还会创建一个所有用户进程的祖先，其他用户进程是在应用程序运行时创建的。
 
@@ -7397,7 +11248,7 @@ PCB 是提供给操作系统用的，而程序段、数据段是给进程自己�
 - 提供服务：用户向操作系统提出某些请求时，会新建一个进程处理该请求
 - 应用请求：由用户进程主动请求创建一个子进程
 
-##### 进程的终止
+#### 进程的终止
 
 进程的终止也称为撤销，进程完成特定工作或出现严重错误后必须被终止。引起进程终止的事件有三种：
 
@@ -7413,7 +11264,7 @@ PCB 是提供给操作系统用的，而程序段、数据段是给进程自己�
 - 将该进程所拥有的全部资源都归还给父进程或操作系统；
 - 回收 PCB 并将其归还至 PCB 池。
 
-##### 进程的阻塞和唤醒
+#### 进程的阻塞和唤醒
 
 进程阻塞是指进程让出 CPU 资源转而等待一个事件，如等待资源、等待 I/O 操作完成等。进程通常使用阻塞原语来阻塞自己，所以阻塞是进程的自主行为，是一个同步事件。当等待事件完成时会产生一个中断，激活操作系统，在系统的控制下将被阻塞的进程唤醒，也就是唤醒原语。
 
@@ -7433,7 +11284,7 @@ PCB 是提供给操作系统用的，而程序段、数据段是给进程自己�
 
 阻塞原语和唤醒原语的作用正好相反，**「阻塞原语使得进程从运行态转为阻塞态，而唤醒原语使得进程从阻塞态转为就绪态」**。如果某个进程使用阻塞原语来阻塞自己，那么他就必须使用唤醒原语来唤醒自己，因何事阻塞，就由何事唤醒，否则被阻塞的进程将永远处于阻塞态。因此，**「阻塞原语和唤醒原语是成对出现的」**。
 
-####   进程上下文切换
+###   进程上下文切换
 
 所谓进程的上下文切换，就是说各个进程之间是共享 CPU 资源的，不可能一个进程永远占用着 CPU 资源，不同的时候进程之间需要切换，使得不同的进程被分配 CPU 资源，这个过程就是进程的上下文切换，**「一个进程切换到另一个进程运行」**。
 
@@ -7457,7 +11308,7 @@ PCB 是提供给操作系统用的，而程序段、数据段是给进程自己�
 
 
 
-####  [Linux 中进程管理系统调用](https://mp.weixin.qq.com/s/Yb2AhzXVt-waLtQL9hVXEg)
+###  [Linux 中进程管理系统调用](https://mp.weixin.qq.com/s/Yb2AhzXVt-waLtQL9hVXEg)
 
 现在关注一下 Linux 系统中与进程管理相关的系统调用。在了解之前你需要先知道一下什么是系统调用。
 
@@ -7577,11 +11428,11 @@ exec 系统调用是一些函数的集合，这些函数是
 
 
 
-### 线程
+## 线程
 
 现在我们来讨论一下 Linux 中的线程，线程是轻量级的进程，想必这句话你已经听过很多次了，`轻量级`体现在所有的进程切换都需要清除所有的表、进程间的共享信息也比较麻烦，一般来说通过管道或者共享内存，如果是 fork 函数后的父子进程则使用共享文件，然而线程切换不需要像进程一样具有昂贵的开销，而且线程通信起来也更方便。线程分为两种：用户级线程和内核级线程
 
-#### 用户级线程
+### 用户级线程
 
 用户级线程避免使用内核，通常，每个线程会显示调用开关，发送信号或者执行某种切换操作来放弃 CPU，同样，计时器可以强制进行开关，用户线程的切换速度通常比内核线程快很多。在用户级别实现线程会有一个问题，即单个线程可能会垄断 CPU 时间片，导致其他线程无法执行从而 `饿死`。如果执行一个 I/O 操作，那么 I/O 会阻塞，其他线程也无法运行。
 
@@ -7589,7 +11440,7 @@ exec 系统调用是一些函数的集合，这些函数是
 
 一种解决方案是，一些用户级的线程包解决了这个问题。可以使用时钟周期的监视器来控制第一时间时间片独占。然后，一些库通过特殊的包装来解决系统调用的 I/O 阻塞问题，或者可以为非阻塞 I/O 编写任务。
 
-#### 内核级线程
+### 内核级线程
 
 内核级线程通常使用几个进程表在内核中实现，每个任务都会对应一个进程表。在这种情况下，内核会在每个进程的时间片内调度每个线程。
 
@@ -7599,7 +11450,7 @@ exec 系统调用是一些函数的集合，这些函数是
 
 从用户空间 -> 内核空间 -> 用户空间的开销比较大，但是线程初始化的时间损耗可以忽略不计。这种实现的好处是由时钟决定线程切换时间，因此不太可能将时间片与任务中的其他线程占用时间绑定到一起。同样，I/O 阻塞也不是问题。
 
-#### 混合实现
+### 混合实现
 
 结合用户空间和内核空间的优点，设计人员采用了一种`内核级线程`的方式，然后将用户级线程与某些或者全部内核线程多路复用起来
 
@@ -7613,7 +11464,7 @@ exec 系统调用是一些函数的集合，这些函数是
 
 
 
-### Linux 进程间通信
+## Linux 进程间通信
 
 Linux 进程间的通信机制通常被称为 `Internel-Process communication,IPC`下面我们来说一说 Linux 进程间通信的机制，大致来说，Linux 进程间的通信机制可以分为 6 种
 
@@ -7621,7 +11472,7 @@ Linux 进程间的通信机制通常被称为 `Internel-Process communication,IP
 
 下面我们分别对其进行概述
 
-#### <span id="信号2">信号 signal</span>
+### <span id="信号2">信号 signal</span>
 
 信号是 UNIX 系统最先开始使用的进程间通信机制，因为 Linux 是继承于 UNIX 的，所以 Linux 也支持信号机制，通过向一个或多个进程发送`异步事件信号`来实现，信号可以从键盘或者访问不存在的位置等地方产生；信号通过 shell 将任务发送给子进程。
 
@@ -7751,7 +11602,7 @@ SIGUSR1 和 SIGUSR2 信号被发送到进程以指示用户定义的条件。
 
 SIGWINCH 信号在其控制终端更改其大小（窗口更改）时发送给进程。
 
-#### 管道 pipe
+### 管道 pipe
 
 Linux 系统中的进程可以通过建立管道 pipe 进行通信
 
@@ -7769,7 +11620,7 @@ sort <f | head
 
 管道实际上就是 `|`，两个应用程序不知道有管道的存在，一切都是由 shell 管理和控制的。
 
-#### 共享内存 shared memory
+### 共享内存 shared memory
 
 两个进程之间还可以通过共享内存进行进程间通信，其中两个或者多个进程可以访问公共内存空间。两个进程的共享工作是通过共享内存完成的，一个进程所作的修改可以对另一个进程可见(很像线程间的通信)。
 
@@ -7782,7 +11633,7 @@ sort <f | head
 - 从已连接的共享内存段分离进程`(shmdt())`
 - 对共享内存段执行控制操作`(shmctl())`
 
-#### 先入先出队列 FIFO
+### 先入先出队列 FIFO
 
 先入先出队列 FIFO 通常被称为 `命名管道(Named Pipes)`，命名管道的工作方式与常规管道非常相似，但是确实有一些明显的区别。未命名的管道没有备份文件：操作系统负责维护内存中的缓冲区，用来将字节从写入器传输到读取器。一旦写入或者输出终止的话，缓冲区将被回收，传输的数据会丢失。相比之下，命名管道具有支持文件和独特 API ，命名管道在文件系统中作为设备的专用文件存在。当所有的进程通信完成后，命名管道将保留在文件系统中以备后用。命名管道具有严格的 FIFO 行为
 
@@ -7790,11 +11641,11 @@ sort <f | head
 
 写入的第一个字节是读取的第一个字节，写入的第二个字节是读取的第二个字节，依此类推。
 
-#### 消息队列 Message Queue
+### 消息队列 Message Queue
 
 一听到消息队列这个名词你可能不知道是什么意思，消息队列是用来描述内核寻址空间内的内部链接列表。可以按几种不同的方式将消息按顺序发送到队列并从队列中检索消息。每个消息队列由 IPC 标识符唯一标识。消息队列有两种模式，一种是`严格模式`， 严格模式就像是 FIFO 先入先出队列似的，消息顺序发送，顺序读取。还有一种模式是 `非严格模式`，消息的顺序性不是非常重要。
 
-#### 套接字 Socket
+### 套接字 Socket
 
 还有一种管理两个进程间通信的是使用 `socket`，socket 提供端到端的双相通信。一个套接字可以与一个或多个进程关联。就像管道有命令管道和未命名管道一样，套接字也有两种模式，套接字一般用于两个进程之间的网络通信，网络套接字需要来自诸如`TCP（传输控制协议）`或较低级别`UDP（用户数据报协议）`等基础协议的支持。
 
@@ -7807,7 +11658,7 @@ sort <f | head
 
 
 
-###   进程间同步方式
+##   进程间同步方式
 
 
 
@@ -7815,7 +11666,7 @@ sort <f | head
 
 
 
-###   线程通信方式
+##   线程通信方式
 
 
 
@@ -7823,7 +11674,7 @@ sort <f | head
 
 
 
-###   线程间同步方式
+##   线程间同步方式
 
 
 
@@ -7834,6 +11685,28 @@ sort <f | head
 
 
 ## 附录1
+
+### vim 主题颜色
+
+> stellarized.vim， solarized8.vim， solarized8_low.vim， solarized8_higt.vim， solarized8_flat.vim, ayu.vim, cake16.vim, github1.vim, cosmic_latte.vim, onehalflight.vim, stellarized.vim, carbonized_dark.vim carbonized_light.vim,  pencil.vim , snow.vim vimspectr300-light.vim petrel.vim greygull.vim  seagull.vim stormpetrel.vim
+
+
+
+
+
+> " cake16.vim , one.vim github.vim papaercolor_dark.vim carbonized_dark.vim carbonized_light.vim pencil.vim ayu.vim ayu_light.vim ayu_mirage.vim solarized8.vim solarized8_flat.vim solarized8_low.vim solarized8_higt.vim, snow.vim vimspectr300-light.vim petrel.vim greygull.vim  seagull.vim stormpetrel.vim,  c16gui, molokai, lilydjwg_dark_modified, lilydjwg_dark, nightshade_print_modified, colorful256,colorful, SolarizedDark_modified,SolarizedLight, nightshade_print, rainbow_autumn,vividchalk, flattened_light,flattened_dark, thegoodluck, 
+>
+> 
+>
+> " desert,blacklight,adrian,darkblack,darkzen,gor,habLight,neverness,putty,redstring,relaxedgreen,satori,tcsoft,cleanphp,autumn,bayQua,bmichaelsen, camo,candycode,carrot ,earth,fine_blue,fruity,gobo,inkpot,navajo,nicotine,phpx,professional,sf,umber_green,white,winter,zellner,dante_modified,rcg_gui_modified,gruvbox,
+
+
+
+
+
+
+
+
 
 
 
