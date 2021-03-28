@@ -137,6 +137,69 @@
 + 登陆谷歌账号，自动同步；
 + 完成;
 
+### Notion
+
+Notion目前并没有提供Linux系统上的应用。但是可以使用网页版。
+
+> **步骤**
+
++ 首先在桌面新建一个notion.sh
+
+```bash
+#桌面右键，打开终端，输入
+touch notion.sh
+```
+
++ 编辑notion.sh内容
+
+```bash
+#在终端中，用文本编辑器打开notion.sh 举例gedit
+sudo gedit notion.sh
+```
+
++ 在文本编辑器中输入（此命令为用谷歌浏览器打开，可替换成其他浏览器）
+
+```bash
+#!/bin/bash
+google-chrome --app=https://www.notion.so
+```
+
++ 保存并关闭，随后再次打开终端，给文件加权限
+
+```bash
+chmod u+x　notion.sh
+```
+
++ 双击notion.sh即可打开（记得登陆），或者./notion.sh。
+
+> 将notion作为一个系统命令
+>
+> ```bash
+> sudo cp  ~/notion.sh /usr/local/bin/notion
+> sudo chmod 755 notion
+> ```
+>
+> 即可通过终端中输入:`notion`打开。
+
+
+
+
+
+### wolai
+
+去[wolai官网](https://www.wolai.com/)下载wolai-1.0.34.AppImage
+
+> 将wolai作为一个系统命令
+>
+> ```bash
+> sudo cp  ~/wolai-1.0.34.AppImage /usr/local/bin/wolai
+> sudo chmod 755 wolai
+> ```
+>
+> 即可通过终端中输入:`wolai`打开。
+
+
+
 ###  Markdown编辑器Typora
 
 1.方法一：
@@ -165,10 +228,7 @@
    sudo apt-get install typora
    ```
 
-###  窗口管理器FVWM
 
-+ sudo apt install fvwm
-+ 去[网址](https://github.com/junjiecjj/configure_file)下载fvwm至~/.fvwm文件夹即可
 
 ###  Markdown编辑器remarkable
 
@@ -181,6 +241,10 @@
 
 + sudo apt-get install python3-gtkspellcheck
 
+###  窗口管理器FVWM
+
++ sudo apt install fvwm
++ 去[网址](https://github.com/junjiecjj/configure_file)下载fvwm至~/.fvwm文件夹即可
 
 ###  VS Code
 
@@ -989,10 +1053,187 @@ sudo mv exa-linux-x86_64 /usr/local/bin/exa
 - –time-style：如何格式化时间戳
 - 有效的–color选项始终, 自动和永不。
 - 有效的排序字段将被访问, 创建, 扩展, 扩展, inode, 已修改, 名称, 名称, 大小, 类型和无。以大写字母开头的字段将大写字母排在小写字母之前。修改后的字段的别名为日期, 时间和最新, 而其反向字段的别名为age和oldest。
-- 有效时间字段被修改, 访问和创建。
+- https://mp.weixin.qq.com/s?__biz=MzAxODI5ODMwOA==&mid=2666551793&idx=3&sn=6ac63a381a8dacb1f5053baafe1b800c&chksm=80dc9d5ab7ab144c44d56612fcde63208a86ed0f1021a3980dab056a68a56ac86abea73b2f65&mpshare=1&scene=1&srcid=0227Jieh2QmUYAMx3hO6QiPb&sharer_sharetime=1616854286536&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8#rd有效时间字段被修改, 访问和创建。
 - 有效的时间样式是默认, iso, long-iso和full-iso。
 
 
+
+### [ranger]()
+
+ranger 是一款独特且非常方便的文件系统导航器，它允许你在 Linux 文件系统中移动，进出子目录，查看文本文件内容，甚至可以在不离开该工具的情况下对文件进行修改。
+
+它运行在终端窗口中，并允许你按下方向键进行导航。它提供了一个多级的文件显示，让你很容易看到你在哪里、在文件系统中移动、并选择特定的文件。
+
+要安装 `ranger`，请使用标准的安装命令（例如，`sudo apt install ranger`）。要启动它，只需键入 `ranger`。它有一个很长的、非常详细的手册页面，但开始使用 `ranger` 非常简单。
+
+#### ranger 的显示方式
+
+你需要马上习惯的最重要的一件事就是 `ranger` 的文件显示方式。一旦你启动了 `ranger`，你会看到四列数据。第一列是你启动 `ranger` 的位置的上一级。例如，如果你从主目录开始，`ranger` 将在第一列中列出所有的主目录。第二列将显示你的主目录（或者你开始的目录）中的目录和文件的第一屏内容。
+
+这里的关键是超越你可能有的任何习惯，将每一行显示的细节看作是相关的。第二列中的所有条目与第一列中的单个条目相关，第四列中的内容与第二列中选定的文件或目录相关。
+
+与一般的命令行视图不同的是，目录将被列在第一位（按字母数字顺序），文件将被列在第二位（也是按字母数字顺序）。从你的主目录开始，显示的内容可能是这样的：
+
+```bash
+shs@dragonfly /home/shs/backups     <== current selection
+ bugfarm   backups            0  empty
+ dory      bin               59
+ eel       Buttons           15
+ nemo      Desktop            0
+ shark     Documents          0
+ shs       Downloads          1
+   ^         ^                ^      ^
+   |         |                |      |
+ homes     directories    # files    listing
+           in selected    in each    of files in
+           home           directory  selected directory
+```
+
+`ranger` 显示的最上面一行告诉你在哪里。在这个例子中，当前目录是 `/home/shs/backups`。我们看到高亮显示的是 `empty`，因为这个目录中没有文件。如果我们按下方向键选择 `bin`，我们会看到一个文件列表：
+
+```bash
+shs@dragonfly /home/shs/bin      <== current selection
+ bugfarm   backups            0    append
+ dory      bin               59    calcPower
+ eel       Buttons           15    cap
+ nemo      Desktop            0    extract
+ shark     Documents          0    finddups
+ shs       Downloads          1    fix
+   ^         ^                ^      ^
+   |         |                |      |
+ homes     directories    # files    listing
+           in selected    in each    of files in
+           home           directory  selected directory
+```
+
+每一列中高亮显示的条目显示了当前的选择。使用右方向键可移动到更深的目录或查看文件内容。
+
+如果你继续按下方向键移动到列表的文件部分，你会注意到第三列将显示文件大小（而不是文件的数量）。“当前选择”行也会显示当前选择的文件名，而最右边的一列则会尽可能地显示文件内容。
+
+```bash
+shs@dragonfly /home/shs/busy_wait.c   <== current selection
+ bugfarm   BushyRidge.zip    170 K  /*
+ dory      busy_wait.c       338 B   * program that does a busy wait
+ eel       camper.jpg       5.55 M   * it's used to show ASLR, and that's it
+ nemo      check_lockscreen   80 B   */
+ shark     chkrootkit-output 438 B  #include <stdio.h>
+   ^         ^                ^       ^
+   |         |                |       |
+ homes     files            sizes    file content
+```
+
+在该显示的底行会显示一些文件和目录的详细信息：
+
+```bash
+-rw-rw-r—- shs shs 338B 2019-01-05 14:44    1.52G, 365G free  67/488  11%
+```
+
+如果你选择了一个目录并按下回车键，你将进入该目录。然后，在你的显示屏中最左边的一列将是你的主目录的内容列表，第二列将是该目录内容的文件列表。然后你可以检查子目录的内容和文件的内容。
+
+按左方向键可以向上移动一级。
+
+按 `q` 键退出 `ranger`。
+
+#### 做出改变
+
+你可以按 `?` 键，在屏幕底部弹出一条帮助行。它看起来应该是这样的：
+
+```
+View [m]an page, [k]ey bindings, [c]commands or [s]ettings?  (press q to abort)
+```
+
+按 `c` 键，`ranger` 将提供你可以在该工具内使用的命令信息。例如，你可以通过输入 `:chmod` 来改变当前文件的权限，后面跟着预期的权限。例如，一旦选择了一个文件，你可以输入 `:chmod 700` 将权限设置为 `rwx------`。
+
+输入 `:edit` 可以在 `nano` 中打开该文件，允许你进行修改，然后使用 `nano` 的命令保存文件。
+
+#### 配置
+
+启动之后 ranger 会创建一个目录 ~/.config/ranger/. 可以使用以下命令复制默认配置文件到这个目录:
+
+```bash
+ranger --copy-config=all
+```
+
+输出为：
+
+```bash
+# jack @ unix in ~/公共的/c文件 [日期: 周六 3月 27日, 时间: 22:27:45]
+$ ranger --copy-config=all
+creating: /home/jack/.config/ranger/rifle.conf
+creating: /home/jack/.config/ranger/commands.py
+creating: /home/jack/.config/ranger/commands_full.py
+creating: /home/jack/.config/ranger/rc.conf
+creating: /home/jack/.config/ranger/scope.sh
+
+> Please note that configuration files may change as ranger evolves.
+  It's completely up to you to keep them up to date.
+
+> To stop ranger from loading both the default and your custom rc.conf,
+  please set the environment variable RANGER_LOAD_DEFAULT_RC to FALSE.
+
+```
+
++ rc.conf - 选项设置和快捷键
++ commands.py - 能通过 : 执行的命令
++ rifle.conf - 指定不同类型的文件的默认打开程序
+
+> 基本操作
+
+| 操作                                                         | 键位     |
+| ------------------------------------------------------------ | -------- |
+| 上一级列表                                                   | `h`      |
+| 下一级列表                                                   | `l`      |
+| 上一个文件                                                   | `k`      |
+| 下一个文件                                                   | `j`      |
+| go home                                                      | `gh`     |
+| 新建标签                                                     | `gn`     |
+| 查找                                                         | `f`      |
+| 搜素                                                         | `/`      |
+| 快速进入目录                                                 | `g`      |
+| 进入文件                                                     | `Enter`  |
+| 退出                                                         | `q`      |
+| 显示隐藏文件                                                 | `zh`     |
+| 复制                                                         | `yy`     |
+| 粘贴                                                         | `pp`     |
+| 剪切                                                         | `dd`     |
+| 删除                                                         | `delete` |
+| 目录顶端                                                     | `gg`     |
+| 目录末尾                                                     | `G`      |
+| 重命名                                                       | `cw`     |
+| 文件排序                                                     | `o`      |
+| 根据文件名进行排序(natural/basename)                         | `on/ob`  |
+| 根据改变时间进行排序 (Change Time 文件的权限组别和文件自身数据被修改的时间) | `oc`     |
+| 根据文件大小进行排序(Size)                                   | `os`     |
+| 根据后缀名进行排序 (Type)                                    | `ot`     |
+| 根据访问时间进行排序 (Access Time 访问文件自身数据的时间)    | `oa`     |
+| 根据修改进行排序 (Modify time 文件自身内容被修改的时间)      | `om`     |
+
+------
+
+> 插件
+
+`ranger`也有很多预览时用的插件 :
+
+```bash
+sudo apt-get install caca-utils # img2txt 图片
+sudo apt-get install highlight  # 代码高亮
+sudo apt-get install atool　    # 存档预览
+sudo apt-get install w3m        # html页面预览
+sudo apt-get install mediainfo  # 多媒体文件预览
+sudo apt-get install catdoc     # doc预览
+sudo apt-get install docx2txt   # docx预览
+sudo apt-get install xlsx2csv   # xlsx预览
+
+sudo apt-get install caca-utils highlight atool w3m mediainfo catdoc docx2txt xlsx2csv 
+```
+
+
+
+
+
+#### 总结
+
+使用 `ranger` 的方法比本篇文章所描述的更多。该工具提供了一种非常不同的方式来列出 Linux 系统上的文件并与之交互，一旦你习惯了它的多级的目录和文件列表方式，并使用方向键代替 `cd` 命令来移动，就可以很轻松地在 Linux 的文件中导航。
 
 ### [Glances](https://mp.weixin.qq.com/s/C7qXS7gXH385n-yJjBxprQ)
 
@@ -1824,8 +2065,13 @@ $ sudo make install
 
 
 
-
 # Linux小技巧
+
+## [Linux性能分析](https://mp.weixin.qq.com/s?__biz=MzU5NDg5MzM5NQ==&mid=2247488166&idx=1&sn=c8d47fd8deb89bc05ca56991341225f2&chksm=fe7b1d9ac90c948c56c44f03bcf7802e62c4e8f9fd2a2c3b74b1bd0a229c2e422f5f052dcbd8&mpshare=1&scene=1&srcid=0327IfGLSkVkySNHS4U61MID&sharer_sharetime=1616804779201&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8#rd)
+
+
+
+
 
 ## [Linux 文件的颜色代码](https://mp.weixin.qq.com/s?__biz=MzA4NzQzMzU4Mg==&mid=2652947251&idx=2&sn=43c7eaa497fc5e3bfeccfd788112f64e&chksm=8bedeb32bc9a62240c11c595926e46337a96b93d0485a89bf80c2c1ae977986dd9245f32b67e&scene=132#wechat_redirect)
 
