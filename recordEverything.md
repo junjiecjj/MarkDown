@@ -361,6 +361,13 @@ wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - 
 或
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
+# 安装oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# 但是不出意外，会失败，因为官网被墙了，由网友提供了以下国内项目地址，实测可以，有梯子用上面的即可
+sh -c "$(wget -O- https://gitee.com/shmhlsy/oh-my-zsh-install.sh/raw/master/install.sh)"
+# 切换当前shell环境
+sudo chsh -s /bin/zsh # 切换后发现终端变得花里胡稍了
+
 #安装incr
 cd .oh-my-zsh/plugins/
 mkdir incr
@@ -385,6 +392,10 @@ git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-
 
 #安装pyenv
 git clone https://github.com/davidparsson/zsh-pyenv-lazy.git ~/.oh-my-zsh/custom/plugins/pyenv-lazy
+
+# 安装powerlevel9k主题
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
 
 #将~/.zshrc文件变成如下：
 ```
@@ -2068,6 +2079,29 @@ $ sudo make install
 # Linux小技巧
 
 ## [Linux性能分析](https://mp.weixin.qq.com/s?__biz=MzU5NDg5MzM5NQ==&mid=2247488166&idx=1&sn=c8d47fd8deb89bc05ca56991341225f2&chksm=fe7b1d9ac90c948c56c44f03bcf7802e62c4e8f9fd2a2c3b74b1bd0a229c2e422f5f052dcbd8&mpshare=1&scene=1&srcid=0327IfGLSkVkySNHS4U61MID&sharer_sharetime=1616804779201&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8#rd)
+
+
+
+## .xprofile等文件
+
+然后根据个人需求可以修改以下文件：
+～/.bashrc: 每次终端时读取并运用里面的设置 
+～/.profile：每次启动系统的读取并运用里面的配置 
+～/.xinitrc: 每次startx启动X界面时读取并运用里面的设置 
+～/.xprofile: 每次使用lightdm等图形登录管理器时读取并运用里面的设置 
+
+在在 `~/.xinitrc` 、 `~/.xprofile` 和 `~/.bashrc 或 ~/.zshrc` 中加入：
+
+```bash
+export LC_ALL=”zh_CN.UTF-8”
+export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN:en_US
+export LC_CTYPE=en_US.UTF-8
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+```
 
 
 
