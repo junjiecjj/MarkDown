@@ -53,13 +53,13 @@
 > 3. [安装 Nerd Fonts 字体](https://shuhm-gh.github.io/2017/03/23/linux-admin-%E5%AE%89%E8%A3%85nerd-fonts%E5%AD%97%E4%BD%93/)
 
    ```bash
-   #下载字体，存放在字体目录
-   $:mkdir -p ~/.local/share/fonts
-   $:cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20for%20Powerline%20Nerd%20Font%20Complete.otf
+   # 去https://www.nerdfonts.com/font-downloads下载字体，存放在~/下载/nerdfonts/下
+   $: mkdir -p /usr/share/fonts/truetypes/nerdfonts
+   $: cp 下载/nerdfonts/*  .
    #:生成字体信息缓存
-   $:fc-cache -vf ~/.local/share/fonts/
+   $:fc-cache -vf  
    #:查看是否安装成功
-   fc-list | grep -i droid
+   fc-list | grep -i nerd
    ```
 
 > 4. 安装Fira Code 字体
@@ -322,6 +322,19 @@ sudo ./install.py
 
 
 
+### screenkey
+
++ sudo apt-get install screenkey
+
+或：
+
++ sudo add-apt-repository ppa:atareao/atareao
++ sudo apt install screenkeyfk
+
+
+
+
+
 ###  WPS
 
 + 去[wps官网](https://www.wps.cn/product/wpslinux)下载.deb安装包
@@ -361,13 +374,6 @@ wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - 
 或
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
-# 安装oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-# 但是不出意外，会失败，因为官网被墙了，由网友提供了以下国内项目地址，实测可以，有梯子用上面的即可
-sh -c "$(wget -O- https://gitee.com/shmhlsy/oh-my-zsh-install.sh/raw/master/install.sh)"
-# 切换当前shell环境
-sudo chsh -s /bin/zsh # 切换后发现终端变得花里胡稍了
-
 #安装incr
 cd .oh-my-zsh/plugins/
 mkdir incr
@@ -375,7 +381,7 @@ cd incr
 wget http://mimosa-pudica.net/src/incr-0.2.zsh
 
 #安装zsh-autosuggestions
-git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
+git clone git://github.com/zsh-users/zsh-autosuggestions  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 #安装zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -383,134 +389,20 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 #安装 autojump
 sudo apt-get install autojump
 或以下三个：
-git clone https://github.com/wting/autojump wting/autojump
-cd wting/autojump
+git clone https://github.com/wting/autojump   ~/.oh-my-zsh/plugins/autojump
+cd ~/.oh-my-zsh/plugins/autojump
 ./install.py
 
 #安装nvm
-git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/plugins/zsh-nvm
 
 #安装pyenv
-git clone https://github.com/davidparsson/zsh-pyenv-lazy.git ~/.oh-my-zsh/custom/plugins/pyenv-lazy
-
-# 安装powerlevel9k主题
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-
+git clone https://github.com/davidparsson/zsh-pyenv-lazy.git  ~/.oh-my-zsh/plugins/pyenv-lazy
 
 #将~/.zshrc文件变成如下：
 ```
 
-```bash
-# ~/.zshrc
-# Set up the prompt
-
-autoload -Uz promptinit
-promptinit
-prompt adam1
-
-setopt histignorealldups sharehistory
-
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
-
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
-
-# Use modern completion system
-autoload -Uz compinit
-compinit
-
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="/home/jack/.oh-my-zsh"
-# zsh-nvm lazy load
-export NVM_LAZY_LOAD=true
-
-ZSH_THEME="myys"
-ZSH_THEME="agnoster"
-
-plugins=(
-
-    sudo
-    z
-    cp
-    zsh_reload
-    safe-paste
-    extract
-    history-substring-search
-    colored-man-pages
-    git
-    history
-    ubuntu
-    yum
-    pip
-    docker
-    docker-compose
-    golang
-    npm
-    bower
-    adb
-
-    #第三方插件
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    pyenv-lazy
-    autojump
-    zsh-nvm
-
-)
-
-source $ZSH/oh-my-zsh.sh
-
-
-# added by Anaconda3 installer
-export PATH="/home/jack/anaconda3/bin:$PATH"
-export PYTHONPATH="/usr/local/mdsplus/python/MDSplus"
-
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-HIST_STAMPS="yyyy-mm-dd"
-DISABLE_UPDATE_PROMPT=true
-#source ~/.oh-my-zsh/plugins/incr/incr*.zsh
-source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[[ -s /home/jack/.autojump/etc/profile.d/autojump.sh ]] && source /home/jack/.autojump/etc/profile.d/autojump.sh
-
-
-# zsh-nvm lazy load
-export NVM_LAZY_LOAD=true
-
-#export PS1='$\[\033[01;31m\][\u@\h\[\033[01m\]:\[\033[01;33m\]\w\[\033[01;36m\]\A\[\e[31;1m\]]\[\033[01;32m\]\$ '
-
-```
-
-
-
-
+<https://github.com/junjiecjj/configure_file/blob/master/zshrc_xiong-chiamiov-plus>
 
 
 
@@ -2076,9 +1968,1139 @@ $ sudo make install
 
 
 
+# suckless 套装
+
+## fatal error: X11/XXXX.h: No such file or directory
+
+linux系统源码安装软件经常会遇到库文件不存在，错误信息大多如下：
+
+```bash
+BBoard.c:27:28: error: X11/IntrinsicP.h: No such file or directory
+BBoard.c:28:27: error: X11/Intrinsic.h: No such file or directory
+BBoard.c:29:23: error: X11/Xutil.h: No such file or directory
+BBoard.c:30:28: error: X11/StringDefs.h: No such file or directory
+```
+
+
+
+安装库文件libx11-dev
+
++ sudo apt-get install libx11-dev
+
+安装依赖文件
+
+```bash
+sudo apt-get install apt-file
+sudo apt-file update
+apt-file search XXXX.h
+```
+
+如：安装Intrinsic.h
+
+```bash
+sudo apt-get install apt-file
+sudo apt-file update
+apt-file search Intrinsic.h
+```
+
+搜索结果如下：
+
+```bash
+libxt-dev: usr/include/X11/Intrinsic.h
+```
+
+因此，只需安装libxt-dev即可：
+
+```bash
+sudo apt-get install libxt-dev
+```
+
+在安装dmenu/st/dwm过程中会发现少了xx.h，通过上述方法可以发现需要安装以下
+
+```bash
+sudo apt install x11-xserver-utils
+sudo apt install libharfbuzz-dev
+```
+
+## 安装st
+
+```bash
+$: git clone  https://github.com/junjiecjj/st-1.git  或https://github.com/junjiecjj/st-2.git
+$: cd st-1
+$: sudo make clean install 
+```
+
+
+
+## 安装dmenus
+
+```bash
+$: git clone https://github.com/junjiecjj/dmenu.git
+$: cd dmenu
+$: sudo make clean install 
+```
+
+
+
+## 安装dwm
+
+先安装dwmstatus
+
+```bash
+$: git clone git://git.suckless.org/dwmstatus
+$: cd dwmstatus
+$: make
+$: sudo ake PREFIX=/usr install
+# 增加 dwmstatus 2>&1 >/dev/null &  到~/.xinitrc
+```
+
+再安装dwm
+
+```bash
+$: git clone  https://github.com/junjiecjj/dwm.git
+$: cd dmenu
+$: sudo make clean install 
+```
+
+
+
+## 快捷键
+
+
+
+```c
+/* See LICENSE file for copyright and license details. */
+
+/*
+ * appearance
+ *
+ * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
+ */
+static char *font = "mono:pixelsize=12:antialias=true:autohint=true";
+static char *font2[] = { "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
+static int borderpx = 2;
+
+/*
+ * What program is execed by st depends of these precedence rules:
+ * 1: program passed with -e
+ * 2: scroll and/or utmp
+ * 3: SHELL environment variable
+ * 4: value of shell in /etc/passwd
+ * 5: value of shell in config.h
+ */
+static char *shell = "/bin/sh";
+char *utmp = NULL;
+/* scroll program: to enable use a string like "scroll" */
+char *scroll = "scroll";
+char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
+
+/* identification sequence returned in DA and DECID */
+char *vtiden = "\033[?6c";
+
+/* Kerning / character bounding-box multipliers */
+static float cwscale = 1.0;
+static float chscale = 1.0;
+
+/*
+ * word delimiter string
+ *
+ * More advanced example: L" `'\"()[]{}"
+ */
+wchar_t *worddelimiters = L" ";
+
+/* selection timeouts (in milliseconds) */
+static unsigned int doubleclicktimeout = 300;
+static unsigned int tripleclicktimeout = 600;
+
+/* alt screens */
+int allowaltscreen = 1;
+
+/* allow certain non-interactive (insecure) window operations such as:
+   setting the clipboard text */
+int allowwindowops = 0;
+
+/*
+ * draw latency range in ms - from new content/keypress/etc until drawing.
+ * within this range, st draws when content stops arriving (idle). mostly it's
+ * near minlatency, but it waits longer for slow updates to avoid partial draw.
+ * low minlatency will tear/flicker more, as it can "detect" idle too early.
+ */
+static double minlatency = 8;
+static double maxlatency = 33;
+
+/*
+ * blinking timeout (set to 0 to disable blinking) for the terminal blinking
+ * attribute.
+ */
+static unsigned int blinktimeout = 800;
+
+/*
+ * thickness of underline and bar cursors
+ */
+static unsigned int cursorthickness = 2;
+
+/*
+ * 1: render most of the lines/blocks characters without using the font for
+ *    perfect alignment between cells (U2500 - U259F except dashes/diagonals).
+ *    Bold affects lines thickness if boxdraw_bold is not 0. Italic is ignored.
+ * 0: disable (render all U25XX glyphs normally from the font).
+ */
+const int boxdraw = 1;
+const int boxdraw_bold = 0;
+
+/* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
+const int boxdraw_braille = 0;
+
+/*
+ * bell volume. It must be a value between -100 and 100. Use 0 for disabling
+ * it
+ */
+static int bellvolume = 0;
+
+/* default TERM value */
+char *termname = "st-256color";
+
+/*
+ * spaces per tab
+ *
+ * When you are changing this value, don't forget to adapt the »it« value in
+ * the st.info and appropriately install the st.info in the environment where
+ * you use this st version.
+ *
+ *	it#$tabspaces,
+ *
+ * Secondly make sure your kernel is not expanding tabs. When running `stty
+ * -a` »tab0« should appear. You can tell the terminal to not expand tabs by
+ *  running following command:
+ *
+ *	stty tabs
+ */
+unsigned int tabspaces = 8;
+
+/* bg opacity */
+float alpha = 0.8;
+
+/* Terminal colors (16 first used in escape sequence) */
+static const char *colorname[] = {
+	"#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
+	"#cc241d",
+	"#98971a",
+	"#d79921",
+	"#458588",
+	"#b16286",
+	"#689d6a",
+	"#a89984",
+	"#928374",
+	"#fb4934",
+	"#b8bb26",
+	"#fabd2f",
+	"#83a598",
+	"#d3869b",
+	"#8ec07c",
+	"#ebdbb2",
+	[255] = 0,
+	/* more colors can be added after 255 to use with DefaultXX */
+	"#add8e6", /* 256 -> cursor */
+	"#555555", /* 257 -> rev cursor*/
+	"#282828", /* 258 -> bg */
+	"#ebdbb2", /* 259 -> fg */
+};
+
+
+/*
+ * Default colors (colorname index)
+ * foreground, background, cursor, reverse cursor
+ */
+unsigned int defaultfg = 259;
+unsigned int defaultbg = 258;
+unsigned int defaultcs = 256;
+unsigned int defaultrcs = 257;
+
+/*
+ * Default shape of cursor
+ * 2: Block ("█")
+ * 4: Underline ("_")
+ * 6: Bar ("|")
+ * 7: Snowman ("☃")
+ */
+static unsigned int cursorshape = 2;
+
+/*
+ * Default columns and rows numbers
+ */
+
+static unsigned int cols = 80;
+static unsigned int rows = 24;
+
+/*
+ * Default colour and shape of the mouse cursor
+ */
+static unsigned int mouseshape = XC_xterm;
+static unsigned int mousefg = 7;
+static unsigned int mousebg = 0;
+
+/*
+ * Color used to display font attributes when fontconfig selected a font which
+ * doesn't match the ones requested.
+ */
+static unsigned int defaultattr = 11;
+
+/*
+ * Force mouse select/shortcuts while mask is active (when MODE_MOUSE is set).
+ * Note that if you want to use ShiftMask with selmasks, set this to an other
+ * modifier, set to 0 to not use it.
+ */
+static uint forcemousemod = ShiftMask;
+
+/*
+ * Xresources preferences to load at startup
+ */
+ResourcePref resources[] = {
+		{ "font",         STRING,  &font },
+		{ "fontalt0",     STRING,  &font2[0] },
+		{ "color0",       STRING,  &colorname[0] },
+		{ "color1",       STRING,  &colorname[1] },
+		{ "color2",       STRING,  &colorname[2] },
+		{ "color3",       STRING,  &colorname[3] },
+		{ "color4",       STRING,  &colorname[4] },
+		{ "color5",       STRING,  &colorname[5] },
+		{ "color6",       STRING,  &colorname[6] },
+		{ "color7",       STRING,  &colorname[7] },
+		{ "color8",       STRING,  &colorname[8] },
+		{ "color9",       STRING,  &colorname[9] },
+		{ "color10",      STRING,  &colorname[10] },
+		{ "color11",      STRING,  &colorname[11] },
+		{ "color12",      STRING,  &colorname[12] },
+		{ "color13",      STRING,  &colorname[13] },
+		{ "color14",      STRING,  &colorname[14] },
+		{ "color15",      STRING,  &colorname[15] },
+		{ "background",   STRING,  &colorname[258] },
+		{ "foreground",   STRING,  &colorname[259] },
+		{ "cursorColor",  STRING,  &colorname[256] },
+		{ "termname",     STRING,  &termname },
+		{ "shell",        STRING,  &shell },
+		{ "minlatency",   INTEGER, &minlatency },
+		{ "maxlatency",   INTEGER, &maxlatency },
+		{ "blinktimeout", INTEGER, &blinktimeout },
+		{ "bellvolume",   INTEGER, &bellvolume },
+		{ "tabspaces",    INTEGER, &tabspaces },
+		{ "borderpx",     INTEGER, &borderpx },
+		{ "cwscale",      FLOAT,   &cwscale },
+		{ "chscale",      FLOAT,   &chscale },
+		{ "alpha",        FLOAT,   &alpha },
+};
+
+/*
+ * Internal mouse shortcuts.
+ * Beware that overloading Button1 will disable the selection.
+ */
+static MouseShortcut mshortcuts[] = {
+	/* mask                 button   function        argument       release */
+	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
+	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
+	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
+	{ ShiftMask,            Button5, ttysend,        {.s = "\033[6;2~"} },
+	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
+};
+
+/* Internal keyboard shortcuts. */
+#define MODKEY Mod1Mask
+#define TERMMOD (Mod1Mask|ShiftMask)
+
+static char *openurlcmd[] = { "/bin/sh", "-c", "st-urlhandler -o", "externalpipe", NULL };
+static char *copyurlcmd[] = { "/bin/sh", "-c", "st-urlhandler -c", "externalpipe", NULL };
+static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NULL };
+
+
+static Shortcut shortcuts[] = {
+	/* mask                 keysym          function        argument */
+	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
+	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
+	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
+	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
+	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },       /*shift+alt+pageup 放大字体*/
+	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },	   /*shift+alt+pagedown 减小字体*/
+	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
+	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },       /* shift+ alt+ c 复制*/
+	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} }, 	   /* shift+ alt+ v 粘贴*/
+	{ MODKEY,               XK_c,           clipcopy,       {.i =  0} },      /* alt+c 复制*/
+	{ ShiftMask,            XK_Insert,      clippaste,      {.i =  0} },
+	{ MODKEY,               XK_v,           clippaste,      {.i =  0} },      /* alt+v 粘贴*/
+	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
+	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+	{ MODKEY,		XK_s,		changealpha,	{.f = -0.05} },   /* alt+s 增加透明度*/
+	{ MODKEY,		XK_a,		changealpha,	{.f = +0.05} },   /* alt+a 较小透明度*/
+	{ TERMMOD,              XK_Up,          zoom,           {.f = +1} },    /*shift+alt+up 放大字体*/
+	{ TERMMOD,              XK_Down,        zoom,           {.f = -1} },    /*shift+alt+down 缩小字体*/
+	{ TERMMOD,              XK_K,           zoom,           {.f = +1} },    /*shift+alt+k 放大字体*/
+	{ TERMMOD,              XK_J,           zoom,           {.f = -1} },    /*shift+alt+j 缩小字体*/
+	{ TERMMOD,              XK_U,           zoom,           {.f = +2} },    /*shift+alt+u 快速放大字体*/
+	{ TERMMOD,              XK_D,           zoom,           {.f = -2} },	/*shift+alt+d 快速缩小字体*/
+	{ MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },    /* alt+l 打开url*/
+	{ MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },    /* alt+y 复制url*/
+	{ MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },    /* alt+o 复制输出*/
+};
+
+/*
+ * Special keys (change & recompile st.info accordingly)
+ *
+ * Mask value:
+ * * Use XK_ANY_MOD to match the key no matter modifiers state
+ * * Use XK_NO_MOD to match the key alone (no modifiers)
+ * appkey value:
+ * * 0: no value
+ * * > 0: keypad application mode enabled
+ * *   = 2: term.numlock = 1
+ * * < 0: keypad application mode disabled
+ * appcursor value:
+ * * 0: no value
+ * * > 0: cursor application mode enabled
+ * * < 0: cursor application mode disabled
+ *
+ * Be careful with the order of the definitions because st searches in
+ * this table sequentially, so any XK_ANY_MOD must be in the last
+ * position for a key.
+ */
+
+/*
+ * If you want keys other than the X11 function keys (0xFD00 - 0xFFFF)
+ * to be mapped below, add them to this array.
+ */
+static KeySym mappedkeys[] = { -1 };
+
+/*
+ * State bits to ignore when matching key or button events.  By default,
+ * numlock (Mod2Mask) and keyboard layout (XK_SWITCH_MOD) are ignored.
+ */
+static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
+
+/*
+ * This is the huge key array which defines all compatibility to the Linux
+ * world. Please decide about changes wisely.
+ */
+static Key key[] = {
+	/* keysym           mask            string      appkey appcursor */
+	{ XK_KP_Home,       ShiftMask,      "\033[2J",       0,   -1},
+	{ XK_KP_Home,       ShiftMask,      "\033[1;2H",     0,   +1},
+	{ XK_KP_Home,       XK_ANY_MOD,     "\033[H",        0,   -1},
+	{ XK_KP_Home,       XK_ANY_MOD,     "\033[1~",       0,   +1},
+	{ XK_KP_Up,         XK_ANY_MOD,     "\033Ox",       +1,    0},
+	{ XK_KP_Up,         XK_ANY_MOD,     "\033[A",        0,   -1},
+	{ XK_KP_Up,         XK_ANY_MOD,     "\033OA",        0,   +1},
+	{ XK_KP_Down,       XK_ANY_MOD,     "\033Or",       +1,    0},
+	{ XK_KP_Down,       XK_ANY_MOD,     "\033[B",        0,   -1},
+	{ XK_KP_Down,       XK_ANY_MOD,     "\033OB",        0,   +1},
+	{ XK_KP_Left,       XK_ANY_MOD,     "\033Ot",       +1,    0},
+	{ XK_KP_Left,       XK_ANY_MOD,     "\033[D",        0,   -1},
+	{ XK_KP_Left,       XK_ANY_MOD,     "\033OD",        0,   +1},
+	{ XK_KP_Right,      XK_ANY_MOD,     "\033Ov",       +1,    0},
+	{ XK_KP_Right,      XK_ANY_MOD,     "\033[C",        0,   -1},
+	{ XK_KP_Right,      XK_ANY_MOD,     "\033OC",        0,   +1},
+	{ XK_KP_Prior,      ShiftMask,      "\033[5;2~",     0,    0},
+	{ XK_KP_Prior,      XK_ANY_MOD,     "\033[5~",       0,    0},
+	{ XK_KP_Begin,      XK_ANY_MOD,     "\033[E",        0,    0},
+	{ XK_KP_End,        ControlMask,    "\033[J",       -1,    0},
+	{ XK_KP_End,        ControlMask,    "\033[1;5F",    +1,    0},
+	{ XK_KP_End,        ShiftMask,      "\033[K",       -1,    0},
+	{ XK_KP_End,        ShiftMask,      "\033[1;2F",    +1,    0},
+	{ XK_KP_End,        XK_ANY_MOD,     "\033[4~",       0,    0},
+	{ XK_KP_Next,       ShiftMask,      "\033[6;2~",     0,    0},
+	{ XK_KP_Next,       XK_ANY_MOD,     "\033[6~",       0,    0},
+	{ XK_KP_Insert,     ShiftMask,      "\033[2;2~",    +1,    0},
+	{ XK_KP_Insert,     ShiftMask,      "\033[4l",      -1,    0},
+	{ XK_KP_Insert,     ControlMask,    "\033[L",       -1,    0},
+	{ XK_KP_Insert,     ControlMask,    "\033[2;5~",    +1,    0},
+	{ XK_KP_Insert,     XK_ANY_MOD,     "\033[4h",      -1,    0},
+	{ XK_KP_Insert,     XK_ANY_MOD,     "\033[2~",      +1,    0},
+	{ XK_KP_Delete,     ControlMask,    "\033[M",       -1,    0},
+	{ XK_KP_Delete,     ControlMask,    "\033[3;5~",    +1,    0},
+	{ XK_KP_Delete,     ShiftMask,      "\033[2K",      -1,    0},
+	{ XK_KP_Delete,     ShiftMask,      "\033[3;2~",    +1,    0},
+	{ XK_KP_Delete,     XK_ANY_MOD,     "\033[P",       -1,    0},
+	{ XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",      +1,    0},
+	{ XK_KP_Multiply,   XK_ANY_MOD,     "\033Oj",       +2,    0},
+	{ XK_KP_Add,        XK_ANY_MOD,     "\033Ok",       +2,    0},
+	{ XK_KP_Enter,      XK_ANY_MOD,     "\033OM",       +2,    0},
+	{ XK_KP_Enter,      XK_ANY_MOD,     "\r",           -1,    0},
+	{ XK_KP_Subtract,   XK_ANY_MOD,     "\033Om",       +2,    0},
+	{ XK_KP_Decimal,    XK_ANY_MOD,     "\033On",       +2,    0},
+	{ XK_KP_Divide,     XK_ANY_MOD,     "\033Oo",       +2,    0},
+	{ XK_KP_0,          XK_ANY_MOD,     "\033Op",       +2,    0},
+	{ XK_KP_1,          XK_ANY_MOD,     "\033Oq",       +2,    0},
+	{ XK_KP_2,          XK_ANY_MOD,     "\033Or",       +2,    0},
+	{ XK_KP_3,          XK_ANY_MOD,     "\033Os",       +2,    0},
+	{ XK_KP_4,          XK_ANY_MOD,     "\033Ot",       +2,    0},
+	{ XK_KP_5,          XK_ANY_MOD,     "\033Ou",       +2,    0},
+	{ XK_KP_6,          XK_ANY_MOD,     "\033Ov",       +2,    0},
+	{ XK_KP_7,          XK_ANY_MOD,     "\033Ow",       +2,    0},
+	{ XK_KP_8,          XK_ANY_MOD,     "\033Ox",       +2,    0},
+	{ XK_KP_9,          XK_ANY_MOD,     "\033Oy",       +2,    0},
+	{ XK_Up,            ShiftMask,      "\033[1;2A",     0,    0},
+	{ XK_Up,            Mod1Mask,       "\033[1;3A",     0,    0},
+	{ XK_Up,         ShiftMask|Mod1Mask,"\033[1;4A",     0,    0},
+	{ XK_Up,            ControlMask,    "\033[1;5A",     0,    0},
+	{ XK_Up,      ShiftMask|ControlMask,"\033[1;6A",     0,    0},
+	{ XK_Up,       ControlMask|Mod1Mask,"\033[1;7A",     0,    0},
+	{ XK_Up,ShiftMask|ControlMask|Mod1Mask,"\033[1;8A",  0,    0},
+	{ XK_Up,            XK_ANY_MOD,     "\033[A",        0,   -1},
+	{ XK_Up,            XK_ANY_MOD,     "\033OA",        0,   +1},
+	{ XK_Down,          ShiftMask,      "\033[1;2B",     0,    0},
+	{ XK_Down,          Mod1Mask,       "\033[1;3B",     0,    0},
+	{ XK_Down,       ShiftMask|Mod1Mask,"\033[1;4B",     0,    0},
+	{ XK_Down,          ControlMask,    "\033[1;5B",     0,    0},
+	{ XK_Down,    ShiftMask|ControlMask,"\033[1;6B",     0,    0},
+	{ XK_Down,     ControlMask|Mod1Mask,"\033[1;7B",     0,    0},
+	{ XK_Down,ShiftMask|ControlMask|Mod1Mask,"\033[1;8B",0,    0},
+	{ XK_Down,          XK_ANY_MOD,     "\033[B",        0,   -1},
+	{ XK_Down,          XK_ANY_MOD,     "\033OB",        0,   +1},
+	{ XK_Left,          ShiftMask,      "\033[1;2D",     0,    0},
+	{ XK_Left,          Mod1Mask,       "\033[1;3D",     0,    0},
+	{ XK_Left,       ShiftMask|Mod1Mask,"\033[1;4D",     0,    0},
+	{ XK_Left,          ControlMask,    "\033[1;5D",     0,    0},
+	{ XK_Left,    ShiftMask|ControlMask,"\033[1;6D",     0,    0},
+	{ XK_Left,     ControlMask|Mod1Mask,"\033[1;7D",     0,    0},
+	{ XK_Left,ShiftMask|ControlMask|Mod1Mask,"\033[1;8D",0,    0},
+	{ XK_Left,          XK_ANY_MOD,     "\033[D",        0,   -1},
+	{ XK_Left,          XK_ANY_MOD,     "\033OD",        0,   +1},
+	{ XK_Right,         ShiftMask,      "\033[1;2C",     0,    0},
+	{ XK_Right,         Mod1Mask,       "\033[1;3C",     0,    0},
+	{ XK_Right,      ShiftMask|Mod1Mask,"\033[1;4C",     0,    0},
+	{ XK_Right,         ControlMask,    "\033[1;5C",     0,    0},
+	{ XK_Right,   ShiftMask|ControlMask,"\033[1;6C",     0,    0},
+	{ XK_Right,    ControlMask|Mod1Mask,"\033[1;7C",     0,    0},
+	{ XK_Right,ShiftMask|ControlMask|Mod1Mask,"\033[1;8C",0,   0},
+	{ XK_Right,         XK_ANY_MOD,     "\033[C",        0,   -1},
+	{ XK_Right,         XK_ANY_MOD,     "\033OC",        0,   +1},
+	{ XK_ISO_Left_Tab,  ShiftMask,      "\033[Z",        0,    0},
+	{ XK_Return,        Mod1Mask,       "\033\r",        0,    0},
+	{ XK_Return,        XK_ANY_MOD,     "\r",            0,    0},
+	{ XK_Insert,        ShiftMask,      "\033[4l",      -1,    0},
+	{ XK_Insert,        ShiftMask,      "\033[2;2~",    +1,    0},
+	{ XK_Insert,        ControlMask,    "\033[L",       -1,    0},
+	{ XK_Insert,        ControlMask,    "\033[2;5~",    +1,    0},
+	{ XK_Insert,        XK_ANY_MOD,     "\033[4h",      -1,    0},
+	{ XK_Insert,        XK_ANY_MOD,     "\033[2~",      +1,    0},
+	{ XK_Delete,        ControlMask,    "\033[M",       -1,    0},
+	{ XK_Delete,        ControlMask,    "\033[3;5~",    +1,    0},
+	{ XK_Delete,        ShiftMask,      "\033[2K",      -1,    0},
+	{ XK_Delete,        ShiftMask,      "\033[3;2~",    +1,    0},
+	{ XK_Delete,        XK_ANY_MOD,     "\033[P",       -1,    0},
+	{ XK_Delete,        XK_ANY_MOD,     "\033[3~",      +1,    0},
+	{ XK_BackSpace,     XK_NO_MOD,      "\177",          0,    0},
+	{ XK_BackSpace,     Mod1Mask,       "\033\177",      0,    0},
+	{ XK_Home,          ShiftMask,      "\033[2J",       0,   -1},
+	{ XK_Home,          ShiftMask,      "\033[1;2H",     0,   +1},
+	{ XK_Home,          XK_ANY_MOD,     "\033[H",        0,   -1},
+	{ XK_Home,          XK_ANY_MOD,     "\033[1~",       0,   +1},
+	{ XK_End,           ControlMask,    "\033[J",       -1,    0},
+	{ XK_End,           ControlMask,    "\033[1;5F",    +1,    0},
+	{ XK_End,           ShiftMask,      "\033[K",       -1,    0},
+	{ XK_End,           ShiftMask,      "\033[1;2F",    +1,    0},
+	{ XK_End,           XK_ANY_MOD,     "\033[4~",       0,    0},
+	{ XK_Prior,         ControlMask,    "\033[5;5~",     0,    0},
+	{ XK_Prior,         ShiftMask,      "\033[5;2~",     0,    0},
+	{ XK_Prior,         XK_ANY_MOD,     "\033[5~",       0,    0},
+	{ XK_Next,          ControlMask,    "\033[6;5~",     0,    0},
+	{ XK_Next,          ShiftMask,      "\033[6;2~",     0,    0},
+	{ XK_Next,          XK_ANY_MOD,     "\033[6~",       0,    0},
+	{ XK_F1,            XK_NO_MOD,      "\033OP" ,       0,    0},
+	{ XK_F1, /* F13 */  ShiftMask,      "\033[1;2P",     0,    0},
+	{ XK_F1, /* F25 */  ControlMask,    "\033[1;5P",     0,    0},
+	{ XK_F1, /* F37 */  Mod4Mask,       "\033[1;6P",     0,    0},
+	{ XK_F1, /* F49 */  Mod1Mask,       "\033[1;3P",     0,    0},
+	{ XK_F1, /* F61 */  Mod3Mask,       "\033[1;4P",     0,    0},
+	{ XK_F2,            XK_NO_MOD,      "\033OQ" ,       0,    0},
+	{ XK_F2, /* F14 */  ShiftMask,      "\033[1;2Q",     0,    0},
+	{ XK_F2, /* F26 */  ControlMask,    "\033[1;5Q",     0,    0},
+	{ XK_F2, /* F38 */  Mod4Mask,       "\033[1;6Q",     0,    0},
+	{ XK_F2, /* F50 */  Mod1Mask,       "\033[1;3Q",     0,    0},
+	{ XK_F2, /* F62 */  Mod3Mask,       "\033[1;4Q",     0,    0},
+	{ XK_F3,            XK_NO_MOD,      "\033OR" ,       0,    0},
+	{ XK_F3, /* F15 */  ShiftMask,      "\033[1;2R",     0,    0},
+	{ XK_F3, /* F27 */  ControlMask,    "\033[1;5R",     0,    0},
+	{ XK_F3, /* F39 */  Mod4Mask,       "\033[1;6R",     0,    0},
+	{ XK_F3, /* F51 */  Mod1Mask,       "\033[1;3R",     0,    0},
+	{ XK_F3, /* F63 */  Mod3Mask,       "\033[1;4R",     0,    0},
+	{ XK_F4,            XK_NO_MOD,      "\033OS" ,       0,    0},
+	{ XK_F4, /* F16 */  ShiftMask,      "\033[1;2S",     0,    0},
+	{ XK_F4, /* F28 */  ControlMask,    "\033[1;5S",     0,    0},
+	{ XK_F4, /* F40 */  Mod4Mask,       "\033[1;6S",     0,    0},
+	{ XK_F4, /* F52 */  Mod1Mask,       "\033[1;3S",     0,    0},
+	{ XK_F5,            XK_NO_MOD,      "\033[15~",      0,    0},
+	{ XK_F5, /* F17 */  ShiftMask,      "\033[15;2~",    0,    0},
+	{ XK_F5, /* F29 */  ControlMask,    "\033[15;5~",    0,    0},
+	{ XK_F5, /* F41 */  Mod4Mask,       "\033[15;6~",    0,    0},
+	{ XK_F5, /* F53 */  Mod1Mask,       "\033[15;3~",    0,    0},
+	{ XK_F6,            XK_NO_MOD,      "\033[17~",      0,    0},
+	{ XK_F6, /* F18 */  ShiftMask,      "\033[17;2~",    0,    0},
+	{ XK_F6, /* F30 */  ControlMask,    "\033[17;5~",    0,    0},
+	{ XK_F6, /* F42 */  Mod4Mask,       "\033[17;6~",    0,    0},
+	{ XK_F6, /* F54 */  Mod1Mask,       "\033[17;3~",    0,    0},
+	{ XK_F7,            XK_NO_MOD,      "\033[18~",      0,    0},
+	{ XK_F7, /* F19 */  ShiftMask,      "\033[18;2~",    0,    0},
+	{ XK_F7, /* F31 */  ControlMask,    "\033[18;5~",    0,    0},
+	{ XK_F7, /* F43 */  Mod4Mask,       "\033[18;6~",    0,    0},
+	{ XK_F7, /* F55 */  Mod1Mask,       "\033[18;3~",    0,    0},
+	{ XK_F8,            XK_NO_MOD,      "\033[19~",      0,    0},
+	{ XK_F8, /* F20 */  ShiftMask,      "\033[19;2~",    0,    0},
+	{ XK_F8, /* F32 */  ControlMask,    "\033[19;5~",    0,    0},
+	{ XK_F8, /* F44 */  Mod4Mask,       "\033[19;6~",    0,    0},
+	{ XK_F8, /* F56 */  Mod1Mask,       "\033[19;3~",    0,    0},
+	{ XK_F9,            XK_NO_MOD,      "\033[20~",      0,    0},
+	{ XK_F9, /* F21 */  ShiftMask,      "\033[20;2~",    0,    0},
+	{ XK_F9, /* F33 */  ControlMask,    "\033[20;5~",    0,    0},
+	{ XK_F9, /* F45 */  Mod4Mask,       "\033[20;6~",    0,    0},
+	{ XK_F9, /* F57 */  Mod1Mask,       "\033[20;3~",    0,    0},
+	{ XK_F10,           XK_NO_MOD,      "\033[21~",      0,    0},
+	{ XK_F10, /* F22 */ ShiftMask,      "\033[21;2~",    0,    0},
+	{ XK_F10, /* F34 */ ControlMask,    "\033[21;5~",    0,    0},
+	{ XK_F10, /* F46 */ Mod4Mask,       "\033[21;6~",    0,    0},
+	{ XK_F10, /* F58 */ Mod1Mask,       "\033[21;3~",    0,    0},
+	{ XK_F11,           XK_NO_MOD,      "\033[23~",      0,    0},
+	{ XK_F11, /* F23 */ ShiftMask,      "\033[23;2~",    0,    0},
+	{ XK_F11, /* F35 */ ControlMask,    "\033[23;5~",    0,    0},
+	{ XK_F11, /* F47 */ Mod4Mask,       "\033[23;6~",    0,    0},
+	{ XK_F11, /* F59 */ Mod1Mask,       "\033[23;3~",    0,    0},
+	{ XK_F12,           XK_NO_MOD,      "\033[24~",      0,    0},
+	{ XK_F12, /* F24 */ ShiftMask,      "\033[24;2~",    0,    0},
+	{ XK_F12, /* F36 */ ControlMask,    "\033[24;5~",    0,    0},
+	{ XK_F12, /* F48 */ Mod4Mask,       "\033[24;6~",    0,    0},
+	{ XK_F12, /* F60 */ Mod1Mask,       "\033[24;3~",    0,    0},
+	{ XK_F13,           XK_NO_MOD,      "\033[1;2P",     0,    0},
+	{ XK_F14,           XK_NO_MOD,      "\033[1;2Q",     0,    0},
+	{ XK_F15,           XK_NO_MOD,      "\033[1;2R",     0,    0},
+	{ XK_F16,           XK_NO_MOD,      "\033[1;2S",     0,    0},
+	{ XK_F17,           XK_NO_MOD,      "\033[15;2~",    0,    0},
+	{ XK_F18,           XK_NO_MOD,      "\033[17;2~",    0,    0},
+	{ XK_F19,           XK_NO_MOD,      "\033[18;2~",    0,    0},
+	{ XK_F20,           XK_NO_MOD,      "\033[19;2~",    0,    0},
+	{ XK_F21,           XK_NO_MOD,      "\033[20;2~",    0,    0},
+	{ XK_F22,           XK_NO_MOD,      "\033[21;2~",    0,    0},
+	{ XK_F23,           XK_NO_MOD,      "\033[23;2~",    0,    0},
+	{ XK_F24,           XK_NO_MOD,      "\033[24;2~",    0,    0},
+	{ XK_F25,           XK_NO_MOD,      "\033[1;5P",     0,    0},
+	{ XK_F26,           XK_NO_MOD,      "\033[1;5Q",     0,    0},
+	{ XK_F27,           XK_NO_MOD,      "\033[1;5R",     0,    0},
+	{ XK_F28,           XK_NO_MOD,      "\033[1;5S",     0,    0},
+	{ XK_F29,           XK_NO_MOD,      "\033[15;5~",    0,    0},
+	{ XK_F30,           XK_NO_MOD,      "\033[17;5~",    0,    0},
+	{ XK_F31,           XK_NO_MOD,      "\033[18;5~",    0,    0},
+	{ XK_F32,           XK_NO_MOD,      "\033[19;5~",    0,    0},
+	{ XK_F33,           XK_NO_MOD,      "\033[20;5~",    0,    0},
+	{ XK_F34,           XK_NO_MOD,      "\033[21;5~",    0,    0},
+	{ XK_F35,           XK_NO_MOD,      "\033[23;5~",    0,    0},
+};
+
+/*
+ * Selection types' masks.
+ * Use the same masks as usual.
+ * Button1Mask is always unset, to make masks match between ButtonPress.
+ * ButtonRelease and MotionNotify.
+ * If no match is found, regular selection is used.
+ */
+static uint selmasks[] = {
+	[SEL_RECTANGULAR] = Mod1Mask,
+};
+
+/*
+ * Printable characters in ASCII, used to estimate the advance width
+ * of single wide characters.
+ */
+static char ascii_printable[] =
+	" !\"#$%&'()*+,-./0123456789:;<=>?"
+	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
+	"`abcdefghijklmnopqrstuvwxyz{|}~";
+
+```
+
+
+
+
+
+
+
+
+
 # Linux小技巧
 
 ## [Linux性能分析](https://mp.weixin.qq.com/s?__biz=MzU5NDg5MzM5NQ==&mid=2247488166&idx=1&sn=c8d47fd8deb89bc05ca56991341225f2&chksm=fe7b1d9ac90c948c56c44f03bcf7802e62c4e8f9fd2a2c3b74b1bd0a229c2e422f5f052dcbd8&mpshare=1&scene=1&srcid=0327IfGLSkVkySNHS4U61MID&sharer_sharetime=1616804779201&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8#rd)
+
+
+
+
+
+
+
+## vim快捷键
+
+```vim
+
+" "########################################################
+" "vim 原本的快捷键
+" "########################################################
+
+" "------------------- 光标移动命令----------------------------
+" 单个字符移动：
+" h 或退格：光标左移一个字符；
+" l 或空格：光标右移一个字符；
+" j : 光标下移一行；
+" k : 光标上移一行；
+" xh:  向左移动x个字符距离
+
+" 单词移动：
+" w 跳到下一个字首，按标点或单词分割
+" W 跳到下一个字首，长跳，如end-of-line被认为是一个字
+" e 跳到下一个字尾
+" E 跳到下一个字尾，长跳
+" b 跳到上一个字
+" B 跳到上一个字，长跳
+" ge:  将光标移动到上一个单词的词末
+" 2w:  指定移动的次数
+
+" 行移动：
+" $:  将光标移动到当前行的行尾
+" 0:  将光标移动到当前行的行首
+" ^:  将光标移动到当前行的第一个非空字符（行首和当前行非空字符不是一个位置）
+" 2|:  移到当前行的第2列
+" fc : 把光标移到同一行的下一个 c 字符处
+" Fc : 把光标移到同一行的上一个 c 字符处
+" tc : 把光标移到同一行的下一个 c 字符前
+" Tc : 把光标移到同一行的上一个 c 字符后
+" 3fx: 将光标移动到当前行的第3个字符x上
+" tx:   将光标移动到目标字符x的前一个字符上
+" fx和tx可以通过;和,进行重复移动，一个是正向重复，一个是反向重复
+" ; 重复上一个f命令，而不用重复的输入fx
+" * 查找光标所在处的单词，向下查找
+" # 查找光标所在处的单词，向上查找
+" %:  用于符号间的移动，它会在一对()、[]、{}之间跳跃
+
+" 文本块移动：
+" (：  移到当前句子的开头
+" ):  移到下一个句子的开头
+" {:  移到当前一段的开头
+" }:  移到下一段的开头
+" [[:  移到当前这一节的开头
+" ]]:  移到下一节的开头
+
+" 在屏幕中移动
+" nG:  跳转到指定的第n行，G移动到文件按末尾，``（2次单引号)返回到跳转前的位置
+" gg:  移动到文件开头
+" G 调至文尾
+" 5gg/5G 调至第5行
+" gd 跳至当前光标所在的变量的声明处
+" 光标在当前行的基础上再跳 20 行：20+enter 键
+" x%:  移动到文件中间，就使用50%
+" H : 把光标移到屏幕最顶端一行。
+" M : 把光标移到屏幕中间一行。
+" L : 把光标移到屏幕最底端一行。
+" ctrl+G:  查看当前的位置状态
+
+
+" "--------------------------滚屏与跳转---------------------------------
+" 半屏滚动:  ctrl+u/ctrl+d
+" 全屏滚动:  ctrl+f/ctrl+b
+" ctrl-f 下翻一页,f = forward
+" ctrl-b 上翻一页,b = backward
+" ctrl-u 上翻半页,u = up
+" ctrl-d 下翻半页,d = down
+" 定位光标的位置
+" Ctrl-e    向下滚动一行；
+" Ctrl-y    向上滚动一行；
+" zz 让光标所在的行居屏幕中央
+" zt 让光标所在的行居屏幕最上一行 t=top
+" zb 让光标所在的行居屏幕最下一行 b=bottom
+
+" 设置跳转标记
+" mx,my,mz设置三个位置
+" `x,`y,`z跳转到设置
+
+
+" "---------------------文本插入操作---------------------------
+" i:  在当前光标的前面插入字符
+" a:  在当前光标的后面进入插入模式，追加字符
+" o:  在当前光标的下一行行首插入字符
+" I:  在一行的开头添加文本
+" A:  在一行的结尾处进入插入模式，添加文本
+" O:  在光标当前行的上一行插入文本
+" s:  删除当前光标处的字符并进入到插入模式
+" S:  删除光标所在处的行，并进入到插入模式
+" u:  撤销修改
+
+
+""-------------------文本删除操作--------------------------
+" 字符删除
+" x:  删除当前光标所在处的字符
+" X:  删除当前光标左边的字符
+
+" 单词删除
+" dw:  删除一个单词(从光标处到空格)
+" daw:  无论光标在什么位置，删除光标所在的整个单词(包括空白字符)
+" diw:  删除整个单词文本，但是保留空格字符不删除
+" d2w:  删除从当前光标开始处的2个单词
+" d$:  删除从光标到一行末尾的整个文本
+" d0:  删除从光标到一行开头的所有单词
+" dl:  删除当前光标处的字符=x
+" dh:  删除当前光标左边的字符=X
+
+" 行删除
+" dd:  删除当前光标处的一整行=D
+" 5dd:  删除从光标开始处的5行代码
+" dgg:  删除从光标到文本开头
+" dG:  删除从光标到文本结尾
+
+" 行合并
+" J:  删除一个分行符，将当前行与下一行合并
+
+
+"------------------------ 文本复制、剪切与粘贴---------------------------
+" y:  复制，p:粘贴
+" yw:  复制一个单词
+" y2w:  复制2个单词
+" y$:  复制从当前光标到行结尾的所有单词
+" y0:  复制从当前光标到行首的所有单词
+" yy:  复制一整行
+" 2yy:  复制从当前光标所在行开始的2行
+
+" 复制文本块
+"     1.首先进入visual模式：v
+"     2.移动光标选择文本
+"     3.复制与粘贴的操作
+
+"--------------------- 文本的修改与替换-------------------------------
+" cw:  删除从光标处到单词结尾的文本并进入到插入模式
+" cb:  删除从光标处到单词开头的文本并进入到插入模式
+" cc 删除当前行并进入编辑模式
+" c$ 擦除从当前位置至行末的内容，并进入编辑模式
+" s 删除当前字符并进入编辑模式
+" S 删除光标所在行并进入编辑模式
+" ~： 修改光标下字符的大小写
+" r:  替换当前光标下的字符
+" R:  进入到替换模式
+" xp:  交换光标所在字符和下一个字符
+" >> 将当前行右移一个单位
+" << 将当前行左移一个单位(一个tab符)
+" == 自动缩进当前行
+
+"------------------------- 文本的查找与替换-------------------------
+" /string   正向查找
+" ?string   反向查找
+"  n 下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)
+"  N 上一个匹配(同上)
+"  /\CWord ： 区分大小写的查找
+"  /\cword ： 不区分大小写的查找
+
+" 设置高亮显示
+"     :set hls
+"     *按键将当前光标处的单词高亮显示，使用n浏览下一个查找高亮的结果
+" :s/old/new   将当前行的第一个字符串old替换为new
+" :s/old/new/g   将当前行的所有字符串old替换为new
+" :90s/old/new/g  将指定行的所有字符串old替换为new
+" :90,93s/old/new/g  将指定范围的行的所有字符串old替换为new
+"  :%s/old/new/g 搜索整个文件，将所有的old替换为new
+"  :%s/old/new/gc 搜索整个文件，将所有的old替换为new，每次都要你确认是否替换
+" :%s/^struct/int/g   将所有以struct开头的字符串替换为int
+
+
+"---------------------------- 撤销修改、重做与保存---------------------------------
+" u:  撤销上一步的操作。
+" Ctrl+r:  将原来的插销重做一遍
+" U：  恢复一整行原来的面貌（文件打开时的文本状态）
+" q:  若文件没有修改，直接退出
+" q!:  文件已经被修改，放弃修改退出
+" wq:  文件已经被修改，保存修改并退出
+" e!:  放弃修改，重新回到文件打开时的状态
+
+
+"---------------------------- 编辑多个文件----------------------------------------
+" 文件和缓冲区的区别
+" 文件是保存在磁盘上的，而打开的文件的文件是在内存中，在内存中有一个缓冲区，用来存放打开的文件。vim每次打开文件时都会创建一个缓冲区，vim支持打开多个文件
+" 缓冲区
+" :buffers或:ls或:files 显示缓冲区列表。
+" ctrl+^：在最近两个缓冲区间切换。
+" :bn -- 下一个缓冲区。
+" :bp -- 上一个缓冲区。
+" :bl -- 最后一个缓冲区。
+" :b[n]或:[n]b -- 切换到第n个缓冲区。
+" :nbw(ipeout) -- 彻底删除第n个缓冲区。
+" :nbd(elete) -- 删除第n个缓冲区，并未真正删除，还在unlisted列表中。
+" :ba[ll] -- 把所有的缓冲区在当前页中打开，每个缓冲区占一个窗口。
+" :bfirst/blast  分别调到缓冲区列表的开头和结尾
+" :write   将缓冲区的修改保存到磁盘上
+
+
+" 文档操作
+" :e file --关闭当前编辑的文件，并开启新的文件。 如果对当前文件的修改未保存，vi会警告。
+" :e! file --放弃对当前文件的修改，编辑新的文件。
+" :e+file -- 开始新的文件，并从文件尾开始编辑。
+" :e+n file -- 开始新的文件，并从第n行开始编辑。
+" :enew --编译一个未命名的新文档。(CTRL-W n)
+" :e -- 重新加载当前文档。
+" :e! -- 重新加载当前文档，并丢弃已做的改动。
+" :e#或ctrl+^ -- 回到刚才编辑的文件，很实用。
+" :f或ctrl+g -- 显示文档名，是否修改，和光标位置。
+" :f filename -- 改变编辑的文件名，这时再保存相当于另存为。
+" gf -- 打开以光标所在字符串为文件名的文件。
+" :w -- 保存修改。
+" :n1,n2w filename -- 选择性保存从某n1行到另n2行的内容。
+" :wq -- 保存并退出。
+" ZZ -- 保存并退出。
+" :x -- 保存并退出。
+" :q[uit] ——退出当前窗口。(CTRL-W q或CTRL-W CTRL-Q)
+" :saveas newfilename -- 另存为
+
+
+"---------------------------------标签页与折叠栏-----------------------------------------
+" 多标签编辑
+" vim -p files: 打开多个文件，每个文件占用一个标签页。
+" :tabe, tabnew -- 如果加文件名，就在新的标签中打开这个文件， 否则打开一个空缓冲区。
+" ^w gf -- 在新的标签页里打开光标下路径指定的文件。
+" :tabn -- 切换到下一个标签。Control + PageDown，也可以。
+" :tabp -- 切换到上一个标签。Control + PageUp，也可以。
+" [n] gt -- 切换到下一个标签。如果前面加了 n ， 就切换到第n个标签。第一个标签的序号就是1。
+" :tab split -- 将当前缓冲区的内容在新页签中打开。
+" :tabc[lose] -- 关闭当前的标签页。
+" :tabo[nly] -- 关闭其它的标签页。
+" :tabs -- 列出所有的标签页和它们包含的窗口。
+" :tabm[ove] [N] -- 移动标签页，移动到第N个标签页之后。 如 tabm 0 当前标签页，就会变成第一个标签页。
+" 创建一个折叠
+"     zf200G:将光标和200行之间的代码折叠起来
+" 折叠的打开与关闭
+"     za:  打开和关闭折叠
+"     zr/zm: 一层一层地打开和关闭折叠
+"     zR/zM: 分别打开和关闭所有的折叠
+" 折叠键的光标移动
+"     zj: 跳转到下一个折叠处
+"     zk: 跳转到上一个折叠处
+" 删除折叠
+"     zd: 删除光标下的折叠
+"     zD: 删除光标下的折叠以及嵌套的折叠
+"     zE: 删除所有的折叠标签
+"     创建的折叠当退出vim之后就失效了。
+
+
+"----------------------- 多窗口操作---------------------------
+" 分割窗口
+" :split/vsplit filename
+" 窗口间跳转
+" ctrl+w hjkl   ,先键入Ctrl+w, 松开后再键入ARROW(h,j,k,l或方向键)
+" CTRL-W h        跳转到左边的窗口
+" CTRL-W j        跳转到下面的窗口
+" CTRL-W k        跳转到上面的窗口
+" CTRL-W l        跳转到右边的窗口
+
+" CTRL-W t        跳转到最顶上的窗口
+" CTRL-W b        跳转到最底下的窗口
+
+" ctrl+w w        循环跳转
+
+" 移动窗口
+"     ctrl+w HJKL
+" CTRL-W K    窗口将被移到最上面,如果你用的是垂直分割，CTRL-W K 会使当前窗口移动到上面并扩展到整屏的宽度。
+" CTRL-W H        把当前窗口移到最左边
+" CTRL-W J        把当前窗口移到最下边
+" CTRL-W L        把当前窗口移到最右边
+
+
+" 调整窗口尺寸
+"     ctrl+w +/-  调整窗口的高度
+"     ctrl+w </>  调整窗口的宽度
+"     ctrl+w = 所有的窗口设置相同的尺寸
+"     :resize n将当前窗口尺寸调整为N行
+" 关闭窗口
+"     :close: 关闭一个窗口
+"     :qall: 退出所有窗口
+"     :qall!: 放弃修改，退出所有窗口
+"     :wqall: 保存并退出所有窗口
+"     :wall: 保存所有窗口
+
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"-----------------------------vim快捷键结束----------------------------------------------
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+" 在开发中，可能会遇到一次性给多行代码增加注释的情况。
+" 操作步骤如下：
+" 在命令模式下，移动到要添加注释代码的第一行，按下 "^" 将光标移动到行首。
+" 按下 "Ctrl + v"， 命令模式 --> 可视块模式。
+" 使用 "j" 向下连续选中要添加的代码行。
+" 输入 "I"， 可视块模式 --> 编辑模式。（注意：必须使用 "I"）
+" 输入 "#" 字符，也就是注释的符号。
+" 按下 "Esc"， 编辑模式 --> 命令模式。
+```
+
+
+
+
+
+## vim/Neovim通过vim-plug、bundle插件安装
+
+```bash
+# junjie @ Ubuntu in ~/.config/nvim [日期: 周五 4月 02日, 时间:15:10:59]
+$ ll
+总用量 456K
+drwxr-xr-x 1 junjie junjie 4.0K 4月   1 15:39 ./
+drwx------ 1 junjie junjie 4.0K 4月   2 10:15 ../
+drwxr-x--- 1 junjie junjie 4.0K 4月   2 14:46 autoload/    # plug.vim在这里面
+-rw-r--r-- 1 junjie junjie 162K 4月   1 15:39 init.vim    # nvim的配置文件
+
+#################################################################################################
+#  vim-plug
+" :PlugStatus  检查状态：
+" :PlugInstall 输入下面的命令，然后按回车键安装之前在配置文件中声明的插件。
+" :PlugUpdate  要更新插件，请运行：
+" :PlugClean  删除一个插件删除或注释掉你以前在你的 vim 配置文件中添加的 plug 命令
+" :PlugUpgrade   要升级 vim-plug 本身，
+
+
+
+# bundle
+" :PluginInstall:安装插件
+" :PluginClean:移除不要的插件
+" :PluginUpdate:更新插件
+" :PluginList:列出所有安装的插件
+" :PluginSearch:查找插件
+################################vim用户, vim-plug安装插件#######################################################
+# 如果用的是vim-plug，则安装vim-plug
+$ curl -fLo ~/.vim/autoload/plug.vim  --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# 对于vim配置文件，如果是通过vim-plug安装插件，则在.vimrc中如下：
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
+Plug 'itchyny/lightline.vim'
+call plug#end()
+
+#也就是~/.vim/autoload/和~/.vim/plugged/两个目录是vim用户vim-plug安装插件时所需的
+# junjie @ Ubuntu in ~/.vim [日期: 周五 4月 02日, 时间:15:57:23]
+$ ll
+总用量 0
+drwxr-x--- 1 junjie junjie 4.0K 6月  20  2020 ./
+drwxr-xr-x 1 junjie junjie 4.0K 4月   2 14:59 ../
+drwxr-x--- 1 junjie junjie 4.0K 6月  19  2020 autoload/
+drwxrwxrwx 1 junjie junjie 4.0K 4月   2 15:01 plugged/
+################################vim用户, bundle安装插件#######################################################
+# 安装bundle
+#vim用户
+git clone https://github.com/VundleVim/Vundle.vim.git  ∼/.vim/bundle/Vundle.vim
+
+# 对于vim配置文件，如果是通过vundle安装插件，则在.vimrc中如下：
+" 你在此设置运行时路径 
+set rtp+=~/.vim/bundle/Vundle.vim  
+" vundle初始化 
+call vundle#begin()  
+" 这应该始终是第一个 
+Plugin 'gmarik/Vundle.vim'
+"每个插件都应该在这一行之前  
+call vundle#end()  
+#也就是~/.vim/bundle一个目录是vim用户bundle安装插件时所需的
+# junjie @ Ubuntu in ~/.vim [日期: 周五 4月 02日, 时间:15:57:23]
+$ ll
+总用量 0
+drwxr-x--- 1 junjie junjie 4.0K 6月  20  2020 ./
+drwxr-xr-x 1 junjie junjie 4.0K 4月   2 14:59 ../
+drwxrwxrwx 1 junjie junjie 4.0K 4月   2 15:01 bundle/
+################################  Neovim用户, vim-plug安装插件#######################################################
+#Neovim 用户可以使用以下命令安装 Vim-plug：
+$ curl -fLo ~/.config/nvim/autoload/plug.vim  --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+#在~/.config/nvim/init.vim文件中增加如下：
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.config/nvim/plugged')
+Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
+call plug#end()
+
+# junjie @ Ubuntu in ~/.config/nvim [日期: 周五 4月 02日, 时间:15:27:23]
+$ ll
+总用量 256K
+drwxr-xr-x 1 junjie junjie 4.0K 4月   2 15:13 ./
+drwx------ 1 junjie junjie 4.0K 4月   2 10:15 ../
+drwxr-x--- 1 junjie junjie 4.0K 4月   2 14:46 autoload/
+-rw-r--r-- 1 junjie junjie 162K 4月   1 15:39 init.vim
+drwxrwxrwx 1 junjie junjie 4.0K 4月   2 15:01 plugged/
+
+
+########################################Neovim用户, bundle安装插件#########################################################
+# Neovim 用户可以使用以下命令安装:sudo apt-get install neovim
+$ git clone https://github.com/VundleVim/Vundle.vim.git  ∼/.nvim/bundle/Vundle.vim
+
+# 创建 neovim 的配置文件: 
+$ nvim  ~/.nvimrc
+
+set rtp+=~/.nvim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'mattn/emmet-vim'     “emmet的插件
+Plugin 'scrooloose/nerdtree'  ”nerdtree插件
+Plugin 'ervandew/supertab'   “superTab插件
+call vundle#end()
+
+#   启动 neovim
+# :BundleInstall
+#######################################################
+
+```
+
+> neovim + vim-plug
+
+为了使用coc.nvim插件先安装以下软件：
+
+1. 安装yarn:
+
+   ```bash
+   $: curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+   $: echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+   $: sudo apt update
+   $: sudo apt install yarn
+   ```
+
+   
+
+2. 安装npm
+
+   + sudo apt install npm
+
+3. 安装ccls
+
+   ```bash
+   $: git clone --depth=1 --recursive https://github.com/MaskRay/ccls
+   $: cd ccls
+   $: cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_PREFIX_PATH=/path/to/clang+llvm
+   $: sudo cmake --build Release --target install
+   ```
+
+   
+
+4. [去网站](https://github.com/junjiecjj/nvim)下载配置文件至~/.config/nvim/init.vim
+
+5. 颜色：
+
+   ```bash
+   $: cd .config/nvim
+   $: mkdir colors
+   $: cd colors
+   $: sudo cp /usr/share/vim/vim81/colors/*.vim .
+   ```
+
+##  xcompmgr+transset-df
+
+xcompmgr+transset-df 可以实现阴影、原生窗口透明(配合 transset 工具)等特效.
+
+```bash
+$: sudo apt-get install xcompmgr libxcomposite1 libxcomposite-dev libxfixes3 libxfixes-dev libxdamage1 libxdamage-dev libxrender1 libxrender-dev
+# http://forchheimer.se/transset-df/ 下载transset-df压缩包,download transset-df from this page
+$: tar zxf transset-df-X.tar.gz where X is the versionnumber
+$: cd transset-df-X/
+$: make
+$: sudo make install  
+```
+
+
 
 
 
