@@ -2025,7 +2025,8 @@ sudo apt install libharfbuzz-dev
 ## 安装st
 
 ```bash
-$: git clone  https://github.com/junjiecjj/st-1.git  或https://github.com/junjiecjj/st-2.git
+$: git clone  https://github.com/junjiecjj/st-1.git  或
+$: git clone  https://github.com/junjiecjj/st-2.git
 $: cd st-1
 $: sudo make clean install 
 ```
