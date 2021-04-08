@@ -55,6 +55,7 @@
    ```bash
    # 去https://www.nerdfonts.com/font-downloads下载字体，存放在~/下载/nerdfonts/下
    $: mkdir -p /usr/share/fonts/truetypes/nerdfonts
+   $: cd /usr/share/fonts/truetypes/nerdfonts
    $: cp 下载/nerdfonts/*  .
    #:生成字体信息缓存
    $:fc-cache -vf  
@@ -103,7 +104,12 @@
 
      chmod +x installfiracode_font.sh
 
-     需要注意的是，该脚本会将字体下载到: `~/.local/share/fonts/` 下，如果要设置为系统字体，将该目录中的所有字体复制到系统字体目录中，即 `sudo cp ~/.local/share/fonts/FiraCode-*.ttf   /usr/share/fonts/`
+     需要注意的是，该脚本会将字体下载到: `~/.local/share/fonts/` 下，如果要设置为系统字体，将该目录中的所有字体复制到系统字体目录中，即
+
+     ````bash
+     sudo mkdir /usr/share/fonts/truetype/firacode
+     sudo cp ~/.local/share/fonts/FiraCode-*.ttf   /usr/share/fonts/firacode/
+     ````
 
    + 查看本地字体:fc-list,看到这一行就说明已经安装成功了
 
@@ -121,7 +127,14 @@
 
 网址：https://www.jetbrains.com/lp/mono/,下载
 
- 字体包解压缩到${HOME}/.fonts下并执行sudo fc-cache -f -v命令
+```bash
+sudo mkdir /usr/share/fonts/truetype/jetbrains
+sudo cp ~/下载/JetBrainsMono-2.225/fonts/ttf/*.ttf  /usr/share/fonts/truetype/jetbrains/
+cd  /usr/share/fonts/truetype/jetbrains/
+sudo fc-cache -f -v
+```
+
+
 
 
 
@@ -1970,7 +1983,7 @@ $ sudo make install
 
 # suckless 套装
 
-## fatal error: X11/XXXX.h: No such file or directory
+## fatal error: X11/XX.h: No such file or directory
 
 linux系统源码安装软件经常会遇到库文件不存在，错误信息大多如下：
 
@@ -2063,7 +2076,18 @@ $: cd dmenu
 $: sudo make clean install 
 ```
 
+###  xcompmgr+transset-df
 
+xcompmgr+transset-df 可以实现阴影、原生窗口透明(配合 transset 工具)等特效.
+
+```bash
+$: sudo apt-get install xcompmgr libxcomposite1 libxcomposite-dev libxfixes3 libxfixes-dev libxdamage1 libxdamage-dev libxrender1 libxrender-dev
+# http://forchheimer.se/transset-df/ 下载transset-df压缩包,download transset-df from this page
+$: tar zxf transset-df-X.tar.gz where X is the versionnumber
+$: cd transset-df-X/
+$: make
+$: sudo make install  
+```
 
 ## 快捷键
 
@@ -2073,7 +2097,168 @@ $: sudo make clean install
 
 
 
+#  vim/Neovim配置
 
+```bash
+# junjie @ Ubuntu in ~/.config/nvim [日期: 周五 4月 02日, 时间:15:10:59]
+$ ll
+总用量 456K
+drwxr-xr-x 1 junjie junjie 4.0K 4月   1 15:39 ./
+drwx------ 1 junjie junjie 4.0K 4月   2 10:15 ../
+drwxr-x--- 1 junjie junjie 4.0K 4月   2 14:46 autoload/    # plug.vim在这里面
+-rw-r--r-- 1 junjie junjie 162K 4月   1 15:39 init.vim    # nvim的配置文件
+
+#################################################################################################
+#  vim-plug
+" :PlugStatus  检查状态：
+" :PlugInstall 输入下面的命令，然后按回车键安装之前在配置文件中声明的插件。
+" :PlugUpdate  要更新插件，请运行：
+" :PlugClean  删除一个插件删除或注释掉你以前在你的 vim 配置文件中添加的 plug 命令
+" :PlugUpgrade   要升级 vim-plug 本身，
+
+
+
+# bundle
+" :PluginInstall:安装插件
+" :PluginClean:移除不要的插件
+" :PluginUpdate:更新插件
+" :PluginList:列出所有安装的插件
+" :PluginSearch:查找插件
+################################vim用户, vim-plug安装插件#######################################################
+# 如果用的是vim-plug，则安装vim-plug
+$ curl -fLo ~/.vim/autoload/plug.vim  --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# 对于vim配置文件，如果是通过vim-plug安装插件，则在.vimrc中如下：
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
+Plug 'itchyny/lightline.vim'
+call plug#end()
+
+#也就是~/.vim/autoload/和~/.vim/plugged/两个目录是vim用户vim-plug安装插件时所需的
+# junjie @ Ubuntu in ~/.vim [日期: 周五 4月 02日, 时间:15:57:23]
+$ ll
+总用量 0
+drwxr-x--- 1 junjie junjie 4.0K 6月  20  2020 ./
+drwxr-xr-x 1 junjie junjie 4.0K 4月   2 14:59 ../
+drwxr-x--- 1 junjie junjie 4.0K 6月  19  2020 autoload/
+drwxrwxrwx 1 junjie junjie 4.0K 4月   2 15:01 plugged/
+################################vim用户, bundle安装插件#######################################################
+# 安装bundle
+#vim用户
+git clone https://github.com/VundleVim/Vundle.vim.git  ∼/.vim/bundle/Vundle.vim
+
+# 对于vim配置文件，如果是通过vundle安装插件，则在.vimrc中如下：
+" 你在此设置运行时路径 
+set rtp+=~/.vim/bundle/Vundle.vim  
+" vundle初始化 
+call vundle#begin()  
+" 这应该始终是第一个 
+Plugin 'gmarik/Vundle.vim'
+"每个插件都应该在这一行之前  
+call vundle#end()  
+#也就是~/.vim/bundle一个目录是vim用户bundle安装插件时所需的
+# junjie @ Ubuntu in ~/.vim [日期: 周五 4月 02日, 时间:15:57:23]
+$ ll
+总用量 0
+drwxr-x--- 1 junjie junjie 4.0K 6月  20  2020 ./
+drwxr-xr-x 1 junjie junjie 4.0K 4月   2 14:59 ../
+drwxrwxrwx 1 junjie junjie 4.0K 4月   2 15:01 bundle/
+################################  Neovim用户, vim-plug安装插件#######################################################
+#Neovim 用户可以使用以下命令安装 Vim-plug：
+$ curl -fLo ~/.config/nvim/autoload/plug.vim  --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+#在~/.config/nvim/init.vim文件中增加如下：
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.config/nvim/plugged')
+Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
+call plug#end()
+
+# junjie @ Ubuntu in ~/.config/nvim [日期: 周五 4月 02日, 时间:15:27:23]
+$ ll
+总用量 256K
+drwxr-xr-x 1 junjie junjie 4.0K 4月   2 15:13 ./
+drwx------ 1 junjie junjie 4.0K 4月   2 10:15 ../
+drwxr-x--- 1 junjie junjie 4.0K 4月   2 14:46 autoload/
+-rw-r--r-- 1 junjie junjie 162K 4月   1 15:39 init.vim
+drwxrwxrwx 1 junjie junjie 4.0K 4月   2 15:01 plugged/
+
+
+########################################Neovim用户, bundle安装插件#########################################################
+# Neovim 用户可以使用以下命令安装:sudo apt-get install neovim
+$ git clone https://github.com/VundleVim/Vundle.vim.git  ∼/.nvim/bundle/Vundle.vim
+
+# 创建 neovim 的配置文件: 
+$ nvim  ~/.nvimrc
+
+set rtp+=~/.nvim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'mattn/emmet-vim'     “emmet的插件
+Plugin 'scrooloose/nerdtree'  ”nerdtree插件
+Plugin 'ervandew/supertab'   “superTab插件
+call vundle#end()
+
+#   启动 neovim
+# :BundleInstall
+#######################################################
+
+```
+
+> neovim + vim-plug
+
+为了使用coc.nvim插件先安装以下软件：
+
+1. 安装python3
+
+   nvim 中使用 **:checkhealth**
+
+   ```bash
+   pip3 install --user --upgrade pynvim
+   ```
+
+2. 安装yarn:
+
+```bash
+$: curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+$: echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+$: sudo apt update
+$: sudo apt install yarn
+```
+
+
+
+3. 安装npm
+
++ sudo apt install npm
+
+4. 安装ccls
+
+```bash
+$: git clone --depth=1 --recursive https://github.com/MaskRay/ccls
+$: cd ccls
+$: cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_PREFIX_PATH=/path/to/clang+llvm
+$: sudo cmake --build Release --target install
+```
+
+
+
+5. [去网站](https://github.com/junjiecjj/nvim)下载配置文件至~/.config/nvim/init.vim
+
+6. 颜色：
+
+```bash
+$: cd .config/nvim
+$: mkdir colors
+$: cd colors
+$: sudo cp /usr/share/vim/vim81/colors/*.vim  .
+```
 
 
 
@@ -2413,175 +2598,6 @@ $: sudo make clean install
 
 
 
-
-
-## vim/Neovim通过vim-plug、bundle插件安装
-
-```bash
-# junjie @ Ubuntu in ~/.config/nvim [日期: 周五 4月 02日, 时间:15:10:59]
-$ ll
-总用量 456K
-drwxr-xr-x 1 junjie junjie 4.0K 4月   1 15:39 ./
-drwx------ 1 junjie junjie 4.0K 4月   2 10:15 ../
-drwxr-x--- 1 junjie junjie 4.0K 4月   2 14:46 autoload/    # plug.vim在这里面
--rw-r--r-- 1 junjie junjie 162K 4月   1 15:39 init.vim    # nvim的配置文件
-
-#################################################################################################
-#  vim-plug
-" :PlugStatus  检查状态：
-" :PlugInstall 输入下面的命令，然后按回车键安装之前在配置文件中声明的插件。
-" :PlugUpdate  要更新插件，请运行：
-" :PlugClean  删除一个插件删除或注释掉你以前在你的 vim 配置文件中添加的 plug 命令
-" :PlugUpgrade   要升级 vim-plug 本身，
-
-
-
-# bundle
-" :PluginInstall:安装插件
-" :PluginClean:移除不要的插件
-" :PluginUpdate:更新插件
-" :PluginList:列出所有安装的插件
-" :PluginSearch:查找插件
-################################vim用户, vim-plug安装插件#######################################################
-# 如果用的是vim-plug，则安装vim-plug
-$ curl -fLo ~/.vim/autoload/plug.vim  --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-# 对于vim配置文件，如果是通过vim-plug安装插件，则在.vimrc中如下：
-if empty(glob('~/.vim/autoload/plug.vim'))
-	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-call plug#begin('~/.vim/plugged')
-Plug 'itchyny/lightline.vim'
-call plug#end()
-
-#也就是~/.vim/autoload/和~/.vim/plugged/两个目录是vim用户vim-plug安装插件时所需的
-# junjie @ Ubuntu in ~/.vim [日期: 周五 4月 02日, 时间:15:57:23]
-$ ll
-总用量 0
-drwxr-x--- 1 junjie junjie 4.0K 6月  20  2020 ./
-drwxr-xr-x 1 junjie junjie 4.0K 4月   2 14:59 ../
-drwxr-x--- 1 junjie junjie 4.0K 6月  19  2020 autoload/
-drwxrwxrwx 1 junjie junjie 4.0K 4月   2 15:01 plugged/
-################################vim用户, bundle安装插件#######################################################
-# 安装bundle
-#vim用户
-git clone https://github.com/VundleVim/Vundle.vim.git  ∼/.vim/bundle/Vundle.vim
-
-# 对于vim配置文件，如果是通过vundle安装插件，则在.vimrc中如下：
-" 你在此设置运行时路径 
-set rtp+=~/.vim/bundle/Vundle.vim  
-" vundle初始化 
-call vundle#begin()  
-" 这应该始终是第一个 
-Plugin 'gmarik/Vundle.vim'
-"每个插件都应该在这一行之前  
-call vundle#end()  
-#也就是~/.vim/bundle一个目录是vim用户bundle安装插件时所需的
-# junjie @ Ubuntu in ~/.vim [日期: 周五 4月 02日, 时间:15:57:23]
-$ ll
-总用量 0
-drwxr-x--- 1 junjie junjie 4.0K 6月  20  2020 ./
-drwxr-xr-x 1 junjie junjie 4.0K 4月   2 14:59 ../
-drwxrwxrwx 1 junjie junjie 4.0K 4月   2 15:01 bundle/
-################################  Neovim用户, vim-plug安装插件#######################################################
-#Neovim 用户可以使用以下命令安装 Vim-plug：
-$ curl -fLo ~/.config/nvim/autoload/plug.vim  --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-#在~/.config/nvim/init.vim文件中增加如下：
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-call plug#begin('~/.config/nvim/plugged')
-Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
-call plug#end()
-
-# junjie @ Ubuntu in ~/.config/nvim [日期: 周五 4月 02日, 时间:15:27:23]
-$ ll
-总用量 256K
-drwxr-xr-x 1 junjie junjie 4.0K 4月   2 15:13 ./
-drwx------ 1 junjie junjie 4.0K 4月   2 10:15 ../
-drwxr-x--- 1 junjie junjie 4.0K 4月   2 14:46 autoload/
--rw-r--r-- 1 junjie junjie 162K 4月   1 15:39 init.vim
-drwxrwxrwx 1 junjie junjie 4.0K 4月   2 15:01 plugged/
-
-
-########################################Neovim用户, bundle安装插件#########################################################
-# Neovim 用户可以使用以下命令安装:sudo apt-get install neovim
-$ git clone https://github.com/VundleVim/Vundle.vim.git  ∼/.nvim/bundle/Vundle.vim
-
-# 创建 neovim 的配置文件: 
-$ nvim  ~/.nvimrc
-
-set rtp+=~/.nvim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'mattn/emmet-vim'     “emmet的插件
-Plugin 'scrooloose/nerdtree'  ”nerdtree插件
-Plugin 'ervandew/supertab'   “superTab插件
-call vundle#end()
-
-#   启动 neovim
-# :BundleInstall
-#######################################################
-
-```
-
-> neovim + vim-plug
-
-为了使用coc.nvim插件先安装以下软件：
-
-1. 安装yarn:
-
-   ```bash
-   $: curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-   $: echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-   $: sudo apt update
-   $: sudo apt install yarn
-   ```
-
-   
-
-2. 安装npm
-
-   + sudo apt install npm
-
-3. 安装ccls
-
-   ```bash
-   $: git clone --depth=1 --recursive https://github.com/MaskRay/ccls
-   $: cd ccls
-   $: cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_PREFIX_PATH=/path/to/clang+llvm
-   $: sudo cmake --build Release --target install
-   ```
-
-   
-
-4. [去网站](https://github.com/junjiecjj/nvim)下载配置文件至~/.config/nvim/init.vim
-
-5. 颜色：
-
-   ```bash
-   $: cd .config/nvim
-   $: mkdir colors
-   $: cd colors
-   $: sudo cp /usr/share/vim/vim81/colors/*.vim .
-   ```
-
-##  xcompmgr+transset-df
-
-xcompmgr+transset-df 可以实现阴影、原生窗口透明(配合 transset 工具)等特效.
-
-```bash
-$: sudo apt-get install xcompmgr libxcomposite1 libxcomposite-dev libxfixes3 libxfixes-dev libxdamage1 libxdamage-dev libxrender1 libxrender-dev
-# http://forchheimer.se/transset-df/ 下载transset-df压缩包,download transset-df from this page
-$: tar zxf transset-df-X.tar.gz where X is the versionnumber
-$: cd transset-df-X/
-$: make
-$: sudo make install  
-```
 
 
 
