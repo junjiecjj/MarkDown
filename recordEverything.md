@@ -2089,7 +2089,93 @@ $: make
 $: sudo make install  
 ```
 
+> desktop
+
+
+
+
+
+> 输入法
+
+fcitx -d&,(在 exec dwm 之前) 这样使用 slim 或者 startx 后，输入法就可用了
+
+```bash
+# .xinitrc
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+fcitx &
+while true; do
+xsetroot -name "Bat.$(acpi -b | awk '{print $4}') | Vol.$(amixer get Master| tail -n 1 | awk ‘{print $5}' | tr -d '[]') $(LC_ALL='C' date +'%F[%b %a] %R')"
+sleep 20
+done &
+exec dwm
+# exec i3
+# exec xmonad
+```
+
+
+
+
+
 ## 快捷键
+
+```
+
+
+XK_apostrophe ,    英文是'号，引号
+
+ XF86XK_AudioLowerVolume ,
+
+XK_period,      {".", XK_period}, 点号
+
+XK_comma,   逗号,
+
+XF86XK_AudioMute, 
+XF86XK_AudioRaiseVolume, 
+XK_bracketleft,    "["
+XK_backslash,      {"\\", XK_backslash},  
+XK_bracketright,   “]”
+XK_Print,     PrtSc
+XK_semicolon,    ;    {";", XK_semicolon},  分号
+XK_Scroll_Lock      {"SCR", XK_Scroll_Lock},
+XK_grave      {"`", XK_grave}, 反引号
+
+
+
+{"BAC", XK_BackSpace},        {"BS", XK_BackSpace},        {"BKS", XK_BackSpace},
+{"BRE", XK_Break},        {"CAN", XK_Cancel},         {"CAP", XK_Caps_Lock},
+{"DEL", XK_Delete},        {"DOW", XK_Down},        {"END", XK_End},
+{"ENT", XK_Return},        {"ESC", XK_Escape},        {"HEL", XK_Help},
+{"HOM", XK_Home},        {"INS", XK_Insert},        {"LEF", XK_Left},
+{"NUM", XK_Num_Lock},        {"PGD", XK_Next},        {"PGU", XK_Prior},
+{"PRT", XK_Print},        {"RIG", XK_Right},        {"SCR", XK_Scroll_Lock},
+{"TAB", XK_Tab},        {"UP", XK_Up},            {"F1", XK_F1},
+{"F2", XK_F2},            {"F3", XK_F3},            {"F4", XK_F4},
+{"F5", XK_F5},            {"F6", XK_F6},            {"F7", XK_F7},
+{"F8", XK_F8},            {"F9", XK_F9},            {"F10", XK_F10},
+{"F11", XK_F11},        {"F12", XK_F12},        {"SPC", XK_space},
+{"SPA", XK_space},        {"LSK", XK_Super_L},         {"RSK", XK_Super_R},
+{"MNU", XK_Menu},        {"~", XK_asciitilde},        {"_", XK_underscore},
+{"[", XK_bracketleft},        {"]", XK_bracketright},        {"!", XK_exclam},
+{"\"", XK_quotedbl},         {"#", XK_numbersign},        {"$", XK_dollar},
+{"%", XK_percent},        {"", XK_ampersand},         {"'", XK_quoteright},
+{"*", XK_asterisk},        {"+", XK_plus},            {",", XK_comma},
+{"-", XK_minus},        {".", XK_period},         {"?", XK_question},
+{"<", XK_less},            {">", XK_greater},        {"=", XK_equal},
+{"@", XK_at},            {":", XK_colon},        {";", XK_semicolon},
+{"\\", XK_backslash},         {"`", XK_grave},        {"{", XK_braceleft},
+{"}", XK_braceright},        {"|", XK_bar},            {"^", XK_asciicircum},
+{"(", XK_parenleft},        {")", XK_parenright},         {" ", XK_space},
+{"/", XK_slash},        {"\t", XK_Tab},            {"\n", XK_Return},
+{"LSH", XK_Shift_L},        {"RSH", XK_Shift_R},        {"LCT", XK_Control_L},
+{"RCT", XK_Control_R},        {"LAL", XK_Alt_L},        {"RAL", XK_Alt_R},
+{"LMA", XK_Meta_L},        {"RMA", XK_Meta_R}
+
+
+
+
+```
 
 
 
