@@ -2223,14 +2223,12 @@ linux中调节音量的命令为` amixer`  ： 用于系统音量的调节，在
 
 ### 输入法、开机启动
 
-fcitx -d&,(在 exec dwm 之前) 这样使用 slim 或者 startx 后，输入法就可用了
+fcitx -d&,(在 exec dwm 之前) 这样使用 slim 或者 startx 后，输入法就可用了,
+
+vim ~/.xinitrc：    #不要sudo！！
 
 ```bash
 # .xinitrc
-
-
-vim ~/.xinitrc：    #不要sudo！！
-......
 
 # twm &   #注释掉或直接删掉
 # xclock -geometry 50x50-1+1 &   #注释掉或直接删掉
