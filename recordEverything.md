@@ -2048,6 +2048,12 @@ $: sudo make clean install
 
 ## 安装dmenus
 
+dmenu 类似于 kde 下菜单栏里的应用启动器，但是比起 kde 来要方便快捷多了。使用方法是按下 win+s 键，dwm 顶部的菜单栏里就会出现 dmenu，然后输入你想打开的图形 gui 程序名，dmenu 会根据你输入的字符迅速自动搜索出当前系统里所有符合输入内容的程序名，按键盘的左右方向键选择想要打开的程序，最后按 Enter 键即可打开。
+
+使用 dmenu，你可以很方便快捷地打开 kde、gnome、xfce 等主流桌面环境里自带的应用程序。由于我之前装的是 kde plasma，所以也习惯了用 kde 家的 dolphin 文件管理器、kate 文本编辑器、okular PDF 阅读器，kde 的自带应用做得确实不错。
+
+注意 dmenu 只能打开带图形界面 gui 的程序，没有 gui 的程序用 dmenu 打开是看不到反应的；没有 gui 的纯命令行程序还是通过 alacritty 终端输入程序名打开吧。
+
 ```bash
 $: git clone https://github.com/junjiecjj/dmenu.git
 $: cd dmenu
@@ -2057,6 +2063,212 @@ $: sudo make clean install
 
 
 ## 安装dwm
+
+
+
+###  xcompmgr+transset-df
+
+xcompmgr+transset-df 可以实现阴影、原生窗口透明(配合 transset 工具)等特效.
+
+```bash
+$: sudo apt-get install xcompmgr libxcomposite1 libxcomposite-dev libxfixes3 libxfixes-dev libxdamage1 libxdamage-dev libxrender1 libxrender-dev
+# http://forchheimer.se/transset-df/ 下载transset-df压缩包,download transset-df from this page
+$: tar zxf transset-df-X.tar.gz //X为版本号
+$: cd transset-df-X/
+$: make
+$: sudo make install  
+```
+
+在`.xinitrc`中添加：
+
+
+
+### picom
+
+picom 可以实现阴影、原生窗口透明(配合 transset 工具)等特效.
+
+在`.xinitrc`中添加：`picom -b`就可以使用compton
+
+```bash
+$: sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libpcre3-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev
+
+$ git clone https://github.com/jonaburg/picom
+$ git submodule update --init --recursive
+$ cd picom
+$ meson --buildtype=release . build
+$ LDFLAGS="-L/path/to/libraries" CPPFLAGS="-I/path/to/headers" meson --buildtype=release . build
+$ ninja -C build
+# To install the binaries in /usr/local/bin (optional)
+$ sudo ninja -C build install
+
+```
+
+
+
+
+
+### compton
+
+compton 可以实现阴影、原生窗口透明(配合 transset 工具)等特效
+
+若要禁用所有的阴影特效，需要加上 `-C` 和 `-G` 这两个参数:
+
+```bash
+compton -CG
+```
+
+若要在登录 X 会话的过程中，以后台进程（[Daemon](https://wiki.archlinux.org/index.php/Daemon)）的形式自动运行 compton，必须加上 `-b` 参数：
+
+```bash
+compton -b
+```
+
+将前面的参数一起用，效果也就一起有了:
+
+```bash
+compton -CGb
+```
+
+最后这个例子演示了如何使用需要指定数值的参数:
+
+```bash
+compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
+```
+
+在`.xinitrc`中添加：`compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88`就可以使用compton。
+
+
+
+### ploybar
+
+```bash
+$ sudo apt update
+$ sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python3-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev
+$ sudo apt install libxcb-composite0-dev
+$ sudo apt install libjsoncpp-dev
+$ sudo ln -s /usr/include/jsoncpp/json/ /usr/include/json
+
+$ git clone https://github.com/jaagr/polybar.git
+
+$ cd polybar && ./build.sh
+//启动polybar
+$ polybar example
+
+
+或者
+$ vim  /etc/apt/sources.list
+增加以下
+deb http://cz.archive.ubuntu.com/ubuntu groovy main universe
+然后
+$ sudo apt install polybar
+```
+
+
+
+
+
+### 其他服务软件
+
+```bash
+#基础依赖
+$ sudo apt-get install suckless-tools libx11-dev libxft-dev libxinerama-dev gcc make
+
+#背光灯调整工具
+$ sudo apt install light
+#为背光灯调整工具设置 sudo 免密码
+$ sudo visudo
+#然后在文本最后加入如下代码
+{登录系统的用户名jack} ALL=NOPASSWD:/usr/bin/light
+
+#安装截图工具
+$ sudo apt install flameshot
+
+#安装数字键盘工具, 用于进入dwm桌面后自动开启数字键盘
+$ sudo apt install numlockx
+
+#virtualbox
+$ sudo apt-get install virtualbox-guest-utils virtualbox-guest-X11
+
+#电源监控工具
+$ sudo apt install acpi acpitool
+
+#透明配置支持
+$ sudo apt install compton
+#或者用下面的工具
+$ sudo apt install xcompmgr
+
+#背景图片设置工具
+$ sudo apt install feh
+
+#用于显示笔记本电脑电池的电量
+$ sudo apt install acpi     
+
+#用于屏幕亮度的调节
+$ sudo apt install xbacklight
+
+#屏幕前显示键盘触发键
+$: sudo apt install screenkey
+
+//安装 nm-applet
+$: sudo apt-get install network-manager-gnome
+```
+
+linux中设置状态栏的命令为 `xsetroot`  ： 定制、显示简易的系统状态栏(电池电量、音量、日期、时间等)；
+linux中调节音量的命令为` amixer`  ： 用于系统音量的调节，在alsa-utils包中
+
+- `alsa-utils` 声音管理
+
+
+
+
+### 输入法、开机启动
+
+fcitx -d&,(在 exec dwm 之前) 这样使用 slim 或者 startx 后，输入法就可用了
+
+```bash
+# .xinitrc
+
+
+vim ~/.xinitrc：    #不要sudo！！
+......
+
+# twm &   #注释掉或直接删掉
+# xclock -geometry 50x50-1+1 &   #注释掉或直接删掉
+# xterm -geometry 80x50+494+51 &   #注释掉或直接删掉
+# xterm -geometry 80x20+494-0 &   #注释掉或直接删掉
+# exec xterm -geometry 80x66+0+0 -name login   #注释掉或直接删掉
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto   #关于xrandr的这两行配置，每一行后面都不要加上"&"，否则nvidia驱动不能正常加载，会导致黑屏
+eval "$(dbus-launch --sh-syntax --exit-with-session)" &
+export GTK_IM_MODULE=fcitx &
+export QT_IM_MODULE=fcitx &
+export XMODIFIERS=@im=fcitx &
+fcitx &   #使用fcitx中文输入法
+picom -CGb &   #使用picom窗口渲染器
+while xsetroot -name "Wifi:$(cat /sys/class/net/<你的无线网卡名>/operstate)|Ethernet:$(cat /sys/class/net/<你的有线网卡名>/operstate)|Battery:$(acpi -b | awk '{print $4}' | cut -d"," -f1)|Volume:$(amixer get Master | awk -F'[][]' 'END{ print $4":"$2 }')|$(LC_ALL='C' date +'%F[%b %a] %R')"   #在dwm的菜单栏里显示一个简易的系统状态栏，包括wifi、有线网、电池电量、音量、日期和时间(24小时制)。喜欢功能丰富的同学可以自己去安装配置polybar、conky、i3status、slstatus等，从中选一个。
+do
+sleep 60   #每隔1分钟刷新一次状态栏
+done &
+exec  ~/.config/polybar/launch.sh
+#while true; do
+#xsetroot -name "Bat.$(acpi -b | awk '{print $4}') | Vol.$(amixer get Master| tail -n 1 | awk ‘{print $5}' | tr -d '[]') $(LC_ALL='C' date +'%F[%b %a] %R')"
+#sleep 20
+#done &
+
+while habak -ms -hi ~/<你的壁纸目录>/   #让habak从你的壁纸目录中随机选择一张屏幕壁纸显示
+do
+sleep 600   #让habak每隔10分钟随机切换一张屏幕壁纸
+done &
+numlockx &   #自动自动开启数字键盘
+exec dwm   #万事具备，启动dwm
+
+
+```
+
+
+
+
+### 安装dwm
 
 先安装dwmstatus
 
@@ -2076,51 +2288,82 @@ $: cd dmenu
 $: sudo make clean install 
 ```
 
-###  xcompmgr+transset-df
 
-xcompmgr+transset-df 可以实现阴影、原生窗口透明(配合 transset 工具)等特效.
+
+### 两种启动方式
+
+1.登陆管理器 DM;
+
+ 2.通过 startx 脚本命令进入
+
+> 使用 display manager 启动,
+
+以 ubuntu 20.04 为例，ubuntu 20.04 使用 gdm3 做为 display manager，配置完成之后可以在登录界面选择 dwm 作为桌面启动，如下图：
+
+![img](https://pic4.zhimg.com/80/v2-4882d922beda138d5e779beff552187b_720w.jpg)
+
+具体配置方式，进入 `/usr/share/xsessions/` 目录，新建文件 `dwm.desktop`, 输入内容：
+
 
 ```bash
-$: sudo apt-get install xcompmgr libxcomposite1 libxcomposite-dev libxfixes3 libxfixes-dev libxdamage1 libxdamage-dev libxrender1 libxrender-dev
-# http://forchheimer.se/transset-df/ 下载transset-df压缩包,download transset-df from this page
-$: tar zxf transset-df-X.tar.gz where X is the versionnumber
-$: cd transset-df-X/
-$: make
-$: sudo make install  
+[Desktop Entry]
+Encoding=UTF-8
+Name=Dwm
+Comment=Dynamic window manager
+Exec=dwm
+Icon=dwm
+Type=XSession
 ```
 
-> desktop
 
 
+>  使用 startx 命令从文字界面启动 (推荐)
 
+此方式开机更加快速，使用更加灵活，系统资源占用更少。
 
+**首先将系统改为默认进入文字界面**
 
-> 输入法
-
-fcitx -d&,(在 exec dwm 之前) 这样使用 slim 或者 startx 后，输入法就可用了
+修改 grub 配置，打开文件 `/etc/default/grub`, 将 `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"` 的改为 `GRUB_CMDLINE_LINUX_DEFAULT="text"` 然后执行命令
 
 ```bash
-# .xinitrc
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-fcitx &
-while true; do
-xsetroot -name "Bat.$(acpi -b | awk '{print $4}') | Vol.$(amixer get Master| tail -n 1 | awk ‘{print $5}' | tr -d '[]') $(LC_ALL='C' date +'%F[%b %a] %R')"
-sleep 20
-done &
+$ sudo update-grub
+```
+
+将启动等级改为多用户等级，执行如下命令：
+
+```bash
+$ systemctl set-default multi-user.target 
+// 如果想改回启动图形界面执行下面
+$ systemctl set-default graphical.target
+```
+
+最后修改 `~/.xsession` 文件（如果没有就新建），在最后一行加入
+
+```bash
 exec dwm
-# exec i3
-# exec xmonad
 ```
 
+重启电脑，执行 startx 命令，直接进入 dwm，同时也可以执行 `sudo systemctl start gdm.service` 命令，打开 gdm3 的用户登录界面。
 
+<font face="黑体" color=red size=7>或</font>
+
+```bash
+sudo rc-update delete xdm default   #禁用开机启动登陆管理器DM
+
+sudo reboot
+
+重启后进入简陋的tty界面，输入用户名和密码登陆进系统后
+
+startx   #不要sudo！
+```
+
+即可进入 dwm。此方法脱离了登陆管理器 DM，更加灵活。
 
 
 
 ## 快捷键
 
-```
+```c
 
 
 XK_apostrophe ,    英文是'号，引号
@@ -2134,8 +2377,8 @@ XK_comma,   逗号,
 XF86XK_AudioMute, 
 XF86XK_AudioRaiseVolume, 
 XK_bracketleft,    "["
-XK_backslash,      {"\\", XK_backslash},  
-XK_bracketright,   “]”
+XK_backslash,      {"\", XK_backslash},   
+XK_bracketright,   "]"
 XK_Print,     PrtSc
 XK_semicolon,    ;    {";", XK_semicolon},  分号
 XK_Scroll_Lock      {"SCR", XK_Scroll_Lock},
@@ -2172,9 +2415,223 @@ XK_grave      {"`", XK_grave}, 反引号
 {"RCT", XK_Control_R},        {"LAL", XK_Alt_L},        {"RAL", XK_Alt_R},
 {"LMA", XK_Meta_L},        {"RMA", XK_Meta_R}
 
+#define MODKEY Mod1Mask
+#define TAGKEYS(KEY,TAG) \
+	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
+/* helper for spawning shell commands in the pre dwm-5.0 fashion */
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+/* commands */
+static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *termcmd[]  = { "st", NULL };
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
+static const char *slimlockcmd[]  = { "slimlock", NULL };
 
+#include "movestack.c"
+static Key keys[] = {
+	/* modifier                     key        function        argument */
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slimlockcmd } },  //调用 slimlockcmd 进行锁屏
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },  //打开 dmen 面板（应用菜单）
+	{ MODKEY|ControlMask,           XK_space,  spawn,          {.v = dmenucmd } },  //打开 dmen 面板（应用菜单）
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },  //新建一个窗格，（开一个终端应用（st））
+	{ MODKEY|Mod4Mask,              XK_s,      spawn,          SHCMD("transset-df -a --dec .1") },  //减少当前窗格应用的透明度
+	{ MODKEY|Mod4Mask,              XK_d,      spawn,          SHCMD("transset-df -a --inc .1") },  //增加当前窗格应用的透明度
+	{ MODKEY|Mod4Mask,              XK_f,      spawn,          SHCMD("transset-df -a .75") },  //恢复当前窗格应用的初始默认的透明度
+	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },  //打开一个命令行终端小窗格窗口
+	{ MODKEY,                       XK_b,      togglebar,      {0} },  //显示与隐藏状态栏
+	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },  //顺时针循环滚动当前窗口的窗格位置	
+	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },  //逆时针循环滚动当前窗口的窗格位置
+	{ MODKEY|ShiftMask,             XK_d,      movestack,      {.i = +1 } },  //将窗口与下一个窗格互换
+	{ MODKEY|ShiftMask,             XK_u,      movestack,      {.i = -1 } },  //将当前窗口与排在上一窗格互换
+	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },  //将光标焦点移动到下一个窗格
+	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },  //将光标焦点移动到上一个窗格
+	{ MODKEY|ShiftMask,             XK_h,      hidewin,        {0} },  // 最小化/隐藏藏 当前窗格
+	{ MODKEY|ShiftMask,             XK_r,      restorewin,     {0} },  // 恢复当前窗口下隐藏的窗格,非全部，一次一个恢复
+	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },  //插入主窗格的堆栈
+	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },  //减少主窗格的堆栈数
+	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },  //将当前的窗格宽度减向左扩展或缩小
+	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },  //将当前的窗格宽度向右边扩展或缩小
+	{ MODKEY|Mod4Mask,              XK_h,      incrgaps,       {.i = +1 } },  //
+	{ MODKEY|Mod4Mask,              XK_l,      incrgaps,       {.i = -1 } },  //
+	{ MODKEY|Mod4Mask|ShiftMask,    XK_h,      incrogaps,      {.i = +1 } },  //
+	{ MODKEY|Mod4Mask|ShiftMask,    XK_l,      incrogaps,      {.i = -1 } },  //
+	{ MODKEY|Mod4Mask|ControlMask,  XK_h,      incrigaps,      {.i = +1 } },  //
+	{ MODKEY|Mod4Mask|ControlMask,  XK_l,      incrigaps,      {.i = -1 } },  //
+	{ MODKEY|Mod4Mask,              XK_0,      togglegaps,     {0} },  //
+	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },  //
+	{ MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } },  //
+	{ MODKEY,                       XK_o,      incrihgaps,     {.i = -1 } },  //
+	{ MODKEY|ControlMask,           XK_y,      incrivgaps,     {.i = +1 } },  //
+	{ MODKEY|ControlMask,           XK_o,      incrivgaps,     {.i = -1 } },  //
+	{ MODKEY|Mod4Mask,              XK_y,      incrohgaps,     {.i = +1 } },  //
+	{ MODKEY|Mod4Mask,              XK_o,      incrohgaps,     {.i = -1 } },  //
+	{ MODKEY|ShiftMask,             XK_y,      incrovgaps,     {.i = +1 } },  //
+	{ MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } },  //
+	{ MODKEY,                       XK_Return, zoom,           {0} },  //将当前窗口与主窗口互换、若是当前是主窗口则将其与上一个窗格互换，并聚焦在主窗格
+	{ MODKEY,                       XK_Tab,    view,           {0} },  //查看桌面标签。最后参数可以是NULL（全局查看）或是tags[数字]指定的桌面标签
+	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },  //关闭当前窗口，强制关闭窗口。最后参数NULL
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },  //将当前窗口的模式改为排版,主格居左，副窗格居右，新增窗格水平分割
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },  //
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },  //改变当前窗口的模式为浮动
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },  //将当前窗口的副窗格堆模式改为垂直排列布局方式,主窗堆在上，副窗堆在下，副窗格垂直分割
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },  //将当前窗口的副窗格堆布局模式改为底部水平排列局方式,主窗堆在上，副窗堆在下，副窗格水平分割
+	{ MODKEY|ControlMask,           XK_u,      setlayout,      {.v = &layouts[5]} },  //将当前窗口的副窗格堆模式改为垂直排列布局方式
+	{ MODKEY|ControlMask,           XK_o,      setlayout,      {.v = &layouts[6]} },  //将当前窗口的窗格模式改为中心排列布局方式,主窗格在中心占大位，副窗口分列在左右水平分割
+	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[7]} },  //将当前窗口的窗格模式改为网格模式,一列两行、两行两列、三行三列..
+	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },  //将当前窗口铺满全屏幕（最大化）
+	{ MODKEY,                       XK_space,  setlayout,      {0} },  //
+	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },  //切换是否浮动。最后参数NULL
+	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },  //查看桌面标签。最后参数可以是NULL（全局查看）或是tags[数字]指定的桌面标签
+	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },  //切换指定的窗口到达指定的桌面标签。最后参数tags[数字]指定的桌面标签
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },  //
+	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },  //
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },  //
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },  //
+	TAGKEYS(                        XK_1,                      0)        //切换 1～9 的窗口
+	TAGKEYS(                        XK_2,                      1)
+	TAGKEYS(                        XK_3,                      2)
+	TAGKEYS(                        XK_4,                      3)
+	TAGKEYS(                        XK_5,                      4)
+	TAGKEYS(                        XK_6,                      5)
+	TAGKEYS(                        XK_7,                      6)
+	TAGKEYS(                        XK_8,                      7)
+	TAGKEYS(                        XK_9,                      8)
+	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} }, //退出 dwm
+};
+################################################################################
+static const Layout layouts[] = {
+	/* symbol     arrange function */
+	{ "Tile",      tile },    /* first entry is default */
+	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[M]",      monocle },
+    
+	{ "[]{",      tile },    /* first entry is default */
+	{ ">v<",      NULL },    /* no layout function means floating behavior */
+	{ "TTT",      bstack },
+	{ "===",      bstackhoriz },
+	{ ":M:",      centeredmaster },
+	{ "|M|",      centeredfloatingmaster },
+	{ "HHH",      grid },
+};
+                    
+                    
+static const char *dmenucmd[] = {"dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL};
+static const char *termcmd[] = {"st", NULL};
+static const char *browsercmd[] = {"google-chrome-stable", NULL};
+static const char *trayercmd[] = {"/home/jack/scripts/trayer-toggle.sh", NULL};
+static const char *upvol[] = {"/home/jack/scripts/vol-up.sh", NULL};
+static const char *downvol[] = {"/home/jack/scripts/vol-down.sh", NULL};
+static const char *mutevol[] = {"/home/jack/scripts/vol-toggle.sh", NULL};
+//static const char *wpcmd[] = {"/home/jack/scripts/wp-change.sh", NULL};
+static const char *wpcmd[] = {"feh", "--recursive", "--randomize", "--bg-fill", "~/图片/wallpapers/ghibili", NULL};                    
+static const char *sktogglecmd[] = {"/home/jack/scripts/sck-tog.sh", NULL};
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = {"st", "-t", scratchpadname, "-g", "80x24", NULL};
+static const char *setcolemakcmd[] = {"/home/jack/scripts/setxmodmap-colemak.sh", NULL};
+static const char *setqwertycmd[] = {"/home/jack/scripts/setxmodmap-qwerty.sh", NULL};
+//static const char *suspendcmd[] = {"/home/jack/scripts/suspend.sh", NULL};
+static const char *suspendcmd[] = {"systemctl","suspend", NULL};
+static const char *screenshotcmd[] = {"flameshot", "gui", NULL};
+//以下是增加的
+static const char *volup[] = {"amixer", "-qM", "set", "Master", "2%+", "umute", NULL};
+static const char *voldown[] = {"amixer", "-qM", "set", "Master", "2%-", "umute", NULL}; //#定义系统音量大小调节的快捷键功能
+static const char *mute[] = {"amixer", "-qM", "set", "Master", "toggle", NULL};			 //#定义开 / 关静音的快捷键功能
+static const char *lightup[] = {"xbacklight", "-inc", "2", NULL};
+static const char *lightdown[] = {"xbacklight", "-dec", "2", NULL};					  //#定义屏幕亮度调节的快捷键功能
+static const char *chromium[] = {"google-chrome-stable", "--disk-cache-dir=/tmp/google-chrome-stable", NULL}; //#定义chrome浏览器的快捷键功能
+static const char *dolphin[] = {"dolphin", NULL};	 	  //#定义dolphin文件管理器的快捷键功能
+
+static Key keys[] = {
+	/* modifier            key                      function        argument */
+	{ MODKEY,              XK_s,                    spawn,          {.v = dmenucmd } }, // win+s打开 dmen 面板（应用菜单）呼出dmenu应用程序启动器
+	{ MODKEY,              XK_Return,               spawn,          {.v = termcmd } },// win+回车新建一个窗格，（开一个终端应用（st））
+	{ MODKEY,              XK_c,                    spawn,          {.v = browsercmd } },// win+c 呼出chromium浏览器
+ 	{ MODKEY|ShiftMask,    XK_t,                    spawn,          {.v = trayercmd } },// win+shift+t 呼出系统托盘
+	{ MODKEY|ShiftMask|ControlMask,    XK_q,        spawn,          {.v = setqwertycmd } },//win+shift+ctrl+q 键盘模式为qwerty
+	{ MODKEY|ShiftMask|ControlMask,    XK_c,        spawn,          {.v = setcolemakcmd } },//win+shift+ctrl+c 键盘模式为colemal
+	{ MODKEY|ControlMask,    XK_s,                  spawn,          {.v = suspendcmd } },  // win+ctrl+s休眠
+	{ MODKEY|ShiftMask, 	 XK_s,                  spawn,          {.v = sktogglecmd } },//调出screenkey
+	{ 0,                   XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },//降低音量
+	{ 0,                   XF86XK_AudioMute,        spawn,          {.v = mutevol } },
+	{ 0,                   XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },//增加音量
+	{ MODKEY,              XK_bracketleft,          spawn,          {.v = downvol } },// win+[ 降低音量
+	{ MODKEY,              XK_backslash,            spawn,          {.v = mutevol } },// win+\ 静音
+	{ MODKEY,              XK_bracketright,         spawn,          {.v = upvol   } },// win+] 增加音量
+	{ MODKEY|ControlMask,  XK_b,              	    spawn,          {.v = wpcmd } }, //win+b换壁纸
+	{ 0,                   XK_Print,                spawn,          {.v = screenshotcmd } },  //PrtSc 截图
+	{ MODKEY|ShiftMask,    XK_j,                    rotatestack,    {.i = +1 } }, //顺时针循环滚动当前窗口的窗格位置	
+	{ MODKEY|ShiftMask,    XK_k,                    rotatestack,    {.i = -1 } },//逆时针循环滚动当前窗口的窗格位置
+    { MODKEY,              XK_Up,     				focusstack,     {.i = +1 } },	//将光标焦点移动到下一个窗格
+    { MODKEY,              XK_Down,   				focusstack,     {.i = -1 } },   //将光标焦点移动到上一个窗格 
+	{ MODKEY|ShiftMask,    XK_j,                    incnmaster,     {.i = +1 } },//插入主窗格的堆栈
+	{ MODKEY|ShiftMask,    XK_k,                    incnmaster,     {.i = -1 } },//减少主窗格的堆栈数
+	{ MODKEY,              XK_h,                    viewtoleft,     {0} },
+	{ MODKEY,              XK_l,                    viewtoright,    {0} },
+	{ MODKEY|ShiftMask,    XK_h,                    tagtoleft,      {0} },
+	{ MODKEY|ShiftMask,    XK_l,                    tagtoright,     {0} },
+    { MODKEY,              XK_Left,   				setmfact,       {.f = -0.05} },//将当前的窗格宽度减向左扩展或缩小
+    { MODKEY,              XK_Right,  				setmfact,       {.f = +0.05} },   // win+左/右方向键，调整程序窗口的大小
+	{ MODKEY,              XK_m,                    hidewin,        {0} }, // win+m 最小化/隐藏藏 当前窗格
+	{ MODKEY|ShiftMask,    XK_m,                    restorewin,     {0} }, // win+shift+m 恢复当前窗口下隐藏的窗格,非全部，一次一个恢复
+	{ MODKEY,              XK_o,                    hideotherwins,  {0}},  // win+ o 最小化/隐藏藏除当前外的其他窗格
+	{ MODKEY|ShiftMask,    XK_o,                    restoreotherwins, {0}},// win+shift+o 恢复当前窗口下隐藏除当前外的其他窗格
+	{ MODKEY|ShiftMask,    XK_Return,               zoom,           {0} }, //win+shift+回车 将当前窗口与主窗口互换，若是当前是主窗口则将其与上一个窗格互换，并聚焦在主窗格
+	{ MODKEY,              XK_Tab,                  view,           {0} }, //查看桌面标签。最后参数可以是NULL（全局查看）或是tags[数字]指定的桌面标签
+    { MODKEY,              XK_0,                    view,           {.ui = ~0 } },
+	{ MODKEY|ControlMask,  XK_0,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|ControlMask,  XK_1,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|ControlMask,  XK_2,      setlayout,      {.v = &layouts[2]} },  //将当前窗口的模式改为排版,主格居左，副窗格居右，新增窗格水平分割
+	{ MODKEY|ControlMask,  XK_3,      setlayout,      {.v = &layouts[3]} },  //
+	{ MODKEY|ControlMask,  XK_4,      setlayout,      {.v = &layouts[4]} },  //改变当前窗口的模式为浮动
+	{ MODKEY|ControlMask,  XK_5,      setlayout,      {.v = &layouts[5]} },  //将当前窗口的副窗格堆模式改为垂直排列布局方式,主窗堆在上，副窗堆在下，副窗格垂直分割
+	{ MODKEY|ControlMask,  XK_6,      setlayout,      {.v = &layouts[6]} },  //将当前窗口的副窗格堆布局模式改为底部水平排列局方式,主窗堆在上，副窗堆在下，副窗格水平分割
+	{ MODKEY|ControlMask,  XK_7,     setlayout,      {.v = &layouts[7]} },  //将当前窗口的副窗格堆模式改为垂直排列布局方式
+	{ MODKEY|ControlMask,  XK_8,     setlayout,      {.v = &layouts[8]} },  //将当前窗口的窗格模式改为中心排列布局方式,主窗格在中心占大位，副窗口分列在左右水平分割
+	{ MODKEY,              XK_9,     setlayout,      {.v = &layouts[9]} },  //将当前窗口的窗格模式改为网格模式,一列两行、两行两列、三行三列..
+	{ MODKEY|ShiftMask,    XK_f,                    fullscreen,     {0} },  // win+shift
+	{ MODKEY,              XK_space,                setlayout,      {0} },
+	{ MODKEY|ShiftMask,    XK_space,                togglefloating, {0} },//切换是否浮动。最后参数NULL
+	{ MODKEY,              XK_grave,                togglescratch,  {.v = scratchpadcmd } },//win+` 打开一个命令行终端小窗格窗口
+	{ MODKEY|ShiftMask,    XK_0,                    tag,            {.ui = ~0 } },//切换指定的窗口到达指定的桌面标签。最后参数tags[数字]指定的桌面标签
+    { MODKEY|ShiftMask, 	XK_1, 					tag, 			tags[0] },
+    { MODKEY|ShiftMask, 	XK_2, 					tag, 			tags[1] },
+    { MODKEY|ShiftMask, 	XK_3,				    tag, 			tags[2] },
+    { MODKEY|ShiftMask, 	XK_4, 					tag, 			tags[3] },
+    { MODKEY|ShiftMask, 	XK_5, 					tag, 			tags[4] },
+	{ MODKEY,              XK_comma,                focusmon,       {.i = -1 } },  //win+, 
+	{ MODKEY,              XK_period,               focusmon,       {.i = +1 } },  //win+.
+	{ MODKEY|ShiftMask,    XK_comma,                tagmon,         {.i = -1 } },	//win+shift, 
+	{ MODKEY|ShiftMask,    XK_period,               tagmon,         {.i = +1 } },	//win+shift, 
+	TAGKEYS(               XK_1,                      0)     // win+1/2/3/4/5/6/7/8/9，切换到不同的dwm顶部菜单栏的标签里
+	TAGKEYS(               XK_2,                      1)
+	TAGKEYS(               XK_3,                      2)
+	TAGKEYS(               XK_4,                      3)
+	TAGKEYS(               XK_5,                      4)
+	TAGKEYS(               XK_6,                      5)
+	TAGKEYS(               XK_7,                      6)
+	TAGKEYS(               XK_8,                      7)
+	TAGKEYS(               XK_9,                      8)
+	{ MODKEY|Mod1Mask,              XK_Down,      spawn,          SHCMD("transset-df -a --dec .1") },  //减少当前窗格应用的透明度
+	{ MODKEY|Mod1Mask,              XK_Up,      spawn,          SHCMD("transset-df -a --inc .1") },  //增加当前窗格应用的透明度
+	{ MODKEY|Mod1Mask,              XK_Home,      spawn,          SHCMD("transset-df -a .75") },  //恢复当前窗格应用的初始默认的透明度
+    { MODKEY|ShiftMask,    XK_q,    killclient,     {0} },//关闭当前窗口，强制关闭窗口。最后参数NULL
+	{ MODKEY|ControlMask,  XK_q,    quit,           {0} }, 	//Ctrl+Alt+del，关闭并退出整个dwm桌面，且强制关闭所有当前运行于dwm下的程序
+	//以下是增加的
+    { MODKEY|ShiftMask,             XK_Up,     spawn,          {.v = lightup} },
+    { MODKEY|ShiftMask,             XK_Down,   spawn,          {.v = lightdown} },  // Shift+win+上/下方向键，调整屏幕亮度
+    { MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volup} },
+    { MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = voldown} },   // Shift+win+左/右方向键，调整音量大小
+    { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mute} },  	   // Shift+win+m，开启/关闭静音
+    { MODKEY,                       XK_d,      spawn,          {.v = dolphin } },   // win+d，呼出dolphin文件管理器
+    { MODKEY,                       XK_g,      spawn,          {.v = chromium } },   // win+j，呼出chromium浏览器
+
+};
 ```
 
 
