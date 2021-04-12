@@ -2220,6 +2220,27 @@ linux中调节音量的命令为` amixer`  ： 用于系统音量的调节，在
 
 
 
+### 安装dwm
+
+先安装dwmstatus
+
+```bash
+$: git clone git://git.suckless.org/dwmstatus
+$: cd dwmstatus
+$: make
+$: sudo ake PREFIX=/usr install
+# 增加 dwmstatus 2>&1 >/dev/null &  到~/.xinitrc
+```
+
+再安装dwm
+
+```bash
+$: git clone  https://github.com/junjiecjj/dwm.git
+$: cd dmenu
+$: sudo make clean install 
+```
+
+
 
 ### 输入法、开机启动
 
@@ -2264,27 +2285,6 @@ exec dwm   #万事具备，启动dwm
 ```
 
 
-
-
-### 安装dwm
-
-先安装dwmstatus
-
-```bash
-$: git clone git://git.suckless.org/dwmstatus
-$: cd dwmstatus
-$: make
-$: sudo ake PREFIX=/usr install
-# 增加 dwmstatus 2>&1 >/dev/null &  到~/.xinitrc
-```
-
-再安装dwm
-
-```bash
-$: git clone  https://github.com/junjiecjj/dwm.git
-$: cd dmenu
-$: sudo make clean install 
-```
 
 
 
