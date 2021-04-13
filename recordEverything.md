@@ -2214,9 +2214,7 @@ $: sudo apt-get install network-manager-gnome
 ```
 
 linux中设置状态栏的命令为 `xsetroot`  ： 定制、显示简易的系统状态栏(电池电量、音量、日期、时间等)；
-linux中调节音量的命令为` amixer`  ： 用于系统音量的调节，在alsa-utils包中
-
-- `alsa-utils` 声音管理
+linux中调节音量的命令为` amixer`  ： 用于系统音量的调节，在alsa-utils包中，`alsa-utils` 声音管理
 
 
 
