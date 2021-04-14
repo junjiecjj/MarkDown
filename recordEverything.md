@@ -2267,6 +2267,7 @@ do
 sleep 60   #每隔1分钟刷新一次状态栏
 done &
 exec  ~/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #while true; do
 #xsetroot -name "Bat.$(acpi -b | awk '{print $4}') | Vol.$(amixer get Master| tail -n 1 | awk ‘{print $5}' | tr -d '[]') $(LC_ALL='C' date +'%F[%b %a] %R')"
 #sleep 20
