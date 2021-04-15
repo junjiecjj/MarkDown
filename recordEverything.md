@@ -54,6 +54,7 @@
 
    ```bash
    # 去https://www.nerdfonts.com/font-downloads下载字体，存放在~/下载/nerdfonts/下
+   # Sauce Code Pro Nerd Font; FiraCode Nerd Font; JetBrainsMono Nerd Font
    $: mkdir -p /usr/share/fonts/truetypes/nerdfonts
    $: cd /usr/share/fonts/truetypes/nerdfonts
    $: cp 下载/nerdfonts/*  .
@@ -2040,10 +2041,10 @@ make: *** [Makefile:18：dwm.o] 错误 1
 
 ```
 
-，通过上述方法可以发现需要安装以下
+通过上述方法可以发现需要安装以下
 
 ```bash
-sudo apt install x11-xserver-utils
+sudo apt install x11-xserver-utils libxrandr-dev libimlib2-dev
 sudo apt install libharfbuzz-dev
 ```
 
@@ -2105,8 +2106,8 @@ picom 可以实现阴影、原生窗口透明(配合 transset 工具)等特效.
 $: sudo apt install libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libpcre3-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev
 
 $ git clone https://github.com/jonaburg/picom
-$ git submodule update --init --recursive
 $ cd picom
+$ git submodule update --init --recursive
 $ meson --buildtype=release . build
 $ LDFLAGS="-L/path/to/libraries" CPPFLAGS="-I/path/to/headers" meson --buildtype=release . build
 $ ninja -C build
@@ -2172,6 +2173,7 @@ $ vim  /etc/apt/sources.list
 增加以下
 deb http://cz.archive.ubuntu.com/ubuntu groovy main universe
 然后
+$ sudo apt update
 $ sudo apt install polybar
 ```
 
@@ -2190,10 +2192,10 @@ $ sudo apt install light
 #为背光灯调整工具设置 sudo 免密码
 $ sudo visudo
 #然后在文本最后加入如下代码
-{登录系统的用户名jack} ALL=NOPASSWD:/usr/bin/light
+jack ALL=NOPASSWD:/usr/bin/light
 
 #安装截图工具
-$ sudo apt install flameshot
+$ sudo apt install  
 
 #安装数字键盘工具, 用于进入dwm桌面后自动开启数字键盘
 $ sudo apt install numlockx
@@ -2223,6 +2225,11 @@ $: sudo apt install screenkey
 
 //安装 nm-applet
 $: sudo apt-get install network-manager-gnome
+
+
+//锁屏
+$: sudo apt install slimlock
+
 ```
 
 linux中设置状态栏的命令为 `xsetroot`  ： 定制、显示简易的系统状态栏(电池电量、音量、日期、时间等)；
@@ -2266,8 +2273,8 @@ vim ~/.xinitrc：    #不要sudo！！
 # xterm -geometry 80x50+494+51 &   #注释掉或直接删掉
 # xterm -geometry 80x20+494-0 &   #注释掉或直接删掉
 # exec xterm -geometry 80x66+0+0 -name login   #注释掉或直接删掉
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto   #关于xrandr的这两行配置，每一行后面都不要加上"&"，否则nvidia驱动不能正常加载，会导致黑屏
+#xrandr --setprovideroutputsource modesetting NVIDIA-0
+#xrandr --auto   #关于xrandr的这两行配置，每一行后面都不要加上"&"，否则nvidia驱动不能正常加载，会导致黑屏
 eval "$(dbus-launch --sh-syntax --exit-with-session)" &
 export GTK_IM_MODULE=fcitx &
 export QT_IM_MODULE=fcitx &
@@ -2285,7 +2292,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #sleep 20
 #done &
 
-while habak -ms -hi ~/<你的壁纸目录>/   #让habak从你的壁纸目录中随机选择一张屏幕壁纸显示
+while habak -ms -hi ~/tupian/   #让habak从你的壁纸目录中随机选择一张屏幕壁纸显示
 do
 sleep 600   #让habak每隔10分钟随机切换一张屏幕壁纸
 done &
