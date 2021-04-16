@@ -2230,6 +2230,8 @@ $: sudo apt-get install network-manager-gnome
 //锁屏
 $: sudo apt install slimlock
 
+//rofi 是一个快捷的程序启动器
+$: sudo apt install rofi
 ```
 
 linux中设置状态栏的命令为 `xsetroot`  ： 定制、显示简易的系统状态栏(电池电量、音量、日期、时间等)；
