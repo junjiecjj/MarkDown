@@ -2230,10 +2230,11 @@ $: sudo apt install screenkey
 //安装 nm-applet
 $: sudo apt-get install network-manager-gnome
 
-
 //锁屏
 $: sudo apt install slimlock
 
+//快捷程序启动，也可以装dmenu
+$: sudo apt install rofi
 ```
 
 linux中设置状态栏的命令为 `xsetroot`  ： 定制、显示简易的系统状态栏(电池电量、音量、日期、时间等)；
