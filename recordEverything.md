@@ -62,6 +62,10 @@
    $:fc-cache -vf  
    #:查看是否安装成功
    fc-list | grep -i nerd
+   #############或者##############################
+   $: mkdir -p ~/.local/share/fonts
+   $: cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+
    ```
 
 > 4. 安装Fira Code 字体
@@ -2230,8 +2234,6 @@ $: sudo apt-get install network-manager-gnome
 //锁屏
 $: sudo apt install slimlock
 
-//rofi 是一个快捷的程序启动器
-$: sudo apt install rofi
 ```
 
 linux中设置状态栏的命令为 `xsetroot`  ： 定制、显示简易的系统状态栏(电池电量、音量、日期、时间等)；
