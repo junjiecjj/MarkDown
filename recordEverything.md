@@ -2892,9 +2892,11 @@ $: sudo apt install yarn
 4. 安装ccls
 
 ```bash
+$: sudo apt install llvm -y
+$: sudo apt install clang -y
 $: git clone --depth=1 --recursive https://github.com/MaskRay/ccls
 $: cd ccls
-$: cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_PREFIX_PATH=/path/to/clang+llvm
+$: cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_PREFIX_PATH=/usr/bin
 $: sudo cmake --build Release --target install
 ```
 
@@ -4363,6 +4365,132 @@ tcpdump 强大的功能和灵活的策略，主要体现在过滤器（BPF）强
 
 
 ## [gdb](https://mp.weixin.qq.com/s/OLHurXiioQchhai4i9WYsw)
+
+
+
+## grep
+
+1.  **命令格式**
+
+> grep [-acinv...] [--color=auto] [-A n] [-B n] '字符串' 文件名
+
+2. **命令参数**
+
++ (1) -a  #以文本文件方式搜索。  
+
++ (2) -A<显示行数>  #除了显示符合范本样式的那一行之外，并显示该行之后的内容。  
+
++ (3) -b   #在显示符合样式的那一行之前，标示出该行第一个字符的编号。  
+
++ (4) -B<显示行数>  #除了显示符合样式的那一行之外，并显示该行之前的内容。  
+
++ (5) -c   #计算找到的符合行的次数。 
+
++ (6) -C<显示行数>  #除了显示符合样式的那一行之外，并显示该行之前后的内容。  
+
++ (7) -d <动作>  #当指定要查找的是目录而非文件时，必须使用这项参数，否则grep指令将回报信息并停止动作。  
+
++ (8) -e<范本样式>  #指定字符串做为查找文件内容的样式。  
+
++ (9) -E   #将样式为延伸的普通表示法来使用。  
+
++ (10) -f<规则文件> #指定规则文件，内容含有一个或多个规则样式，让grep查找符合规则条件的文件内容，格式为每行一个规则样式。  
+
++ (11) -F   #将样式视为固定字符串的列表。  
+
++ (12) -G  #将样式视为普通的表示法来使用。  
+
++ (13) -h  #在显示符合样式的那一行之前，不标示该行所属的文件名称。  
+
++ (14) -H  #在显示符合样式的那一行之前，表示该行所属的文件名称。  
+
++ (15) -i  #忽略字符大小写。  
+
++ (16) -l  #列出文件内容符合指定样式的文件名称。  
+
++ (17) -L  #列出文件内容不符合指定样式的文件名称。  
+
++ (18)  --line-number  #在显示符合样式的那一行之前，标示出该行的行数编号。  
+
++ (19) -n  # 顺便输出行号
+
+```bash
+grep -n 'the' ex.txt
+```
+
++ (20) --quiet 或 --silent  #不显示任何信息。  
+
++ (21) -r  #此参数的效果和指定“-d recurse”参数相同。  
+
++ (22) -s  #不显示错误信息。  
+
++ (23) -v  #反向选择，即找不含搜索字符串的行  
+
+```bash
+grep -nv 'the' ex.txtgrep -v '^$' ex.txt | grep -v '^#' 
+去除空白行和行首为#的行
+```
+
++ (24) -V  #显示版本信息。  
+
++ (25) -w  #只显示全字符合的行。  
+
++ (26) -x  #只显示全行符合的行。  
+
++ (27) -y   #此参数的效果和指定“-i”参数相同。
+
+
+
+### grep命令忽略任何区分大小写
+
+“ -i”告诉grep命令忽略任何区分大小写的命令。
+
+> grep -i "linuxmi" linuxmi.txt
+
+
+
+
+
+### **在搜索字符串前面或者后面显示行号**
+
+显示匹配前后的行数
+
+- **-A -** 指定匹配后要显示的行数
+- **-B -** 指定要显示的行数
+- **-C -** 指定匹配之前和之后要显示的行数
+
+两个选项是-A和-B之间的切换，是用以显示匹配的行以及行号，分别控制在字符串前或字符串后显示的行数。Man页给出了更加详细的解释，我发现一个记忆的小窍门：-A=after、-B=before。
+
+```bash
+$ sudo ifconfig | grep -A 4 etho 
+$ sudo ifconfig | grep -B 2 UP
+```
+
+
+
+###  **在匹配字符串周围打印出行号**
+
+grep命令的-C选项和例4中的很相似，不过打印的并不是在匹配字符串的前面或后面的行，而是打印出两个方向都匹配的行（译注：同上面的记忆窍门一样：-C=center，以此为中心）：
+
+> $ sudo ifconfig | grep -C 2 lo
+
+### **按给定字符串搜索文件中匹配的行号**
+
+当你在编译出错时需要调试时，grep命令的-n选项是个非常有用的功能。它能告诉你所搜索的内容在文件的哪一行：
+
+> $ sudo grep -n "main" setup.py
+
+
+
+### **进行精确匹配搜索**
+
+传递-w选项给grep命令可以在字符串中进行精确匹配搜索（译注：包含要搜索的单词，而不是通配）。例如，像下面这样输入：
+
+> $ sudo ifconfig | grep -w “RUNNING”
+
+
+
+
 
 
 
