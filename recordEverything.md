@@ -4415,7 +4415,10 @@ tcpdump 强大的功能和灵活的策略，主要体现在过滤器（BPF）强
 + (19) -n  # 顺便输出行号
 
 ```bash
+grep -n the ex.txt
 grep -n 'the' ex.txt
+grep -n "the" ex.txt
+#以上等价
 ```
 
 + (20) --quiet 或 --silent  #不显示任何信息。  
@@ -4438,6 +4441,39 @@ grep -nv 'the' ex.txtgrep -v '^$' ex.txt | grep -v '^#'
 + (26) -x  #只显示全行符合的行。  
 
 + (27) -y   #此参数的效果和指定“-i”参数相同。
+
+
+
+假设test.txt文件内容如下：
+
+```text
+
+chen yin jie
+chen he xian
+chen yan xian
+
+chen zhi hao
+chen zhi wen
+
+wang yin
+wangyin
+
+wang ting
+wangting
+
+wangyuzhong
+jiangxian xiu 
+lin jin shun
+lin yin shun
+lin hui fang
+
+abc def hij
+abcdef hij
+abcdefhij
+
+```
+
+
 
 
 
@@ -4466,19 +4502,65 @@ $ sudo ifconfig | grep -A 4 etho
 $ sudo ifconfig | grep -B 2 UP
 ```
 
+```bash
+$: grep  -n -A 2 -B 2 "wang" test.txt 
+#输出
+7-chen zhi wen
+8-
+9:wang yin
+10:wangyin
+11-
+12:wang ting
+13:wangting
+14-
+15:wangyuzhong
+16-jiangxian xiu 
+17-lin jin shun
+
+```
+
 
 
 ###  **在匹配字符串周围打印出行号**
 
 grep命令的-C选项和例4中的很相似，不过打印的并不是在匹配字符串的前面或后面的行，而是打印出两个方向都匹配的行（译注：同上面的记忆窍门一样：-C=center，以此为中心）：
 
-> $ sudo ifconfig | grep -C 2 lo
+```bash
+$ grep  -n -C 2 "wang" test.txt 
+#输出
+7-chen zhi wen
+8-
+9:wang yin
+10:wangyin
+11-
+12:wang ting
+13:wangting
+14-
+15:wangyuzhong
+16-jiangxian xiu 
+17-lin jin shun
+
+```
+
+
 
 ### **按给定字符串搜索文件中匹配的行号**
 
 当你在编译出错时需要调试时，grep命令的-n选项是个非常有用的功能。它能告诉你所搜索的内容在文件的哪一行：
 
-> $ sudo grep -n "main" setup.py
+```bash
+$ grep  -n "chen" test.txt 
+#输出
+1:chen jun jie
+2:chen yin jie
+3:chen he xian
+4:chen yan xian
+6:chen zhi hao
+7:chen zhi wen
+
+```
+
+
 
 
 
@@ -4486,7 +4568,176 @@ grep命令的-C选项和例4中的很相似，不过打印的并不是在匹配�
 
 传递-w选项给grep命令可以在字符串中进行精确匹配搜索（译注：包含要搜索的单词，而不是通配）。例如，像下面这样输入：
 
-> $ sudo ifconfig | grep -w “RUNNING”
+```bash
+sudo ifconfig | grep -w “RUNNING”
+```
+
+
+
+### 多模式 Grep 命令
+
+要搜索多个匹配模式，可以使用 **OR** ( **alternation** ) 运算符。我们可以用 **OR** 运算符 **|**（ **pipe** ）指定不同的匹配项，这些匹配项可以是文本字符串，也可以是表达式集。值得注意的是，在所有正则表达式运算符中，这个运算符的优先级是最低的。
+
+使用 `grep` 命令基本正则表达式搜索多个匹配模式的语法如下：
+
+```bash
+# jack @ unix in ~/公共的/shell_script [日期: 周二 6月 29日, 时间: 22:54:32]
+$ grep  -n "wang\|yin" test.txt 
+2:chen yin jie
+9:wang yin
+10:wangyin
+12:wang ting
+13:wangting
+15:wangyuzhong
+18:lin yin shun
+```
+
+
+
+还需要注意的是，如果要搜索的字符串包含空格，需要用双引号将其括起来。
+
+下面是使用扩展正则表达式的同一个示例，如果使用扩展模式，可以添加`-E`参数。使用扩展模式，就不需要为`|`管道符添加转义符了。也可以使用`egrep`命令，这个命令和`grep -E`用法一样。
+
+```bash
+# jack @ unix in ~/公共的/shell_script [日期: 周二 6月 29日, 时间: 22:20:00]
+$ grep  -n "chen\|wang" test.txt 
+1:chen jun jie
+2:chen yin jie
+3:chen he xian
+4:chen yan xian
+6:chen zhi hao
+7:chen zhi wen
+9:wang yin
+10:wangyin
+12:wang ting
+13:wangting
+15:wangyuzhong
+# jack @ unix in ~/公共的/shell_script [日期: 周二 6月 29日, 时间: 22:25:49]
+$ grep  -n -E "chen|wang" test.txt 
+1:chen jun jie
+2:chen yin jie
+3:chen he xian
+4:chen yan xian
+6:chen zhi hao
+7:chen zhi wen
+9:wang yin
+10:wangyin
+12:wang ting
+13:wangting
+15:wangyuzhong
+
+```
+
+```bash
+grep -E 'fatal|error|critical' /var/log/nginx/error.log
+```
+
+默认情况下，`grep` 命令是区分大小写的。要在搜索时忽略大小写，请调用 `grep` 加 `-i` （或 `--ignore-case` ）选项，示例如下：
+
+```bash
+grep -i 'fatal|error|critical' /var/log/nginx/error.log
+```
+
+
+
+当你只想搜索某个单词时，比如你想搜索的是单词 `error` ，`grep` 命令会输出所有包含 `error` 字符串的行，即它除了会输出包含 `error` 单词的行，还会输出包含 `errorless` 或 `antiterrorists` 等非 `error` 单词的行，这样是极不方便的。
+
+因此要仅返回指定字符串是整词的行，或者是由非单词字符括起来的行，可以使用 `grep` 加 `-w` （或 `--word-regexp` ）选项：
+
+```bash
+# jack @ unix in ~/公共的/shell_script [日期: 周二 6月 29日, 时间: 22:54:32]
+$ grep  -n "wang\|yin" test.txt 
+2:chen yin jie
+9:wang yin
+10:wangyin
+12:wang ting
+13:wangting
+15:wangyuzhong
+18:lin yin shun
+# jack @ unix in ~/公共的/shell_script [日期: 周二 6月 29日, 时间: 22:55:00]
+$ grep  -n -w  "wang\|yin" test.txt 
+2:chen yin jie
+9:wang yin
+12:wang ting
+18:lin yin shun
+
+```
+
+值得注意的是，单词字符包括有字母、数字字符（比如 a-z、a-Z 和 0-9 ）以及下划线（ _ ），所有其他字符都被视为非单词字符。
+
+
+
+### 正则表达式
+
+grep命令最基本的用法是搜索文件中的文字字符或字符序列。例如，要显示/etc/passwd文件中包含字符串“bash”的所有行，需要运行以下命令:
+
+```bash
+grep bash /etc/passwd
+```
+
+
+
+默认情况下，grep命令是区分大小写的。这意味着大写和小写字符被视为不同的。要在搜索时忽略大小写，请使用-i选项。
+
+如果搜索字符串包含空格，则需要用单引号或双引号将其括起:
+
+```bash
+grep "System message bus" /etc/passwd
+```
+
+
+
+`^`符号匹配行首的空字符串。在下面的示例中，字符串“root”只有在行首出现时才匹配。
+
+```bash
+grep '^root' /etc/passwd
+```
+
+$要查找以字符串“bash”结尾的行，可以使用以下命令:
+
+```bash
+grep 'bash$' /etc/passwd
+```
+
+您还可以使用两个锚来构造正则表达式。例如，查看配置文件，不显示空行，请运行以下命令:
+
+```bash
+grep -v '^$' /etc/samba/smb.conf
+```
+
+-v 反转匹配的意义，来选择不匹配的行。
+
+
+
+`| `是或者的意思。例如：想查看cpu是否支持虚拟化：
+
+```bash
+grep 'vmx\|svm' /proc/cpuinfo
+```
+
+如果使用扩展正则表达式，则不需要转义|，如下所示:
+
+```bash
+grep -E 'svm|vmx' /proc/cpuinfo
+```
+
+
+
+通过grep命令，可以指定带有start和end关键字的正则表达式。输出将是包含指定的起始和结束关键字之间的整个表达式的句子。此功能非常强大，因为您无需在搜索命令中编写整个表达式。
+
+句法：
+
+$ grep “startingKeyword.*endingKeyword” filename
+
+例子:
+
+```bash
+# jack @ unix in ~/公共的/shell_script [日期: 周二 6月 29日, 时间: 22:56:16]
+$ grep  -n   "chen.*jie" test.txt 
+1:chen jun jie
+2:chen yin jie
+
+```
 
 
 
