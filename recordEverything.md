@@ -6070,15 +6070,15 @@ cherry-pick 命令 “复制” 一个提交节点并在当前分支做一次完
 
 >  相关链接：
 >
-> 1. http://marklodato.github.io/visual-git-guide/index-zh-cn.html#merge
-> 2. http://marklodato.github.io/visual-git-guide/index-zh-cn.html#rebase
-> 3. http://marklodato.github.io/visual-git-guide/index-zh-cn.html#detached
-> 4. http://en.wikipedia.org/wiki/Three-way_merge
-> 5. http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html#_interactive_mode
+>  1. http://marklodato.github.io/visual-git-guide/index-zh-cn.html#merge
+>  2. http://marklodato.github.io/visual-git-guide/index-zh-cn.html#rebase
+>  3. http://marklodato.github.io/visual-git-guide/index-zh-cn.html#detached
+>  4. http://en.wikipedia.org/wiki/Three-way_merge
+>  5. http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html#_interactive_mode
 >
-> 
+>  
 >
-> 原文链接：http://marklodato.github.io/visual-git-guide/index-zh-cn.html
+>  原文链接：http://marklodato.github.io/visual-git-guide/index-zh-cn.html
 
 
 
@@ -7542,6 +7542,3 @@ $ git reset --hard 0254ea7
 
 
 ## 附录2
-
-
-
