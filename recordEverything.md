@@ -160,10 +160,33 @@ sudo apt-get install fonts-powerline
 ###  安装谷歌浏览器
 
 + 去[谷歌官网](https://www.google.cn/chrome/)下载.deb安装包
+
 + sudo dpkg -i google-chrome-xxx.deb
+
 + 打开谷歌浏览器，安装谷歌上网助手；
+
 + 登陆谷歌账号，自动同步；
+
 + 完成;
+
+  
+
+###  安装alacritty终端
+
+```bash
+sudo add-apt-repository ppa:aslatter/ppa
+
+sudo add-apt-repository ppa:mmstick76/alacritty
+
+sudo apt install alacritty
+
+```
+
+
+
+
+
+
 
 ### Notion
 
