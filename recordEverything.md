@@ -184,7 +184,11 @@ sudo apt install alacritty
 
 
 
+### 安装Kitty终端
 
+```bash
+sudo apt install kitty -y
+```
 
 
 
