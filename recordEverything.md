@@ -55,6 +55,10 @@
    ```bash
    # 去https://www.nerdfonts.com/font-downloads下载字体，存放在~/下载/nerdfonts/下
    # Sauce Code Pro Nerd Font; FiraCode Nerd Font; JetBrainsMono Nerd Font
+   $：wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
+   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip
    $: mkdir -p /usr/share/fonts/truetypes/nerdfonts
    $: cd /usr/share/fonts/truetypes/nerdfonts
    $: cp 下载/nerdfonts/*  .
