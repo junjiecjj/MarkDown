@@ -612,7 +612,25 @@ pre[lang="java"] .cm-variable{
 
 }
 
+/* 自定义样式 */
+#write img {
+    box-shadow: 1px 1px 3px 1px #aaa;
+    border: none;
+}
+#write em {
+    font-size: 0.8em;
+    margin: 0 5px;
+    border-bottom: 1px dashed #666;
+}
+#write code {
+    border-radius: 5px;
+    padding: 0px 4px;
+    margin: 0px 3px;
+    font-size: 0.8em;
+    color: #e96900;
+}
 
+/* 自定义样式结束 */
 /*##############以下是mytheme3的部分#####################*/
 
 
