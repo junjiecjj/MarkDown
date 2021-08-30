@@ -55,10 +55,6 @@
    ```bash
    # 去https://www.nerdfonts.com/font-downloads下载字体，存放在~/下载/nerdfonts/下
    # Sauce Code Pro Nerd Font; FiraCode Nerd Font; JetBrainsMono Nerd Font
-   $：wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
-   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
-   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
-   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip
    $: mkdir -p /usr/share/fonts/truetypes/nerdfonts
    $: cd /usr/share/fonts/truetypes/nerdfonts
    $: cp 下载/nerdfonts/*  .
@@ -1345,7 +1341,7 @@ Glances server is running on 0.0.0.0:61209
 
 ### [sysstat](https://mp.weixin.qq.com/s/zfVcyDdBTiy5y8wFVd7x3A)
 
-### 简介
+#### 简介
 
 sysstat 包含了许多商用 Unix 通用的各种工具，用于监视系统性能和活动情况：
 
@@ -1441,7 +1437,7 @@ sysstat 的主要功能包括：
 
 https://github.com/sysstat/sysstat
 
-### 安装使用
+#### 安装使用
 
 sysstat 的安装使用非常简单，安装包后，启动服务即可。
 
@@ -1526,463 +1522,12 @@ sudo dpkg -i duf_0.5.0_linux_amd64.deb
 
 
 
-###  窗口管理器i3
-
-
-
-###  窗口管理器awesome
-
-
 
 
 
 ### WSL
 
 
-
-```json
-//这是windows terminal 的配置文件
-{
-  // 默认打开的 Profile GUID（下面会详细介绍）
-  "defaultProfile": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-  // 终端窗口默认大小
-  "initialCols": 120,
-  "initialRows": 30,
-  // 亮色或暗色主题，可选值 "light", "dark", "system"
-  "requestedTheme": "dark",
-  // 合并标题栏和标签栏
-  "showTabsInTitlebar": true,
-  // 如果 showTabsInTitlebar 与本值同为 false 时，自动隐藏标签栏
-  "alwaysShowTabs": true,
-  // 在标题栏上显示当前活动标签页的标题
-  "showTerminalTitleInTitlebar": true,
-  // 双击选择时用于分词的字符
-  "wordDelimiters": " /\\()\"'-.,:;<>~!@#$%^&*|+=[]{}~?\u2502",
-  // 选择时复制到剪贴板
-  "copyOnSelect": true,
-  // 标签页宽度不固定
-  "tabWidthMode": "titleLength",
-  //***************************************************************************************
-  "$schema": "https://aka.ms/terminal-profiles-schema",
-  "copyFormatting": false,
-
-  "profiles": {
-    "defaults": {
-      // 所有 Profile 共用的设置可以放这里，就不用写多次了
-      // 字体设置
-      "fontFace": "Cascadia Code",
-      //"fontFace": "DejaVu Sans Mono",
-      //"fontFace": "Monospace Regular",
-      // "fontFace": "文泉驿微米黑",
-      "fontFace": "DroidSansMono NF",
-      "fontSize": 9,
-      // 光标类型，可选值 "vintage" ( ▃ ), "bar" ( ┃ ), "underscore" ( ▁ ), "filledBox" ( █ ), "emptyBox" ( ▯ )
-      "cursorShape": "bar",
-      // 是否开启背景亚克力透明效果（窗口失去焦点时无效）
-      "useAcrylic": false,
-      "cursorColor": "#0cee32",
-      "historySize": 2001,
-      "snapOnInput": true,
-      "acrylicOpacity": 0.8,
-      "backgroundImageOpacity": 0.1,
-      "foreground": "#A7B191",
-      "background": "#000000",
-      //"background": "#013456",
-      "padding": "0, 0, 0, 0",
-      "hidden": false,
-      //"startingDirectory": "//wsl$/Ubuntu-20.04/home/junjie",
-      "commandline": "wsl -d Ubuntu-20.04 -e bash -c \"cd ~;bash\"",
-      "colorScheme": "Snazzy"
-      //"colorScheme": "Tango Dark"
-      //"colorScheme": "Homebrew"
-      //"colorScheme": "Solarized Dark"
-      //"colorScheme": "Solarized Light"
-      //"colorScheme": "Night Owlish Light"
-      //"colorScheme": "Campbell"
-      //"colorScheme": "Snazzy"
-
-    },
-    "list": [
-      {
-        "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-        "hidden": false,
-        "name": "Ubuntu-20.04",
-        "tabTitle": "Ubuntu20.04",
-        "source": "Windows.Terminal.Wsl"
-      },
-      {
-        "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-        "hidden": false,
-        "name": "Ubuntu",
-        "tabTitle": "Ubuntu",
-        "source": "Windows.Terminal.Wsl"
-      },
-      {
-        // Make changes here to the powershell.exe profile.
-        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-        "name": "Windows PowerShell",
-        "tabTitle": "PowerShell",
-        "commandline": "powershell.exe",
-        "backgroundImageOpacity": 0.1
-      },
-      {
-        // Make changes here to the cmd.exe profile.
-        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-        "name": "命令提示符",
-        "commandline": "cmd.exe",
-        "tabTitle": "命令提示符",
-        "hidden": false
-      },
-      {
-        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-        "hidden": false,
-        "name": "Azure Cloud Shell",
-        "source": "Windows.Terminal.Azure"
-      }
-    ]
-  },
-
-  // Add custom color schemes to this array.
-  // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
-  "schemes": [
-    {
-      "name": "Tango Dark",
-      "foreground": "#A7B191",
-      "background": "#0C0C0C",
-      "black": "#000000",
-      "red": "#cc0000",
-      "green": "#4e9a06",
-      "yellow": "#c4a000",
-      "blue": "#3465a4",
-      "purple": "#75507b",
-      "cyan": "#06989a",
-      "white": "#d3d7cf",
-      "brightBlack": "#555753",
-      "brightRed": "#ef2929",
-      "brightGreen": "#8ae234",
-      "brightYellow": "#fce94f",
-      "brightBlue": "#729fcf",
-      "brightPurple": "#ad7fa8",
-      "brightCyan": "#34e2e2",
-      "brightWhite": "#eeeeec",
-      "background": "#000000",
-      "foreground": "#D3D7CF"
-    },
-    {
-      "name": "Snazzy",
-      "black": "#000000",
-      "red": "#fc4346",
-      "green": "#50fb7c",
-      "yellow": "#f0fb8c",
-      "blue": "#49baff",
-      "purple": "#fc4cb4",
-      "cyan": "#8be9fe",
-      "white": "#ededec",
-      "brightBlack": "#555555",
-      "brightRed": "#fc4346",
-      "brightGreen": "#50fb7c",
-      "brightYellow": "#f0fb8c",
-      "brightBlue": "#49baff",
-      "brightPurple": "#fc4cb4",
-      "brightCyan": "#8be9fe",
-      "brightWhite": "#ededec",
-      "background": "#000000",
-      "foreground": "#ebece6"
-    },
-    {
-      "name": "Homebrew",
-      "black": "#000000",
-      "red": "#FC5275",
-      "green": "#00a600",
-      "yellow": "#999900",
-      "blue": "#6666e9",
-      "purple": "#b200b2",
-      "cyan": "#00a6b2",
-      "white": "#bfbfbf",
-      "brightBlack": "#666666",
-      "brightRed": "#e50000",
-      "brightGreen": "#00d900",
-      "brightYellow": "#e5e500",
-      "brightBlue": "#0000ff",
-      "brightPurple": "#e500e5",
-      "brightCyan": "#00e5e5",
-      "brightWhite": "#e5e5e5",
-      "background": "#283033",
-      "foreground": "#00ff00"
-    },
-    {
-      "name": "Solarized Dark",
-      "foreground": "#FDF6E3",
-      "background": "#073642",
-      "colors": [
-        "#073642",
-        "#D30102",
-        "#859900",
-        "#B58900",
-        "#268BD2",
-        "#D33682",
-        "#2AA198",
-        "#EEE8D5",
-        "#002B36",
-        "#CB4B16",
-        "#586E75",
-        "#657B83",
-        "#839496",
-        "#6C71C4",
-        "#93A1A1",
-        "#FDF6E3"
-      ]
-    },
-    {
-      "name": "Solarized Light",
-      "foreground": "#073642",
-      "background": "#FDF6E3",
-      "colors": [
-        "#073642",
-        "#D30102",
-        "#859900",
-        "#B58900",
-        "#268BD2",
-        "#D33682",
-        "#2AA198",
-        "#EEE8D5",
-        "#002B36",
-        "#CB4B16",
-        "#586E75",
-        "#657B83",
-        "#839496",
-        "#6C71C4",
-        "#93A1A1",
-        "#FDF6E3"
-      ]
-    },
-    {
-      "name": "Night Owlish Light",
-      "background": "#FFFFFF",
-      "black": "#011627",
-      "blue": "#4876D6",
-      "brightBlack": "#7A8181",
-      "brightBlue": "#5CA7E4",
-      "brightCyan": "#00C990",
-      "brightGreen": "#49D0C5",
-      "brightPurple": "#697098",
-      "brightRed": "#F76E6E",
-      "brightWhite": "#989FB1",
-      "brightYellow": "#DAC26B",
-      "cyan": "#08916A",
-      "foreground": "#403F53",
-      "green": "#2AA298",
-      "purple": "#403F53",
-      "red": "#D3423E",
-      "white": "#7A8181",
-      "yellow": "#DAAA01"
-    },
-    {
-      "name": "Campbell",
-      "foreground": "#A7B191",
-      "background": "#0C0C0C",
-      "colors": [
-        "#0C0C0C",
-        "#C50F1F",
-        "#13A10E",
-        "#C19C00",
-        "#0037DA",
-        "#881798",
-        "#3A96DD",
-        "#CCCCCC",
-        "#767676",
-        "#E74856",
-        "#16C60C",
-        "#F9F1A5",
-        "#3B78FF",
-        "#B4009E",
-        "#61D6D6",
-        "#F2F2F2"
-      ]
-    }
-  ],
-
-  "keybindings": [
-    {
-      "command": {
-        "action": "copy",
-        "singleLine": false
-      },
-      "keys": "ctrl+c"
-    },
-    {
-      "command": "paste",
-      "keys": "ctrl+v"
-    },
-    //    {
-    //      "command": "find",
-    //     "keys": "ctrl+shift+f"
-    //   },
-    {
-      "command": {
-        "action": "splitPane",
-        "split": "auto",
-        "splitMode": "duplicate"
-      },
-      "keys": "alt+shift+d"
-    },
-
-    {
-      "command": "newTab",
-      "keys": ["ctrl+N"]
-    },
-    {
-      "command": "closeTab",
-      "keys": ["ctrl+w"]
-    },
-    {
-      "command": "closePane",
-      "keys": ["ctrl+w"]
-    },
-    {
-      "command": "find",
-      "keys": ["ctrl+f"]
-    }, //搜索框
-
-    {
-      "command": "increaseFontSize",
-      "keys": ["ctrl+]"]
-    }, //增大字体
-    {
-      "command": "decreaseFontSize",
-      "keys": ["ctrl+["]
-    }, //减小字体
-    {
-      "command": "duplicateTab",
-      "keys": ["ctrl+shift+d"]
-    },
-    {
-      "command": "newTabProfile0",
-      "keys": ["ctrl+shift+1"]
-    },
-    {
-      "command": "newTabProfile1",
-      "keys": ["ctrl+shift+2"]
-    },
-    {
-      "command": "newTabProfile2",
-      "keys": ["ctrl+shift+3"]
-    },
-    {
-      "command": "newTabProfile3",
-      "keys": ["ctrl+shift+4"]
-    },
-    {
-      "command": "newTabProfile4",
-      "keys": ["ctrl+shift+5"]
-    },
-    {
-      "command": "newTabProfile5",
-      "keys": ["ctrl+shift+6"]
-    },
-    {
-      "command": "newTabProfile6",
-      "keys": ["ctrl+shift+7"]
-    },
-    {
-      "command": "newTabProfile7",
-      "keys": ["ctrl+shift+8"]
-    },
-    {
-      "command": "newTabProfile8",
-      "keys": ["ctrl+shift+9"]
-    },
-    {
-      "command": "openNewTabDropdown",
-      "keys": ["ctrl+shift+space"]
-    },
-    {
-      "command": "openSettings",
-      "keys": ["ctrl+,"]
-    }, //打开配置文件
-    {
-      "command": "nextTab",
-      "keys": ["ctrl+tab"]
-    }, //上一个tab
-    {
-      "command": "prevTab",
-      "keys": ["ctrl+shift+tab"]
-    }, //下一个tab
-    {
-      "command": "scrollDown",
-      "keys": ["ctrl+shift+down"]
-    }, //向下滚动
-    {
-      "command": "scrollUp",
-      "keys": ["ctrl+shift+up"]
-    }, //向上滚动
-    {
-      "command": "scrollUpPage",
-      "keys": ["pgup"]
-    }, //向上翻页
-    {
-      "command": "scrollDownPage",
-      "keys": ["pgdn"]
-    }, //向下翻页
-    {
-      "command": "switchToTab0",
-      "keys": ["ctrl+alt+1"]
-    },
-
-    //系统默认的是：水平分屏：Alt + Shift + 减号，垂直分屏：Alt + Shift + 加号
-    //但是这里变为：水平分屏：ctrl + Shift + 减号，垂直分屏：ctrl + Shift + 加号
-    {
-      "command": {
-        "action": "splitPane",
-        "split": "vertical",
-        "splitMode": "duplicate"
-      },
-      "keys": "ctrl+shift+="
-    },
-    {
-      "command": {
-        "action": "splitPane",
-        "split": "horizontal",
-        "splitMode": "duplicate"
-      },
-      "keys": "ctrl+shift+-"
-    },
-    {
-      "command": { "action": "moveFocus", "direction": "down" },
-      "keys": ["alt+down"]
-    },
-    {
-      "command": { "action": "moveFocus", "direction": "left" },
-      "keys": ["alt+left"]
-    },
-    {
-      "command": { "action": "moveFocus", "direction": "right" },
-      "keys": ["alt+right"]
-    },
-    {
-      "command": { "action": "moveFocus", "direction": "up" },
-      "keys": ["alt+up"]
-    },
-    {
-      "command": { "action": "resizePane", "direction": "down" },
-      "keys": ["alt+shift+down"]
-    },
-    {
-      "command": { "action": "resizePane", "direction": "left" },
-      "keys": ["alt+shift+left"]
-    },
-    {
-      "command": { "action": "resizePane", "direction": "right" },
-      "keys": ["alt+shift+right"]
-    },
-    {
-      "command": { "action": "resizePane", "direction": "up" },
-      "keys": ["alt+shift+up"]
-    }
-  ]
-}
-
-```
 
 
 
@@ -2943,6 +2488,24 @@ $: mkdir colors
 $: cd colors
 $: sudo cp /usr/share/vim/vim81/colors/*.vim  .
 ```
+
+
+
+#  窗口管理器i3
+
+
+
+
+
+
+
+
+
+#  窗口管理器awesome
+
+
+
+
 
 
 
