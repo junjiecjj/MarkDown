@@ -666,6 +666,18 @@ git remote add origin   git@github.com:junjiecjj/Demo.git
 
 因为用`git@github.com:junjiecjj/Demo.git`相当于用ssh登录github，而`https://github.com/junjiecjj/Demo.git`是用http登录，在push时ssh登录设置免密登录后再使用`git push origin master`非常方便，但是http需要生成一个GitHub token（非常不好用，需要定期更新，每次push需要手动输入密码）。
 
+你也许还注意到，GitHub给出的地址不止一个，还可以用`https://github.com/michaelliao/gitskills.git`这样的地址。实际上，Git支持多种协议，默认的`git://`使用ssh，但也可以使用`https`等其他协议。
+
+使用`https`除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用`ssh`协议而只能用`https`。
+
+> 要关联一个远程库，使用命令`git remote add origin git@server-name:path/repo-name.git`；
+>
+> 关联一个远程库时必须给远程库指定一个名字，`origin`是默认习惯命名；
+>
+> 关联后，使用命令`git push -u origin master`第一次推送master分支的所有内容；
+>
+> 此后，每次本地提交后，只要有必要，就可以使用命令`git push origin master`推送最新修改；
+
 现在，我们已经将本地 Demo 仓库副本`连接`到了其在 GitHub.com 远程副本上。您的终端看起来如下：
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/W9DqKgFsc69ZjibomwXr64KElnstn6TfgNhJqLhMwmwXrc0DrVYMYlv6nywXy5L7SYCuDtwuMgt2jib5CPuISrmg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
@@ -806,6 +818,18 @@ To github.com:junjiecjj/Demo.git
 ```
 
 <img src="git1.png" alt="图2" style="zoom:63%;" />
+
+
+
+
+
+# Lazygit使用
+
+
+
+
+
+
 
 
 
