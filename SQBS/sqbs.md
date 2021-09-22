@@ -203,11 +203,11 @@
 
 
 
+文献[[16]](#R16)，首次报道了旋转对流系统中的三元共振。通过直接数值模拟，发现旋转球形流体中的对流模态可以激发一对惯性模态，其频率和波数都符合三元共振条件。根据对流模的结构，三元共振可以导致低频率和波数的模的增长，或高频率和波数的模的增长，为双向能量级联提供了可能的机制。增加的热强迫导致完全发展的乱流，这也表现出波状运动，并令人想起惯性波乱流的能谱。结果表明惯性波的相互作用在旋转对流中起着重要的作用，这对理解行星和恒星内部的动力学有重要的意义。
 
 
 
-
-
+文献[[19]](#R19)，
 
 
 
@@ -407,6 +407,18 @@
 
 
 
+- [ ] <font face="黑体" color=red size=3>刘凯军</font>
+
+<div><a name="R19"></a>
+  [19] Da S , Denton R E , Hudson M K , et al. Test-Particle Simulations of Linear and Nonlinear Interactions Between a 2-D Whistler-Mode Wave Packet and Radiation Belt Electrons[J]. Geophysical Research Letters, 2018, 45(11):5234–5245.
+</div>
+
+
+
+
+- [ ] <font face="黑体" color=red size=3>田振粮</font>
+
+
 
 <div><a name="R19"></a>
   [19] sasa
@@ -415,69 +427,62 @@
 
 
 
+- [x] <font face="黑体" color=red size=3>杨剑</font>
 
-
-- [x] <font face="黑体" color=red size=3>陈晓非</font>
-
-
-
-
-
-
-- [x] <font face="黑体" color=red size=3>陈晓非</font>
+<div><a name="R19"></a>
+  [19] sasa
+</div>
 
 
 
-
-
-
-- [x] <font face="黑体" color=red size=3>陈晓非</font>
+<div><a name="R19"></a>
+  [19] sasa
+</div>
 
 
 
 
+- [x] <font face="黑体" color=red size=3> 张振国 </font>
 
-
-- [x] <font face="黑体" color=red size=3>陈晓非</font>
-
-
-
-
-
-
-- [x] <font face="黑体" color=red size=3>陈晓非</font>
+<div><a name="R19"></a>
+  [19] sasa
+</div>
 
 
 
-
-
-
-- [x] <font face="黑体" color=red size=3>陈晓非</font>
+<div><a name="R19"></a>
+  [19] sasa
+</div>
 
 
 
 
+- [x] <font face="黑体" color=red size=3> 杨亭 </font>
 
-
-- [x] <font face="黑体" color=red size=3>陈晓非</font>
-
-
-
-
-
-
-- [x] <font face="黑体" color=red size=3>陈晓非</font>
+<div><a name="R19"></a>
+  [19] sasa
+</div>
 
 
 
-
-
-
-- [x] <font face="黑体" color=red size=3>陈晓非</font>
+<div><a name="R19"></a>
+  [19] sasa
+</div>
 
 
 
 
+- [x] <font face="黑体" color=red size=3> 叶生毅 </font>
+
+<div><a name="R19"></a>
+  [19] sasa
+</div>
+
+
+
+<div><a name="R19"></a>
+  [19] sasa
+</div>
 
 
 
