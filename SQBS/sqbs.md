@@ -432,9 +432,17 @@
 
 
 
-<div><a name="R19"></a>
-  [19] sasa
+<div><a name="R20"></a>
+  [20] Vertical angular momentum constraint on lunar formation and orbital history[J]. Proceedings of the National Academy of Sciences, 2020, 117(27):202003496.
 </div>
+
+
+
+<div><a name="R21"></a>
+  [21] Implications of second-order resonance for the thermal and orbital evolution of Mimas[J]. Monthly Notices of the Royal Astronomical Society(1):1.
+</div>
+
+
 
 
 
