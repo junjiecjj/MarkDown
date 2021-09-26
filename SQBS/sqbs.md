@@ -256,6 +256,27 @@
 
 然而，他们的模拟还需要改进两个方面:首先，需要使用自洽的磁场模型。之前的两个模拟要么使用偶极场，要么使用经验的Tsyganenko模型(Tsyganenko, 2002)。第二，惯性效应需要考虑在内。当时的RCM假设了力平衡条件。在亚暴膨胀阶段，强极化伴随快速流的出现，这与上述两个假设相违背。此外，与向上交叉FACs相关的沉淀电子被认为是观测到的具有空间准周期性的指状极光的原因(Wang et al.， 2020)。然而，其他人也认为，一组快速流注入几乎同时到达极光边界，也可能导致多个飘带和火炬，以及漂移的欧米茄带(Henderson et al.， 2002)。
 
+在本研究中，我们将RCM的数值模拟与磁层和电离层的多点观测相结合，来研究宽注入边界如何因交换不稳定性而分裂成中尺度结构。重新访问克服了RCM中的上述缺点，并应用了新的方法来组合多点测量。RCM是一种用于模拟大尺度磁层电离层(M-I)耦合系统以及中尺度注入的第一性原理模型。在这项研究中，最新版本的RCM通过在Vasyliunas(1970)方程中添加一个额外的FAC，将快速流动的惯性效应包括在修正的基本M-I耦合方程中(Yang et al.， 2019)。该模型还与一个由三维摩擦码(Lemon et al.， 2003)导出的MHD码双向耦合，并将其修改为具有交错非均匀笛卡尔网格的有限体 MHD码以满足b0 (Silin et al.， 2013)。因此，在自洽电磁场中计算了不同物质在不同能量下的ExB和梯度/曲率漂移。利用RCM模拟了2002年4月18日5时30分发生的一次亚暴的一个齿周期，在此期间太阳风条件相当稳定。在第二节中，我们将分别与Los Alamos国家实验室(LANL)地球同步卫星上GOES磁力计和同步轨道粒子分析仪(SOPA)仪器测量的磁场和高能粒子通量的模拟结果进行比较。还将描述注入边界破裂的发展过程。在第3节中，我们将在RCM计算的电磁场中使用粒子追踪方法估计多个注入通道的位置。推断出的边界与IMAGE卫星上FUV仪器的宽带成像相机(WIC)获得的极光图像一致。第四部分将对论文进行总结。
+
+
+
+<font face="黑体" color=red size=3>张振国</font>
+
+文献[[29]](#R29)，本文采用有限差分数值模拟方法，研究了粘弹性垂直横观各向同性层状介质中Love波的特性。用各向同性弹性和各向同性粘弹性介质的理论地震记录验证了该建模方案的准确性。用各向同性和各向异性弹性和粘弹性介质中Love波的理论相速度频散曲线验证了建模结果的正确性。在两层半空间模型,速度各向异性的影响,粘弹性,和媒体对爱波衰减各向异性研究的建模结果进行了比较,详细otained anisotropic-elastic, isotropic-viscoelastic, anisotropic-viscoelastic媒体与获得各向同性弹性介质。然后，对三种典型的四层半空间模型中的洛夫波进行了模拟，进一步分析了各向异性粘弹性层状介质中的洛夫波特性。结果表明，Love波在各向异性粘弹性介质中的传播同时受到介质各向异性和粘弹性的影响。介质的速度各向异性使洛夫波的相速度值和分布范围发生了很大的变化。介质的粘弹性导致Love波的振幅衰减和相速度频散，且这些影响随质量因子的减小而增大。介质的衰减各向异性表明介质的粘弹性程度与方向有关。相速度比的比较表明，粘弹性对love波相速度的影响程度远小于速度各向异性对love波相速度的影响程度
+
+文献[[30]](#R30)，1616/5000 
+地震动预测精度的提高对地震危险性评估和工程实践具有重要意义。几十年来，经验回归地震动预测方程(GMPEs)在这方面得到了广泛的应用。然而，GMPEs固有的缺陷，如遍历假设、缺乏近源观测、空间相关处理不足等，促使地球物理学家寻找更好的替代方案。最近对记录完好的地震的研究表明，基于物理的模拟(PBS)方法可以提供与GMPE预测相当甚至更好的预测。应用PBSs的兴趣日益增加，也提出了将这些模拟与GMPE预测或实际观测进行统计比较的需要。我们注意到以往的研究集中在PBS的预测能力检查上的局限性。本文将说明如何对PBS进行更合理的检查。我们认为GMPE在一般判断PBS的合理性方面发挥了作用，但PBS在描述中-大地震地震动的非均匀性方面具有优势，特别是考虑到断层几何、区域应力场、岩石性质、地球表面和场地效应的复杂性时。我们建议今后只使用不同的GMPEs来初步判断PBS场景的合理性;然后，这些合理的PBS场景(不限于一个)模拟的地面运动被进一步用于以下地震危害和风险评估。
+
+
+
+<font face="黑体" color=red size=3>杨亭</font>
+
+文献[[33]](#R33)，地壳物质的再循环被认为将辉石岩引入橄榄岩地幔。绘制这样的地幔内部岩性不均一性对于理解地幔的化学演化至关重要，但仍然具有挑战性。通过对地幔源取样，板内玄武岩熔体提供了揭示地幔内部岩性非均质性的独特机会。我们使用实验橄榄岩和辉石岩熔体的主要氧化物数据训练机器学习(ML)模型，以帮助揭示玄武岩的地幔源岩性。ML模型可以根据主要氧化物信息预测烃源岩的岩性，准确率大于94%。以东北地区新生代板内玄武岩为例，对其烃源岩进行了岩性预测。我们的ML模型表明，辉石岩是位于静止的太平洋板块上方的玄武岩的地幔源，而橄榄岩则是位于板块尖端以西的玄武岩的地幔源，这与之前使用其他方法进行的研究一致。我们的ML模型可用于推断世界其他地区玄武岩的地幔源岩性。
+
+
+
+
+
 
 
 
@@ -351,7 +372,7 @@
 
 #### 地球与空间科学学院
 
-- [x] <font face="黑体" color=red size=3>包雪阳</font>
+- [ ] <font face="黑体" color=red size=3>包雪阳</font>
 
 <div><a name="R2"></a>
     [2] Bao X , Y Shen. Early‐Stage Lithospheric Foundering Beneath the Eastern Tibetan Plateau Revealed by Full‐Wave Pn Tomography[J]. Geophysical Research Letters, 2020, 47.
@@ -360,7 +381,7 @@
 
 
 
-- [x] <font face="黑体" color=red size=3>陈克杰</font>
+- [ ] <font face="黑体" color=red size=3>陈克杰</font>
 
 <div><a name="R3"></a>
 [3] Wang N , Y Shen, Bao X , et al. Locating Shallow Seismic Sources With Waves Scattered by Surface Topography: Validation of the Method at the Nevada Test Site[J]. Journal of Geophysical Research: Solid Earth, 2019, 124.
@@ -377,7 +398,7 @@
   [5]   Chen, K., Zhang, Z., Liang, C., Xue, C.,& Liu, P. (2020). Kinematics anddynamics of the 24 January 2020 Mw 6.7 Elazig, Turkey earthquake. Earth and Space Science, 7, e2020EA001452. https://doi.org/10.1029/2020EA001452
 </div>
 
-- [x] <font face="黑体" color=red size=3>陈晓非</font>
+- [ ] <font face="黑体" color=red size=3>陈晓非</font>
 
 <div><a name="R6"></a>
   [6] Zhang W , Zhang Z , Li M , et al. GPU implementation of curved-grid finite-difference modelling for non-planar rupture dynamics[J]. Geophysical Journal International, 2020(3):3.
@@ -426,7 +447,7 @@
 
 
 
-- [x] <font face="黑体" color=red size=3>林玉峰</font>
+- [ ] <font face="黑体" color=red size=3>林玉峰</font>
 
 <div><a name="R13"></a>
   [13]  姚鸿波, 任政勇, 汤井田, 林玉峰, 殷长春, 胡祥云, 黄清华, 张可可. (2021). 高精度感应地磁场正演模拟计算及其潜在应用分析. 中国科学: 地球科学, 51: 1-17.  https://doi.org/10.1360/SSTe-2020-0234
@@ -490,7 +511,7 @@
 
 
 
-- [x] <font face="黑体" color=red size=3>杨剑</font>
+- [ ] <font face="黑体" color=red size=3>杨剑</font>
 
 <div><a name="R22"></a>
   [22] Bao S , Toffoletto F , Yang J , et al. Coupling the Rice Convection Model-Equilibrium to the Lyon-Fedder-Mobarry Global Magnetohydrodynamic Model[J]. Journal of Geophysical Research: Space Physics, 2021, 126(8).
@@ -539,42 +560,62 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 - [x] <font face="黑体" color=red size=3> 张振国 </font>
 
-<div><a name="R19"></a>
-  [19] sasa
+<div><a name="R29"></a>
+  [29] Yuan S , Song X , Zhang X , et al. Finite-difference modeling and characteristics analysis of Rayleigh waves in anisotropic-viscoelastic media[J]. Soil Dynamics and Earthquake Engineering, 2018, 108(May):46-57.
 </div>
 
 
 
-<div><a name="R19"></a>
-  [19] sasa
+<div><a name="R30"></a>
+  [30] Danhua Xin, Zhenguo Zhang; On the Comparison of Seismic Ground Motion Simulated by Physics‐Based Dynamic Rupture and Predicted by Empirical Attenuation Equations. Bulletin of the Seismological Society of America 2021; doi: https://doi.org/10.1785/0120210077
 </div>
+
+
+
+<div><a name="R31"></a>
+  [31] Yilong Li, Zhenguo Zhang, Danhua Xin; A Composite Catalog of Damaging Earthquakes for Mainland China. Seismological Research Letters 2021; doi: https://doi.org/10.1785/0220210090
+</div>
+
+
+
+<div><a name="R32"></a>
+  [32] Gao L , Zhang W , Zhang Z , et al. Extraction of Multimodal Dispersion Curves From Ambient Noise With Compressed Sensing[J]. Journal of Geophysical Research: Solid Earth, 2021, 126(6):e2020JB021472.
+</div>
+
+
+
+
 
 
 
 
 - [x] <font face="黑体" color=red size=3> 杨亭 </font>
 
-<div><a name="R19"></a>
-  [19] sasa
+<div><a name="R33"></a>
+  [33] Peng Guo, Ting Yang, Wenliang Xu, Machine learning reveals source compositional variations of the Cenozoic basalts in Northeast China. Geochemistry, Geophysics, Geosystems, 2021, ggge22621, 10.1029/2021GC009946
 </div>
 
 
 
-<div><a name="R19"></a>
-  [19] sasa
+<div><a name="R34"></a>
+  [34] sasa
 </div>
+
+
+
+<div><a name="R35"></a>
+  [35] sasa
+</div>
+
+
+
+
+
+
+
+
 
 
 
