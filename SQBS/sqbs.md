@@ -277,11 +277,17 @@
 
 
 
+文献[[34]](#R34)，地幔对流诱发动力地形，岩石圈下地幔对流的垂直应力驱动岩石圈表面偏转。动态地形对一系列地球物理和地质观测有重要影响。本文利用重建的410 Myr全球板块运动历史作为时变地表力学边界条件，通过三维地幔对流球模型研究了地球动力地形的控制。该数值模型采用扩展boussinesq近似，并包含了与深度和温度密切相关的地幔黏度和相变化。我们的结果表明，去除核幔边界(CMB)上方的化学层和考虑与深度相关的热膨胀对预测的现代动力地形的影响都是有限的。在我们的模型中考虑相变增加了动态地形的预测振幅，这主要受410 km放热相变的影响。预测的动态地形对浅层温度引起的侧向粘度变化(LVVs)和瑞利数非常敏感。lvv的保存显著增加了俯冲带的负动力地形。瑞利数的减少(或增加)显著增加(或减少)预测的现代动力地形。考虑lvv和瑞利数为6 × 108的模型预测的动态地形与残余地形模型最吻合。这个瑞利数与地球的对流活力相一致，因为它产生了更真实的下地幔结构、板片下沉速率以及表面和CMB的热通量。地表热通量格局的演变与海平面长期变化相似。在盘古大陆形成之前，冈瓦纳与劳鲁西亚板块辐合区之间形成了较大的负动力地形。在262 Ma左右，预测的与现在相似的动态地形已经出现。在337和104 Ma的1-3度动态地形下，对应于更高的板速度和更高的表面热流的次数更大。
 
+文献[[35]](#R35), 华北及邻区侏罗纪以来主要受太平洋板块俯冲作用控制。尽管早白垩世以来华北地区以伸展为主的构造运动可以很好地用太平洋板块俯冲来解释，华北及邻区为何在晚侏罗世经历了强烈的挤压(燕山期)，为何在早白垩世迅速转变为拉张主导的构造运动，至今尚不清楚。板块重建表明，在华北地区经历强烈挤压变形的侏罗纪时期，东亚正朝着与海沟相反的方向快速移动。弧后变形和上覆板块运动之间的这种关系似乎与以前的编制和地球动力学模型相矛盾。我们认为，大规模的地幔对流和东亚边缘奇特的地体增生共同促进了华北侏罗纪时期燕山期的造山运动。我们用数值地球动力学模型验证了这一假设。我们的数值实验也表明，亚洲下面大规模的地幔下流促进了亚洲边缘下面的持续俯冲，尽管这种俯冲经常被碰撞和增生事件打断。
 
+<font face="黑体" color=red size=3>叶生毅</font>
 
+文献[[36]](#R36), 土卫二的羽流是土星磁层中中性和等离子体的主要来源。等离子体是由冰粒子和水蒸气的电离产生的，这些冰粒子和水蒸气通过土卫二南极区域的裂缝进入土星内部的磁层。这些裂缝受到潮汐应力的影响，随着土卫二围绕土星以稍微偏心的轨道运行，潮汐应力也会发生变化。羽流活动和亮度也会随着土卫二的轨道位置而变化，当土卫二离土星的轨道最远时(土卫二轨道远点)达到最大值。在本文中，我们将表明，热电子密度分布的时间变化与土卫二在其围绕土星的轨道上的位置相关，当土卫二在其轨道的后顶点部分时，土卫二附近的密度增强最强。
 
+卡西尼号早期的观测显示，一股由冰粒子和水蒸气组成的羽状物从土卫二南极地区的虎纹裂缝中喷发出来，并进入土星的中性环面(Dougherty et al.， 2006;Hansen等人，2006,2011;Hedman等人，2009;Johnson等人，2006年;Porco等，2006;Waite等人，2006,2009)。这种地质活动与潮汐应力的每日循环有关，潮汐应力作用于土卫二，因为土卫二在其略微偏心的轨道上围绕土星运行(Hurford et al.， 2012;斯宾塞,2013)。
 
+文献[[37]](#R37),  “朱诺”号每次绕木星轨道运行时，都会在木星低纬度云层顶部的几到几千公里范围内经过。这些通道携带航天器穿过木星的环面。“朱诺号”上的电波和等离子体波仪器名为“波”(Waves)，它能在穿过这一平面时探测到电压峰值，尽管“朱诺号”远低于人们认为的已知环系统的内缘。这些尖峰是由于微米大小的粉尘颗粒在相对速度70公里s−1以上的撞击造成的。在这样的速度下，尘埃甚至是宇宙飞船的一小部分都会立即蒸发，并被加热到足够高的温度，从而形成一个迅速膨胀的电子和离子云。这些云暂时扰乱了航天器周围的电势，导致波电传感器产生脉冲。在前21次朱诺轨道运行期间，我们发现峰值碰撞速率约为每秒6次，主要局限在距离环面2000 - 3000公里的范围内。我们估计这些颗粒的大小在微米的范围内，大约是香烟烟雾中的颗粒大小。
 
 
 
@@ -560,7 +566,7 @@
 
 
 
-- [x] <font face="黑体" color=red size=3> 张振国 </font>
+- [ ] <font face="黑体" color=red size=3> 张振国 </font>
 
 <div><a name="R29"></a>
   [29] Yuan S , Song X , Zhang X , et al. Finite-difference modeling and characteristics analysis of Rayleigh waves in anisotropic-viscoelastic media[J]. Soil Dynamics and Earthquake Engineering, 2018, 108(May):46-57.
@@ -591,7 +597,7 @@
 
 
 
-- [x] <font face="黑体" color=red size=3> 杨亭 </font>
+- [ ] <font face="黑体" color=red size=3> 杨亭 </font>
 
 <div><a name="R33"></a>
   [33] Peng Guo, Ting Yang, Wenliang Xu, Machine learning reveals source compositional variations of the Cenozoic basalts in Northeast China. Geochemistry, Geophysics, Geosystems, 2021, ggge22621, 10.1029/2021GC009946
@@ -600,13 +606,13 @@
 
 
 <div><a name="R34"></a>
-  [34] sasa
+  [34] An Y , Ting Y . Controls on the present-day dynamic topography predicted from mantle flow models since 410 Ma[J]. Geophysical Journal International.
 </div>
 
 
 
 <div><a name="R35"></a>
-  [35] sasa
+  [35] Yang T , Liu S , Guo P , et al. Yanshanian orogeny during North China's drifting away from the trench: Implications of numerical models[J]. Tectonics, 2020.
 </div>
 
 
@@ -614,22 +620,16 @@
 
 
 
+- [ ] <font face="黑体" color=red size=3> 叶生毅 </font>
 
-
-
-
-
-
-- [x] <font face="黑体" color=red size=3> 叶生毅 </font>
-
-<div><a name="R19"></a>
-  [19] sasa
+<div><a name="R36"></a>
+  [36] Persoon A M , Kurth W S , Gurnett D A , et al. Evidence of electron density enhancements in the post-apoapsis sector of Enceladus' orbit[J]. Journal of Geophysical Research: Space Physics, 2020, 125.
 </div>
 
 
 
-<div><a name="R19"></a>
-  [19] sasa
+<div><a name="R37"></a>
+  [37] S.‐Y. Ye, Averkamp T F , Kurth W S , et al. Juno Waves Detection of Dust Impacts Near Jupiter[J]. Journal of Geophysical Research: Planets, 2020, 125(6).
 </div>
 
 
