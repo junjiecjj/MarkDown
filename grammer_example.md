@@ -518,7 +518,7 @@ $$
 
 $$
 \begin{equation}
-th^* =   \mathop{\arg\max}_{0<th<1}  \mathrm{AUC}(\mathrm{TPR}(th, {\Delta t}_\mathrm{alarm}),\mathrm{FPR}(th, {\Delta t}_\mathrm{alarm})) \tag{equ4}
+th^* =   \arg\mathop{\max}_{0<th<1}  \mathrm{AUC}(\mathrm{TPR}(th, {\Delta t}_\mathrm{alarm}),\mathrm{FPR}(th, {\Delta t}_\mathrm{alarm})) \tag{equ4}
 \end{equation}
 $$
 
@@ -775,6 +775,11 @@ $$
 |   \rho   | $\rho$     |    P     | $P$      |   \varrho   | $\varrho$     |
 |  \sigma  | $\sigma$   |  \Sigma  | $\Sigma$ |  \varsigma  | $\varsigma$   |
 |   \phi   | $\phi$     |   \Phi   | $\Phi$   |   \varphi   | $\varphi$     |
+
+字体Blackboard Bold:
+`\mathbb{A}`呈现出的效果为：$\mathbb{A}$
+
+
 
 ## 关系运算符
 
