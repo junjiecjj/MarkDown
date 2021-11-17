@@ -1815,6 +1815,35 @@ int main()
 
 <img src="1.png" alt="图2" style="zoom:33%;" />
 
+
+
+
+
+
+
+填加图注，方法一，
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">这里输入图注</div>
+</center>
+
+
+
+
+
+填加图注：方法2，
+
+<img src="1.png" alt="图1" style="zoom:80%;" />
+
+<center style="font-size:14px;color:#C0C0C0;text-decoration:underline">图1.知乎</center> 
+
 ## 插入网络图片
 
 插入图片方式比较简单，上面这张图片原始写法如下，只要有 `![]()` 就行了.
