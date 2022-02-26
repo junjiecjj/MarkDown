@@ -518,7 +518,7 @@ $$
 
 $$
 \begin{equation}
-th^* =   \mathop{\arg\max}_{0<th<1}  \mathrm{AUC}(\mathrm{TPR}(th, {\Delta t}_\mathrm{alarm}),\mathrm{FPR}(th, {\Delta t}_\mathrm{alarm})) \tag{equ4}
+th^* =   \arg\mathop{\max}_{0<th<1}  \mathrm{AUC}(\mathrm{TPR}(th, {\Delta t}_\mathrm{alarm}),\mathrm{FPR}(th, {\Delta t}_\mathrm{alarm})) \tag{equ4}
 \end{equation}
 $$
 
@@ -775,6 +775,11 @@ $$
 |   \rho   | $\rho$     |    P     | $P$      |   \varrho   | $\varrho$     |
 |  \sigma  | $\sigma$   |  \Sigma  | $\Sigma$ |  \varsigma  | $\varsigma$   |
 |   \phi   | $\phi$     |   \Phi   | $\Phi$   |   \varphi   | $\varphi$     |
+
+字体Blackboard Bold:
+`\mathbb{A}`呈现出的效果为：$\mathbb{A}$
+
+
 
 ## 关系运算符
 
@@ -1809,6 +1814,35 @@ int main()
 再来一次，缩放 30%大小。
 
 <img src="1.png" alt="图2" style="zoom:33%;" />
+
+
+
+
+
+
+
+填加图注，方法一，
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="1.png">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">这里输入图注</div>
+</center>
+
+
+
+
+
+填加图注：方法2，
+
+<img src="1.png" alt="图1" style="zoom:80%;" />
+
+<center style="font-size:14px;color:#C0C0C0;text-decoration:underline">图1.知乎</center> 
 
 ## 插入网络图片
 
