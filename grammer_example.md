@@ -876,7 +876,7 @@ $$
 
 |                      输入                      | 显示                                             |
 | :--------------------------------------------: | ------------------------------------------------ |
-|                 \fbox{a+b+c+d}                 | $\fbox{a+b+c+d}$                                 |
+|                 \fbox{a+b+c+d}                 | $ \fbox{a+b+c+d} $                               |
 |            \overleftarrow{a+b+c+d}             | $\overleftarrow{a+b+c+d}$                        |
 |            \overrightarrow{a+b+c+d}            | $\overrightarrow{a+b+c+d}$                       |
 |          \overleftrightarrow{a+b+c+d}          | $\overleftrightarrow{a+b+c+d}$                   |

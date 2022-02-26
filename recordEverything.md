@@ -296,6 +296,13 @@ chmod u+x　notion.sh
 
 + sudo apt-get install python3-gtkspellcheck
 
+### Markdown编辑器 notable
+
+在 Ubuntu 下有 Notable 的 deb 和 appimage 包文件可以使用。尽管 Ubuntu 软件中提供了 Notable Snap 软件包，但建议从以下链接下载`.deb`：https://github.com/notable/notable/releases
+
++ sudo dpkg -i notable_1.8.4_amd64.deb
++ sudo apt-get install -f
+
 ###  窗口管理器FVWM
 
 + sudo apt install fvwm
