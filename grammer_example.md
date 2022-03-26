@@ -443,7 +443,10 @@ $$
 
 ### 行内公式
 
-行内公式：  $J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha} \text {，行内公式示例}$。。。。。。
+行内公式：  $ J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha} \text {，行内公式示例} $
+
+
+
 
 行内公式使用方法，比如这个化学公式：$\ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-}$
 
@@ -455,7 +458,10 @@ $$
 
 块公式使用方法如下：
 
-$$H(D_2) = -\left(\frac{2}{4}\log_2 \frac{2}{4} + \frac{2}{4}\log_2 \frac{2}{4}\right) = 1$$
+$$
+H(D_2) = -\left(\frac{2}{4}\log_2 \frac{2}{4} + \frac{2}{4}\log_2 \frac{2}{4}\right) = 1
+$$
+
 
 
 
@@ -784,13 +790,43 @@ $$
 ## 关系运算符
 
 
-|   输入   |    显示    |    输入    |     显示     |   输入    |    显示     |    输入    |     显示     |
-| :------: | :--------: | :--------: | :----------: | :-------: | :---------: | :--------: | :----------: |
-|   \pm    |   $\pm$    |   \times   |   $\times$   |   \div    |   $\div$    |    \mid    |    $\mid$    |
-|  \nmid   |  $\nmid$   |   \cdot    |   $\cdot$    |   \circ   |   $\circ$   |    \ast    |    $\ast$    |
-| \bigodot | $\bigodot$ | \bigotimes | $\bigotimes$ | \bigoplus | $\bigoplus$ |    \leq    |    $\leq$    |
-|   \geq   |   $\geq$   |    \neq    |    $\neq$    |  \approx  |  $\approx$  |   \equiv   |   $\equiv$   |
-|   \sum   |   $\sum$   |   \prod    |   $\prod$    |  \coprod  |  $\coprod$  | \backslash | $\backslash$ |
+|   输入    |    显示     |    输入    |     显示     |   输入    |    显示     |    输入    |     显示     |
+| :-------: | :---------: | :--------: | :----------: | :-------: | :---------: | :--------: | :----------: |
+|           |             |            |              |           |             |            |              |
+|    \pm    |    $\pm$    |   \times   |   $\times$   |   \div    |   $\div$    |    \mid    |    $\mid$    |
+|   \nmid   |   $\nmid$   |   \cdot    |   $\cdot$    |   \circ   |   $\circ$   |    \ast    |    $\ast$    |
+| \bigodot  | $\bigodot$  | \bigotimes | $\bigotimes$ | \bigoplus | $\bigoplus$ |    \leq    |    $\leq$    |
+|   \geq    |   $\geq$    |    \neq    |    $\neq$    |  \approx  |  $\approx$  |   \equiv   |   $\equiv$   |
+|   \sum    |   $\sum$    |   \prod    |   $\prod$    |  \coprod  |  $\coprod$  | \backslash | $\backslash$ |
+|   \leq    |   $\leq$    |   \equiv   |   $\equiv$   |   \prec   |   $\prec$   |    \sim    |    $\sim$    |
+|   \geq    |   $\geq$    |  \models   |  $\models$   |   \succ   |   $\succ$   |   \perp    |   $\perp$    |
+|  \preceq  |     $$      |  \succeq   |  $\succeq$   |  \simeq   |  $\simeq$   |    \mid    |    $\mid$    |
+|  \preceq  |  $\preceq$  |    \ll     |    $\ll$     |    \gg    |    $\gg$    |   \asymp   |   $\asymp$   |
+| \parallel | $\parallel$ |  \approx   |  $\approx$   |   \cong   |   $\cong$   |    \neq    |    $\neq$    |
+|  \doteq   |  $\doteq$   |  \propto   |  $\propto$   |  \bowtie  |  $\bowtie$  |   \Join    |   $\Join$    |
+|  \smile   |  $\smile$   |   \frown   |   $\frown$   |  \vdash   |  $\vdash$   |   \dashv   |   $\dashv$   |
+
+
+
+## 二元运算符
+
+| 输入      | 显示        | 输入           | 显示             | 输入             | 显示               | 输入       | 显示         |
+| --------- | ----------- | -------------- | ---------------- | ---------------- | ------------------ | ---------- | ------------ |
+| \pm       | $\pm$       | \circ          | $\circ$          | \bigtriangledown | $\bigtriangledown$ | \bigcirc   | $\bigcirc$   |
+| \mp       | $\mp$       | \bullet        | $\bullet$        | \triangleleft    | $\triangleleft$    | \odot      | $\odot$      |
+| \times    | $\times$    | \cdot          | $\cdot$          | \triangleright   | $\triangleright$   | \bigodot   | $\bigodot$   |
+| \div      | $\div$      | \wr            | $\wr$            | \lhd             | $\lhd$             | \oslash    | $\oslash$    |
+| \ast      | $\ast$      | \diamond       | $\diamond$       | \rhd             | $\rhd$             | \ominus    | $\ominus$    |
+| \star     | $\star$     | \Diamond       | $\Diamond$       | \unlhd           | $\unlhd$           | \otimes    | $\otimes$    |
+| \mid      | $\mid$      | \triangle      | $\triangle$      | \unrhd           | $\unrhd$           | \bigotimes | $\bigotimes$ |
+| \nmid     | $\nmid$     | \bigtriangleup | $\bigtriangleup$ | \circ            | $\circ$            | \oplus     | $\oplus$     |
+| \bigoplus | $\bigoplus$ | \amalg         | $\amalg$         |                  | $$                 |            | $$           |
+| \dagger   | $\dagger$   |                | $$               |                  | $$                 |            | $$           |
+| \ddagger  | $\ddagger$  |                | $$               |                  | $$                 |            | $$           |
+
+
+
+
 
 
 
@@ -798,12 +834,17 @@ $$
 
 ### 
 
-|   输入    | 显示        |   输入    | 显示        |   输入    | 显示        |
-| :-------: | ----------- | :-------: | ----------- | :-------: | ----------- |
-| \emptyset | $\emptyset$ |    \in    | $\in$       |  \notin   | $\notin$    |
-|  \subset  | $\subset$   |  \supset  | $\supset$   | \subseteq | $\subseteq$ |
-| \supseteq | $\supseteq$ |  \bigcap  | $\bigcap$   |  \bigcup  | $\bigcup$   |
-|  \bigvee  | $\bigvee$   | \bigwedge | $\bigwedge$ | \biguplus | $\biguplus$ |
+|    输入     | 显示          |   输入    | 显示        |    输入     | 显示          |
+| :---------: | ------------- | :-------: | ----------- | :---------: | ------------- |
+|   \uplus    | $\uplus$      | \sqsupset | $\sqsupset$ | \sqsubseteq | $\sqsubseteq$ |
+|  \sqsubset  | $\sqsubset$   |  \sqcap   | $\sqcap$    | \sqsupseteq | $\sqsupseteq$ |
+|  \emptyset  | $\emptyset$   |    \in    | $\in$       |   \notin    | $\notin$      |
+|   \subset   | $\subset$     |  \supset  | $\supset$   |  \subseteq  | $\subseteq$   |
+|  \supseteq  | $\supseteq$   |  \bigcap  | $\bigcap$   |   \bigcup   | $\bigcup$     |
+|   \bigvee   | $\bigvee$     | \bigwedge | $\bigwedge$ |  \biguplus  | $\biguplus$   |
+|    \vee     | $\vee$        |  \wedge   | $\wedge$    |  \setminus  | $\setminus$   |
+| \not\subset | $\not\subset$ |   \cap    | $\cap$      |    \cup     | $\cup$        |
+|             | $$            |           | $$          |             | $$            |
 
 
 
@@ -852,11 +893,12 @@ $$
 
 
 
-|   输入   | 显示       |    输入    | 显示         |    输入     | 显示 |
-| :------: | ---------- | :--------: | ------------ | :---------: | ---- |
-| \because | $\because$ | \therefore | $\therefore$ |             |      |
-| \forall  | $\forall$  |  \exists   | $\exists$    | \not\subset | $$   |
-|  \not<   | $\not<$    |   \not>    | $\not>$      |    \not=    | $$   |
+|   输入   | 显示       |    输入    | 显示         |    输入     | 显示   |
+| :------: | ---------- | :--------: | ------------ | :---------: | ------ |
+| \because | $\because$ | \therefore | $\therefore$ |    \vee     | $\vee$ |
+|  \wedge  | $\wedge$   |            |              |             |        |
+| \forall  | $\forall$  |  \exists   | $\exists$    | \not\subset | $$     |
+|  \not<   | $\not<$    |   \not>    | $\not>$      |    \not=    | $$     |
 
 
 
@@ -877,8 +919,6 @@ $$
 
 
 
-### 
-
 |                      输入                      | 显示                                             |
 | :--------------------------------------------: | ------------------------------------------------ |
 |                 \fbox{a+b+c+d}                 | $ \fbox{a+b+c+d} $                               |
@@ -894,6 +934,37 @@ $$
 |         \underbrace{a+b+c+d}_{Sample}          | $\underbrace{a+b+c+d}_{Sample}$                  |
 |  \overbrace{a+\underbrace{b+c}_{1.0}+d}^{2.0}  | $\overbrace{a+\underbrace{b+c}_{1.0}+d}^{2.0}$   |
 | \underbrace{a\cdot a\cdots a}_{b\text{ times}} | $\underbrace{a\cdot a\cdots a}_{b\text{ times}}$ |
+
+
+
+
+
+## 上下标符号
+
+
+
+| 输入                                               | 显示                                                 |
+| -------------------------------------------------- | ---------------------------------------------------- |
+| \bar{a}                                            | $\bar{a}$                                            |
+| \acute{a}                                          | $\acute{a}$                                          |
+| \breve{a}                                          | $\breve{a}$                                          |
+| \grave{a}                                          | $\grave{a}$                                          |
+| \dot{a}                                            | $\dot{a}$                                            |
+| \ddot{a}                                           | $\ddot{a}$                                           |
+| \hat{a}                                            | $\hat{a}$                                            |
+| \check{a}                                          | $\check{a}$                                          |
+| \breve{a}                                          | $\breve{a}$                                          |
+| \tilde{a}                                          | $\tilde{a}$                                          |
+| \vec{a}                                            | $\vec{a}$                                            |
+| \overline{a + b + c + d}                           | $\overline{a + b + c + d}$                           |
+| \underline{a + b + c + d}                          | $\underline{a + b + c + d}$                          |
+| \overbrace{a + b + c + d}                          | $\overbrace{a + b + c + d}                           |
+| \underline{a + b + c + d}                          | $\underline{a + b + c + d}$                          |
+| \overbrace{a + \underbrace{b + c}_{1.0} + d}^{2.0} | $\overbrace{a + \underbrace{b + c}_{1.0} + d}^{2.0}$ |
+|                                                    | $$                                                   |
+|                                                    | $$                                                   |
+
+
 
 
 
@@ -920,6 +991,42 @@ $$
 |\longleftarrow|$\longleftarrow$|\Longleftarrow|$\Longleftarrow$|
 |\longrightarrow|$\longrightarrow$|\Longrightarrow|$\Longrightarrow$|
 |\longleftrightarrow|$\longleftrightarrow$|\Longleftrightarrow|$\Longleftrightarrow$|
+
+
+
+
+
+## 其他符号
+
+ 
+
+| 输入         | 显示           |
+| ------------ | -------------- |
+| \aleph       | $\aleph$       |
+| \hbar        | $\hbar$        |
+| \imath       | $\imath$       |
+| \jmath       | $\jmath$       |
+| \ell         | $\ell$         |
+| \wp          | $\wp$          |
+| \Re          | $\Re$          |
+| \Im          | $\Im$          |
+| \mho         | $\mho$         |
+| \nabla       | $\nabla$       |
+| \surd        | $\surd$        |
+| \top         | $\top$         |
+| \bot         | $\bot$         |
+| \neg         | $\neg$         |
+| \flat        | $\flat$        |
+| \natural     | $\natural$     |
+| \sharp       | $\sharp$       |
+| \backslash   | $\backslash$   |
+| \partial     | $\partial$     |
+| \Box         | $\Box$         |
+| \clubsuit    | $\clubsuit$    |
+| \diamondsuit | $\diamondsuit$ |
+| \heartsuit   | $\heartsuit$   |
+| \spadesuit   | $\spadesuit$   |
+|              | $$             |
 
 
 
