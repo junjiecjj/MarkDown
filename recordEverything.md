@@ -451,6 +451,15 @@ wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - 
 或
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
+# 配置文件
+cd ~ && curl -L https://raw.githubusercontent.com/junjiecjj/configure_file/master/zsh/zshrc_xiong-chiamiov-plus -o .zshrc  &&  source ~/.zshrc
+cd ~ && curl -L  https://raw.githubusercontent.com/junjiecjj/configure_file/master/zsh/.p10k.zsh  > .p10k.zsh
+
+echo "${WHITE_BLUE}************************* 26.7 安装powerlevel10k *************************${COLOR_RESET}\n"
+git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc.
+
+
 #安装incr
 cd .oh-my-zsh/plugins/
 mkdir incr
