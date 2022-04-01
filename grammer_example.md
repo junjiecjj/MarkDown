@@ -472,6 +472,8 @@ $$
 
 
 $$
+\Huge 
+
 J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha} \text {，独立公式示例}
 $$
 
@@ -504,7 +506,9 @@ $$
 
 $$
 \begin{align}
-x &= v_0\cos\theta t \tag{1} \\
+
+  x &= v_0\cos\theta t \tag{1} \\
+
 y &= v_0\sin\theta t - \frac{1}{2}gt^2 \tag{2}
 \end{align}
 $$
