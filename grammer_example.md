@@ -1047,7 +1047,7 @@ $$
 |\bf|粗体|${\bf example 例子}$|\mit|数学斜体|${\mit example}$|
 |\sf|等线体|${\sf example}$|\scr|手写体|${\scr example}$|
 |\tt|打字机体|${\tt example例子}$||||
-|\frak|旧德式字体|${\frak example}$||||
+|\frak|旧德式字体|${\frak example}$|\mathbb{A}|字体Blackboard Bold|$\mathbb{A}$|
 
 转换字体十分常用，例如在积分中：
 
