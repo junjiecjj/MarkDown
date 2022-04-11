@@ -1607,6 +1607,323 @@ sudo dpkg -i duf_0.5.0_linux_amd64.deb
 
 
 
+
+
+# 游戏
+
+https://adatiya.com/post/39637.html
+
+## 赛道狂飙
+
+`snap install tmnationsforever`
+
+`snap connect tmnationsforever:joystick`
+
+
+
+## Xonotic
+
+https://xonotic.org/download/
+
+
+
+## Red Eclipse
+
+
+
+` sudo add-apt-repository ppa:itachi-sama-amaterasu/redeclipse-client `
+
+`sudo apt-get update`
+
+`sudo apt-get install redeclipse`
+
+或从SVN构建游戏（未经测试）:
+
+```bash
+svn co https://redeclipse.svn.sourceforge.net/svnroot/redeclipse redeclipse
+
+sudo apt-get install build-essential libsdl1.2-dev libsdl-mixer1.2-dev libsdl-image1.2-dev
+
+cd redeclipse/src && make clean && make install && cd .. && ./redeclipse.sh**
+```
+
+
+
+## OpenMW
+
+`sudo apt install openmw`
+
+## OpenTyrian 射击游戏
+
+`sudo snap install opentyrian`
+
+
+
+然后输入您的 Ubuntu 密码并按回车键。 它将在 Ubuntu 上安装最新版本的 OpenTyrian 垂直滚动射击游戏。 OpenTyrian垂直滚动射击游戏安装成功后，您可以通过运行以下命令从终端启动它
+
+```bash
+opentyrian
+```
+
+或者点击Ubuntu Gnome Dock中的show Applications，在搜索框中输入OpenTyrian，点击OpenTyrian打开游戏。
+
+
+
+
+
+## 地雷测试  矿工测试
+
+`sudo apt install  minetest`
+
+
+
+## **Chromium B.S.U.**
+
+https://ubunlog.com/zh-CN/%E9%93%ACbsu%E8%A1%97%E6%9C%BA%E9%A3%8E%E6%A0%BC%E7%9A%84%E5%A4%AA%E7%A9%BA%E9%A3%9E%E8%88%B9%E6%B8%B8%E6%88%8F/
+
+
+
+**如果要在系统上安装此游戏，则必须打开终端并执行以下命令**或者，必须启用“ Universe”存储库才能安装Chromium BSU。
+
+我们使用Ctrl + Alt + T打开终端并执行：
+
+```
+sudo apt-get install chromium-bsu
+```
+
+还 **我们有设施可以在Flatpak的帮助下安装Chromium BSU**，为此，有必要在我们的系统中启用此技术。
+
+**如果没有它，可以通过添加此存储库来启用它** 使用以下命令到您的系统：
+
+```
+sudo add-apt-repository ppa:alexlarsson/Flatpak
+```
+
+他们使用以下方式更新列表：
+
+```
+sudo apt update
+```
+
+他们使用以下方法安装Flatpak：
+
+```
+sudo apt install flatpak
+```
+
+现在 **有必要将Flatpak存储库添加到我们的团队中**，我们使用以下命令执行此操作：
+
+```
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
+**完成此操作后，有必要重新启动计算机以使更改生效。**
+
+已经重新启动系统， **让我们安装游戏**:
+
+```
+flatpak install --from https://flathub.org/repo/appstream/net.sourceforge.chromium-bsu.flatpakref
+```
+
+我们只需要等待必要的软件包下载并在我们的系统上进行安装即可。
+
+如果您已经安装了游戏，则可以使用以下命令对其进行更新：
+
+```
+flatpak --user update net.sourceforge.chromium-bsu
+```
+
+**我们拥有的最后一种安装方法是编译源代码** 在我们系统中的游戏中，我们可以从其官方网站上获得它，并在其下载部分中找到 [链接。](http://chromium-bsu.sourceforge.net/download.html)
+
+**他们可以使用以下命令从终端运行游戏：**
+
+```
+chromium-bsu
+```
+
+## 怎样在 Ubuntu 中安装韦诺之战：
+
+https://www.linuxmi.com/wesnoth-1-16-0-ubuntu.html
+
+按键盘上的 Ctrl+Alt+T 打开终端，然后一一运行以下命令。
+
+ 
+
+**1.** 首先运行命令以确保安装了 Flatpak 框架：
+
+```
+sudo apt install flatpak
+```
+
+
+
+![安装-flatpak](https://static.bynss.com/uploads/1635459560.jpg)
+
+**2.** 添加官方 [平枢纽](https://bynss.com/go/?url=https://flathub.org/home) 包含大量 Flatpak 包的存储库。
+
+```
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
+
+
+![flathub-repo](https://static.bynss.com/uploads/1635459562.jpg)
+
+**3.** 最后通过命令安装游戏：
+
+```
+flatpak install flathub org.wesnoth.Wesnoth
+```
+
+
+
+![flatpak-wesnoth](https://static.bynss.com/uploads/1635459565.jpg)
+
+如果您已经安装了 flatpak 并想要检查更新，请运行命令：
+
+```
+flatpak update org.wesnoth.Wesnoth
+```
+
+ 
+
+**笔记：** 如果您还从 Ubuntu 软件安装了 Wesnoth，您将拥有两个应用程序快捷方式图标，因为 flatpak 在沙箱中运行。 除了删除旧的股票版本，您还可以通过以下命令运行 Wesnoth flatpak：
+
+```
+flatpak run org.wesnoth.Wesnoth
+```
+
+
+
+卸载：
+
+要删除软件包，请在终端中运行命令：
+
+```
+flatpak uninstall org.wesnoth.Wesnoth
+```
+
+
+
+## 天文馆
+
+`sudo apt-get install astromenace`
+
+
+
+
+
+## 0 A.D. is available in Debian’s repositories.
+
+https://play0ad.com/download/linux/#Debian
+
+For users of **Debian 11.x** (**Bullseye**, current stable), the latest version is in the backports repository. First you have to add the backports to your
+
+First you have to add the backports to your system by adding to the sources.list:
+
+```
+deb https://deb.debian.org/debian bullseye-backports main
+```
+
+Then update the repository cache with :
+
+```
+apt-get update 
+```
+
+Finally install the last alpha from official repositories using:
+
+```
+apt-get install -t bullseye-backports 0ad
+```
+
+For users of **Debian 12.x** (**Bookworm**) or **unstable**, the latest version is in the default repository:
+
+```
+apt-get install 0ad
+```
+
+Run the game from the command-line as
+
+```
+0ad
+```
+
+
+
+### 安裝SuperTuxKart 0.10
+
+在終端中運行以下命令，在Linux Ubuntu系統上安裝SuperTuxKart 0.10：
+
+`sudo apt update`
+
+`sudo add-apt-repository ppa:stk/dev`
+
+`sudo apt update`
+
+`sudo apt install supertuxkart`
+
+## 在 Ubuntu Linux 上安装 OpenArena
+
+
+
+Install **openarena** package.
+
+Please follow the instructions below to install **openarena** package:
+
+`sudo apt update 
+
+`sudo apt install openarena 
+
+
+
+Uninstall / Remove **openarena** package.
+
+Please follow the step by step instructions below to uninstall **openarena** package:
+
+`sudo apt remove openarena`Copy
+
+```
+sudo apt autoclean && sudo apt autoremove
+```
+
+OpenArena 可作为 flatpak 包从 flathub 获得。 您可以通过命令行终端应用程序安装它。 为此，您需要先在系统上安装 flatpak。 如果您没有 flatpak，请按照以下命令进行安装。
+
+
+
+https://bynss.com/linux/485356.html
+
+打开终端应用程序（ctrl+alt+t）并运行以下命令来安装 flatpak 并在您的系统上添加 flathub。
+
+
+
+```
+sudo apt install flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
+重新启动系统。 之后使用以下命令安装 OpenArena
+
+```
+flatpak install flathub ws.openarena.OpenArena
+```
+
+您可以通过以下方式运行 OpenArena
+
+
+
+```
+flatpak run ws.openarena.OpenArena
+```
+
+并通过
+
+```
+sudo flatpak uninstall ws.openarena.OpenArena
+```
+
+就是这样。
+
 # suckless 套装
 
 ## fatal error: X11/XX.h: No such file or directory
