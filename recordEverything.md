@@ -1615,6 +1615,8 @@ https://adatiya.com/post/39637.html
 
 ## 赛道狂飙
 
+https://ywnz.com/linuxyx/2061.html
+
 `snap install tmnationsforever`
 
 `snap connect tmnationsforever:joystick`
@@ -1651,7 +1653,11 @@ cd redeclipse/src && make clean && make install && cd .. && ./redeclipse.sh**
 
 ## OpenMW
 
-`sudo apt install openmw`
+`sudo add-apt-repository ppa:openmw/openmw`
+
+`sudo apt update`
+
+`sudo apt install openmw openmw-launcher openmw-cs`
 
 ## OpenTyrian 射击游戏
 
@@ -1817,39 +1823,23 @@ flatpak uninstall org.wesnoth.Wesnoth
 
 https://play0ad.com/download/linux/#Debian
 
-For users of **Debian 11.x** (**Bullseye**, current stable), the latest version is in the backports repository. First you have to add the backports to your
+### Ubuntu-Provided Packages
 
-First you have to add the backports to your system by adding to the sources.list:
-
-```
-deb https://deb.debian.org/debian bullseye-backports main
-```
-
-Then update the repository cache with :
+For users of Ubuntu **Cosmic** (18.10) or **Disco** (19.04), the latest version of 0 A.D. is available in Ubuntu’s *universe* repository. Make sure universe is enabled in your sources, and install the package by running:
 
 ```
-apt-get update 
+sudo apt-get install 0ad
 ```
 
-Finally install the last alpha from official repositories using:
+### 0 A.D.-Provided Packages
+
+For users of Ubuntu LTS **Trusty** (14.04), **Xenial** (16.04) or **Bionic** (18.04), the latest version of 0 A.D. packages is available from 0 A.D. [PPA](https://launchpad.net/~wfg/+archive/0ad):
 
 ```
-apt-get install -t bullseye-backports 0ad
+sudo add-apt-repository ppa:wfg/0ad
+sudo apt-get update
+sudo apt-get install 0ad
 ```
-
-For users of **Debian 12.x** (**Bookworm**) or **unstable**, the latest version is in the default repository:
-
-```
-apt-get install 0ad
-```
-
-Run the game from the command-line as
-
-```
-0ad
-```
-
-
 
 ### 安裝SuperTuxKart 0.10
 
