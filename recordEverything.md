@@ -339,11 +339,9 @@ PluginInstall 就是 vundle 的包管理器 Plugin 常用命令：
 
 接下来安装以来工具
 
-+ sudo apt-get install build-essential cmake
-+ sudo apt-get install python-dev python3-dev
-+ sudo apt-get install libxml2-dev libxslt-dev
-+ sduo apt-get install clang
-+ sudo apt-get install libclang-dev
++ sudo apt-get install build-essential cmake python-dev python3-dev  libxml2-dev libxslt-dev   libclang-dev
+
+  
 
 接下来进入目录：
 
