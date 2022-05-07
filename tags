@@ -1,0 +1,733 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/jack/公共的/MarkDown/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+# Sauce Code Pro Nerd Font; FiraCode Nerd Font; JetBrainsMono Nerd Font	recordEverything.md	/^   # Sauce Code Pro Nerd Font; FiraCode Nerd Font; JetBrainsMono Nerd Font$/;"	c
+# add Typora's repository	recordEverything.md	/^   # add Typora's repository$/;"	c
+# install typora	recordEverything.md	/^   # install typora$/;"	c
+# junjie @ Ubuntu in ~/公共的/c文件/计算机网络 [日期: 周二 3月 16日, 时间:14:23:28]	C.md	/^  # junjie @ Ubuntu in ~\/公共的\/c文件\/计算机网络 [日期: 周二 3月 16日, 时间/;"	c
+# or run:	recordEverything.md	/^   # or run:$/;"	c
+# sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE	recordEverything.md	/^   # sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE$/;"	c
+# 卸载完成之后需要先克隆项目到本地(本人安装在  /opt  这个目录)	recordEverything.md	/^  # 卸载完成之后需要先克隆项目到本地(本人安装在  \/opt  这个目录)$/;"	c
+# 去https://www.nerdfonts.com/font-downloads下载字体，存放在~/下载/nerdfonts/下	recordEverything.md	/^   # 去https:\/\/www.nerdfonts.com\/font-downloads下载字体，存放在~\/下载\/nerdfonts\//;"	c
+# 如果您以前安装过，需要先进行卸载	recordEverything.md	/^  # 如果您以前安装过，需要先进行卸载$/;"	c
+# 如果您没有安装 git 需要先安装 git	recordEverything.md	/^  # 如果您没有安装 git 需要先安装 git$/;"	c
+#:查看是否安装成功	recordEverything.md	/^   #:查看是否安装成功$/;"	c
+#:生成字体信息缓存	recordEverything.md	/^   #:生成字体信息缓存$/;"	c
+#define BUFLEN 255	C.md	/^  #define BUFLEN 255$/;"	c
+#define CLOCK_MONOTONIC   1	C.md	/^  #define CLOCK_MONOTONIC   1$/;"	c
+#define CLOCK_PROCESS_CPUTIME_ID  2	C.md	/^  #define CLOCK_PROCESS_CPUTIME_ID  2$/;"	c
+#define CLOCK_REALTIME    0	C.md	/^  #define CLOCK_REALTIME    0$/;"	c
+#define CLOCK_THREAD_CPUTIME_ID  3	C.md	/^  #define CLOCK_THREAD_CPUTIME_ID  3$/;"	c
+#define SIGALRM \t\t14 // 时钟信号	C.md	/^  #define SIGALRM 		14 \/\/ 时钟信号$/;"	c
+#define SIGUSR1\t\t10 //用户自定义信号1	C.md	/^  #define SIGUSR1		10 \/\/用户自定义信号1$/;"	c
+#define SIGUSR2 \t\t12  //用户自定义信号2	C.md	/^  #define SIGUSR2 		12  \/\/用户自定义信号2$/;"	c
+#include <stdio.h>	C.md	/^  #include <stdio.h>$/;"	c
+#include <sys/socket.h>	C.md	/^   #include <sys\/socket.h>$/;"	c
+#include <sys/types.h>	C.md	/^   #include <sys\/types.h>$/;"	c
+#include <time.h>	C.md	/^  #include <time.h>$/;"	c
+#include <unistd.h>	C.md	/^   #include <unistd.h>$/;"	c
+#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包	recordEverything.md	/^   #去[阿里镜像](http:\/\/packages.deepin.com\/deepin\/pool\/non-free\/d\/)下载.deb包$/;"	c
+#安装完成！	recordEverything.md	/^  #安装完成！$/;"	c
+#我把项目克隆在 /opt 目录，所以接下来切换到目录 /opt/flameshot/, 在这个目录下作以下操作：	recordEverything.md	/^  #我把项目克隆在 \/opt 目录，所以接下来切换到目录 \/opt\/flameshot\/, 在这/;"	c
+#编译完成之后执行命令	recordEverything.md	/^  #编译完成之后执行命令$/;"	c
+**Checkout**	GitTutor.md	/^### **Checkout**$/;"	S	section:[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**Checkout**	git使用.md	/^#### **Checkout**$/;"	t	subsection:git使用""[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**Cherry Pick**	GitTutor.md	/^### **Cherry Pick**$/;"	S	section:[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**Cherry Pick**	git使用.md	/^#### **Cherry Pick**$/;"	t	subsection:git使用""[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**Chromium B.S.U.**	recordEverything.md	/^## **Chromium B.S.U.**$/;"	s	chapter:游戏
+**Commit**	GitTutor.md	/^### **Commit**$/;"	S	section:[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**Commit**	git使用.md	/^ #### **Commit**$/;"	T	subsection:git使用""[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**Diff**	GitTutor.md	/^### **Diff**$/;"	S	section:[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**Diff**	git使用.md	/^ #### **Diff**$/;"	T	subsection:git使用""[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**HEAD 标识处于分离状态时的提交操作**	GitTutor.md	/^### **HEAD 标识处于分离状态时的提交操作**$/;"	S	section:[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**HEAD 标识处于分离状态时的提交操作**	git使用.md	/^#### **HEAD 标识处于分离状态时的提交操作**$/;"	t	subsection:git使用""[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**Merge**	GitTutor.md	/^### **Merge**$/;"	S	section:[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**Merge**	git使用.md	/^#### **Merge**$/;"	t	subsection:git使用""[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**Rebase**	GitTutor.md	/^### **Rebase**$/;"	S	section:[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**Rebase**	git使用.md	/^#### **Rebase**$/;"	t	subsection:git使用""[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**Reset**	GitTutor.md	/^### **Reset**$/;"	S	section:[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**Reset**	git使用.md	/^#### **Reset**$/;"	t	subsection:git使用""[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)""命令详解
+**inet_pton** /  **inet_ntop**函数	C.md	/^#### **inet_pton** \/  **inet_ntop**函数$/;"	t	subsection:Linux/C网络""Socket函数介绍与使用""基本 socket 函数
+**timer_gettime**函数	C.md	/^#### **timer_gettime**函数$/;"	t	chapter:#define SIGUSR2 \t\t12  //用户自定义信号2
+**一、Git 是什么？**	GitTutor.md	/^## **一、Git 是什么？**$/;"	s	chapter:[Git使用教程：超详细、超浅显、真正手把手教！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)
+**一、Git 是什么？**	git使用.md	/^### **一、Git 是什么？**$/;"	S	section:git使用""[Git 使用教程！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)
+**一、新建代码库**	GitTutor.md	/^## **一、新建代码库**$/;"	s	chapter:[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+**一、新建代码库**	git使用.md	/^### **一、新建代码库**$/;"	S	section:git使用""[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+**七、bug 分支**	GitTutor.md	/^### **七、bug 分支**$/;"	S	section:[Git使用教程：超详细、超浅显、真正手把手教！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)""**四、如何操作？**
+**七、bug 分支**	git使用.md	/^### **七、bug 分支**$/;"	S	section:git使用""[Git 使用教程！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)
+**三、在 windows 上如何安装 Git？**	GitTutor.md	/^## **三、在 windows 上如何安装 Git？**$/;"	s	chapter:[Git使用教程：超详细、超浅显、真正手把手教！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)
+**三、在 windows 上如何安装 Git？**	git使用.md	/^### **三、在 windows 上如何安装 Git？**$/;"	S	section:git使用""[Git 使用教程！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)
+**三、增加 / 删除文件**	GitTutor.md	/^## **三、增加 \/ 删除文件**$/;"	s	chapter:[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+**三、增加 / 删除文件**	git使用.md	/^### **三、增加 \/ 删除文件**$/;"	S	section:git使用""[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+**三、增加/删除文件**	GitTutor.md	/^### **三、增加\/删除文件**$/;"	S	section:自己对Git的认识""常用命令
+**上传文件到你的仓库**	GitTutor.md	/^## **上传文件到你的仓库**$/;"	s	chapter:[克隆、修改、添加和删除文件？](https://mp.weixin.qq.com/s/g_1iDs0W1ToGlmYoUbjEpw)
+**二、SVN 与 Git 的最主要的区别？**	GitTutor.md	/^## **二、SVN 与 Git 的最主要的区别？**$/;"	s	chapter:[Git使用教程：超详细、超浅显、真正手把手教！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)
+**二、SVN 与 Git 的最主要的区别？**	git使用.md	/^### **二、SVN 与 Git 的最主要的区别？**$/;"	S	section:git使用""[Git 使用教程！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)
+**二、配置**	GitTutor.md	/^## **二、配置**$/;"	s	chapter:[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+**二、配置**	git使用.md	/^### **二、配置**$/;"	S	section:git使用""[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+**五、远程仓库**	GitTutor.md	/^### **五、远程仓库**$/;"	S	section:[Git使用教程：超详细、超浅显、真正手把手教！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)""**四、如何操作？**
+**五、远程仓库**	git使用.md	/^### **五、远程仓库**$/;"	S	section:git使用""[Git 使用教程！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)
+**从 Git 中删除文件**	GitTutor.md	/^## **从 Git 中删除文件**$/;"	s	chapter:[克隆、修改、添加和删除文件？](https://mp.weixin.qq.com/s/g_1iDs0W1ToGlmYoUbjEpw)
+**使用 Curl 下载文件**	recordEverything.md	/^### **使用 Curl 下载文件**$/;"	S	section:linux命令大全""[curl和wget](https://mp.weixin.qq.com/s/VprxpaxQihFVHlJB3a9xkQ)
+**使用 Wget 下载文件**	recordEverything.md	/^### **使用 Wget 下载文件**$/;"	S	section:linux命令大全""[curl和wget](https://mp.weixin.qq.com/s/VprxpaxQihFVHlJB3a9xkQ)
+**修改文件**	GitTutor.md	/^## **修改文件**$/;"	s	chapter:[克隆、修改、添加和删除文件？](https://mp.weixin.qq.com/s/g_1iDs0W1ToGlmYoUbjEpw)
+**八、多人协作**	GitTutor.md	/^### **八、多人协作**$/;"	S	section:[Git使用教程：超详细、超浅显、真正手把手教！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)""**四、如何操作？**
+**八、多人协作**	git使用.md	/^### **八、多人协作**$/;"	S	section:git使用""[Git 使用教程！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)
+**六、创建与合并分支**	GitTutor.md	/^### **六、创建与合并分支**$/;"	S	section:[Git使用教程：超详细、超浅显、真正手把手教！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)""**四、如何操作？**
+**六、创建与合并分支**	git使用.md	/^### **六、创建与合并分支**$/;"	S	section:git使用""[Git 使用教程！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)
+**四、如何操作？**	GitTutor.md	/^## **四、如何操作？**$/;"	s	chapter:[Git使用教程：超详细、超浅显、真正手把手教！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)
+**四、如何操作？**	git使用.md	/^### **四、如何操作？**$/;"	S	section:git使用""[Git 使用教程！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)
+**在匹配字符串周围打印出行号**	recordEverything.md	/^###  **在匹配字符串周围打印出行号**$/;"	S	section:linux命令大全""grep (文本过滤）
+**在搜索字符串前面或者后面显示行号**	recordEverything.md	/^### **在搜索字符串前面或者后面显示行号**$/;"	S	section:linux命令大全""grep (文本过滤）
+**基本用法**	GitTutor.md	/^##  **基本用法**$/;"	s	chapter:[22 张图让你洞察 Git 秘密](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650950399&idx=2&sn=4385b1e75cd31db59db4aa7fd668a919&chksm=bd7a32cd8a0dbbdbdcda7522d3d24dbfc71f7aefc4e66dd84ac5765d1759f5bfa57646d39d71&mpshare=1&scene=24&srcid=0705YmVOt4EMQWp5YyJAEM76&sharer_sharetime=1625451631802&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AQSaSVtuUa9kPQlOLn5gJjs%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+**按给定字符串搜索文件中匹配的行号**	recordEverything.md	/^### **按给定字符串搜索文件中匹配的行号**$/;"	S	section:linux命令大全""grep (文本过滤）
+**让我们来克隆一下**	GitTutor.md	/^## **让我们来克隆一下**$/;"	s	chapter:[克隆、修改、添加和删除文件？](https://mp.weixin.qq.com/s/g_1iDs0W1ToGlmYoUbjEpw)
+**进行精确匹配搜索**	recordEverything.md	/^### **进行精确匹配搜索**$/;"	S	section:linux命令大全""grep (文本过滤）
+**配置**	GitTutor.md	/^### **配置**$/;"	S	section:自己对Git的认识""常用命令
+.gitignore	GitTutor.md	/^### .gitignore$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""配置
+.gitignore	git使用.md	/^#### .gitignore$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""配置
+.xprofile等文件	recordEverything.md	/^## .xprofile等文件$/;"	s	chapter:Linux小技巧
+0 A.D. is available in Debian’s repositories.	recordEverything.md	/^## 0 A.D. is available in Debian’s repositories.$/;"	s	chapter:游戏
+0 A.D.-Provided Packages	recordEverything.md	/^### 0 A.D.-Provided Packages$/;"	S	section:游戏""0 A.D. is available in Debian’s repositories.
+1	example.md	/^[^1]: 这是注脚$/;"	n	chapter:1. 一级标题  \\#\\#
+1	grammer_example.md	/^[^1]: Markdown 是一种纯文本标记语言$/;"	n	section:文字 \\#\\#""注脚
+1. 一级标题  \\#\\#	example.md	/^# 1. 一级标题  \\#\\#$/;"	c
+11	grammer_example.md	/^[^11]: Markdown 是非常好的笔记本$/;"	n	section:文字 \\#\\#""注脚
+12	grammer_example.md	/^[^12]: Typora 是非常好的编辑器$/;"	n	section:文字 \\#\\#""注脚
+2	grammer_example.md	/^[^2]: HyperText Markup Language 超文本标记语言$/;"	n	section:文字 \\#\\#""注脚
+2. 二级标题	example.md	/^##  2. 二级标题$/;"	s	chapter:1. 一级标题  \\#\\#
+3. 三级标题	example.md	/^###  3. 三级标题$/;"	S	section:1. 一级标题  \\#\\#""2. 二级标题
+4. 四级标题	example.md	/^#### 4. 四级标题$/;"	t	subsection:1. 一级标题  \\#\\#""2. 二级标题""3. 三级标题
+5. 五级标题	example.md	/^##### 5. 五级标题$/;"	T	subsubsection:1. 一级标题  \\#\\#""2. 二级标题""3. 三级标题""4. 四级标题
+<span id="信号1">信号</span>	computer.md	/^#####  <span id="信号1">信号<\/span>$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""进程通信
+AX 寄存器	computer.md	/^#### AX 寄存器$/;"	t	subsection:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)""通用寄存器
+BX 寄存器	computer.md	/^#### BX 寄存器$/;"	t	subsection:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)""通用寄存器
+Branch 和 HEAD 的意义	GitTutor.md	/^## Branch 和 HEAD 的意义$/;"	s	chapter:[通俗易懂，让你深入 Git 基本原理](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952215&idx=3&sn=1bb8357ab235c120dcd94ba3d3f94091&chksm=bd7a2a258a0da3332028c1f89d4a658aca4156cacaf644819991012606cc6ad4067bf2400c84&mpshare=1&scene=24&srcid=0906vJqMkH4w1AxNUCNLzssT&sharer_sharetime=1630890564079&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AcLlv%2BB%2BHlQ%2FTAVmdPKn2r0%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+CPU 简介	computer.md	/^####  CPU 简介$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""冯诺伊曼体系
+CPU 访问方式	computer.md	/^#### CPU 访问方式$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""冯诺伊曼体系
+CPU 访问速度	computer.md	/^#### CPU 访问速度$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""冯诺伊曼体系
+CPU并行程序设计	computer.md	/^#  CPU并行程序设计$/;"	c
+CS 寄存器	computer.md	/^##### CS 寄存器$/;"	T	subsubsection:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)""物理地址""段寄存器
+CX 寄存器	computer.md	/^#### CX 寄存器$/;"	t	subsection:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)""通用寄存器
+Checkout	GitTutor.md	/^### Checkout$/;"	S	section:[22 张图让你洞察 Git 秘密](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650950399&idx=2&sn=4385b1e75cd31db59db4aa7fd668a919&chksm=bd7a32cd8a0dbbdbdcda7522d3d24dbfc71f7aefc4e66dd84ac5765d1759f5bfa57646d39d71&mpshare=1&scene=24&srcid=0705YmVOt4EMQWp5YyJAEM76&sharer_sharetime=1625451631802&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AQSaSVtuUa9kPQlOLn5gJjs%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)""命令详解
+Cherry Pick	GitTutor.md	/^### Cherry Pick$/;"	S	section:[22 张图让你洞察 Git 秘密](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650950399&idx=2&sn=4385b1e75cd31db59db4aa7fd668a919&chksm=bd7a32cd8a0dbbdbdcda7522d3d24dbfc71f7aefc4e66dd84ac5765d1759f5bfa57646d39d71&mpshare=1&scene=24&srcid=0705YmVOt4EMQWp5YyJAEM76&sharer_sharetime=1625451631802&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AQSaSVtuUa9kPQlOLn5gJjs%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)""命令详解
+Code::Block	recordEverything.md	/^###  Code::Block$/;"	S	section:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包""linux系统其它软件
+Commit	GitTutor.md	/^### Commit$/;"	S	section:[22 张图让你洞察 Git 秘密](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650950399&idx=2&sn=4385b1e75cd31db59db4aa7fd668a919&chksm=bd7a32cd8a0dbbdbdcda7522d3d24dbfc71f7aefc4e66dd84ac5765d1759f5bfa57646d39d71&mpshare=1&scene=24&srcid=0705YmVOt4EMQWp5YyJAEM76&sharer_sharetime=1625451631802&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AQSaSVtuUa9kPQlOLn5gJjs%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)""命令详解
+DMA 模式	computer.md	/^#####   DMA 模式$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""输入输出管理""IO 控制
+DS 寄存器	computer.md	/^##### DS 寄存器$/;"	T	subsubsection:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)""物理地址""段寄存器
+DX 寄存器	computer.md	/^#### DX 寄存器$/;"	t	subsection:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)""通用寄存器
+Diff	GitTutor.md	/^### Diff$/;"	S	section:[22 张图让你洞察 Git 秘密](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650950399&idx=2&sn=4385b1e75cd31db59db4aa7fd668a919&chksm=bd7a32cd8a0dbbdbdcda7522d3d24dbfc71f7aefc4e66dd84ac5765d1759f5bfa57646d39d71&mpshare=1&scene=24&srcid=0705YmVOt4EMQWp5YyJAEM76&sharer_sharetime=1625451631802&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AQSaSVtuUa9kPQlOLn5gJjs%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)""命令详解
+Eclipse	recordEverything.md	/^###  Eclipse$/;"	S	section:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包""linux系统其它软件
+Emacs	recordEverything.md	/^###  Emacs$/;"	S	section:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包""linux系统其它软件
+FPGA概述	FPGA.md	/^# FPGA概述$/;"	c
+GPU并行程序设计	computer.md	/^# GPU并行程序设计$/;"	c
+Git 其他高级相关操作	GitTutor.md	/^##  Git 其他高级相关操作$/;"	s	chapter:[Git使用的奇技淫巧](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650948216&idx=2&sn=c5199b12adc8a97db1b82b735198ad22&chksm=bd7a3a4a8a0db35c5eee2aba55ec488c88e1be3b8f9c2a3bdbb62985597ec4e0944e5f6ebae9&mpshare=1&scene=24&srcid=042163oqpVf7VCymqc9UJZRX&sharer_sharetime=1618965789366&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AZWZ5jpv%2FRWKHHuKc3MRlZ8%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+Git 分支管理相关操作	GitTutor.md	/^##  Git 分支管理相关操作$/;"	s	chapter:[Git使用的奇技淫巧](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650948216&idx=2&sn=c5199b12adc8a97db1b82b735198ad22&chksm=bd7a3a4a8a0db35c5eee2aba55ec488c88e1be3b8f9c2a3bdbb62985597ec4e0944e5f6ebae9&mpshare=1&scene=24&srcid=042163oqpVf7VCymqc9UJZRX&sharer_sharetime=1618965789366&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AZWZ5jpv%2FRWKHHuKc3MRlZ8%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+Git 初始化代码仓库	GitTutor.md	/^## Git 初始化代码仓库$/;"	s	chapter:[通俗易懂，让你深入 Git 基本原理](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952215&idx=3&sn=1bb8357ab235c120dcd94ba3d3f94091&chksm=bd7a2a258a0da3332028c1f89d4a658aca4156cacaf644819991012606cc6ad4067bf2400c84&mpshare=1&scene=24&srcid=0906vJqMkH4w1AxNUCNLzssT&sharer_sharetime=1630890564079&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AcLlv%2BB%2BHlQ%2FTAVmdPKn2r0%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+Git 如何添加远程仓库	GitTutor.md	/^## Git 如何添加远程仓库$/;"	s	chapter:[通俗易懂，让你深入 Git 基本原理](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952215&idx=3&sn=1bb8357ab235c120dcd94ba3d3f94091&chksm=bd7a2a258a0da3332028c1f89d4a658aca4156cacaf644819991012606cc6ad4067bf2400c84&mpshare=1&scene=24&srcid=0906vJqMkH4w1AxNUCNLzssT&sharer_sharetime=1630890564079&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AcLlv%2BB%2BHlQ%2FTAVmdPKn2r0%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+Git 存储状态相关操作	GitTutor.md	/^## Git 存储状态相关操作$/;"	s	chapter:[Git使用的奇技淫巧](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650948216&idx=2&sn=c5199b12adc8a97db1b82b735198ad22&chksm=bd7a3a4a8a0db35c5eee2aba55ec488c88e1be3b8f9c2a3bdbb62985597ec4e0944e5f6ebae9&mpshare=1&scene=24&srcid=042163oqpVf7VCymqc9UJZRX&sharer_sharetime=1618965789366&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AZWZ5jpv%2FRWKHHuKc3MRlZ8%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+Git 文件处理相关操作	GitTutor.md	/^##  Git 文件处理相关操作$/;"	s	chapter:[Git使用的奇技淫巧](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650948216&idx=2&sn=c5199b12adc8a97db1b82b735198ad22&chksm=bd7a3a4a8a0db35c5eee2aba55ec488c88e1be3b8f9c2a3bdbb62985597ec4e0944e5f6ebae9&mpshare=1&scene=24&srcid=042163oqpVf7VCymqc9UJZRX&sharer_sharetime=1618965789366&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AZWZ5jpv%2FRWKHHuKc3MRlZ8%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+Git 是什么	GitTutor.md	/^### Git 是什么$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""简介
+Git 是什么	git使用.md	/^#### Git 是什么$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""简介
+Git 版本对比相关操作	GitTutor.md	/^##  Git 版本对比相关操作$/;"	s	chapter:[Git使用的奇技淫巧](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650948216&idx=2&sn=c5199b12adc8a97db1b82b735198ad22&chksm=bd7a3a4a8a0db35c5eee2aba55ec488c88e1be3b8f9c2a3bdbb62985597ec4e0944e5f6ebae9&mpshare=1&scene=24&srcid=042163oqpVf7VCymqc9UJZRX&sharer_sharetime=1618965789366&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AZWZ5jpv%2FRWKHHuKc3MRlZ8%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+Git 给 Github 配置 RSS	GitTutor.md	/^##   Git 给 Github 配置 RSS$/;"	s	chapter:[Git使用的奇技淫巧](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650948216&idx=2&sn=c5199b12adc8a97db1b82b735198ad22&chksm=bd7a3a4a8a0db35c5eee2aba55ec488c88e1be3b8f9c2a3bdbb62985597ec4e0944e5f6ebae9&mpshare=1&scene=24&srcid=042163oqpVf7VCymqc9UJZRX&sharer_sharetime=1618965789366&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AZWZ5jpv%2FRWKHHuKc3MRlZ8%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+Git 远程仓库相关操作	GitTutor.md	/^##  Git 远程仓库相关操作$/;"	s	chapter:[Git使用的奇技淫巧](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650948216&idx=2&sn=c5199b12adc8a97db1b82b735198ad22&chksm=bd7a3a4a8a0db35c5eee2aba55ec488c88e1be3b8f9c2a3bdbb62985597ec4e0944e5f6ebae9&mpshare=1&scene=24&srcid=042163oqpVf7VCymqc9UJZRX&sharer_sharetime=1618965789366&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AZWZ5jpv%2FRWKHHuKc3MRlZ8%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+Git 配置代码相关操作	GitTutor.md	/^##  Git 配置代码相关操作$/;"	s	chapter:[Git使用的奇技淫巧](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650948216&idx=2&sn=c5199b12adc8a97db1b82b735198ad22&chksm=bd7a3a4a8a0db35c5eee2aba55ec488c88e1be3b8f9c2a3bdbb62985597ec4e0944e5f6ebae9&mpshare=1&scene=24&srcid=042163oqpVf7VCymqc9UJZRX&sharer_sharetime=1618965789366&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AZWZ5jpv%2FRWKHHuKc3MRlZ8%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+Github	GitTutor.md	/^### Github$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+Github	git使用.md	/^#### Github$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+HEAD 标识处于分离状态时的提交操作	GitTutor.md	/^### HEAD 标识处于分离状态时的提交操作$/;"	S	section:[22 张图让你洞察 Git 秘密](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650950399&idx=2&sn=4385b1e75cd31db59db4aa7fd668a919&chksm=bd7a32cd8a0dbbdbdcda7522d3d24dbfc71f7aefc4e66dd84ac5765d1759f5bfa57646d39d71&mpshare=1&scene=24&srcid=0705YmVOt4EMQWp5YyJAEM76&sharer_sharetime=1625451631802&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AQSaSVtuUa9kPQlOLn5gJjs%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)""命令详解
+IO 中断请求	computer.md	/^#####   IO 中断请求$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""输入输出管理""IO 控制
+IO 控制	computer.md	/^####   IO 控制$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""输入输出管理
+IO分层	computer.md	/^#### IO分层$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""输入输出管理
+Java IDE IntelliJ	recordEverything.md	/^###  Java IDE IntelliJ$/;"	S	section:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包""linux系统其它软件
+Latex	recordEverything.md	/^###  Latex$/;"	S	chapter:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包
+Lazygit使用	GitTutor.md	/^# Lazygit使用$/;"	c
+Linux 内存管理	computer.md	/^#####   Linux 内存管理$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""内存管理""内存管理方式
+Linux/C网络	C.md	/^#   Linux\/C网络$/;"	c
+Linux小技巧	recordEverything.md	/^# Linux小技巧$/;"	c
+Linux系统	recordEverything.md	/^#  Linux系统$/;"	c
+Lyx	recordEverything.md	/^###  Lyx$/;"	S	chapter:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包
+MMU	computer.md	/^####  MMU$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""内存管理
+MPI并行	computer.md	/^## MPI并行$/;"	s	chapter:CPU并行程序设计
+MarkDown_file	README.md	/^# MarkDown_file$/;"	c
+Markdown编辑器 notable	recordEverything.md	/^### Markdown编辑器 notable$/;"	S	chapter:# install typora
+Markdown编辑器Typora	recordEverything.md	/^###  Markdown编辑器Typora$/;"	S	chapter:#:查看是否安装成功
+Markdown编辑器remarkable	recordEverything.md	/^###  Markdown编辑器remarkable$/;"	S	chapter:# install typora
+Matlab	recordEverything.md	/^###  Matlab$/;"	S	section:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包""linux系统其它软件
+Merge	GitTutor.md	/^### Merge$/;"	S	section:[22 张图让你洞察 Git 秘密](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650950399&idx=2&sn=4385b1e75cd31db59db4aa7fd668a919&chksm=bd7a32cd8a0dbbdbdcda7522d3d24dbfc71f7aefc4e66dd84ac5765d1759f5bfa57646d39d71&mpshare=1&scene=24&srcid=0705YmVOt4EMQWp5YyJAEM76&sharer_sharetime=1625451631802&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AQSaSVtuUa9kPQlOLn5gJjs%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)""命令详解
+Notion	recordEverything.md	/^### Notion$/;"	S	chapter:#:查看是否安装成功
+OpenMP并行	computer.md	/^## OpenMP并行$/;"	s	chapter:CPU并行程序设计
+OpenMW	recordEverything.md	/^## OpenMW$/;"	s	chapter:游戏
+OpenTyrian 射击游戏	recordEverything.md	/^## OpenTyrian 射击游戏$/;"	s	chapter:游戏
+PCB	computer.md	/^####  PCB$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理
+PCB 信息	computer.md	/^##### PCB 信息$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""PCB
+PCB 组织方式	computer.md	/^##### PCB 组织方式$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""PCB
+PDF阅读器	recordEverything.md	/^###  PDF阅读器$/;"	S	chapter:# install typora
+Pthread并行	computer.md	/^## Pthread并行$/;"	s	chapter:CPU并行程序设计
+Python IDE Anaconda	recordEverything.md	/^###  Python IDE Anaconda$/;"	S	section:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包""linux系统其它软件
+QT	recordEverything.md	/^###  QT$/;"	S	section:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包""linux系统其它软件
+Rebase	GitTutor.md	/^### Rebase$/;"	S	section:[22 张图让你洞察 Git 秘密](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650950399&idx=2&sn=4385b1e75cd31db59db4aa7fd668a919&chksm=bd7a32cd8a0dbbdbdcda7522d3d24dbfc71f7aefc4e66dd84ac5765d1759f5bfa57646d39d71&mpshare=1&scene=24&srcid=0705YmVOt4EMQWp5YyJAEM76&sharer_sharetime=1625451631802&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AQSaSVtuUa9kPQlOLn5gJjs%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)""命令详解
+Rebasing 和合并 (Merging)	GitTutor.md	/^#### Rebasing 和合并 (Merging)$/;"	t	subsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题
+Rebasing 和合并 (Merging)	git使用.md	/^#### Rebasing 和合并 (Merging)$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题
+Red Eclipse	recordEverything.md	/^## Red Eclipse$/;"	s	chapter:游戏
+Reset	GitTutor.md	/^### Reset$/;"	S	section:[22 张图让你洞察 Git 秘密](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650950399&idx=2&sn=4385b1e75cd31db59db4aa7fd668a919&chksm=bd7a32cd8a0dbbdbdcda7522d3d24dbfc71f7aefc4e66dd84ac5765d1759f5bfa57646d39d71&mpshare=1&scene=24&srcid=0705YmVOt4EMQWp5YyJAEM76&sharer_sharetime=1625451631802&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AQSaSVtuUa9kPQlOLn5gJjs%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)""命令详解
+Socket函数介绍与使用	C.md	/^##  Socket函数介绍与使用$/;"	s	chapter:Linux/C网络
+Socket编程	computer.md	/^#####   Socket编程$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""进程通信
+TLB	computer.md	/^##### TLB$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""内存管理""内存管理方式
+Ubuntu-Provided Packages	recordEverything.md	/^### Ubuntu-Provided Packages$/;"	S	section:游戏""0 A.D. is available in Debian’s repositories.
+VFS 虚拟文件系统	computer.md	/^####  VFS 虚拟文件系统$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""文件管理
+VIM打造IDE	recordEverything.md	/^###  VIM打造IDE$/;"	S	chapter:# install typora
+VS Code	recordEverything.md	/^###  VS Code$/;"	S	chapter:# install typora
+Verilog语法	FPGA.md	/^# Verilog语法$/;"	c
+WPS	recordEverything.md	/^###  WPS$/;"	S	chapter:# install typora
+WSL	recordEverything.md	/^### WSL$/;"	S	chapter:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包
+Xonotic	recordEverything.md	/^## Xonotic$/;"	s	chapter:游戏
+ZSH	recordEverything.md	/^### ZSH$/;"	S	chapter:# install typora
+Zero Copy	computer.md	/^#####   Zero Copy$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""输入输出管理""IO 控制
+[22 张图让你洞察 Git 秘密](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650950399&idx=2&sn=4385b1e75cd31db59db4aa7fd668a919&chksm=bd7a32cd8a0dbbdbdcda7522d3d24dbfc71f7aefc4e66dd84ac5765d1759f5bfa57646d39d71&mpshare=1&scene=24&srcid=0705YmVOt4EMQWp5YyJAEM76&sharer_sharetime=1625451631802&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AQSaSVtuUa9kPQlOLn5gJjs%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)	GitTutor.md	/^# [22 张图让你洞察 Git 秘密](https:\/\/mp.weixin.qq.com\/s?__biz=MjM5NDEwNzc0MQ==&mid=26/;"	c
+[7-zip](https://mp.weixin.qq.com/s/xH175-7w-TctfUOQOmPEjA)	recordEverything.md	/^### [7-zip](https:\/\/mp.weixin.qq.com\/s\/xH175-7w-TctfUOQOmPEjA)$/;"	S	chapter:# install typora
+[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)	GitTutor.md	/^# [Git 从入门到精通，这一篇就够了](https:\/\/mp.weixin.qq.com\/s\/b8bQW2N5VC-qmGD4d/;"	c
+[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)	git使用.md	/^## [Git 从入门到精通，这一篇就够了](https:\/\/mp.weixin.qq.com\/s\/b8bQW2N5VC-qmGD4/;"	s	chapter:git使用
+[Git 使用教程！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)	git使用.md	/^## [Git 使用教程！](https:\/\/mp.weixin.qq.com\/s\/YQOhF7Nc94ZRLxFWpd2Wbw)$/;"	s	chapter:git使用
+[Git 分支操作介绍 | Linux 中国](https://mp.weixin.qq.com/s?__biz=MjM5NjQ4MjYwMQ==&mid=2664611334&idx=3&sn=991f02e666ef834b94228467680ab984&chksm=bdce85408ab90c565d8ca9aa073b20ae154ef9358c537a583545ee97f27580c436e87426416e&mpshare=1&scene=24&srcid=06080ht1Vc5hZGjRHg11aR34&exportkey=AWmtljWTpHz1ZJWrDLlmui4%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)	GitTutor.md	/^# [Git 分支操作介绍 | Linux 中国](https:\/\/mp.weixin.qq.com\/s?__biz=MjM5NjQ4MjYwMQ==&m/;"	c
+[Git使用教程：超详细、超浅显、真正手把手教！](https://mp.weixin.qq.com/s/YQOhF7Nc94ZRLxFWpd2Wbw)	GitTutor.md	/^# [Git使用教程：超详细、超浅显、真正手把手教！](https:\/\/mp.weixin.qq.com\//;"	c
+[Git使用的奇技淫巧](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650948216&idx=2&sn=c5199b12adc8a97db1b82b735198ad22&chksm=bd7a3a4a8a0db35c5eee2aba55ec488c88e1be3b8f9c2a3bdbb62985597ec4e0944e5f6ebae9&mpshare=1&scene=24&srcid=042163oqpVf7VCymqc9UJZRX&sharer_sharetime=1618965789366&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AZWZ5jpv%2FRWKHHuKc3MRlZ8%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)	GitTutor.md	/^# [Git使用的奇技淫巧](https:\/\/mp.weixin.qq.com\/s?__biz=MjM5NDEwNzc0MQ==&mid=2650948216/;"	c
+[Glances](https://mp.weixin.qq.com/s/C7qXS7gXH385n-yJjBxprQ)	recordEverything.md	/^### [Glances](https:\/\/mp.weixin.qq.com\/s\/C7qXS7gXH385n-yJjBxprQ)$/;"	S	chapter:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包
+[Linux 文件的颜色代码](https://mp.weixin.qq.com/s?__biz=MzA4NzQzMzU4Mg==&mid=2652947251&idx=2&sn=43c7eaa497fc5e3bfeccfd788112f64e&chksm=8bedeb32bc9a62240c11c595926e46337a96b93d0485a89bf80c2c1ae977986dd9245f32b67e&scene=132#wechat_redirect)	recordEverything.md	/^## [Linux 文件的颜色代码](https:\/\/mp.weixin.qq.com\/s?__biz=MzA4NzQzMzU4Mg==&mid=265294/;"	s	chapter:Linux小技巧
+[Linux/C时间函数]()	C.md	/^#   [Linux\/C时间函数]()$/;"	c
+[Linux性能分析](https://mp.weixin.qq.com/s?__biz=MzU5NDg5MzM5NQ==&mid=2247488166&idx=1&sn=c8d47fd8deb89bc05ca56991341225f2&chksm=fe7b1d9ac90c948c56c44f03bcf7802e62c4e8f9fd2a2c3b74b1bd0a229c2e422f5f052dcbd8&mpshare=1&scene=1&srcid=0327IfGLSkVkySNHS4U61MID&sharer_sharetime=1616804779201&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8#rd)	recordEverything.md	/^## [Linux性能分析](https:\/\/mp.weixin.qq.com\/s?__biz=MzU5NDg5MzM5NQ==&mid=2247488166&idx=1/;"	s	chapter:Linux小技巧
+[Simple Terminal终端](https://cloud.tencent.com/developer/article/1771532)	recordEverything.md	/^### [Simple Terminal终端](https:\/\/cloud.tencent.com\/developer\/article\/1771532)$/;"	S	chapter:# install typora
+[curl和wget](https://mp.weixin.qq.com/s/VprxpaxQihFVHlJB3a9xkQ)	recordEverything.md	/^## [curl和wget](https:\/\/mp.weixin.qq.com\/s\/VprxpaxQihFVHlJB3a9xkQ)$/;"	s	chapter:linux命令大全
+[dstat](https://mp.weixin.qq.com/s?__biz=MzAwMzc4MTExOA==&mid=2649798734&idx=1&sn=057c6137a17fcd1650eb2e744a0325c9&chksm=8331e0dfb44669c9c8f6c5a1adfeaccaf8ca4999f5262ba26cdd7ac541dee409bbc2d7f58acd&mpshare=1&scene=1&srcid=0129uc7hno0Q4seLXt2JWRCe&sharer_sharetime=1611916489458&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8#rd)	recordEverything.md	/^## [dstat](https:\/\/mp.weixin.qq.com\/s?__biz=MzAwMzc4MTExOA==&mid=2649798734&idx=1&sn=057c6137/;"	s	chapter:linux命令大全
+[gdb](https://mp.weixin.qq.com/s/OLHurXiioQchhai4i9WYsw)	recordEverything.md	/^## [gdb](https:\/\/mp.weixin.qq.com\/s\/OLHurXiioQchhai4i9WYsw)$/;"	s	chapter:linux命令大全
+[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)	GitTutor.md	/^# [git 操作，看这一篇文章就够了！](https:\/\/mp.weixin.qq.com\/s\/_AJKZT8oCza8hBAxT/;"	c
+[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)	git使用.md	/^## [git 操作，看这一篇文章就够了！](https:\/\/mp.weixin.qq.com\/s\/_AJKZT8oCza8hBAx/;"	s	chapter:git使用
+[ranger]()	recordEverything.md	/^### [ranger]()$/;"	S	chapter:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包
+[sysstat](https://mp.weixin.qq.com/s/zfVcyDdBTiy5y8wFVd7x3A)	recordEverything.md	/^### [sysstat](https:\/\/mp.weixin.qq.com\/s\/zfVcyDdBTiy5y8wFVd7x3A)$/;"	S	chapter:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包
+[tcpdump](https://mp.weixin.qq.com/s/iSqeA2hWbllEyq8yg-MPvQ)	recordEverything.md	/^## [tcpdump](https:\/\/mp.weixin.qq.com\/s\/iSqeA2hWbllEyq8yg-MPvQ)$/;"	s	chapter:linux命令大全
+[克隆、修改、添加和删除文件？](https://mp.weixin.qq.com/s/g_1iDs0W1ToGlmYoUbjEpw)	GitTutor.md	/^# [克隆、修改、添加和删除文件？](https:\/\/mp.weixin.qq.com\/s\/g_1iDs0W1ToGlmYoUb/;"	c
+[克隆、修改、添加和删除文件？](https://mp.weixin.qq.com/s/g_1iDs0W1ToGlmYoUbjEpw)	git使用.md	/^## [克隆、修改、添加和删除文件？](https:\/\/mp.weixin.qq.com\/s\/g_1iDs0W1ToGlmYoU/;"	s	chapter:git使用
+[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)	GitTutor.md	/^# [图文详解 Git 工作原理](https:\/\/mp.weixin.qq.com\/s\/sRnfLAe5Aq720iwNAgzwVQ)$/;"	c
+[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)	git使用.md	/^## [图文详解 Git 工作原理](https:\/\/mp.weixin.qq.com\/s\/sRnfLAe5Aq720iwNAgzwVQ)$/;"	s	chapter:git使用
+[在 Ubuntu 20.04 上安装 Microsoft Edge 浏览器](https://mp.weixin.qq.com/s/E2EBTzQMy4PjVbGEJ1VM3g)	recordEverything.md	/^### [在 Ubuntu 20.04 上安装 Microsoft Edge 浏览器](https:\/\/mp.weixin.qq.com\/s\/E2EBTzQ/;"	S	chapter:# install typora
+[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)	computer.md	/^## [寄存器](https:\/\/mp.weixin.qq.com\/s\/wWbj7aek4lo9gbBgzrn7ww)$/;"	s	chapter:计算机基础知识
+[手把手指导您使用 Git](https://mp.weixin.qq.com/s/B7rjSShEFBkuxM7wsNtlkg)	GitTutor.md	/^# [手把手指导您使用 Git](https:\/\/mp.weixin.qq.com\/s\/B7rjSShEFBkuxM7wsNtlkg)$/;"	c
+[手把手指导您使用 Git](https://mp.weixin.qq.com/s/B7rjSShEFBkuxM7wsNtlkg)	git使用.md	/^## [手把手指导您使用 Git](https:\/\/mp.weixin.qq.com\/s\/B7rjSShEFBkuxM7wsNtlkg)$/;"	s	chapter:git使用
+[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)	computer.md	/^## [操作系统](https:\/\/mp.weixin.qq.com\/s\/oz1c3dhFiR9HpIgG5AEsQw)$/;"	s	chapter:计算机基础知识
+[程序员应如何理解系统调用：上篇](https://mp.weixin.qq.com/s?__biz=MzU2NTYyOTQ4OQ==&mid=2247483880&idx=1&sn=26ab417ffdd46b2956e5dc07516477af&chksm=fcb986b6cbce0fa0e0959341ec9c7a0c2db0acd9f5a1250e5cbe33306da2f10f1f3cd08152aa&scene=178&cur_album_id=1433368223499796481#rd)	computer.md	/^### [程序员应如何理解系统调用：上篇](https:\/\/mp.weixin.qq.com\/s?__biz=MzU2NTYy/;"	S	section:计算机基础知识""系统调用
+[程序员应如何理解系统调用：下篇](https://mp.weixin.qq.com/s?__biz=MzU2NTYyOTQ4OQ==&mid=2247483891&idx=1&sn=a527f49994e43b9304f5f4f963c771c5&chksm=fcb986adcbce0fbbde17020a7009abbaf61ade3275ac17768d58b3e34965dd619e7c3c438508&scene=178&cur_album_id=1433368223499796481#rd)	computer.md	/^### [程序员应如何理解系统调用：下篇](https:\/\/mp.weixin.qq.com\/s?__biz=MzU2NTYy/;"	S	section:计算机基础知识""系统调用
+[系统调用是如何实现的](https://mp.weixin.qq.com/s?__biz=MzU2NTYyOTQ4OQ==&mid=2247483868&idx=1&sn=d85d5f4138b8e9f67031315074e0bfe1&chksm=fcb98682cbce0f947777b4f25b5a36506c615543f3d3d5356f839e708ffc30f1eb39361faae3&scene=178&cur_album_id=1433368223499796481#rd)	computer.md	/^### [系统调用是如何实现的](https:\/\/mp.weixin.qq.com\/s?__biz=MzU2NTYyOTQ4OQ==&mid=22/;"	S	section:计算机基础知识""系统调用
+[通俗易懂，让你深入 Git 基本原理](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952215&idx=3&sn=1bb8357ab235c120dcd94ba3d3f94091&chksm=bd7a2a258a0da3332028c1f89d4a658aca4156cacaf644819991012606cc6ad4067bf2400c84&mpshare=1&scene=24&srcid=0906vJqMkH4w1AxNUCNLzssT&sharer_sharetime=1630890564079&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AcLlv%2BB%2BHlQ%2FTAVmdPKn2r0%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)	GitTutor.md	/^# [通俗易懂，让你深入 Git 基本原理](https:\/\/mp.weixin.qq.com\/s?__biz=MjM5NDEwNzc/;"	c
+add 之后发生了什么	GitTutor.md	/^## add 之后发生了什么$/;"	s	chapter:[通俗易懂，让你深入 Git 基本原理](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952215&idx=3&sn=1bb8357ab235c120dcd94ba3d3f94091&chksm=bd7a2a258a0da3332028c1f89d4a658aca4156cacaf644819991012606cc6ad4067bf2400c84&mpshare=1&scene=24&srcid=0906vJqMkH4w1AxNUCNLzssT&sharer_sharetime=1630890564079&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AcLlv%2BB%2BHlQ%2FTAVmdPKn2r0%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+asctime 函数	C.md	/^###    asctime 函数$/;"	S	chapter:#define BUFLEN 255
+awk (gawk)（报告生成器）	recordEverything.md	/^## awk (gawk)（报告生成器）$/;"	s	chapter:linux命令大全
+bind 函数	C.md	/^####   bind 函数$/;"	t	subsection:Linux/C网络""Socket函数介绍与使用""基本 socket 函数
+bpytop	recordEverything.md	/^###  bpytop$/;"	S	chapter:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包
+bzero函数	C.md	/^## bzero函数$/;"	s	chapter:与内存相关函数
+checkout 和 commit 操作	GitTutor.md	/^## checkout 和 commit 操作$/;"	s	chapter:[通俗易懂，让你深入 Git 基本原理](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952215&idx=3&sn=1bb8357ab235c120dcd94ba3d3f94091&chksm=bd7a2a258a0da3332028c1f89d4a658aca4156cacaf644819991012606cc6ad4067bf2400c84&mpshare=1&scene=24&srcid=0906vJqMkH4w1AxNUCNLzssT&sharer_sharetime=1630890564079&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AcLlv%2BB%2BHlQ%2FTAVmdPKn2r0%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+clock函数	C.md	/^###    clock函数$/;"	S	chapter:#define BUFLEN 255
+clone 方式	GitTutor.md	/^#### clone 方式$/;"	t	subsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""Github
+clone 方式	git使用.md	/^#### clone 方式$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+close函数	C.md	/^####  close函数$/;"	t	chapter:#include <sys/types.h>
+compton	recordEverything.md	/^### compton$/;"	S	section:suckless 套装""安装dwm
+connect 函数	C.md	/^####   connect 函数$/;"	t	subsection:Linux/C网络""Socket函数介绍与使用""基本 socket 函数
+ctime函数	C.md	/^###   ctime函数$/;"	S	section:[Linux/C时间函数]()""一般时间函数
+dstat	recordEverything.md	/^###  dstat$/;"	S	chapter:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包
+duf	recordEverything.md	/^###  duf$/;"	S	chapter:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包
+du、df、fdisk	recordEverything.md	/^## du、df、fdisk$/;"	s	chapter:linux命令大全
+errno全局变量	C.md	/^# errno全局变量$/;"	c
+exa	recordEverything.md	/^### exa$/;"	S	chapter:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包
+fatal error: X11/XX.h: No such file or directory	recordEverything.md	/^## fatal error: X11\/XX.h: No such file or directory$/;"	s	chapter:suckless 套装
+ftime函数	C.md	/^###    ftime函数$/;"	S	chapter:#define BUFLEN 255
+gethostbyname函数	C.md	/^## gethostbyname函数$/;"	s	chapter:#include <unistd.h>
+gethrestime、gethrestime_lasttick函数	C.md	/^####   gethrestime、gethrestime_lasttick函数$/;"	t	subsection:#define BUFLEN 255""clock函数
+gettimeofday 函数	C.md	/^###   gettimeofday 函数$/;"	S	chapter:#define BUFLEN 255
+github上已经存在Repository且已经有内容	GitTutor.md	/^##  github上已经存在Repository且已经有内容$/;"	s	chapter:自己对Git的认识
+git使用	git使用.md	/^# git使用$/;"	c
+gmtime 函数	C.md	/^###    gmtime 函数$/;"	S	section:[Linux/C时间函数]()""一般时间函数
+grep (文本过滤）	recordEverything.md	/^## grep (文本过滤）$/;"	s	chapter:linux命令大全
+grep命令忽略任何区分大小写	recordEverything.md	/^### grep命令忽略任何区分大小写$/;"	S	section:linux命令大全""grep (文本过滤）
+htonl/htons/ntohl/ntohs函数	C.md	/^#### htonl\/htons\/ntohl\/ntohs函数$/;"	t	subsection:Linux/C网络""Socket函数介绍与使用""基本 socket 函数
+inet_addr / inet_ntoa函数	C.md	/^#### inet_addr \/ inet_ntoa函数$/;"	t	subsection:Linux/C网络""Socket函数介绍与使用""基本 socket 函数
+inode	computer.md	/^#####   inode$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""文件管理""文件组成
+install	recordEverything.md	/^#### install$/;"	t	subsection:# install typora""[Simple Terminal终端](https://cloud.tencent.com/developer/article/1771532)
+linux命令大全	recordEverything.md	/^#  linux命令大全$/;"	c
+linux系统其它软件	recordEverything.md	/^##  linux系统其它软件$/;"	s	chapter:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包
+linux系统装机配置	recordEverything.md	/^##  linux系统装机配置$/;"	s	chapter:Linux系统
+linux软件自动安装脚本	recordEverything.md	/^##  linux软件自动安装脚本$/;"	s	chapter:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包
+listen 函数	C.md	/^####  listen 函数$/;"	t	subsection:Linux/C网络""Socket函数介绍与使用""基本 socket 函数
+localhost 函数	C.md	/^###    localhost 函数$/;"	S	chapter:#define BUFLEN 255
+memcpy函数	C.md	/^## memcpy函数$/;"	s	chapter:与内存相关函数
+mktime 函数	C.md	/^###   mktime 函数$/;"	S	chapter:#define BUFLEN 255
+mmap 跟 write	computer.md	/^######   mmap 跟 write$/;"	u	l4subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""输入输出管理""IO 控制""Zero Copy
+picom	recordEverything.md	/^### picom$/;"	S	section:suckless 套装""安装dwm
+plots	recordEverything.md	/^###  plots$/;"	S	chapter:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包
+ploybar	recordEverything.md	/^### ploybar$/;"	S	section:suckless 套装""安装dwm
+qq、微信、百度网盘、迅雷	recordEverything.md	/^###  qq、微信、百度网盘、迅雷$/;"	S	chapter:#安装完成！
+ranger 的显示方式	recordEverything.md	/^#### ranger 的显示方式$/;"	t	subsection:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包""[ranger]()
+read函数	C.md	/^####    read函数$/;"	t	chapter:#include <sys/types.h>
+screenkey	recordEverything.md	/^### screenkey$/;"	S	chapter:# install typora
+section one	grammer_example.md	/^# section one$/;"	c
+sed（流编辑器）	recordEverything.md	/^## sed（流编辑器）$/;"	s	chapter:linux命令大全
+select函数	C.md	/^## select函数$/;"	s	chapter:#include <unistd.h>
+send/recv函数	C.md	/^#### send\/recv函数$/;"	t	chapter:#include <sys/types.h>
+sendfile	computer.md	/^######   sendfile$/;"	u	l4subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""输入输出管理""IO 控制""Zero Copy
+sendto / recvfrom函数	C.md	/^#### sendto \/ recvfrom函数$/;"	t	chapter:#include <unistd.h>
+setsockopt () 函数	C.md	/^## setsockopt () 函数$/;"	s	chapter:#include <unistd.h>
+sigaction函数	C.md	/^##  sigaction函数$/;"	s	chapter:线程相关函数
+signal 函数	C.md	/^##   signal 函数$/;"	s	chapter:线程相关函数
+socket 函数	C.md	/^####   socket 函数$/;"	t	subsection:Linux/C网络""Socket函数介绍与使用""基本 socket 函数
+strftime 函数	C.md	/^###    strftime 函数$/;"	S	section:[Linux/C时间函数]()""一般时间函数
+suckless 套装	recordEverything.md	/^# suckless 套装$/;"	c
+t	grammer_example.md	/^[^t]: NEW WAY TO READ & WRITE MARKDOWN.$/;"	n	section:文字 \\#\\#""注脚
+time_creat()函数	C.md	/^####   time_creat()函数$/;"	t	subsection:#define BUFLEN 255""定时器相关函数
+timer_delete函数	C.md	/^####   timer_delete函数$/;"	t	chapter:#define SIGUSR2 \t\t12  //用户自定义信号2
+timer_settime函数	C.md	/^####   timer_settime函数$/;"	t	chapter:#define SIGUSR2 \t\t12  //用户自定义信号2
+time函数	C.md	/^###    time函数$/;"	S	section:[Linux/C时间函数]()""一般时间函数
+vim 主题颜色	recordEverything.md	/^### vim 主题颜色$/;"	S	section:附录""附录1
+vim/Neovim配置	recordEverything.md	/^#  vim\/Neovim配置$/;"	c
+vim快捷键	recordEverything.md	/^## vim快捷键$/;"	s	chapter:Linux小技巧
+wolai	recordEverything.md	/^### wolai$/;"	S	chapter:#:查看是否安装成功
+write函数	C.md	/^####   write函数$/;"	t	chapter:#include <sys/types.h>
+xcompmgr+transset-df	recordEverything.md	/^###  xcompmgr+transset-df$/;"	S	section:suckless 套装""安装dwm
+一、菜单栏	grammer_example.md	/^### 一、菜单栏$/;"	S	section:文字 \\#\\#""快捷键
+一些特殊的注意事项	grammer_example.md	/^## 一些特殊的注意事项$/;"	s	chapter:公式
+一般时间函数	C.md	/^##   一般时间函数$/;"	s	chapter:[Linux/C时间函数]()
+七、查看信息	GitTutor.md	/^## 七、查看信息$/;"	s	chapter:[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+七、查看信息	git使用.md	/^### 七、查看信息$/;"	S	section:git使用""[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+三、编辑	grammer_example.md	/^### 三、编辑$/;"	S	section:文字 \\#\\#""快捷键
+三级标题-流程图、时序图	grammer_example.md	/^### 三级标题-流程图、时序图$/;"	S	section:文字 \\#\\#""二级标题
+三角运算符	grammer_example.md	/^## 三角运算符$/;"	s	chapter:公式
+上下标符号	grammer_example.md	/^## 上下标符号$/;"	s	chapter:公式
+下载源码	recordEverything.md	/^#### 下载源码$/;"	t	subsection:# install typora""[Simple Terminal终端](https://cloud.tencent.com/developer/article/1771532)
+与内存相关函数	C.md	/^# 与内存相关函数$/;"	c
+两种启动方式	recordEverything.md	/^### 两种启动方式$/;"	S	section:suckless 套装""安装dwm
+为什么使用 Git	GitTutor.md	/^### 为什么使用 Git$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""简介
+为什么使用 Git	git使用.md	/^#### 为什么使用 Git$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""简介
+九、撤销	GitTutor.md	/^## 九、撤销$/;"	s	chapter:[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+九、撤销	git使用.md	/^## 九、撤销$/;"	s	chapter:git使用
+二元运算符	grammer_example.md	/^## 二元运算符$/;"	s	chapter:公式
+二级标题	grammer_example.md	/^## 二级标题$/;"	s	chapter:文字 \\#\\#
+五、分支	GitTutor.md	/^## 五、分支$/;"	s	chapter:[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+五、分支	git使用.md	/^### 五、分支$/;"	S	section:git使用""[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+五、格式	grammer_example.md	/^### 五、格式$/;"	S	section:文字 \\#\\#""快捷键
+五级标题-换行	grammer_example.md	/^##### 五级标题-换行$/;"	T	subsubsection:文字 \\#\\#""二级标题""三级标题-流程图、时序图""四级标题-折叠
+交互式 rebase (interactive rebase) 可能出现的问题	GitTutor.md	/^##### 交互式 rebase (interactive rebase) 可能出现的问题$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""Rebasing 和合并 (Merging)
+交互式 rebase (interactive rebase) 可能出现的问题	git使用.md	/^##### 交互式 rebase (interactive rebase) 可能出现的问题$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""Rebasing 和合并 (Merging)
+交叉引用	grammer_example.md	/^# 交叉引用$/;"	c
+交换图表使用参考	grammer_example.md	/^## 交换图表使用参考$/;"	s	chapter:公式
+什么是 Code Segment	computer.md	/^##### 什么是 Code Segment$/;"	T	subsubsection:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)""物理地址""段寄存器
+什么是分布式版本控制系统	GitTutor.md	/^### 什么是分布式版本控制系统$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""简介
+什么是分布式版本控制系统	git使用.md	/^#### 什么是分布式版本控制系统$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""简介
+什么是段	computer.md	/^#### 什么是段$/;"	t	subsection:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)""物理地址
+什么是版本控制	GitTutor.md	/^### 什么是版本控制$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""简介
+什么是版本控制	git使用.md	/^#### 什么是版本控制$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""简介
+从工作区提交文件到缓存区	gitinstall.md	/^# 从工作区提交文件到缓存区$/;"	c
+代码<a name="code"></a>	grammer_example.md	/^# 代码<a name="code"><\/a>$/;"	c
+代码提交	GitTutor.md	/^### 代码提交$/;"	S	section:自己对Git的认识""常用命令
+位域是什么？	C.md	/^### 位域是什么？$/;"	S	section:数据结构""位字段
+位域的存储	C.md	/^### 位域的存储$/;"	S	section:数据结构""位字段
+位字段	C.md	/^## 位字段$/;"	s	chapter:数据结构
+信号量	computer.md	/^#####  信号量$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""进程通信
+修改终端提示符	recordEverything.md	/^###  修改终端提示符$/;"	S	chapter:#:查看是否安装成功
+做出改变	recordEverything.md	/^#### 做出改变$/;"	t	subsection:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包""[ranger]()
+储藏	GitTutor.md	/^### 储藏$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+储藏	git使用.md	/^##### 储藏$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""添加修改
+克隆所有子模块	GitTutor.md	/^##### 克隆所有子模块$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""杂项 (Miscellaneous Objects)
+克隆所有子模块	git使用.md	/^##### 克隆所有子模块$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""杂项 (Miscellaneous Objects)
+八、远程同步	GitTutor.md	/^## 八、远程同步$/;"	s	chapter:[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+八、远程同步	git使用.md	/^### 八、远程同步$/;"	S	section:git使用""[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+公式	grammer_example.md	/^# 公式$/;"	c
+六、标签	GitTutor.md	/^## 六、标签$/;"	s	chapter:[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+六、标签	git使用.md	/^### 六、标签$/;"	S	section:git使用""[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+六、视图	grammer_example.md	/^### 六、视图$/;"	S	section:文字 \\#\\#""快捷键
+共享内存	computer.md	/^#####   共享内存$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""进程通信
+关系运算符	grammer_example.md	/^## 关系运算符$/;"	s	chapter:公式
+其他服务软件	recordEverything.md	/^### 其他服务软件$/;"	S	section:suckless 套装""安装dwm
+其他符号	grammer_example.md	/^## 其他符号$/;"	s	chapter:公式
+内存分段	computer.md	/^##### 内存分段$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""内存管理""内存管理方式
+内存分页	computer.md	/^##### 内存分页$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""内存管理""内存管理方式
+内存管理	computer.md	/^###  内存管理$/;"	S	section:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)
+内存管理方式	computer.md	/^#### 内存管理方式$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""内存管理
+内核态线程	computer.md	/^######   内核态线程$/;"	u	l4subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""线程""线程实现
+冒泡	C.md	/^### 冒泡$/;"	S	section:算法""排序算法
+冯诺伊曼体系	computer.md	/^### 冯诺伊曼体系$/;"	S	section:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)
+冯诺伊曼体系简介	computer.md	/^#### 冯诺伊曼体系简介$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""冯诺伊曼体系
+分支	GitTutor.md	/^### 分支$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+分支	GitTutor.md	/^### 分支$/;"	S	section:自己对Git的认识""常用命令
+分支	git使用.md	/^#### 分支$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+分支 (Branches)	GitTutor.md	/^#### 分支 (Branches)$/;"	t	subsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题
+分支 (Branches)	git使用.md	/^#### 分支 (Branches)$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题
+分支操作的背后逻辑	GitTutor.md	/^## 分支操作的背后逻辑$/;"	s	chapter:[通俗易懂，让你深入 Git 基本原理](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952215&idx=3&sn=1bb8357ab235c120dcd94ba3d3f94091&chksm=bd7a2a258a0da3332028c1f89d4a658aca4156cacaf644819991012606cc6ad4067bf2400c84&mpshare=1&scene=24&srcid=0906vJqMkH4w1AxNUCNLzssT&sharer_sharetime=1630890564079&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AcLlv%2BB%2BHlQ%2FTAVmdPKn2r0%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+列表	grammer_example.md	/^## 列表$/;"	s	chapter:文字 \\#\\#
+创建仓库	GitTutor.md	/^### 创建仓库$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+创建仓库	git使用.md	/^#### 创建仓库$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+删除任意提交 (commit)	GitTutor.md	/^##### 删除任意提交 (commit)$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""编辑提交 (editting commits)
+删除任意提交 (commit)	git使用.md	/^##### 删除任意提交 (commit)$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""编辑提交 (editting commits)
+删除标签 (tag)	GitTutor.md	/^##### 删除标签 (tag)$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""杂项 (Miscellaneous Objects)
+删除标签 (tag)	git使用.md	/^##### 删除标签 (tag)$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""杂项 (Miscellaneous Objects)
+前言	recordEverything.md	/^#### 前言$/;"	t	subsection:# install typora""[Simple Terminal终端](https://cloud.tencent.com/developer/article/1771532)
+加深理解 commit 提交	GitTutor.md	/^## 加深理解 commit 提交$/;"	s	chapter:[通俗易懂，让你深入 Git 基本原理](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952215&idx=3&sn=1bb8357ab235c120dcd94ba3d3f94091&chksm=bd7a2a258a0da3332028c1f89d4a658aca4156cacaf644819991012606cc6ad4067bf2400c84&mpshare=1&scene=24&srcid=0906vJqMkH4w1AxNUCNLzssT&sharer_sharetime=1630890564079&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AcLlv%2BB%2BHlQ%2FTAVmdPKn2r0%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+十、其他	GitTutor.md	/^##  十、其他$/;"	s	chapter:[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+十、其他	git使用.md	/^## 十、其他$/;"	s	chapter:git使用
+协程	computer.md	/^#####  协程$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""线程
+协程定义	computer.md	/^######  协程定义$/;"	u	l4subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""线程""协程
+协程注意事项	computer.md	/^######  协程注意事项$/;"	u	l4subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""线程""协程
+原理	GitTutor.md	/^## 原理$/;"	s	chapter:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+原理	git使用.md	/^### 原理$/;"	S	section:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+参考文献	grammer_example.md	/^# 参考文献$/;"	c
+参考资料	GitTutor.md	/^### 参考资料$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+参考资料	git使用.md	/^### 参考资料$/;"	S	section:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+合并与重置	GitTutor.md	/^### 合并与重置$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+合并与重置	git使用.md	/^#### 合并与重置$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+同步本地仓库文件到远程仓库	gitinstall.md	/^# 同步本地仓库文件到远程仓库$/;"	c
+命令	GitTutor.md	/^## 命令$/;"	s	chapter:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+命令	git使用.md	/^### 命令$/;"	S	section:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+命令行浏览eLinks	recordEverything.md	/^### 命令行浏览eLinks$/;"	S	chapter:# install typora
+命令行浏览器Links2	recordEverything.md	/^### 命令行浏览器Links2$/;"	S	chapter:# install typora
+命令行浏览器lynx	recordEverything.md	/^### 命令行浏览器lynx$/;"	S	chapter:# install typora
+命令行浏览器w3m	recordEverything.md	/^### 命令行浏览器w3m$/;"	S	chapter:# install typora
+命令详解	GitTutor.md	/^## 命令详解$/;"	s	chapter:[22 张图让你洞察 Git 秘密](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650950399&idx=2&sn=4385b1e75cd31db59db4aa7fd668a919&chksm=bd7a32cd8a0dbbdbdcda7522d3d24dbfc71f7aefc4e66dd84ac5765d1759f5bfa57646d39d71&mpshare=1&scene=24&srcid=0705YmVOt4EMQWp5YyJAEM76&sharer_sharetime=1625451631802&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AQSaSVtuUa9kPQlOLn5gJjs%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+命令详解	GitTutor.md	/^## 命令详解$/;"	s	chapter:[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)
+命令详解	git使用.md	/^### 命令详解$/;"	S	section:git使用""[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)
+哈希值	GitTutor.md	/^### 哈希值$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""原理
+哈希值	git使用.md	/^#### 哈希值$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""原理
+四、代码提交	GitTutor.md	/^## 四、代码提交$/;"	s	chapter:[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+四、代码提交	git使用.md	/^### 四、代码提交$/;"	S	section:git使用""[git 操作，看这一篇文章就够了！](https://mp.weixin.qq.com/s/_AJKZT8oCza8hBAxT-kU2g)
+四、段落	grammer_example.md	/^### 四、段落$/;"	S	section:文字 \\#\\#""快捷键
+四级标题-折叠	grammer_example.md	/^#### 四级标题-折叠$/;"	t	subsection:文字 \\#\\#""二级标题""三级标题-流程图、时序图
+图引用	grammer_example.md	/^# 图引用$/;"	c
+图片	grammer_example.md	/^# 图片$/;"	c
+图片交叉引用	grammer_example.md	/^## 图片交叉引用$/;"	s	chapter:图片
+在 Ubuntu Linux 上安装 OpenArena	recordEverything.md	/^## 在 Ubuntu Linux 上安装 OpenArena$/;"	s	chapter:游戏
+在一个方程式序列的每一行中注明原因	grammer_example.md	/^### 在一个方程式序列的每一行中注明原因$/;"	S	section:公式""方程式序列使用参考
+在字符间加入空格	grammer_example.md	/^## 在字符间加入空格$/;"	s	chapter:公式
+地雷测试  矿工测试	recordEverything.md	/^## 地雷测试  矿工测试$/;"	s	chapter:游戏
+块公式	grammer_example.md	/^### 块公式$/;"	S	section:公式""如何插入公式
+基本 socket 函数	C.md	/^### 基本 socket 函数$/;"	S	section:Linux/C网络""Socket函数介绍与使用
+基本概念	GitTutor.md	/^## 基本概念$/;"	s	chapter:自己对Git的认识
+基本用法	GitTutor.md	/^## 基本用法$/;"	s	chapter:[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)
+基本用法	git使用.md	/^### 基本用法$/;"	S	section:git使用""[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)
+多模式 Grep 命令	recordEverything.md	/^### 多模式 Grep 命令$/;"	S	section:linux命令大全""grep (文本过滤）
+多线程编程	computer.md	/^####  多线程编程$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理
+多行并列公式	grammer_example.md	/^### 多行并列公式$/;"	S	section:公式""如何插入公式
+大括号和行标的使用	grammer_example.md	/^## 大括号和行标的使用$/;"	s	chapter:公式
+天文馆	recordEverything.md	/^## 天文馆$/;"	s	chapter:游戏
+如何使条件表达式适配行高	grammer_example.md	/^### 如何使条件表达式适配行高$/;"	S	section:公式""条件表达式使用参考
+如何插入公式	grammer_example.md	/^## 如何插入公式$/;"	s	chapter:公式
+如何输入一个交换图表	grammer_example.md	/^###  如何输入一个交换图表$/;"	S	section:公式""交换图表使用参考
+如何输入一个嵌套的数组或表格	grammer_example.md	/^### 如何输入一个嵌套的数组或表格$/;"	S	section:公式""数组与表格使用参考
+如何输入一个左侧对齐的条件表达式	grammer_example.md	/^### 如何输入一个左侧对齐的条件表达式$/;"	S	section:公式""条件表达式使用参考
+如何输入一个数组或表格	grammer_example.md	/^### 如何输入一个数组或表格$/;"	S	section:公式""数组与表格使用参考
+如何输入一个方程式序列	grammer_example.md	/^### 如何输入一个方程式序列$/;"	S	section:公式""方程式序列使用参考
+如何输入一个方程组	grammer_example.md	/^### 如何输入一个方程组$/;"	S	section:公式""数组与表格使用参考
+如何输入一个条件表达式	grammer_example.md	/^### 如何输入一个条件表达式$/;"	S	section:公式""条件表达式使用参考
+如何输入一个连分式	grammer_example.md	/^### 如何输入一个连分式$/;"	S	section:公式""连分数使用参考
+如何输入上下标	grammer_example.md	/^## 如何输入上下标$/;"	s	chapter:公式
+如何输入分数	grammer_example.md	/^## 如何输入分数$/;"	s	chapter:公式
+如何输入希腊字母	grammer_example.md	/^## 如何输入希腊字母$/;"	s	chapter:公式
+如何输入带分割符号的矩阵	grammer_example.md	/^### 如何输入带分割符号的矩阵$/;"	S	section:公式""矩阵：
+如何输入带省略符号的矩阵	grammer_example.md	/^### 如何输入带省略符号的矩阵$/;"	S	section:公式""矩阵：
+如何输入开方	grammer_example.md	/^## 如何输入开方$/;"	s	chapter:公式
+如何输入括号和分隔符	grammer_example.md	/^ ## 如何输入括号和分隔符$/;"	S	section:公式""如何输入上下标
+如何输入无框矩阵	grammer_example.md	/^### 如何输入无框矩阵$/;"	S	section:公式""矩阵：
+如何输入极限运算	grammer_example.md	/^## 如何输入极限运算$/;"	s	chapter:公式
+如何输入省略号	grammer_example.md	/^## 如何输入省略号$/;"	s	chapter:公式
+如何输入矢量	grammer_example.md	/^## 如何输入矢量$/;"	s	chapter:公式
+如何输入积分<span id='infcal'></span>	grammer_example.md	/^## 如何输入积分<span id='infcal'><\/span>$/;"	s	chapter:公式
+如何输入累加、累乘运算	grammer_example.md	/^## 如何输入累加、累乘运算$/;"	s	chapter:公式
+如何输入行中矩阵	grammer_example.md	/^### 如何输入行中矩阵$/;"	S	section:公式""矩阵：
+如何输入边框矩阵	grammer_example.md	/^### 如何输入边框矩阵$/;"	S	section:公式""矩阵：
+如何进行字体转换	grammer_example.md	/^## 如何进行字体转换$/;"	s	chapter:公式
+学习资源	FPGA.md	/^# 学习资源$/;"	c
+安全合并 (merging) 策略	GitTutor.md	/^##### 安全合并 (merging) 策略$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""Rebasing 和合并 (Merging)
+安全合并 (merging) 策略	git使用.md	/^##### 安全合并 (merging) 策略$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""Rebasing 和合并 (Merging)
+安装	GitTutor.md	/^## 安装$/;"	s	chapter:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+安装	git使用.md	/^### 安装$/;"	S	section:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+安装Kitty终端	recordEverything.md	/^### 安装Kitty终端$/;"	S	chapter:#:查看是否安装成功
+安装alacritty终端	recordEverything.md	/^###  安装alacritty终端$/;"	S	chapter:#:查看是否安装成功
+安装dmenus	recordEverything.md	/^## 安装dmenus$/;"	s	chapter:suckless 套装
+安装dwm	recordEverything.md	/^## 安装dwm$/;"	s	chapter:suckless 套装
+安装dwm	recordEverything.md	/^### 安装dwm$/;"	S	section:suckless 套装""安装dwm
+安装slock	recordEverything.md	/^## 安装slock$/;"	s	chapter:suckless 套装
+安装st	recordEverything.md	/^## 安装st$/;"	s	chapter:suckless 套装
+安装使用	recordEverything.md	/^#### 安装使用$/;"	t	subsection:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包""[sysstat](https://mp.weixin.qq.com/s/zfVcyDdBTiy5y8wFVd7x3A)
+安装依赖	recordEverything.md	/^#### 安装依赖$/;"	t	subsection:# install typora""[Simple Terminal终端](https://cloud.tencent.com/developer/article/1771532)
+安装字体	recordEverything.md	/^###  安装字体$/;"	S	section:Linux系统""linux系统装机配置
+安装谷歌浏览器	recordEverything.md	/^###  安装谷歌浏览器$/;"	S	chapter:#:查看是否安装成功
+安裝SuperTuxKart 0.10	recordEverything.md	/^### 安裝SuperTuxKart 0.10$/;"	S	section:游戏""0 A.D. is available in Debian’s repositories.
+定时器相关函数	C.md	/^###   定时器相关函数$/;"	S	chapter:#define BUFLEN 255
+实例	FPGA.md	/^# 实例$/;"	c
+实战：基础用法	recordEverything.md	/^#### 实战：基础用法$/;"	t	section:linux命令大全""[tcpdump](https://mp.weixin.qq.com/s/iSqeA2hWbllEyq8yg-MPvQ)
+实战：高级进阶	recordEverything.md	/^#### 实战：高级进阶$/;"	t	section:linux命令大全""[tcpdump](https://mp.weixin.qq.com/s/iSqeA2hWbllEyq8yg-MPvQ)
+对数运算符	grammer_example.md	/^## 对数运算符$/;"	s	chapter:公式
+射手影音	recordEverything.md	/^###  射手影音$/;"	S	chapter:# install typora
+将本地仓库与远程仓库链接	gitinstall.md	/^# 将本地仓库与远程仓库链接$/;"	c
+小结	GitTutor.md	/^### 小结$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+小结	git使用.md	/^### 小结$/;"	S	section:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+工作区域	GitTutor.md	/^### 工作区域$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""原理
+工作区域	git使用.md	/^#### 工作区域$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""原理
+工作原理	recordEverything.md	/^#### 工作原理$/;"	t	section:linux命令大全""[tcpdump](https://mp.weixin.qq.com/s/iSqeA2hWbllEyq8yg-MPvQ)
+已删除补丁 (patch)	GitTutor.md	/^##### 已删除补丁 (patch)$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""杂项 (Miscellaneous Objects)
+已删除补丁 (patch)	git使用.md	/^##### 已删除补丁 (patch)$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""杂项 (Miscellaneous Objects)
+常用命令	GitTutor.md	/^## 常用命令$/;"	s	chapter:自己对Git的认识
+常用选项	recordEverything.md	/^#### 常用选项$/;"	t	section:linux命令大全""[tcpdump](https://mp.weixin.qq.com/s/iSqeA2hWbllEyq8yg-MPvQ)
+常见问题	GitTutor.md	/^### 常见问题$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+常见问题	gitinstall.md	/^# 常见问题 $/;"	c
+常见问题	git使用.md	/^### 常见问题$/;"	S	section:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+应用场景	recordEverything.md	/^#### 应用场景$/;"	t	section:linux命令大全""[tcpdump](https://mp.weixin.qq.com/s/iSqeA2hWbllEyq8yg-MPvQ)
+微积分运算符<span id='infcalsym'></span>	grammer_example.md	/^## 微积分运算符<span id='infcalsym'><\/span>$/;"	s	chapter:公式
+快捷键	grammer_example.md	/^## 快捷键$/;"	s	chapter:文字 \\#\\#
+快捷键	recordEverything.md	/^## 快捷键$/;"	s	chapter:suckless 套装
+怎样在 Ubuntu 中安装韦诺之战：	recordEverything.md	/^## 怎样在 Ubuntu 中安装韦诺之战：$/;"	s	chapter:游戏
+总结	recordEverything.md	/^#### 总结$/;"	t	subsection:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包""[ranger]()
+恢复已删除标签 (tag)	GitTutor.md	/^##### 恢复已删除标签 (tag)$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""杂项 (Miscellaneous Objects)
+恢复已删除标签 (tag)	git使用.md	/^##### 恢复已删除标签 (tag)$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""杂项 (Miscellaneous Objects)
+想在本地新建一个仓库，并在本地仓库写代码，最后同步到远程github上的Repository	GitTutor.md	/^## 想在本地新建一个仓库，并在本地仓库写代码，最后同步到远程github上/;"	s	chapter:自己对Git的认识
+我不小心删除了我的分支	GitTutor.md	/^##### 我不小心删除了我的分支$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""分支 (Branches)
+我不小心删除了我的分支	git使用.md	/^##### 我不小心删除了我的分支$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""分支 (Branches)
+我不知道我做错了些什么	GitTutor.md	/^#### 我不知道我做错了些什么$/;"	t	subsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题
+我不知道我做错了些什么	git使用.md	/^#### 我不知道我做错了些什么$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题
+我从错误的分支拉取了内容，或把内容拉取到了错误的分支	GitTutor.md	/^##### 我从错误的分支拉取了内容，或把内容拉取到了错误的分支$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""分支 (Branches)
+我从错误的分支拉取了内容，或把内容拉取到了错误的分支	git使用.md	/^##### 我从错误的分支拉取了内容，或把内容拉取到了错误的分支$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""分支 (Branches)
+我刚才提交了什么	GitTutor.md	/^##### 我刚才提交了什么$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""编辑提交 (editting commits)
+我刚才提交了什么	git使用.md	/^##### 我刚才提交了什么$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""编辑提交 (editting commits)
+我只想改变一个文件名字的大小写，而不修改内容	GitTutor.md	/^##### 我只想改变一个文件名字的大小写，而不修改内容$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""跟踪文件 (Tracking Files)
+我只想改变一个文件名字的大小写，而不修改内容	git使用.md	/^##### 我只想改变一个文件名字的大小写，而不修改内容$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""跟踪文件 (Tracking Files)
+我只想组合 (combine) 未推的提交 (unpushed commit)	GitTutor.md	/^##### 我只想组合 (combine) 未推的提交 (unpushed commit)$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""Rebasing 和合并 (Merging)
+我只想组合 (combine) 未推的提交 (unpushed commit)	git使用.md	/^##### 我只想组合 (combine) 未推的提交 (unpushed commit)$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""Rebasing 和合并 (Merging)
+我尝试推一个修正后的提交 (amended commit) 到远程，但是报错：	GitTutor.md	/^##### 我尝试推一个修正后的提交 (amended commit) 到远程，但是报错：$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""编辑提交 (editting commits)
+我尝试推一个修正后的提交 (amended commit) 到远程，但是报错：	git使用.md	/^##### 我尝试推一个修正后的提交 (amended commit) 到远程，但是报错：$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""编辑提交 (editting commits)
+我已经 rebase 过，但是我不想强推 (force push)	GitTutor.md	/^##### 我已经 rebase 过，但是我不想强推 (force push)$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""Rebasing 和合并 (Merging)
+我已经 rebase 过，但是我不想强推 (force push)	git使用.md	/^##### 我已经 rebase 过，但是我不想强推 (force push)$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""Rebasing 和合并 (Merging)
+我想丢弃本地未提交的变化 (uncommitted changes)	GitTutor.md	/^##### 我想丢弃本地未提交的变化 (uncommitted changes)$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""未暂存 (Unstaged) 的内容
+我想丢弃本地未提交的变化 (uncommitted changes)	git使用.md	/^##### 我想丢弃本地未提交的变化 (uncommitted changes)$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""未暂存 (Unstaged) 的内容
+我想丢弃某些未暂存的内容	GitTutor.md	/^##### 我想丢弃某些未暂存的内容$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""未暂存 (Unstaged) 的内容
+我想丢弃某些未暂存的内容	git使用.md	/^##### 我想丢弃某些未暂存的内容$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""未暂存 (Unstaged) 的内容
+我想从 Git 删除一个文件，但保留该文件	GitTutor.md	/^##### 我想从 Git 删除一个文件，但保留该文件$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""跟踪文件 (Tracking Files)
+我想从 Git 删除一个文件，但保留该文件	git使用.md	/^##### 我想从 Git 删除一个文件，但保留该文件$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""跟踪文件 (Tracking Files)
+我想从一个提交 (commit) 里移除一个文件	GitTutor.md	/^##### 我想从一个提交 (commit) 里移除一个文件$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""编辑提交 (editting commits)
+我想从一个提交 (commit) 里移除一个文件	git使用.md	/^##### 我想从一个提交 (commit) 里移除一个文件$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""编辑提交 (editting commits)
+我想从别人正在工作的远程分支签出 (checkout) 一个分支	GitTutor.md	/^##### 我想从别人正在工作的远程分支签出 (checkout) 一个分支$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""分支 (Branches)
+我想从别人正在工作的远程分支签出 (checkout) 一个分支	git使用.md	/^##### 我想从别人正在工作的远程分支签出 (checkout) 一个分支$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""分支 (Branches)
+我想保留来自另外一个 ref-ish 的整个文件	GitTutor.md	/^##### 我想保留来自另外一个 ref-ish 的整个文件$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""分支 (Branches)
+我想保留来自另外一个 ref-ish 的整个文件	git使用.md	/^##### 我想保留来自另外一个 ref-ish 的整个文件$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""分支 (Branches)
+我想删除一个分支	GitTutor.md	/^##### 我想删除一个分支$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""分支 (Branches)
+我想删除一个分支	git使用.md	/^##### 我想删除一个分支$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""分支 (Branches)
+我想删除上游 (upstream) 分支被删除了的本地分支	GitTutor.md	/^##### 我想删除上游 (upstream) 分支被删除了的本地分支$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""分支 (Branches)
+我想删除上游 (upstream) 分支被删除了的本地分支	git使用.md	/^##### 我想删除上游 (upstream) 分支被删除了的本地分支$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""分支 (Branches)
+我想删除我的的最后一次提交 (commit)	GitTutor.md	/^##### 我想删除我的的最后一次提交 (commit)$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""编辑提交 (editting commits)
+我想删除我的的最后一次提交 (commit)	git使用.md	/^##### 我想删除我的的最后一次提交 (commit)$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""编辑提交 (editting commits)
+我想扔掉本地的提交 (commit)，以便我的分支与远程的保持一致	GitTutor.md	/^##### 我想扔掉本地的提交 (commit)，以便我的分支与远程的保持一致$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""分支 (Branches)
+我想扔掉本地的提交 (commit)，以便我的分支与远程的保持一致	git使用.md	/^##### 我想扔掉本地的提交 (commit)，以便我的分支与远程的保持一致$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""分支 (Branches)
+我想把在一个文件里的变化 (changes) 加到两个提交 (commit) 里	GitTutor.md	/^##### 我想把在一个文件里的变化 (changes) 加到两个提交 (commit) 里$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""暂存 (Staging)
+我想把在一个文件里的变化 (changes) 加到两个提交 (commit) 里	git使用.md	/^##### 我想把在一个文件里的变化 (changes) 加到两个提交 (commit) 里$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""暂存 (Staging)
+我想把暂存的内容变成未暂存，把未暂存的内容暂存起来	GitTutor.md	/^##### 我想把暂存的内容变成未暂存，把未暂存的内容暂存起来$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""暂存 (Staging)
+我想把暂存的内容变成未暂存，把未暂存的内容暂存起来	git使用.md	/^##### 我想把暂存的内容变成未暂存，把未暂存的内容暂存起来$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""暂存 (Staging)
+我想把未暂存的内容移动到一个新分支	GitTutor.md	/^##### 我想把未暂存的内容移动到一个新分支$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""未暂存 (Unstaged) 的内容
+我想把未暂存的内容移动到一个新分支	git使用.md	/^##### 我想把未暂存的内容移动到一个新分支$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""未暂存 (Unstaged) 的内容
+我想把未暂存的内容移动到另一个已存在的分支	GitTutor.md	/^##### 我想把未暂存的内容移动到另一个已存在的分支$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""未暂存 (Unstaged) 的内容
+我想把未暂存的内容移动到另一个已存在的分支	git使用.md	/^##### 我想把未暂存的内容移动到另一个已存在的分支$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""未暂存 (Unstaged) 的内容
+我想撤销 rebase/merge	GitTutor.md	/^##### 我想撤销 rebase\/merge$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""Rebasing 和合并 (Merging)
+我想撤销 rebase/merge	git使用.md	/^##### 我想撤销 rebase\/merge$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""Rebasing 和合并 (Merging)
+我想给一些 Git 命令添加别名 (alias)	GitTutor.md	/^##### 我想给一些 Git 命令添加别名 (alias)$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""配置 (Configuration)
+我想给一些 Git 命令添加别名 (alias)	git使用.md	/^##### 我想给一些 Git 命令添加别名 (alias)$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""配置 (Configuration)
+我想缓存一个仓库 (repository) 的用户名和密码	GitTutor.md	/^##### 我想缓存一个仓库 (repository) 的用户名和密码$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""配置 (Configuration)
+我想缓存一个仓库 (repository) 的用户名和密码	git使用.md	/^##### 我想缓存一个仓库 (repository) 的用户名和密码$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""配置 (Configuration)
+我想要暂存一个新文件的一部分，而不是这个文件的全部	GitTutor.md	/^##### 我想要暂存一个新文件的一部分，而不是这个文件的全部$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""暂存 (Staging)
+我想要暂存一个新文件的一部分，而不是这个文件的全部	git使用.md	/^##### 我想要暂存一个新文件的一部分，而不是这个文件的全部$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""暂存 (Staging)
+我意外的做了一次硬重置 (hard reset)，我想找回我的内容	GitTutor.md	/^##### 我意外的做了一次硬重置 (hard reset)，我想找回我的内容$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""编辑提交 (editting commits)
+我意外的做了一次硬重置 (hard reset)，我想找回我的内容	git使用.md	/^##### 我意外的做了一次硬重置 (hard reset)，我想找回我的内容$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""编辑提交 (editting commits)
+我把几个提交 (commit) 提交到了同一个分支，而这些提交应该分布在不同的分支里	GitTutor.md	/^##### 我把几个提交 (commit) 提交到了同一个分支，而这些提交应该分布在不/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""分支 (Branches)
+我把几个提交 (commit) 提交到了同一个分支，而这些提交应该分布在不同的分支里	git使用.md	/^##### 我把几个提交 (commit) 提交到了同一个分支，而这些提交应该分布在不/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""分支 (Branches)
+我提交 (commit) 里的用户名和邮箱不对	GitTutor.md	/^##### 我提交 (commit) 里的用户名和邮箱不对$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""编辑提交 (editting commits)
+我提交 (commit) 里的用户名和邮箱不对	git使用.md	/^##### 我提交 (commit) 里的用户名和邮箱不对$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""编辑提交 (editting commits)
+我的提交信息 (commit message) 写错了	GitTutor.md	/^##### 我的提交信息 (commit message) 写错了$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""编辑提交 (editting commits)
+我的提交信息 (commit message) 写错了	git使用.md	/^##### 我的提交信息 (commit message) 写错了$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""编辑提交 (editting commits)
+我需要将一个分支合并成一个提交 (commit)	GitTutor.md	/^##### 我需要将一个分支合并成一个提交 (commit)$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""Rebasing 和合并 (Merging)
+我需要将一个分支合并成一个提交 (commit)	git使用.md	/^##### 我需要将一个分支合并成一个提交 (commit)$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""Rebasing 和合并 (Merging)
+我需要把暂存的内容添加到上一次的提交 (commit)	GitTutor.md	/^##### 我需要把暂存的内容添加到上一次的提交 (commit)$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""暂存 (Staging)
+我需要把暂存的内容添加到上一次的提交 (commit)	git使用.md	/^##### 我需要把暂存的内容添加到上一次的提交 (commit)$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""暂存 (Staging)
+我需要提交到一个新分支，但错误的提交到了 master	GitTutor.md	/^##### 我需要提交到一个新分支，但错误的提交到了 master$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""分支 (Branches)
+我需要提交到一个新分支，但错误的提交到了 master	git使用.md	/^##### 我需要提交到一个新分支，但错误的提交到了 master$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""分支 (Branches)
+我需要组合 (combine) 几个提交 (commit)	GitTutor.md	/^##### 我需要组合 (combine) 几个提交 (commit)$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""Rebasing 和合并 (Merging)
+我需要组合 (combine) 几个提交 (commit)	git使用.md	/^##### 我需要组合 (combine) 几个提交 (commit)$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""Rebasing 和合并 (Merging)
+截图	recordEverything.md	/^###  截图$/;"	S	chapter:# install typora
+戴帽符号	grammer_example.md	/^## 戴帽符号$/;"	s	chapter:公式
+技术说明	GitTutor.md	/^## 技术说明$/;"	s	chapter:[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)
+技术说明	git使用.md	/^### 技术说明$/;"	S	section:git使用""[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)
+挑选一个目录，建立本地仓库	gitinstall.md	/^# 挑选一个目录，建立本地仓库$/;"	c
+排序算法	C.md	/^## 排序算法$/;"	s	chapter:算法
+推荐补丁	recordEverything.md	/^#### 推荐补丁$/;"	t	subsection:# install typora""[Simple Terminal终端](https://cloud.tencent.com/developer/article/1771532)
+提交文件到本地仓库	gitinstall.md	/^# 提交文件到本地仓库$/;"	c
+插入本地图片	grammer_example.md	/^## 插入本地图片$/;"	s	chapter:图片
+插入网络图片	grammer_example.md	/^## 插入网络图片$/;"	s	chapter:图片
+搜狗输入法安装	recordEverything.md	/^###  搜狗输入法安装$/;"	S	section:Linux系统""linux系统装机配置
+撤销	GitTutor.md	/^## 撤销$/;"	s	chapter:自己对Git的认识
+撤销修改	GitTutor.md	/^### 撤销修改$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+撤销修改	git使用.md	/^#### 撤销修改$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+操作系统	computer.md	/^####  操作系统$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""冯诺伊曼体系
+数据结构	C.md	/^# 数据结构$/;"	c
+数组与表格使用参考	grammer_example.md	/^## 数组与表格使用参考$/;"	s	chapter:公式
+文件传输规则	computer.md	/^######  文件传输规则$/;"	u	l4subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""输入输出管理""IO 控制""Zero Copy
+文件存储	computer.md	/^####    文件存储$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""文件管理
+文件状态	GitTutor.md	/^### 文件状态$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""原理
+文件状态	git使用.md	/^#### 文件状态$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""原理
+文件的生命周期状态	GitTutor.md	/^## 文件的生命周期状态$/;"	s	chapter:[通俗易懂，让你深入 Git 基本原理](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952215&idx=3&sn=1bb8357ab235c120dcd94ba3d3f94091&chksm=bd7a2a258a0da3332028c1f89d4a658aca4156cacaf644819991012606cc6ad4067bf2400c84&mpshare=1&scene=24&srcid=0906vJqMkH4w1AxNUCNLzssT&sharer_sharetime=1630890564079&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AcLlv%2BB%2BHlQ%2FTAVmdPKn2r0%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+文件管理	computer.md	/^### 文件管理$/;"	S	section:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)
+文件组成	computer.md	/^####  文件组成$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""文件管理
+文字 \\#\\#	grammer_example.md	/^# 文字 \\#\\#$/;"	c
+文献引用	grammer_example.md	/^# 文献引用$/;"	c
+方程式序列使用参考	grammer_example.md	/^## 方程式序列使用参考$/;"	s	chapter:公式
+无名位域	C.md	/^### 无名位域$/;"	S	section:数据结构""位字段
+暂存 (Staging)	GitTutor.md	/^#### 暂存 (Staging)$/;"	t	subsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题
+暂存 (Staging)	git使用.md	/^#### 暂存 (Staging)$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题
+更改文字颜色	grammer_example.md	/^## 更改文字颜色$/;"	s	chapter:公式
+更改配置	recordEverything.md	/^#### 更改配置$/;"	t	subsection:# install typora""[Simple Terminal终端](https://cloud.tencent.com/developer/article/1771532)
+更新与推送	GitTutor.md	/^### 更新与推送$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+更新与推送	git使用.md	/^#### 更新与推送$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+最佳实践 Git Flow	GitTutor.md	/^### 最佳实践 Git Flow$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+最佳实践 Git Flow	git使用.md	/^### 最佳实践 Git Flow$/;"	S	section:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+最后	recordEverything.md	/^#### 最后$/;"	t	section:linux命令大全""[tcpdump](https://mp.weixin.qq.com/s/iSqeA2hWbllEyq8yg-MPvQ)
+最后	recordEverything.md	/^#### 最后$/;"	t	subsection:# install typora""[Simple Terminal终端](https://cloud.tencent.com/developer/article/1771532)
+有冲突的情况	GitTutor.md	/^###### 有冲突的情况$/;"	u	l4subsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""Rebasing 和合并 (Merging)""交互式 rebase (interactive rebase) 可能出现的问题
+有冲突的情况	git使用.md	/^###### 有冲突的情况$/;"	u	l4subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""Rebasing 和合并 (Merging)""交互式 rebase (interactive rebase) 可能出现的问题
+未暂存 (Unstaged) 的内容	GitTutor.md	/^#### 未暂存 (Unstaged) 的内容$/;"	t	subsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题
+未暂存 (Unstaged) 的内容	git使用.md	/^#### 未暂存 (Unstaged) 的内容$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题
+杂项 (Miscellaneous Objects)	GitTutor.md	/^#### 杂项 (Miscellaneous Objects)$/;"	t	subsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题
+杂项 (Miscellaneous Objects)	git使用.md	/^#### 杂项 (Miscellaneous Objects)$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题
+条件表达式使用参考	grammer_example.md	/^## 条件表达式使用参考$/;"	s	chapter:公式
+查看信息	GitTutor.md	/^## 查看信息$/;"	s	chapter:自己对Git的认识
+查看信息	GitTutor.md	/^### 查看信息$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+查看信息	git使用.md	/^#### 查看信息$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+标签	GitTutor.md	/^### 标签$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+标签	GitTutor.md	/^### 标签$/;"	S	section:自己对Git的认识""常用命令
+标签	git使用.md	/^#### 标签$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+栈	computer.md	/^##### 栈$/;"	T	subsubsection:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)""物理地址""段寄存器
+栈和 SS 寄存器	computer.md	/^##### 栈和 SS 寄存器$/;"	T	subsubsection:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)""物理地址""段寄存器
+栈顶越界问题	computer.md	/^##### 栈顶越界问题$/;"	T	subsubsection:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)""物理地址""段寄存器
+检查是否分支上的所有提交 (commit) 都合并 (merge) 过了	GitTutor.md	/^##### 检查是否分支上的所有提交 (commit) 都合并 (merge) 过了$/;"	T	subsubsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""Rebasing 和合并 (Merging)
+检查是否分支上的所有提交 (commit) 都合并 (merge) 过了	git使用.md	/^##### 检查是否分支上的所有提交 (commit) 都合并 (merge) 过了$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""Rebasing 和合并 (Merging)
+正则表达式	recordEverything.md	/^### 正则表达式$/;"	S	section:linux命令大全""grep (文本过滤）
+段寄存器	computer.md	/^### 段寄存器$/;"	S	section:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)
+段寄存器	computer.md	/^#### 段寄存器$/;"	t	subsection:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)""物理地址
+段页式管理	computer.md	/^#####   段页式管理$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""内存管理""内存管理方式
+注脚	grammer_example.md	/^## 注脚$/;"	s	chapter:文字 \\#\\#
+消息队列	computer.md	/^#####   消息队列$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""进程通信
+添加修改	GitTutor.md	/^### 添加修改$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+添加修改	git使用.md	/^#### 添加修改$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令
+添加删除线	grammer_example.md	/^## 添加删除线$/;"	s	chapter:公式
+添加注释文字 \\text	grammer_example.md	/^## 添加注释文字 \\text$/;"	s	chapter:公式
+添加补丁	recordEverything.md	/^#### 添加补丁$/;"	t	subsection:# install typora""[Simple Terminal终端](https://cloud.tencent.com/developer/article/1771532)
+游戏	recordEverything.md	/^# 游戏$/;"	c
+版本库	GitTutor.md	/^### 版本库$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""原理
+版本库	git使用.md	/^#### 版本库$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""原理
+物理地址	computer.md	/^### 物理地址$/;"	S	section:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)
+状态和控制寄存器	computer.md	/^### 状态和控制寄存器$/;"	S	section:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)
+独立公式	grammer_example.md	/^### 独立公式$/;"	S	section:公式""如何插入公式
+理解 blob 对象和 SHA1	GitTutor.md	/^## 理解 blob 对象和 SHA1$/;"	s	chapter:[通俗易懂，让你深入 Git 基本原理](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952215&idx=3&sn=1bb8357ab235c120dcd94ba3d3f94091&chksm=bd7a2a258a0da3332028c1f89d4a658aca4156cacaf644819991012606cc6ad4067bf2400c84&mpshare=1&scene=24&srcid=0906vJqMkH4w1AxNUCNLzssT&sharer_sharetime=1630890564079&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AcLlv%2BB%2BHlQ%2FTAVmdPKn2r0%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+理解 commit 提交原理	GitTutor.md	/^## 理解 commit 提交原理$/;"	s	chapter:[通俗易懂，让你深入 Git 基本原理](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952215&idx=3&sn=1bb8357ab235c120dcd94ba3d3f94091&chksm=bd7a2a258a0da3332028c1f89d4a658aca4156cacaf644819991012606cc6ad4067bf2400c84&mpshare=1&scene=24&srcid=0906vJqMkH4w1AxNUCNLzssT&sharer_sharetime=1630890564079&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AcLlv%2BB%2BHlQ%2FTAVmdPKn2r0%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+生成 SSH 公钥	GitTutor.md	/^#### 生成 SSH 公钥$/;"	t	subsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""Github
+生成 SSH 公钥	git使用.md	/^##### 生成 SSH 公钥$/;"	T	subsubsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""clone 方式
+用户信息	GitTutor.md	/^### 用户信息$/;"	S	section:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""配置
+用户信息	git使用.md	/^#### 用户信息$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""配置
+用户态线程	computer.md	/^######  用户态线程$/;"	u	l4subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""线程""线程实现
+目录	computer.md	/^#####   目录$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""文件管理""文件组成
+相关结构体	C.md	/^###   相关结构体$/;"	S	section:[Linux/C时间函数]()""一般时间函数
+相关结构体	C.md	/^####   相关结构体$/;"	t	subsection:#define BUFLEN 255""定时器相关函数
+真正的零拷贝	computer.md	/^######   真正的零拷贝$/;"	u	l4subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""输入输出管理""IO 控制""Zero Copy
+矩阵：	grammer_example.md	/^## 矩阵：$/;"	s	chapter:公式
+示例	C.md	/^####  示例$/;"	t	chapter:#include <unistd.h>
+空闲空间管理	computer.md	/^#####   空闲空间管理$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""文件管理""文件存储
+窗口管理器FVWM	recordEverything.md	/^###  窗口管理器FVWM$/;"	S	chapter:# install typora
+窗口管理器awesome	recordEverything.md	/^#  窗口管理器awesome$/;"	c
+窗口管理器i3	recordEverything.md	/^#  窗口管理器i3$/;"	c
+简介	GitTutor.md	/^## 简介$/;"	s	chapter:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+简介	git使用.md	/^### 简介$/;"	S	section:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+简介	recordEverything.md	/^#### 简介$/;"	t	subsection:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包""[sysstat](https://mp.weixin.qq.com/s/zfVcyDdBTiy5y8wFVd7x3A)
+算法	C.md	/^# 算法$/;"	c
+管道	computer.md	/^#####  管道$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""进程通信
+箭头符号	grammer_example.md	/^## 箭头符号$/;"	s	chapter:公式
+系统调用	computer.md	/^##  系统调用$/;"	s	chapter:计算机基础知识
+索引寄存器	computer.md	/^### 索引寄存器$/;"	S	section:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)
+约定	GitTutor.md	/^##  约定$/;"	s	chapter:[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)
+约定	GitTutor.md	/^## 约定$/;"	s	chapter:[22 张图让你洞察 Git 秘密](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650950399&idx=2&sn=4385b1e75cd31db59db4aa7fd668a919&chksm=bd7a32cd8a0dbbdbdcda7522d3d24dbfc71f7aefc4e66dd84ac5765d1759f5bfa57646d39d71&mpshare=1&scene=24&srcid=0705YmVOt4EMQWp5YyJAEM76&sharer_sharetime=1625451631802&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AQSaSVtuUa9kPQlOLn5gJjs%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+约定	git使用.md	/^###  约定$/;"	S	section:git使用""[图文详解 Git 工作原理](https://mp.weixin.qq.com/s/sRnfLAe5Aq720iwNAgzwVQ)
+线程	computer.md	/^####  线程$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理
+线程优缺点	computer.md	/^##### 线程优缺点$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""线程
+线程定义	computer.md	/^##### 线程定义$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""线程
+线程实现	computer.md	/^#####  线程实现$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""线程
+线程相关函数	C.md	/^# 线程相关函数$/;"	c
+终端快捷键	recordEverything.md	/^## 终端快捷键$/;"	s	chapter:Linux小技巧
+经验	recordEverything.md	/^#### 经验$/;"	t	section:linux命令大全""[tcpdump](https://mp.weixin.qq.com/s/iSqeA2hWbllEyq8yg-MPvQ)
+编辑提交 (editting commits)	GitTutor.md	/^#### 编辑提交 (editting commits)$/;"	t	subsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题
+编辑提交 (editting commits)	git使用.md	/^#### 编辑提交 (editting commits)$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题
+老版本读写	computer.md	/^######  老版本读写$/;"	u	l4subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""输入输出管理""IO 控制""Zero Copy
+聊聊 diff 的执行逻辑	GitTutor.md	/^## 聊聊 diff 的执行逻辑$/;"	s	chapter:[通俗易懂，让你深入 Git 基本原理](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952215&idx=3&sn=1bb8357ab235c120dcd94ba3d3f94091&chksm=bd7a2a258a0da3332028c1f89d4a658aca4156cacaf644819991012606cc6ad4067bf2400c84&mpshare=1&scene=24&srcid=0906vJqMkH4w1AxNUCNLzssT&sharer_sharetime=1630890564079&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AcLlv%2BB%2BHlQ%2FTAVmdPKn2r0%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+聊聊工作区和暂存区	GitTutor.md	/^## 聊聊工作区和暂存区$/;"	s	chapter:[通俗易懂，让你深入 Git 基本原理](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952215&idx=3&sn=1bb8357ab235c120dcd94ba3d3f94091&chksm=bd7a2a258a0da3332028c1f89d4a658aca4156cacaf644819991012606cc6ad4067bf2400c84&mpshare=1&scene=24&srcid=0906vJqMkH4w1AxNUCNLzssT&sharer_sharetime=1630890564079&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AcLlv%2BB%2BHlQ%2FTAVmdPKn2r0%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+自己对Git的认识	GitTutor.md	/^#  自己对Git的认识$/;"	c
+致谢	grammer_example.md	/^# 致谢$/;"	c
+行内公式	grammer_example.md	/^### 行内公式$/;"	S	section:公式""如何插入公式
+表格<span id='table'></span>	grammer_example.md	/^# 表格<span id='table'><\/span>$/;"	c
+装置文件名 启动区否 开始磁柱    结束磁柱  1K大小容量 磁盘分区槽内的系统	recordEverything.md	/^### 装置文件名 启动区否 开始磁柱    结束磁柱  1K大小容量 磁盘分区槽内/;"	S	section:linux命令大全""du、df、fdisk
+计算机基础知识	computer.md	/^#  计算机基础知识$/;"	c
+计算机架构中的寄存器	computer.md	/^### 计算机架构中的寄存器$/;"	S	section:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)
+设备控制器	computer.md	/^#####  设备控制器$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""输入输出管理""设备控制器跟驱动程序
+设备控制器跟驱动程序	computer.md	/^####  设备控制器跟驱动程序$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""输入输出管理
+调度算法	computer.md	/^#####  调度算法$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""进程调度
+赛道狂飙	recordEverything.md	/^## 赛道狂飙$/;"	s	chapter:游戏
+超链接<a id="hyperlink"></a>	grammer_example.md	/^# 超链接<a id="hyperlink"><\/a>$/;"	c
+跟踪文件 (Tracking Files)	GitTutor.md	/^#### 跟踪文件 (Tracking Files)$/;"	t	subsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题
+跟踪文件 (Tracking Files)	git使用.md	/^#### 跟踪文件 (Tracking Files)$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题
+轮询模式	computer.md	/^#####  轮询模式$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""输入输出管理""IO 控制
+软连接跟硬链接	computer.md	/^#####  软连接跟硬链接$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""文件管理""文件组成
+轻量级进程	computer.md	/^######   轻量级进程$/;"	u	l4subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""线程""线程实现
+输入法、开机启动	recordEverything.md	/^### 输入法、开机启动$/;"	S	section:suckless 套装""安装dwm
+输入输出管理	computer.md	/^### 输入输出管理$/;"	S	section:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)
+过滤表达式	recordEverything.md	/^#### 过滤表达式$/;"	t	section:linux命令大全""[tcpdump](https://mp.weixin.qq.com/s/iSqeA2hWbllEyq8yg-MPvQ)
+这个 rebase 编辑屏幕出现 'noop'	GitTutor.md	/^###### 这个 rebase 编辑屏幕出现 'noop'$/;"	u	l4subsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题""Rebasing 和合并 (Merging)""交互式 rebase (interactive rebase) 可能出现的问题
+这个 rebase 编辑屏幕出现 'noop'	git使用.md	/^###### 这个 rebase 编辑屏幕出现 'noop'$/;"	u	l4subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题""Rebasing 和合并 (Merging)""交互式 rebase (interactive rebase) 可能出现的问题
+这样就创建起来我们所需要的 Ext3 文件系统了！简单明了！	recordEverything.md	/^### 这样就创建起来我们所需要的 Ext3 文件系统了！简单明了！$/;"	S	section:linux命令大全""du、df、fdisk
+进程创建	computer.md	/^#####  进程创建$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""进程控制
+进程唤醒	computer.md	/^#####   进程唤醒$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""进程控制
+进程基础知识	computer.md	/^####  进程基础知识$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理
+进程控制	computer.md	/^#### 进程控制$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理
+进程相关函数	C.md	/^# 进程相关函数$/;"	c
+进程管理	computer.md	/^### 进程管理$/;"	S	section:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)
+进程终止	computer.md	/^#####  进程终止$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""进程控制
+进程调度	computer.md	/^####   进程调度$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理
+进程调度原则	computer.md	/^#####   进程调度原则$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""进程调度
+进程跟线程关联	computer.md	/^#####  进程跟线程关联$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""线程
+进程通信	computer.md	/^#### 进程通信$/;"	t	subsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理
+进程阻塞	computer.md	/^#####  进程阻塞$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""进程管理""进程控制
+远程仓库存储代码	GitTutor.md	/^## 远程仓库存储代码$/;"	s	chapter:[通俗易懂，让你深入 Git 基本原理](https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952215&idx=3&sn=1bb8357ab235c120dcd94ba3d3f94091&chksm=bd7a2a258a0da3332028c1f89d4a658aca4156cacaf644819991012606cc6ad4067bf2400c84&mpshare=1&scene=24&srcid=0906vJqMkH4w1AxNUCNLzssT&sharer_sharetime=1630890564079&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AcLlv%2BB%2BHlQ%2FTAVmdPKn2r0%3D&pass_ticket=JNZ%2F5iIhykV2GBdMbTQRPskIcghO88o%2BQLn5z0XdRu8MGxbWxZ0sHkKO5llNX5Su&wx_header=0#rd)
+远程同步	GitTutor.md	/^## 远程同步$/;"	s	chapter:自己对Git的认识
+连分数使用参考	grammer_example.md	/^## 连分数使用参考$/;"	s	chapter:公式
+连线符号	grammer_example.md	/^## 连线符号$/;"	s	chapter:公式
+连续空间存储	computer.md	/^#####  连续空间存储$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""文件管理""文件存储
+选择排序	C.md	/^### 选择排序$/;"	S	section:算法""排序算法
+通用寄存器	computer.md	/^### 通用寄存器$/;"	S	section:计算机基础知识""[寄存器](https://mp.weixin.qq.com/s/wWbj7aek4lo9gbBgzrn7ww)
+逻辑运算符	grammer_example.md	/^## 逻辑运算符$/;"	s	chapter:公式
+配置	GitTutor.md	/^## 配置$/;"	s	chapter:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+配置	git使用.md	/^### 配置$/;"	S	section:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)
+配置	recordEverything.md	/^#### 配置$/;"	t	subsection:# install typora""[Simple Terminal终端](https://cloud.tencent.com/developer/article/1771532)
+配置	recordEverything.md	/^#### 配置$/;"	t	subsection:#去[阿里镜像](http://packages.deepin.com/deepin/pool/non-free/d/)下载.deb包""[ranger]()
+配置 (Configuration)	GitTutor.md	/^#### 配置 (Configuration)$/;"	t	subsection:[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""命令""常见问题
+配置 (Configuration)	git使用.md	/^#### 配置 (Configuration)$/;"	t	subsection:git使用""[Git 从入门到精通，这一篇就够了](https://mp.weixin.qq.com/s/b8bQW2N5VC-qmGD4dTiwKQ)""常见问题
+配置用户	gitinstall.md	/^# 配置用户$/;"	c
+锚点链接	grammer_example.md	/^# 锚点链接$/;"	c
+附录	recordEverything.md	/^#  附录$/;"	c
+附录1	recordEverything.md	/^## 附录1$/;"	s	chapter:附录
+附录2	recordEverything.md	/^## 附录2$/;"	s	chapter:附录
+集合运算符	grammer_example.md	/^## 集合运算符$/;"	s	chapter:公式
+非连续空间存储之索引	computer.md	/^##### 非连续空间存储之索引$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""文件管理""文件存储
+非连续空间存储之链表	computer.md	/^#####   非连续空间存储之链表$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""文件管理""文件存储
+驱动接口	computer.md	/^#####  驱动接口$/;"	T	subsubsection:计算机基础知识""[操作系统](https://mp.weixin.qq.com/s/oz1c3dhFiR9HpIgG5AEsQw)""输入输出管理""设备控制器跟驱动程序
