@@ -1936,7 +1936,7 @@ BBoard.c:30:28: error: X11/StringDefs.h: No such file or directory
 ```bash
 sudo apt-get install apt-file
 sudo apt-file update
-apt-file search XXXX.h
+2XXXX.h
 ```
 
 如：安装Intrinsic.h
@@ -1978,6 +1978,8 @@ sudo apt install x11-xserver-utils libxrandr-dev libimlib2-dev
 sudo apt install libharfbuzz-dev
 ```
 
+
+
 ## 安装st
 
 ```bash
@@ -1986,6 +1988,8 @@ $: git clone  https://github.com/junjiecjj/st-2.git
 $: cd st-1
 $: sudo make clean install 
 ```
+
+
 
 ## 安装slock
 
@@ -2058,7 +2062,56 @@ $ sudo ninja -C build install
 
 ```
 
+## 安装 字体  例如apple的Yosemite San Francisco的ttf文件,
 
+```bash
+cd  /usr/share/fonts/truetype       
+
+sudo mkdir  YosemiteSanFrancisco
+
+cd YosemiteSanFrancisco
+
+sudo cp ~/文档/Fonts/YosemiteSanFranciscoFont/*  .
+
+creatfont
+
+cd  /usr/share/fonts/truetype       
+
+sudo mkdir  myfont
+
+cd myfont
+
+sudo  find ~/文档/Fonts/AllNerdFont -name "*.*" -exec cp -r {} . \; 
+
+creatfont
+
+cd
+```
+
+
+
+
+## 安装picom 
+
+```bash
+$: cd ~/tmp
+$: sudo apt install cmake meson git pkg-config asciidoc libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
+$: git clone https://github.com/jonaburg/picom.git
+$: cd picom
+$: git submodule update --init --recursive
+$: meson --buildtype=release . build
+$: LDFLAGS="-L/path/to/libraries" CPPFLAGS="-I/path/to/headers" meson --buildtype=release . build
+$: ninja -C build
+$: sudo ninja -C build install
+$: cd
+# 有时使用像 双河濑 你需要指定 – 实验后端 标志如下：
+$: picom --config  ~/.config/picom/picom.conf --experimental-backends -b
+$: picom --experimental-backends -b
+
+
+$: sudo apt install compton xcompmgr
+
+```
 
 
 
@@ -2362,7 +2415,7 @@ XK_grave      {"`", XK_grave}, 反引号
 {"MNU", XK_Menu},        {"~", XK_asciitilde},        {"_", XK_underscore},
 {"[", XK_bracketleft},        {"]", XK_bracketright},        {"!", XK_exclam},
 {"\"", XK_quotedbl},         {"#", XK_numbersign},        {"$", XK_dollar},
-{"%", XK_percent},        {"", XK_ampersand},         {"'", XK_quoteright},
+{"%", XK_percent},        {""", XK_ampersand},         {"'", XK_quoteright},
 {"*", XK_asterisk},        {"+", XK_plus},            {",", XK_comma},
 {"-", XK_minus},        {".", XK_period},         {"?", XK_question},
 {"<", XK_less},            {">", XK_greater},        {"=", XK_equal},
@@ -4867,18 +4920,6 @@ N：读取匹配到的行的下一行到模式空间中（追加在原内容之�
 
 
 ## awk (gawk)（报告生成器）
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
