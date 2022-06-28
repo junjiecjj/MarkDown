@@ -4,6 +4,8 @@
 
 # section one
 
+
+
 对于该论述，<a id="jump_8"></a>，第一个锚点目标，欢迎读者查阅之前发过的文章，[你是《未来世界的幸存者》么？](https://mp.weixin.qq.com/s/s5IhxV2ooX3JN_X416nidA)
 
 第 2 个锚点目标<span id='bla'></span>
@@ -436,7 +438,6 @@ $$
 
 
 
-
 <a name="个人简介">这是个人简介</a>
 
 ## 如何插入公式
@@ -464,6 +465,40 @@ $$
 
 
 
+###  公式字体大小
+
+$$
+\Large E=mc^2
+$$
+
+
+$$
+\Huge E=mc^2
+$$
+
+
+
+
+<font face="黑体" color=green size=12> $E=mc^2$ </font>
+
+
+
+
+
+<font size=12> $E=mc^2$ </font>
+
+
+
+| 码            | 字体           | 效果                      |
+| ------------- | -------------- | ------------------------- |
+| `\rm`         | 罗马体         | E=mc2                     |
+| `\it`         | 意大利体(默认) | *E*=*m**c**2*             |
+| `\bf`         | 粗体           | **E**=**m****c****2**     |
+| `\boldsymbol` | 黑体           | **E****=****m****c****2** |
+| `\Bbb`        | 黑板粗体       | (−∞,+∞)=R                 |
+
+
+
 
 
 
@@ -472,8 +507,6 @@ $$
 
 
 $$
-\Huge 
-
 J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha} \text {，独立公式示例}
 $$
 
@@ -796,7 +829,7 @@ $$
 
 |   输入    |    显示     |    输入    |     显示     |   输入    |    显示     |    输入    |     显示     |
 | :-------: | :---------: | :--------: | :----------: | :-------: | :---------: | :--------: | :----------: |
-|           |             |            |              |           |             |            |              |
+| \sim | $\sim$ |            |              |           |             |            |              |
 |    \pm    |    $\pm$    |   \times   |   $\times$   |   \div    |   $\div$    |    \mid    |    $\mid$    |
 |   \nmid   |   $\nmid$   |   \cdot    |   $\cdot$    |   \circ   |   $\circ$   |    \ast    |    $\ast$    |
 | \bigodot  | $\bigodot$  | \bigotimes | $\bigotimes$ | \bigoplus | $\bigoplus$ |    \leq    |    $\leq$    |
@@ -804,7 +837,7 @@ $$
 |   \sum    |   $\sum$    |   \prod    |   $\prod$    |  \coprod  |  $\coprod$  | \backslash | $\backslash$ |
 |   \leq    |   $\leq$    |   \equiv   |   $\equiv$   |   \prec   |   $\prec$   |    \sim    |    $\sim$    |
 |   \geq    |   $\geq$    |  \models   |  $\models$   |   \succ   |   $\succ$   |   \perp    |   $\perp$    |
-|  \preceq  |     $$      |  \succeq   |  $\succeq$   |  \simeq   |  $\simeq$   |    \mid    |    $\mid$    |
+|  \preceq  | $\preceq$    |\succeq|$ \succeq $|\simeq|$  \simeq $|\mid|$  \mid $|
 |  \preceq  |  $\preceq$  |    \ll     |    $\ll$     |    \gg    |    $\gg$    |   \asymp   |   $\asymp$   |
 | \parallel | $\parallel$ |  \approx   |  $\approx$   |   \cong   |   $\cong$   |    \neq    |    $\neq$    |
 |  \doteq   |  $\doteq$   |  \propto   |  $\propto$   |  \bowtie  |  $\bowtie$  |   \Join    |   $\Join$    |
@@ -848,7 +881,7 @@ $$
 |   \bigvee   | $\bigvee$     | \bigwedge | $\bigwedge$ |  \biguplus  | $\biguplus$   |
 |    \vee     | $\vee$        |  \wedge   | $\wedge$    |  \setminus  | $\setminus$   |
 | \not\subset | $\not\subset$ |   \cap    | $\cap$      |    \cup     | $\cup$        |
-|             | $$            |           | $$          |             | $$            |
+|             | $$            |           | $$          |             | $$            |||
 
 
 
@@ -915,7 +948,7 @@ $$
 |  \hat{xy}  | $\hat{xy}$   |  \widehat{xyz}  | $\widehat{xyz}$   |
 | \tilde{xy} | $\tilde{xy}$ | \widetilde{xyz} | $\widetilde{xyz}$ |
 | \check{x}  | $\check{x}$  |    \breve{y}    | $\breve{y}$       |
-| \grave{x}  | $$           |    \acute{y}    | $\acute{y}$       |
+| \grave{x}  | $$           |    \acute{y}    | $$       |\acute{y}|$\acute{y}$|
 
 
 
@@ -962,7 +995,7 @@ $$
 | \vec{a}                                            | $\vec{a}$                                            |
 | \overline{a + b + c + d}                           | $\overline{a + b + c + d}$                           |
 | \underline{a + b + c + d}                          | $\underline{a + b + c + d}$                          |
-| \overbrace{a + b + c + d}                          | $\overbrace{a + b + c + d}                           |
+| \overbrace{a + b + c + d}                          | $\overbrace{a + b + c + d}$                          |
 | \underline{a + b + c + d}                          | $\underline{a + b + c + d}$                          |
 | \overbrace{a + \underbrace{b + c}_{1.0} + d}^{2.0} | $\overbrace{a + \underbrace{b + c}_{1.0} + d}^{2.0}$ |
 |                                                    | $$                                                   |
@@ -1046,7 +1079,7 @@ $$
 |\it|意大利体|${\it example}$|\Bbb|黑板粗体|${\Bbb example}$|
 |\bf|粗体|${\bf example 例子}$|\mit|数学斜体|${\mit example}$|
 |\sf|等线体|${\sf example}$|\scr|手写体|${\scr example}$|
-|\tt|打字机体|${\tt example例子}$||||
+|\tt|打字机体|${\tt example例子}$||花体|$\cal{M,H,A}$|
 |\frak|旧德式字体|${\frak example}$|\mathbb{A}|字体Blackboard Bold|$\mathbb{A}$|
 
 转换字体十分常用，例如在积分中：
@@ -1125,7 +1158,7 @@ $$
 - 例子：
 
 $$
-f(n)= \begin{cases} n/2, & \text {if $n$ is even} \\ 3n+1, & \text{if $n$ is odd} \end{cases} 
+f(n)= \begin{cases} n/2, & \text {if $n$ is even} \\ 3n+1, & \text{if $n$ is odd} \end{cases}
 $$
 
 
@@ -1405,7 +1438,7 @@ $$
 - 例子：
 
 $$
-        \left.
+\left.
         \begin{array}{l}
         \text{if $n$ is even:}&n/2\\
         \text{if $n$ is odd:}&3n+1
