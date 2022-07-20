@@ -998,8 +998,8 @@ $$
 | \overbrace{a + b + c + d}                          | $\overbrace{a + b + c + d}$                          |
 | \underline{a + b + c + d}                          | $\underline{a + b + c + d}$                          |
 | \overbrace{a + \underbrace{b + c}_{1.0} + d}^{2.0} | $\overbrace{a + \underbrace{b + c}_{1.0} + d}^{2.0}$ |
-|                                                    | $$                                                   |
-|                                                    | $$                                                   |
+|                                                    |                                                      |
+|                                                    |                                                      |
 
 
 
