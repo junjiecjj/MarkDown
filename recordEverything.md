@@ -59,7 +59,7 @@
    $: cd /usr/share/fonts/truetypes/nerdfonts
    $: cp 下载/nerdfonts/*  .
    #:生成字体信息缓存
-   $:fc-cache -vf  
+   $:fc-cache -vf
    #:查看是否安装成功
    fc-list | grep -i nerd
    ```
@@ -130,7 +130,7 @@ sudo apt install fonts-firacode
 
    + 完成；
 
-     
+
 
 
 
@@ -169,7 +169,117 @@ sudo apt-get install fonts-powerline
 
 + 完成;
 
-  
+### 安装Opera浏览器
+
+```bash
+wget -qO- https://deb.opera.com/archive.key | sudo apt-key add -
+
+echo deb https://deb.opera.com/opera-stable/ stable non-free | sudo tee /etc/apt/sources.list.d/opera.list
+
+sudo apt update
+sudo apt install opera-stable
+
+安装 Opera 浏览器测试版
+sudo apt install opera-beta -y
+
+安装 Opera 浏览器开发者
+sudo apt install opera-developer -y
+
+
+
+
+# 卸载Opera
+sudo apt remove --auto-remove opera-stable
+sudo rm -f /etc/apt/sources.list.d/opera.list
+
+```
+
+
+### 安装  Vivaldi 浏览器
+
+```bash
+第一种：
+
+sudo apt install wget
+
+wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add -
+
+sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main'
+
+sudo apt update && sudo apt install vivaldi-stable
+
+第二种：
+sudo apt update
+sudo apt upgrade
+sudo apt install software-properties-common apt-transport-https wget ca-certificates gnupg2 ubuntu-keyring
+
+echo deb [arch=amd64 signed-by=/usr/share/keyrings/vivaldi.gpg] https://repo.vivaldi.com/archive/deb/ stable main | sudo tee /etc/apt/sources.list.d/vivaldi.list
+
+wget -O- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo gpg --dearmor | sudo tee /usr/share/keyrings/vivaldi.gpg
+
+sudo apt update
+sudo apt install vivaldi-stable
+
+# 第三种：
+去官网下载deb包安装
+
+
+
+```
+
+
+### 安装 Brave浏览器
+
+```bash
+第一种：
+sudo apt install apt-transport-https curl gnupg
+
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+sudo apt update
+
+sudo apt install brave-browser
+
+要卸载 Brave 软件，我们将使用以下查询将其永久删除
+sudo apt remove brave-browser
+
+
+第二种：
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/brave-browser-stable-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+wget -qO - https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/brave-browser-stable-keyring.gpg
+
+sudo apt update
+sudo apt install brave-browser
+
+
+第三种：
+sudo apt update
+
+sudo apt -y install curl software-properties-common apt-transport-https
+
+导入存储库GPG密钥：
+
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+
+然后将Brave浏览器存储库添加到系统中：
+
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+
+然后更新软件包索引，并在Ubuntu/Linux Mint上安装Brave Web浏览器：
+
+sudo apt update
+
+sudo apt install -y brave-browser
+
+```
+
+### 安装midori浏览器
+
+sudo apt install midori
 
 ###  安装alacritty终端
 
@@ -341,7 +451,7 @@ PluginInstall 就是 vundle 的包管理器 Plugin 常用命令：
 
 + sudo apt-get install build-essential cmake python-dev python3-dev  libxml2-dev libxslt-dev   libclang-dev
 
-  
+
 
 接下来进入目录：
 
@@ -520,7 +630,7 @@ git clone https://git.suckless.org/st
 
 ```bash
 # 更改如下
-X11INC = /usr/X11R6/X11                                               
+X11INC = /usr/X11R6/X11
 X11LIB = /usr/include/X11
 ```
 
@@ -531,7 +641,7 @@ X11LIB = /usr/include/X11
 前面也说了，st 没有配置文件，所以我们直接进源码目录，找到 config.h 文件，通过注释来更改自己的内容，一般更改字体跟窗口大小即可，后面可以通过打补丁的方式增加更多的功能。
 
 ```bash
-# config.h 
+# config.h
 static char *font = "JetBrains Mono:pixelsize=24:antialias=true:autohint=true"; # 更改字体跟大小
 sudo make clean install # 重新编译并安装，使用 st 命令即可打开。
 ```
@@ -1211,7 +1321,7 @@ sudo apt-get install catdoc     # doc预览
 sudo apt-get install docx2txt   # docx预览
 sudo apt-get install xlsx2csv   # xlsx预览
 
-sudo apt-get install caca-utils highlight atool w3m mediainfo catdoc docx2txt xlsx2csv 
+sudo apt-get install caca-utils highlight atool w3m mediainfo catdoc docx2txt xlsx2csv
 ```
 
 
@@ -1417,33 +1527,33 @@ sysstat 的主要功能包括：
 
 - 彩色输出，易于阅读和理解。
 
-  
+
 
   ![图片](https://mmbiz.qpic.cn/mmbiz_png/DSU8cv1j3ibTjriaLlaIQPUzEnFhkkJDjB2VI3pFusQUy7Yia8ibWic2U2WNPatJrAW1yiasvR3DiaTYPpAKibPKSQWibgw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-  
+
 
 - 国际化支持，systat 已经被翻译为多种不同的语言。
 
 - 可以自动选择用于显示尺寸的单位，以便于阅读，参阅选项 --human
 
-  
+
 
   ![图片](https://mmbiz.qpic.cn/mmbiz_png/DSU8cv1j3ibTjriaLlaIQPUzEnFhkkJDjBSrM1Nr1TfLFZdcWUXLtD7qiaGrXljYAyibicmUfbrpAhrVHXTYdFQ2D6g/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-  
+
 
 - 可以生成 SVG 图形，并显示在浏览器中。
 
-  
+
 
   ![图片](https://mmbiz.qpic.cn/mmbiz_jpg/DSU8cv1j3ibTjriaLlaIQPUzEnFhkkJDjBfSsUo7lx1an52y9foXbicSIpNWibY1Z00UQt55FnX1ngW8iaPPm48j57w/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-  
+
 
   ![图片](https://mmbiz.qpic.cn/mmbiz_png/DSU8cv1j3ibTjriaLlaIQPUzEnFhkkJDjBmWQFkbNlPtKKdVs4eHHt2h0PCkJbMztprrbvH9aTbewXWJVZzgy2Qg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-  
+
 
   ![图片](https://mmbiz.qpic.cn/mmbiz_png/DSU8cv1j3ibTjriaLlaIQPUzEnFhkkJDjBO66yujCQ8ktprwwsGhxekQAReWwX0t17YiaaqyibeCsCuw0UhiaCib4n0Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
@@ -1751,7 +1861,7 @@ https://www.linuxmi.com/wesnoth-1-16-0-ubuntu.html
 
 按键盘上的 Ctrl+Alt+T 打开终端，然后一一运行以下命令。
 
- 
+
 
 **1.** 首先运行命令以确保安装了 Flatpak 框架：
 
@@ -1789,7 +1899,7 @@ flatpak install flathub org.wesnoth.Wesnoth
 flatpak update org.wesnoth.Wesnoth
 ```
 
- 
+
 
 **笔记：** 如果您还从 Ubuntu 软件安装了 Wesnoth，您将拥有两个应用程序快捷方式图标，因为 flatpak 在沙箱中运行。 除了删除旧的股票版本，您还可以通过以下命令运行 Wesnoth flatpak：
 
@@ -1859,9 +1969,9 @@ Install **openarena** package.
 
 Please follow the instructions below to install **openarena** package:
 
-`sudo apt update 
+`sudo apt update
 
-`sudo apt install openarena 
+`sudo apt install openarena
 
 
 
@@ -1986,7 +2096,7 @@ sudo apt install libharfbuzz-dev
 $: git clone  https://github.com/junjiecjj/st-1.git  或
 $: git clone  https://github.com/junjiecjj/st-2.git
 $: cd st-1
-$: sudo make clean install 
+$: sudo make clean install
 ```
 
 
@@ -1998,7 +2108,7 @@ git clone https://github.com/junjiecjj/slock.git
 
 cd slock
 
-sudo make clean install 
+sudo make clean install
 ```
 
 
@@ -2016,7 +2126,7 @@ dmenu 类似于 kde 下菜单栏里的应用启动器，但是比起 kde 来要�
 ```bash
 $: git clone https://github.com/junjiecjj/dmenu.git
 $: cd dmenu
-$: sudo make clean install 
+$: sudo make clean install
 ```
 
 
@@ -2035,7 +2145,7 @@ $: sudo apt-get install xcompmgr libxcomposite1 libxcomposite-dev libxfixes3 lib
 $: tar zxf transset-df-X.tar.gz //X为版本号
 $: cd transset-df-X/
 $: make
-$: sudo make install  
+$: sudo make install
 ```
 
 在`.xinitrc`中添加：
@@ -2065,7 +2175,7 @@ $ sudo ninja -C build install
 ## 安装 字体  例如apple的Yosemite San Francisco的ttf文件,
 
 ```bash
-cd  /usr/share/fonts/truetype       
+cd  /usr/share/fonts/truetype
 
 sudo mkdir  YosemiteSanFrancisco
 
@@ -2075,13 +2185,13 @@ sudo cp ~/文档/Fonts/YosemiteSanFranciscoFont/*  .
 
 creatfont
 
-cd  /usr/share/fonts/truetype       
+cd  /usr/share/fonts/truetype
 
 sudo mkdir  myfont
 
 cd myfont
 
-sudo  find ~/文档/Fonts/AllNerdFont -name "*.*" -exec cp -r {} . \; 
+sudo  find ~/文档/Fonts/AllNerdFont -name "*.*" -exec cp -r {} . \;
 
 creatfont
 
@@ -2091,7 +2201,7 @@ cd
 
 
 
-## 安装picom 
+## 安装picom
 
 ```bash
 $: cd ~/tmp
@@ -2190,7 +2300,7 @@ $ sudo visudo
 jack ALL=NOPASSWD:/usr/bin/light
 
 #安装截图工具
-$ sudo apt install  
+$ sudo apt install
 
 #安装数字键盘工具, 用于进入dwm桌面后自动开启数字键盘
 $ sudo apt install numlockx
@@ -2210,7 +2320,7 @@ $ sudo apt install xcompmgr
 $ sudo apt install feh
 
 #用于显示笔记本电脑电池的电量
-$ sudo apt install acpi     
+$ sudo apt install acpi
 
 #用于屏幕亮度的调节
 $ sudo apt install xbacklight
@@ -2251,7 +2361,7 @@ $: sudo ake PREFIX=/usr install
 ```bash
 $: git clone  https://github.com/junjiecjj/dwm.git
 $: cd dmenu
-$: sudo make clean install 
+$: sudo make clean install
 ```
 
 
@@ -2345,7 +2455,7 @@ $ sudo update-grub
 将启动等级改为多用户等级，执行如下命令：
 
 ```bash
-$ systemctl set-default multi-user.target 
+$ systemctl set-default multi-user.target
 // 如果想改回启动图形界面执行下面
 $ systemctl set-default graphical.target
 ```
@@ -2387,10 +2497,10 @@ XK_period,      {".", XK_period}, 点号
 
 XK_comma,   逗号,
 
-XF86XK_AudioMute, 
-XF86XK_AudioRaiseVolume, 
+XF86XK_AudioMute,
+XF86XK_AudioRaiseVolume,
 XK_bracketleft,    "["
-XK_backslash,      {"\", XK_backslash},   
+XK_backslash,      {"\", XK_backslash},
 XK_bracketright,   "]"
 XK_Print,     PrtSc
 XK_semicolon,    ;    {";", XK_semicolon},  分号
@@ -2457,8 +2567,8 @@ Name, KeySym            Name, KeySym            Name, KeySym
 {"/", XK_slash},        {"\t", XK_Tab},            {"\n", XK_Return},
 {"LSH", XK_Shift_L},        {"RSH", XK_Shift_R},        {"LCT", XK_Control_L},
 {"RCT", XK_Control_R},        {"LAL", XK_Alt_L},        {"RAL", XK_Alt_R},
-{"LMA", XK_Meta_L},        {"RMA", XK_Meta_R}                                                        
-                                                        
+{"LMA", XK_Meta_L},        {"RMA", XK_Meta_R}
+
 
 ```
 
@@ -2533,7 +2643,7 @@ static const Layout layouts[] = {
 	{ "Tile",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
-    
+
 	{ "[]{",      tile },    /* first entry is default */
 	{ ">v<",      NULL },    /* no layout function means floating behavior */
 	{ "TTT",      bstack },
@@ -2566,7 +2676,7 @@ static const char *upvol[] = {"/home/jack/scripts/vol-up.sh", NULL};
 static const char *downvol[] = {"/home/jack/scripts/vol-down.sh", NULL};
 static const char *mutevol[] = {"/home/jack/scripts/vol-toggle.sh", NULL};
 //static const char *wpcmd[] = {"/home/jack/scripts/wp-change.sh", NULL};
-static const char *wpcmd[] = {"feh", "--recursive", "--randomize", "--bg-fill", "~/图片/wallpapers/ghibili", NULL};      
+static const char *wpcmd[] = {"feh", "--recursive", "--randomize", "--bg-fill", "~/图片/wallpapers/ghibili", NULL};
 static const char *sktogglecmd[] = {"/home/jack/scripts/sck-tog.sh", NULL};
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = {"st", "-t", scratchpadname, "-g", "80x24", NULL};
@@ -2606,10 +2716,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask|ControlMask,    XK_q,        spawn,          {.v = setqwertycmd } },//win+shift+ctrl+q 键盘模式为qwerty
 	{ MODKEY|ShiftMask|ControlMask,    XK_c,        spawn,          {.v = setcolemakcmd } },//win+shift+ctrl+c 键盘模式为colemal
 	{ MODKEY|ControlMask,  XK_s,                    spawn,          {.v = suspendcmd } },  // win+ctrl+s休眠
-	{ MODKEY|ShiftMask,    XK_j,                    rotatestack,    {.i = +1 } }, //顺时针循环滚动当前窗口的窗格位置	
+	{ MODKEY|ShiftMask,    XK_j,                    rotatestack,    {.i = +1 } }, //顺时针循环滚动当前窗口的窗格位置
 	{ MODKEY|ShiftMask,    XK_k,                    rotatestack,    {.i = -1 } },//逆时针循环滚动当前窗口的窗格位置
     	{ MODKEY,              XK_Up,     		focusstack,     {.i = +1 } },	//将光标焦点移动到下一个窗格
-    	{ MODKEY,              XK_Down,   		focusstack,     {.i = -1 } },   //将光标焦点移动到上一个窗格 
+    	{ MODKEY,              XK_Down,   		focusstack,     {.i = -1 } },   //将光标焦点移动到上一个窗格
 	{ MODKEY,    	       XK_j,                    incnmaster,     {.i = +1 } },//插入主窗格的堆栈，窗口竖向排列
 	{ MODKEY,    	       XK_k,                    incnmaster,     {.i = -1 } },//减少主窗格的堆栈数，窗口横向排列
     	{ MODKEY,              XK_Left,   		setmfact,       {.f = -0.05} },//将当前的窗格宽度减向左扩展或缩小
@@ -2755,14 +2865,14 @@ drwxrwxrwx 1 junjie junjie 4.0K 4月   2 15:01 plugged/
 git clone https://github.com/VundleVim/Vundle.vim.git  ∼/.vim/bundle/Vundle.vim
 
 # 对于vim配置文件，如果是通过vundle安装插件，则在.vimrc中如下：
-" 你在此设置运行时路径 
-set rtp+=~/.vim/bundle/Vundle.vim  
-" vundle初始化 
-call vundle#begin('~/.vim/bundle')  
-" 这应该始终是第一个 
+" 你在此设置运行时路径
+set rtp+=~/.vim/bundle/Vundle.vim
+" vundle初始化
+call vundle#begin('~/.vim/bundle')
+" 这应该始终是第一个
 Plugin 'gmarik/Vundle.vim'
-"每个插件都应该在这一行之前  
-call vundle#end()  
+"每个插件都应该在这一行之前
+call vundle#end()
 #也就是~/.vim/bundle一个目录是vim用户bundle安装插件时所需的
 # junjie @ Ubuntu in ~/.vim [日期: 周五 4月 02日, 时间:15:57:23]
 $ ll
@@ -2798,7 +2908,7 @@ drwxrwxrwx 1 junjie junjie 4.0K 4月   2 15:01 plugged/
 # Neovim 用户可以使用以下命令安装:sudo apt-get install neovim
 $ git clone https://github.com/VundleVim/Vundle.vim.git  ∼/.nvim/bundle/Vundle.vim
 
-# 创建 neovim 的配置文件: 
+# 创建 neovim 的配置文件:
 $ nvim  ~/.nvimrc
 
 set rtp+=~/.nvim/bundle/Vundle.vim
@@ -2832,19 +2942,19 @@ call vundle#end()
    ```bash
    mkdir -p /usr/local/nodejs
    去 http://nodejs.cn/download/ 下载64位的包node-v16.4.0-linux-x64.tar.xz至~/下载
-   
+
    tar -xvf node-v16.4.0-linux-x64.tar.xz
-   
+
    sudo mv ~/下载/node-v16.4.0-linux-x64  /usr/local/node
-   
+
    sudo ln -s /usr/local/nodejs/bin/node /usr/bin/node
-   
+
    sudo ln -s /usr/local/nodejs/bin/npm /usr/bin/npm
    ```
 
-   
 
-   
+
+
 
 3. 安装yarn:
 
@@ -3249,10 +3359,10 @@ $: sudo cp /usr/share/vim/vim81/colors/*.vim  .
 ## .xprofile等文件
 
 然后根据个人需求可以修改以下文件：
-～/.bashrc: 每次终端时读取并运用里面的设置 
-～/.profile：每次启动系统的读取并运用里面的配置 
-～/.xinitrc: 每次startx启动X界面时读取并运用里面的设置 
-～/.xprofile: 每次使用lightdm等图形登录管理器时读取并运用里面的设置 
+～/.bashrc: 每次终端时读取并运用里面的设置
+～/.profile：每次启动系统的读取并运用里面的配置
+～/.xinitrc: 每次startx启动X界面时读取并运用里面的设置
+～/.xprofile: 每次使用lightdm等图形登录管理器时读取并运用里面的设置
 
 在在 `~/.xinitrc` 、 `~/.xprofile` 和 `~/.bashrc 或 ~/.zshrc` 中加入：
 
@@ -3738,7 +3848,7 @@ mkfs         mkfs.cramfs  mkfs.ext2    mkfs.ext3    mkfs.msdos   mkfs.vfat
 mke2fs 1.39 (29-May-2006)
 Filesystem label=                <==这里指的是分割槽的名称(label)
 OS type: Linux
-Block size=4096 (log=2)          <==block 的大小配置为 4K 
+Block size=4096 (log=2)          <==block 的大小配置为 4K
 Fragment size=4096 (log=2)
 251392 inodes, 502023 blocks     <==由此配置决定的inode/block数量
 25101 blocks (5.00%) reserved for the super user
@@ -3789,7 +3899,7 @@ fsck         fsck.cramfs  fsck.ext2    fsck.ext3    fsck.msdos   fsck.vfat
 实例 2
 强制检测 /dev/hdc6 分区:
 
-[root@www ~]# fsck -C -f -t ext3 /dev/hdc6 
+[root@www ~]# fsck -C -f -t ext3 /dev/hdc6
 fsck 1.39 (29-May-2006)
 e2fsck 1.39 (29-May-2006)
 Pass 1: Checking inodes, blocks, and sizes
@@ -3824,7 +3934,7 @@ umount [-fn] 装置文件名或挂载点
 -n ：不升级 /etc/mtab 情况下卸除。
 卸载 /dev/hdc6
 
-[root@www ~]# umount /dev/hdc6     
+[root@www ~]# umount /dev/hdc6
 
 
 
@@ -4376,41 +4486,41 @@ tcpdump 强大的功能和灵活的策略，主要体现在过滤器（BPF）强
 
 2. **命令参数**
 
-+ (1) -a  #以文本文件方式搜索。  
++ (1) -a  #以文本文件方式搜索。
 
-+ (2) -A<显示行数>  #除了显示符合范本样式的那一行之外，并显示该行之后的内容。  
++ (2) -A<显示行数>  #除了显示符合范本样式的那一行之外，并显示该行之后的内容。
 
-+ (3) -b   #在显示符合样式的那一行之前，标示出该行第一个字符的编号。  
++ (3) -b   #在显示符合样式的那一行之前，标示出该行第一个字符的编号。
 
-+ (4) -B<显示行数>  #除了显示符合样式的那一行之外，并显示该行之前的内容。  
++ (4) -B<显示行数>  #除了显示符合样式的那一行之外，并显示该行之前的内容。
 
-+ (5) -c   #计算找到的符合行的次数。 
++ (5) -c   #计算找到的符合行的次数。
 
-+ (6) -C<显示行数>  #除了显示符合样式的那一行之外，并显示该行之前后的内容。  
++ (6) -C<显示行数>  #除了显示符合样式的那一行之外，并显示该行之前后的内容。
 
-+ (7) -d <动作>  #当指定要查找的是目录而非文件时，必须使用这项参数，否则grep指令将回报信息并停止动作。  
++ (7) -d <动作>  #当指定要查找的是目录而非文件时，必须使用这项参数，否则grep指令将回报信息并停止动作。
 
-+ (8) -e<范本样式>  #指定字符串做为查找文件内容的样式。  
++ (8) -e<范本样式>  #指定字符串做为查找文件内容的样式。
 
-+ (9) -E   #将样式为延伸的普通表示法来使用。  
++ (9) -E   #将样式为延伸的普通表示法来使用。
 
-+ (10) -f<规则文件> #指定规则文件，内容含有一个或多个规则样式，让grep查找符合规则条件的文件内容，格式为每行一个规则样式。  
++ (10) -f<规则文件> #指定规则文件，内容含有一个或多个规则样式，让grep查找符合规则条件的文件内容，格式为每行一个规则样式。
 
-+ (11) -F   #将样式视为固定字符串的列表。  
++ (11) -F   #将样式视为固定字符串的列表。
 
-+ (12) -G  #将样式视为普通的表示法来使用。  
++ (12) -G  #将样式视为普通的表示法来使用。
 
-+ (13) -h  #在显示符合样式的那一行之前，不标示该行所属的文件名称。  
++ (13) -h  #在显示符合样式的那一行之前，不标示该行所属的文件名称。
 
-+ (14) -H  #在显示符合样式的那一行之前，表示该行所属的文件名称。  
++ (14) -H  #在显示符合样式的那一行之前，表示该行所属的文件名称。
 
-+ (15) -i  #忽略字符大小写。  
++ (15) -i  #忽略字符大小写。
 
-+ (16) -l  #列出文件内容符合指定样式的文件名称。  
++ (16) -l  #列出文件内容符合指定样式的文件名称。
 
-+ (17) -L  #列出文件内容不符合指定样式的文件名称。  
++ (17) -L  #列出文件内容不符合指定样式的文件名称。
 
-+ (18)  --line-number  #在显示符合样式的那一行之前，标示出该行的行数编号。  
++ (18)  --line-number  #在显示符合样式的那一行之前，标示出该行的行数编号。
 
 + (19) -n  # 顺便输出行号
 
@@ -4421,24 +4531,24 @@ grep -n "the" ex.txt
 #以上等价
 ```
 
-+ (20) --quiet 或 --silent  #不显示任何信息。  
++ (20) --quiet 或 --silent  #不显示任何信息。
 
-+ (21) -r  #此参数的效果和指定“-d recurse”参数相同。  
++ (21) -r  #此参数的效果和指定“-d recurse”参数相同。
 
-+ (22) -s  #不显示错误信息。  
++ (22) -s  #不显示错误信息。
 
-+ (23) -v  #反向选择，即找不含搜索字符串的行  
++ (23) -v  #反向选择，即找不含搜索字符串的行
 
 ```bash
-grep -nv 'the' ex.txtgrep -v '^$' ex.txt | grep -v '^#' 
+grep -nv 'the' ex.txtgrep -v '^$' ex.txt | grep -v '^#'
 去除空白行和行首为#的行
 ```
 
-+ (24) -V  #显示版本信息。  
++ (24) -V  #显示版本信息。
 
-+ (25) -w  #只显示全字符合的行。  
++ (25) -w  #只显示全字符合的行。
 
-+ (26) -x  #只显示全行符合的行。  
++ (26) -x  #只显示全行符合的行。
 
 + (27) -y   #此参数的效果和指定“-i”参数相同。
 
@@ -4461,7 +4571,7 @@ wang ting
 wangting
 
 wangyuzhong
-jiangxian xiu 
+jiangxian xiu
 lin jin shun
 lin yin shun
 lin hui fang
@@ -4497,12 +4607,12 @@ abcdefhij
 两个选项是-A和-B之间的切换，是用以显示匹配的行以及行号，分别控制在字符串前或字符串后显示的行数。Man页给出了更加详细的解释，我发现一个记忆的小窍门：-A=after、-B=before。
 
 ```bash
-$ sudo ifconfig | grep -A 4 etho 
+$ sudo ifconfig | grep -A 4 etho
 $ sudo ifconfig | grep -B 2 UP
 ```
 
 ```bash
-$: grep  -n -A 2 -B 2 "wang" test.txt 
+$: grep  -n -A 2 -B 2 "wang" test.txt
 #输出
 7-chen zhi wen
 8-
@@ -4513,7 +4623,7 @@ $: grep  -n -A 2 -B 2 "wang" test.txt
 13:wangting
 14-
 15:wangyuzhong
-16-jiangxian xiu 
+16-jiangxian xiu
 17-lin jin shun
 
 ```
@@ -4525,7 +4635,7 @@ $: grep  -n -A 2 -B 2 "wang" test.txt
 grep命令的-C选项和例4中的很相似，不过打印的并不是在匹配字符串的前面或后面的行，而是打印出两个方向都匹配的行（译注：同上面的记忆窍门一样：-C=center，以此为中心）：
 
 ```bash
-$ grep  -n -C 2 "wang" test.txt 
+$ grep  -n -C 2 "wang" test.txt
 #输出
 7-chen zhi wen
 8-
@@ -4536,7 +4646,7 @@ $ grep  -n -C 2 "wang" test.txt
 13:wangting
 14-
 15:wangyuzhong
-16-jiangxian xiu 
+16-jiangxian xiu
 17-lin jin shun
 
 ```
@@ -4548,7 +4658,7 @@ $ grep  -n -C 2 "wang" test.txt
 当你在编译出错时需要调试时，grep命令的-n选项是个非常有用的功能。它能告诉你所搜索的内容在文件的哪一行：
 
 ```bash
-$ grep  -n "chen" test.txt 
+$ grep  -n "chen" test.txt
 #输出
 1:chen jun jie
 2:chen yin jie
@@ -4588,7 +4698,7 @@ $ grep -n   "abc" test.txt
 
 ```bash
 # jack @ unix in ~/公共的/shell_script [日期: 周二 6月 29日, 时间: 22:54:32]
-$ grep  -n "wang\|yin" test.txt 
+$ grep  -n "wang\|yin" test.txt
 2:chen yin jie
 9:wang yin
 10:wangyin
@@ -4606,7 +4716,7 @@ $ grep  -n "wang\|yin" test.txt
 
 ```bash
 # jack @ unix in ~/公共的/shell_script [日期: 周二 6月 29日, 时间: 22:20:00]
-$ grep  -n "chen\|wang" test.txt 
+$ grep  -n "chen\|wang" test.txt
 1:chen jun jie
 2:chen yin jie
 3:chen he xian
@@ -4619,7 +4729,7 @@ $ grep  -n "chen\|wang" test.txt
 13:wangting
 15:wangyuzhong
 # jack @ unix in ~/公共的/shell_script [日期: 周二 6月 29日, 时间: 22:25:49]
-$ grep  -n -E "chen|wang" test.txt 
+$ grep  -n -E "chen|wang" test.txt
 1:chen jun jie
 2:chen yin jie
 3:chen he xian
@@ -4652,7 +4762,7 @@ grep -i 'fatal|error|critical' /var/log/nginx/error.log
 
 ```bash
 # jack @ unix in ~/公共的/shell_script [日期: 周二 6月 29日, 时间: 22:54:32]
-$ grep  -n "wang\|yin" test.txt 
+$ grep  -n "wang\|yin" test.txt
 2:chen yin jie
 9:wang yin
 10:wangyin
@@ -4661,7 +4771,7 @@ $ grep  -n "wang\|yin" test.txt
 15:wangyuzhong
 18:lin yin shun
 # jack @ unix in ~/公共的/shell_script [日期: 周二 6月 29日, 时间: 22:55:00]
-$ grep  -n -w  "wang\|yin" test.txt 
+$ grep  -n -w  "wang\|yin" test.txt
 2:chen yin jie
 9:wang yin
 12:wang ting
@@ -4739,7 +4849,7 @@ $ grep “startingKeyword.*endingKeyword” filename
 
 ```bash
 # jack @ unix in ~/公共的/shell_script [日期: 周二 6月 29日, 时间: 22:56:16]
-$ grep  -n   "chen.*jie" test.txt 
+$ grep  -n   "chen.*jie" test.txt
 1:chen jun jie
 2:chen yin jie
 
@@ -4966,9 +5076,9 @@ N：读取匹配到的行的下一行到模式空间中（追加在原内容之�
 
 
 
-> " cake16.vim , one.vim github.vim papaercolor_dark.vim carbonized_dark.vim carbonized_light.vim pencil.vim ayu.vim ayu_light.vim ayu_mirage.vim solarized8.vim solarized8_flat.vim solarized8_low.vim solarized8_higt.vim, snow.vim vimspectr300-light.vim petrel.vim greygull.vim  seagull.vim stormpetrel.vim,  c16gui, molokai, lilydjwg_dark_modified, lilydjwg_dark, nightshade_print_modified, colorful256,colorful, SolarizedDark_modified,SolarizedLight, nightshade_print, rainbow_autumn,vividchalk, flattened_light,flattened_dark, thegoodluck, 
+> " cake16.vim , one.vim github.vim papaercolor_dark.vim carbonized_dark.vim carbonized_light.vim pencil.vim ayu.vim ayu_light.vim ayu_mirage.vim solarized8.vim solarized8_flat.vim solarized8_low.vim solarized8_higt.vim, snow.vim vimspectr300-light.vim petrel.vim greygull.vim  seagull.vim stormpetrel.vim,  c16gui, molokai, lilydjwg_dark_modified, lilydjwg_dark, nightshade_print_modified, colorful256,colorful, SolarizedDark_modified,SolarizedLight, nightshade_print, rainbow_autumn,vividchalk, flattened_light,flattened_dark, thegoodluck,
 >
-> 
+>
 >
 > " desert,blacklight,adrian,darkblack,darkzen,gor,habLight,neverness,putty,redstring,relaxedgreen,satori,tcsoft,cleanphp,autumn,bayQua,bmichaelsen, camo,candycode,carrot ,earth,fine_blue,fruity,gobo,inkpot,navajo,nicotine,phpx,professional,sf,umber_green,white,winter,zellner,dante_modified,rcg_gui_modified,gruvbox,
 
