@@ -160,21 +160,68 @@ sudo apt-get install fonts-powerline
 ###  安装谷歌浏览器
 
 + 去[谷歌官网](https://www.google.cn/chrome/)下载.deb安装包
-
 + sudo dpkg -i google-chrome-xxx.deb
-
 + 打开谷歌浏览器，安装谷歌上网助手；
-
 + 登陆谷歌账号，自动同步；
-
 + 完成;
+
+
+
+### 安装微信
+
+第一种：
+
+```bash
+#有了Snap，你便更容易在Linux上安装微信的客户端。当然，首先要确保你得pc中安装了snapd和snapd-xdg-open。以下为安装命令：
+sudo apt install snapd snapd-xdg-open
+
+#运行完成后，便开始安装electronic-chat，命令为：
+sudo snap install electronic-chat
+
+#微信客户端开始安装，安装完成后，输入命令启动：
+electronic-chat
+```
+
+第二种：
+
+链接如下：
+
+https://www.ubuntukylin.com/applications/106-cn.html
+
+注意：下载deb包，此时浏览器点了**64位下载，**会**没反应**，这时鼠标右键，链接另存为，就会出现下载项，但会报有风险，问是不是舍弃，点保留就好了。
+然后，因为目前的版本是weixin_2.1.1_amd64.deb版本，
+
+所以，命令行下，打开下载好deb包的文件夹，用命令
+
+sudo dpkg -i  weixin_2.1.1_amd64.deb
+就安装好了，这是linux原生的，功能少点，但比wine的要轻巧不少。
+
+### 安装qq
+
+去官网下载deb包安装。
+
+
+
+### 远程桌面工具-向日葵
+
+去 [官网](https://sunlogin.oray.com/download?categ=personal)下载deb包安装
+
+
+
+### 远程桌面工具-  Todesk
+
+
+
+去 [官网](https://www.todesk.com/download.html)下载deb包安装
+
+
 
 ### 安装Opera浏览器
 
 ```bash
 wget -qO- https://deb.opera.com/archive.key | sudo apt-key add -
 
-echo deb https://deb.opera.com/opera-stable/ stable non-free | sudo tee /etc/apt/sources.list.d/opera.list
+echo "deb https://deb.opera.com/opera-stable/ stable non-free" | sudo tee /etc/apt/sources.list.d/opera.list
 
 sudo apt update
 sudo apt install opera-stable
@@ -194,6 +241,13 @@ sudo rm -f /etc/apt/sources.list.d/opera.list
 
 ```
 
+$$
+P(X=k)=\frac{\lambda^{k}}{k !} e^{-\lambda}, k=0,1,2, \ldots
+$$
+
+$$
+P(X \leq x)=\sum_{k=0}^{x} \frac{\lambda^{k} e^{-\lambda}}{k !}
+$$
 
 ### 安装  Vivaldi 浏览器
 
@@ -213,7 +267,7 @@ sudo apt update
 sudo apt upgrade
 sudo apt install software-properties-common apt-transport-https wget ca-certificates gnupg2 ubuntu-keyring
 
-echo deb [arch=amd64 signed-by=/usr/share/keyrings/vivaldi.gpg] https://repo.vivaldi.com/archive/deb/ stable main | sudo tee /etc/apt/sources.list.d/vivaldi.list
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/vivaldi.gpg] https://repo.vivaldi.com/archive/deb/ stable main" | sudo tee /etc/apt/sources.list.d/vivaldi.list
 
 wget -O- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo gpg --dearmor | sudo tee /usr/share/keyrings/vivaldi.gpg
 
@@ -222,8 +276,6 @@ sudo apt install vivaldi-stable
 
 # 第三种：
 去官网下载deb包安装
-
-
 
 ```
 
@@ -274,6 +326,65 @@ echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable ma
 sudo apt update
 
 sudo apt install -y brave-browser
+
+```
+
+### 安装Yandex 浏览器
+
+```bash
+
+
+方法1：
+首先，更新您的系统以确保所有现有软件包都是最新的，以避免在安装过程中出现任何潜在的冲突问题。
+
+sudo apt update && sudo apt upgrade -y
+安装所需的软件包
+需要安装以下依赖项才能成功安装 Yandex。 这些软件包中的大多数已经存在于您的系统上，但运行该命令可以帮助确保它们已安装。
+
+sudo apt install wget apt-transport-https gnupg2 -y
+
+
+sudo wget -O- https://repo.yandex.ru/yandex-browser/YANDEX-BROWSER-KEY.GPG | gpg --dearmor | sudo tee /usr/share/keyrings/yandex.gpg
+
+导入存储库 – Yandex 浏览器稳定版
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/yandex.gpg] http://repo.yandex.ru/yandex-browser/deb stable main" | sudo tee /etc/apt/sources.list.d/yandex-stable.list
+导入存储库 – Yandex 浏览器测试版
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/yandex.gpg] http://repo.yandex.ru/yandex-browser/deb beta main" | sudo tee /etc/apt/sources.list.d/yandex-beta.list
+现在运行 APT 更新以反映新导入的存储库。
+
+sudo apt-get update
+安装 Yandex 浏览器
+现在您已经导入了存储库，您可以安装 Yandex Browser 稳定版或 beta/开发版。 默认情况下，您应该选择稳定版本而不是 beta，但您可以同时安装两者。
+
+安装 Yandex 浏览器稳定版
+sudo apt install yandex-browser-stable -y
+安装 Yandex 浏览器测试版
+sudo apt install yandex-browser-beta -y
+
+删除自动生成的 Source.list
+安装任何 Yandex 版本都会放置另一个 sources.list文件，它的格式不正确并导致您的 apt update 命令发送大量错误。 最简单的解决方案是使用以下命令删除这些额外内容。
+
+sudo rm /etc/apt/sources.list.d/yandex-browser-*.list
+
+
+
+方法2：
+sudo apt update
+sudo apt upgrade
+sudo apt install wget apt-transport-https gnupg2
+
+步骤 2. 在 Ubuntu 22.04 上安装 Yandex 浏览器。
+
+默认情况下，Yandex 浏览器在 Ubuntu 22.04 基础存储库中不可用。 现在运行以下命令将 Yandex Browser 存储库添加到您的 Ubuntu 系统：
+
+echo deb [arch=amd64 signed-by=/usr/share/keyrings/yandex.gpg] https://repo.yandex.ru/yandex-browser/deb stable main | sudo tee /etc/apt/sources.list.d/yandex-stable.list
+接下来，导入 GPG 密钥：
+
+sudo wget -O- https://repo.yandex.ru/yandex-browser/YANDEX-BROWSER-KEY.GPG | gpg --dearmor | sudo tee /usr/share/keyrings/yandex.gpg
+启用存储库后，现在使用以下命令安装最新版本的 Yandex Web 浏览器：
+
+sudo apt update
+sudo apt install yandex-browser-stable
 
 ```
 
@@ -2942,13 +3053,13 @@ call vundle#end()
    ```bash
    mkdir -p /usr/local/nodejs
    去 http://nodejs.cn/download/ 下载64位的包node-v16.4.0-linux-x64.tar.xz至~/下载
-
+   
    tar -xvf node-v16.4.0-linux-x64.tar.xz
-
+   
    sudo mv ~/下载/node-v16.4.0-linux-x64  /usr/local/node
-
+   
    sudo ln -s /usr/local/nodejs/bin/node /usr/bin/node
-
+   
    sudo ln -s /usr/local/nodejs/bin/npm /usr/bin/npm
    ```
 
