@@ -709,6 +709,31 @@ git clone https://github.com/davidparsson/zsh-pyenv-lazy.git  ~/.oh-my-zsh/plugi
 
 <https://github.com/junjiecjj/configure_file/blob/master/zshrc_xiong-chiamiov-plus>
 
+### 在 Ubuntu 20.04 LTS 上安装 Foxit PDF Reader
+
+```bash
+sudo apt update && sudo apt upgrade
+
+cd  ~/tmp
+
+wget http://cdn01.foxitsoftware.com/pub/foxit/reader/desktop/linux/2.x/2.4/en_us/FoxitReader.enu.setup.2.4.4.0911.x64.run.tar.gz
+
+tar xzvf FoxitReader*.tar.gz
+
+sudo chmod a+x FoxitReader*.run
+
+sudo ./FoxitReader*.run
+
+#安装完成后，您可以通过几种不同的方式运行 Foxit。
+#首先，当您在终端中时，您可以使用以下命令：
+FoxitReader
+#或者，运行 福昕阅读器 ＆ 命令在后台释放终端：
+FoxitReader &
+
+```
+
+
+
 
 
 
