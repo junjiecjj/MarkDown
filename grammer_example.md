@@ -1078,8 +1078,8 @@ $$
 |\rm|罗马体|${\rm example}$|\cal|花体|${\cal example}$|
 |\it|意大利体|${\it example}$|\Bbb|黑板粗体|${\Bbb example}$|
 |\bf|粗体|${\bf example 例子}$|\mit|数学斜体|${\mit example}$|
-|\sf|等线体|${\sf example}$|\scr|手写体|${\scr example}$|
-|\tt|打字机体|${\tt example例子}$||花体|$\cal{M,H,A}$|
+|\sf|等线体|${\sf example S}$|\scr|手写体|${\scr example}$|
+|\tt|打字机体|${\tt example例子 SSSS}  \tt{SSXXX}$||花体|$\cal{M,H,A,S, X}$|
 |\frak|旧德式字体|${\frak example}$|\mathbb{A}|字体Blackboard Bold|$\mathbb{A}$|
 
 转换字体十分常用，例如在积分中：
