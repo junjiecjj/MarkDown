@@ -1178,7 +1178,7 @@ sudo apt install elinks
 
 ###  Latex
 
-+ sudo apt-get install texlive-full
++ sudo apt-get install texlive-full texlive-xetex  texlive-lang-chinese texstudio
 + sudo apt-get install texlive-xetex
 + sudo apt-get install texlive-lang-chinese
 + sudo apt-get install texstudio
